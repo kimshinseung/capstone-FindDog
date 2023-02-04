@@ -1,2 +1,32 @@
-
 캡스톤 시작...
+
+--
+
+node_modules
+
+public  |- index.html
+
+src     |- components
+        |            |- menu
+        |                   |- DropdownHook.js
+        |                   |- Hierarchy.js
+        |                   |- Menu.js
+        |            |- page
+        |                   |- Pages.js
+        |            |- Header.js
+        |            |- Layout.js
+        |- style
+        |            |- style.css
+        |- App.js
+        |- index.js
+
+.gitignore
+package-lock.json
+package.json
+test.txt
+
+--
+
+$드롭다운 메뉴
+$css 수정
+$주요 페이지 개발

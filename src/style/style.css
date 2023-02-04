@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+
+/* Link */
+a {
+  text-decoration: none;
+  color:rgb(0, 77, 17);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.header h1 {
+  color: lightgreen;
+}
+
+.header p {
+  text-decoration: none;
+  color:rgb(0, 77, 17);
+}
+
+/* Main Menu */
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:lightgray;
+  padding: 20px 90px;
+}
