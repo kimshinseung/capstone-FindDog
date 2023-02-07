@@ -8,6 +8,7 @@
 // import
 import { useLocation, Outlet } from "react-router-dom";
 import { MainMenu, MissMenu, FindMenu, HospitalMenu, SearchMenu } from "../menu/Menu";
+import LoginPage  from "./Login/LoginPage";
 
 
 // Page Template
@@ -47,7 +48,7 @@ export const MissSub3 = () => (
 );
 
 // 목격 메뉴
- export const Find = () => (
+export const Find = () => (
   <PageTemplate>
     <section>
       <FindMenu />
@@ -75,7 +76,7 @@ export const FindSub3 = () => (
 );
 
 // 보호소 및 동물병원 메뉴
- export const Hospital = () => (
+export const Hospital = () => (
   <PageTemplate>
     <section>
       <HospitalMenu />
@@ -103,7 +104,7 @@ export const HospitalSub3 = () => (
 );
 
 // 검색 메뉴
- export const Search = () => (
+export const Search = () => (
   <PageTemplate>
     <section>
       <SearchMenu />
@@ -134,6 +135,7 @@ export const SearchSub3 = () => (
 export const Login = () => (
   <div>
     <h3>LOGIN</h3>
+    <LoginPage/>
   </div>
 );
 
