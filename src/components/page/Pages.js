@@ -10,6 +10,7 @@ import { useLocation, Outlet } from "react-router-dom";
 import { MainMenu, MissMenu, FindMenu, HospitalMenu, SearchMenu } from "../menu/Menu";
 import LoginPage  from "./Login/LoginPage";
 
+import Map from "../map";
 
 // Page Template
 const PageTemplate = ({ children }) => (
@@ -85,9 +86,9 @@ export const Hospital = () => (
   </PageTemplate>
 );
 
-export const HospitalSub1 = () => (
+export const HospitalSub1 = () => (  
   <div>
-    <h3>보호소 및 동물병원/SUB1</h3>
+    <Map/>
   </div>
 );
 
