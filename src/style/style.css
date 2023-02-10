@@ -11,12 +11,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
-.Map{
-  width:200px;
-  height:200px;
 
-  margin:0;
-}
 /* Header */
 .header {
   display: flex;
