@@ -1,3 +1,7 @@
+/**
+ * ./src/components/page/map.js
+ */
+
 import React, { useEffect } from "react";
 
 

@@ -1,31 +1,50 @@
+/**
+ * ./src/style/style.css
+ */
+
+/* 한글 웹폰트(나눔스퀘어) */
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
 body {
+  font-family: 'NanumSquare', sans-serif, bold;
+  font-weight: 900;
   margin: 0;
 }
 
 /* Link */
 a {
   text-decoration: none;
-  color:rgb(0, 77, 17);
+  color: #1E1E1E;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-.Map{
-  width:200px;
-  height:200px;
-
-  margin:0;
-}
 /* Header */
 .header {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  background-color: #95C77E;
 }
 
-.header h1 {
-  color: lightgreen;
+.header-text-div {
+  color: white;
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.header-logo-div {
+  margin-top: 12px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: 35%;
+}
+
+.header-logo {
+  width: 250px;
+}
+
+.header-profile {
+  margin-top: 20px;
+  margin-right: 20px;
+  width: 40px;
+  filter: invert(100%);
 }
 
 .header p {
@@ -40,4 +59,12 @@ a:hover {
   align-items: center;
   background-color:lightgray;
   padding: 20px 90px;
+}
+
+/* Map */
+.Map {
+  width:200px;
+  height:200px;
+
+  margin:0;
 }

@@ -1,3 +1,7 @@
+/**
+ * ./src/components/page/Login/LoginPage.js
+ */
+
 import "./LoginPage.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

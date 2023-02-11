@@ -1,15 +1,14 @@
 /**
- * ex11
- * ./src/components/Pages.js
+ * ./src/components/page/Pages.js
  * 
- * 각 메뉴가 담당하는 페이지 담기
+ * 각 메뉴가 담당하는 페이지
  */
 
 // import
 import { useLocation, Outlet } from "react-router-dom";
-import { MainMenu, MissMenu, FindMenu, HospitalMenu, SearchMenu } from "../menu/Menu";
+import { MainMenu, SearchMenu } from "../menu/Menu";
+// import
 import LoginPage  from "./Login/LoginPage";
-
 import Map from "../map";
 
 // Page Template
@@ -20,94 +19,59 @@ const PageTemplate = ({ children }) => (
   </div>
 );
 
-// 실종 메뉴
-export const Miss = () => (
+/**
+ * MissBoard
+ * 실종 게시판
+ * 하위 메뉴 없음
+ * 사용자의 실종 반려견을 올릴 수 있는 게시판 페이지
+ */
+export const MissBoard = () => (
   <PageTemplate>
-    <section>
-      <MissMenu />
-      <Outlet />
+    <section className="miss-board">
+      <div>
+        <h3>실종 게시판</h3>
+      </div>
     </section>
   </PageTemplate>
 );
 
-export const MissSub1 = () => (
-  <div>
-    <h3>실종/SUB1</h3>
-  </div>
-);
-
-export const MissSub2 = () => (
-  <div>
-    <h3>실종/SUB2</h3>
-  </div>
-);
-
-export const MissSub3 = () => (
-  <div>
-    <h3>실종/SUB3</h3>
-  </div>
-);
-
-// 목격 메뉴
-export const Find = () => (
+/**
+ * FindBoard
+ * 목격 게시판
+ * 하위 메뉴 없음
+ * 사용자가 목격담을 올릴 수 있는 게시판 페이지
+ */
+export const FindBoard = () => (
   <PageTemplate>
-    <section>
-      <FindMenu />
-      <Outlet />
+    <section className="find-board">
+      <div>
+        <h3>목격 게시판</h3>
+      </div>
     </section>
   </PageTemplate>
 );
 
-export const FindSub1 = () => (
-  <div>
-    <h3>목격/SUB1</h3>
-  </div>
-);
-
-export const FindSub2 = () => (
-  <div>
-    <h3>목격/SUB2</h3>
-  </div>
-);
-
-export const FindSub3 = () => (
-  <div>
-    <h3>목격/SUB3</h3>
-  </div>
-);
-
-// 보호소 및 동물병원 메뉴
-export const Hospital = () => (
+/**
+ * HospitalMap
+ * 보호소 및 동물병원
+ * 하위 메뉴 없음
+ * 사용자의 위치 근처에 있는 보호소와 동물병원을 표시해주는 지도 페이지
+ */
+export const HospitalMap = () => (
   <PageTemplate>
-    <section>
-      <HospitalMenu />
-      <Outlet />
+    <section className="hospital-map">
+      <div>
+        <h3>근처 동물병원 및 보호소 찾기</h3>
+      </div>
+      <Map />
     </section>
   </PageTemplate>
-);
-
-export const HospitalSub1 = () => (  
-  <div>
-    <Map/>
-  </div>
-);
-
-export const HospitalSub2 = () => (
-  <div>
-    <h3>보호소 및 동물병원/SUB2</h3>
-  </div>
-);
-
-export const HospitalSub3 = () => (
-  <div>
-    <h3>보호소 및 동물병원/SUB3</h3>
-  </div>
 );
 
 // 검색 메뉴
 export const Search = () => (
   <PageTemplate>
-    <section>
+    <section className="search-page">
       <SearchMenu />
       <Outlet />
     </section>
@@ -134,7 +98,7 @@ export const SearchSub3 = () => (
 
 // 로그인 페이지
 export const Login = () => (
-  <div>
+  <div className="login-page">
     <h3>LOGIN</h3>
     <LoginPage/>
   </div>
@@ -147,6 +111,8 @@ export const Notfound = () => {
   return (
   <div>
     <h1>404 NOT FOUND in {locations.pathname}</h1>
+    <hr/>
+    <p>경로가 잘못되었습니다. 주소를 다시 확인해주세요.</p>
   </div>
   );
 };

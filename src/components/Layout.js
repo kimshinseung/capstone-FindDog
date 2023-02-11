@@ -1,5 +1,5 @@
 /**
- * ./src/components/layout/Layout.js
+ * ./src/components/Layout.js
  */
 
 // import components
@@ -10,10 +10,11 @@ import Hierarchy from "./menu/Hierarchy";
 const Layout = () => {
     return(
         <div>
-            <Header/>
+            <Header />
             <Hierarchy />
         </div>
     )
 }
 
+// export this component
 export default Layout;
