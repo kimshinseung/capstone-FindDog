@@ -8,8 +8,13 @@
 import { useLocation, Outlet } from "react-router-dom";
 import { MainMenu, SearchMenu } from "../menu/Menu";
 // import
+import {FindPage} from './find/FindPage';
+import {MissPage} from './miss/MissPage';
+import {SearchPage} from './search/SearchPage';
 import LoginPage  from "./Login/LoginPage";
 import Map from "../map";
+// import
+import '../../style/style.css';
 
 // Page Template
 const PageTemplate = ({ children }) => (
@@ -28,9 +33,7 @@ const PageTemplate = ({ children }) => (
 export const MissBoard = () => (
   <PageTemplate>
     <section className="miss-board">
-      <div>
-        <h3>실종 게시판</h3>
-      </div>
+      <MissPage />
     </section>
   </PageTemplate>
 );
@@ -44,9 +47,7 @@ export const MissBoard = () => (
 export const FindBoard = () => (
   <PageTemplate>
     <section className="find-board">
-      <div>
-        <h3>목격 게시판</h3>
-      </div>
+      <FindPage />
     </section>
   </PageTemplate>
 );
@@ -71,29 +72,10 @@ export const HospitalMap = () => (
 // 검색 메뉴
 export const Search = () => (
   <PageTemplate>
-    <section className="search-page">
-      <SearchMenu />
-      <Outlet />
+    <section className="search-board">
+      <SearchPage />
     </section>
   </PageTemplate>
-);
-
-export const SearchSub1 = () => (
-  <div>
-    <h3>검색/SUB1</h3>
-  </div>
-);
-
-export const SearchSub2 = () => (
-  <div>
-    <h3>검색/SUB2</h3>
-  </div>
-);
-
-export const SearchSub3 = () => (
-  <div>
-    <h3>검색/SUB3</h3>
-  </div>
 );
 
 // 로그인 페이지
