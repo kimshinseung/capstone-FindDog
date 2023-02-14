@@ -12,7 +12,7 @@ export default function Map() {
 
   const mapscript = () => {
     let container = document.getElementById("map");
-    console.log("1111");
+
     let options = {
       center: new kakao.maps.LatLng(37.624915253753194, 127.15122688059974),
       level: 5,
@@ -20,23 +20,15 @@ export default function Map() {
     //map
     let map = new kakao.maps.Map(container, options);
 
-    // //마커가 표시 될 위치
-    // let markerPosition = new kakao.maps.LatLng(
-    //   37.62197524055062,
-    //   127.16017523675508
-    // );
+    // <button id="my_location_button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="getCurrentPosBtn(); z-index: 1;">
+    //       내 위치 찾기
+    //   </button>
 
-    // // 마커를 생성
-    // let marker = new kakao.maps.Marker({
-    //   position: markerPosition,
-    // });
-
-    // // 마커를 지도 위에 표시
-    // marker.setMap(map);
     // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 		var zoomControl = new kakao.maps.ZoomControl();
 		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
+		 
+		
 		// 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
 		kakao.maps.event.addListener(map, 'zoom_changed', function () {
 
@@ -44,9 +36,24 @@ export default function Map() {
 			var level = map.getLevel();
 		});
 		
-		if (navigator.geolocation) {
-			
+		// //커스텀 오버레이 생성
+        //  var position = new kakao.maps.LatLng(37.58355, 127.010647);  
+        //  var content = '<div class="customoverlay">' +
+        //  '<button id="my_location_button"; onclick="getCurrentPosBtn(); z-index: 3;">'+
+        //  '<span class="title">현재 위치</span>' +
+      	// '</button>'
+        //  '</div>'
+        //  var currentPos = new kakao.maps.CustomOverlay({
+        //      map: map,
+        //      position: position,
+        //      content: content,
+        //      yAnchor: 1 
+        //  });
+		
 
+
+		if (navigator.geolocation) {
+		
 			// GeoLocation을 이용해서 접속 위치를 얻어옵니다
 			navigator.geolocation.getCurrentPosition(function (position) {
 
@@ -95,7 +102,13 @@ export default function Map() {
 			// 지도 중심좌표를 접속위치로 변경합니다
 			map.setCenter(locPosition);
 		}
+		
   };
   
-  return <div id="map" style={{ width: "100vw", height: "400px",backgroundColor: '#c8c8c8' }}></div>;
+  return <>
+  <div id="map" style={{ width: "100vw", height: "400px",backgroundColor: '#c8c8c8' }}></div>
+  <button
+  		onClick={()=>mapscript()}>
+	내 위치</button>
+  </>
 }
