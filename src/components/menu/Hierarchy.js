@@ -17,12 +17,15 @@ const Hierarchy = () => (
       <Route exact path='/' element={<Navigate replace='true' to='/miss' />} />
 
       <Route path="/miss/*" element={<MissBoard />} />
+      <Route path="/miss/uplode*" element={<Signup />} />
+      <Route path="/miss/moreInfo*" element={<Login />} />
+
       <Route path="/find/*" element={<FindBoard />} />
       <Route path="/hospital/*" element={<HospitalMap />} />
       <Route path="/search/*" element={<Search />} />
 
       <Route path="/login" element={<Login />} />
-      <Route path="/login/signup" element={<Signup/>}/>
+      <Route path="/login/signup" element={<Signup />} />
 
       <Route path="*" element={<Notfound />} />
     </Routes>
