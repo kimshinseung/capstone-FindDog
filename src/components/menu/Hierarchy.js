@@ -7,7 +7,7 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 // import components
 import {
-  MissBoard, FindBoard, HospitalMap, Search, Notfound, Login
+  MissBoard, FindBoard, HospitalMap, Search, Notfound, Login, Signup
   } from "../page/Pages";
 
 // path 정의
@@ -22,6 +22,7 @@ const Hierarchy = () => (
       <Route path="/search/*" element={<Search />} />
 
       <Route path="/login" element={<Login />} />
+      <Route path="/login/signup" element={<Signup/>}/>
 
       <Route path="*" element={<Notfound />} />
     </Routes>

@@ -12,6 +12,7 @@ import {FindPage} from './find/FindPage';
 import {MissPage} from './miss/MissPage';
 import {SearchPage} from './search/SearchPage';
 import LoginPage  from "./Login/LoginPage";
+import SignupPage from "./Login/SignupPage";
 import Map from "../map";
 // import
 import '../../style/style.css';
@@ -83,6 +84,14 @@ export const Login = () => (
   <div className="login-page">
     <h3>LOGIN</h3>
     <LoginPage/>
+  </div>
+);
+
+// 회원가입 페이지
+export const Signup = () => (
+  <div className="signup-page">
+    <h3>회원가입</h3>
+    <SignupPage/>
   </div>
 );
 
