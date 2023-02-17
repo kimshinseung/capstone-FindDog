@@ -9,7 +9,7 @@ import Card from './card';
 import { useNavigate, Link } from "react-router-dom";
 
 
-export const MissPage = () => {
+const MoreinfoPage = () => {
     return (
  <>
             <div className="moreInfo-page">
@@ -22,3 +22,5 @@ export const MissPage = () => {
         </>
     );
 };
+
+export default MoreinfoPage

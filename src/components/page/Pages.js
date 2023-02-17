@@ -14,6 +14,7 @@ import {SearchPage} from './search/SearchPage';
 import LoginPage  from "./Login/LoginPage";
 import SignupPage from "./Login/SignupPage";
 import UploadPage from "./miss/UploadPage";
+import MoreinfoPage from "./miss/moreInfo";
 import Map from "../map";
 // import
 import '../../style/style.css';
@@ -47,6 +48,15 @@ export const Upload = () => (
     </section>
   </PageTemplate>
 )
+
+export const MoreInfo = () => (
+  <PageTemplate>
+    <section className="moreinfo-page">
+      <MoreinfoPage />
+    </section>
+  </PageTemplate>
+)
+
 
 /**
  * FindBoard
