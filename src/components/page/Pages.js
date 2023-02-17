@@ -13,6 +13,8 @@ import {MissPage} from './miss/MissPage';
 import {SearchPage} from './search/SearchPage';
 import LoginPage  from "./Login/LoginPage";
 import SignupPage from "./Login/SignupPage";
+import UploadPage from "./miss/UploadPage";
+import MoreinfoPage from "./miss/moreInfo";
 import Map from "../map";
 // import
 import '../../style/style.css';
@@ -38,6 +40,23 @@ export const MissBoard = () => (
     </section>
   </PageTemplate>
 );
+
+export const Upload = () => (
+  <PageTemplate>
+    <section className="upload-page">
+      <UploadPage />
+    </section>
+  </PageTemplate>
+)
+
+export const MoreInfo = () => (
+  <PageTemplate>
+    <section className="moreinfo-page">
+      <MoreinfoPage />
+    </section>
+  </PageTemplate>
+)
+
 
 /**
  * FindBoard
