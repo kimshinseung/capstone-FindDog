@@ -2,7 +2,8 @@
  * ./src/components/page/miss/MissPage.js
  * 실종 게시판
  */
-import React from "react";
+import React, {useState} from "react";
+import {Row, Container} from 'reactstrap';
 import data from './data';
 import Card from './card';
 import { useNavigate, Link } from "react-router-dom";

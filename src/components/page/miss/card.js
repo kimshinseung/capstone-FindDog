@@ -1,4 +1,5 @@
 
+import {Col} from 'reactstrap';
 
 function Card(props) {
     return (
