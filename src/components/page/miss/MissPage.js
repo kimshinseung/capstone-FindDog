@@ -13,7 +13,7 @@ export const MissPage = () => {
     let [profiles] = useState(data);
     
     return (
- <>
+        <>
             <div className="miss-page">
                 <h2>실종 게시판</h2>
                 <Link to="uplode"> 실종 등록하기</Link>
@@ -23,7 +23,7 @@ export const MissPage = () => {
                 <br/>
                 <Container>
                     <Row>
-                    {products.map((item, i) => <Card products={item} i={i+1} key={item.id} />)}
+                        {profiles.map((item, i) => <Card profiles={item} i={i+1} key={item.id} />)}
                     </Row>
                 </Container>
 
