@@ -10,7 +10,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 
 export const MissPage = () => {
-    let [profiles] = useState(data);
+    //let [profiles] = useState(data);
 
     return (
  <>
@@ -21,12 +21,6 @@ export const MissPage = () => {
                 <h3>최근 실종 순</h3> 
                 <Link to="moreInfo"> 더보기</Link>
                 <br/>
-
-                <Container>
-                    <Row>
-                    {profiles.map((item, i) => <Card profiles={item} i={i+1} key={item.id} />)}
-                    </Row>
-                </Container>
             </div>
         </>
     );

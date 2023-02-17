@@ -11,7 +11,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 const MoreinfoPage = () => {
     return (
-        <>
+ <>
             <div className="moreInfo-page">
                 <h2>실종 게시판</h2>
                 <Link to="uplode"> 실종 등록하기</Link>
