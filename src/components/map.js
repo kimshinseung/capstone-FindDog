@@ -20,10 +20,7 @@ export default function Map() {
     //map
     let map = new kakao.maps.Map(container, options);
 
-    // <button id="my_location_button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="getCurrentPosBtn(); z-index: 1;">
-    //       내 위치 찾기
-    //   </button>
-
+	
     // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 		var zoomControl = new kakao.maps.ZoomControl();
 		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
@@ -36,21 +33,6 @@ export default function Map() {
 			var level = map.getLevel();
 		});
 		
-		// //커스텀 오버레이 생성
-        //  var position = new kakao.maps.LatLng(37.58355, 127.010647);  
-        //  var content = '<div class="customoverlay">' +
-        //  '<button id="my_location_button"; onclick="getCurrentPosBtn(); z-index: 3;">'+
-        //  '<span class="title">현재 위치</span>' +
-      	// '</button>'
-        //  '</div>'
-        //  var currentPos = new kakao.maps.CustomOverlay({
-        //      map: map,
-        //      position: position,
-        //      content: content,
-        //      yAnchor: 1 
-        //  });
-		
-
 
 		if (navigator.geolocation) {
 		
@@ -104,7 +86,7 @@ export default function Map() {
 		}
 		
   };
-  
+
   return <>
   <div id="map" style={{ width: "100vw", height: "400px",backgroundColor: '#c8c8c8' }}></div>
   <button
