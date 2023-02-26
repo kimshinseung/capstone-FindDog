@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import {app} from '../../../firebase';
 
 const auth = getAuth(); // 현재 사용자 인증 정보 가져오기
-const user = auth.currentUser; // 사용자 객체
+const user = auth.currentUser; // 사용자 정보
 
 export const MyPage = () => {
     const navigate = useNavigate();
@@ -20,8 +20,10 @@ export const MyPage = () => {
 
     return (
         <>
-            <div className="main-page">
-                <h3>마이 페이지...</h3>
+            <div className="my-page">
+                <h3>마이 페이지</h3>
+                <hr/>
+
                 <button onClick={logoutHandler}>로그아웃</button>
             </div>
         </>

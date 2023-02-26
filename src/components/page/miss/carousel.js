@@ -45,11 +45,7 @@ const Carousel = ()=>{
     return(
         <div className="carousel">
             <Slider {...settings}>
-                <Container>
-                    <Row>
-                        {profiles.map((item, i) => <Card profiles={item} i={i+1} key={item.id} />)}
-                    </Row>
-                </Container>
+              {profiles.map((item, i) => <Card profiles={item} i={i+1} key={item.id} />)}
             </Slider>
         </div>
     )
