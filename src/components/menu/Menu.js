@@ -25,3 +25,13 @@ export const MainMenu = () => {
     </nav>
   )
 };
+
+// 마이페이지 메뉴
+export const MyMenu = () => {
+  return (
+    <nav className='my-menu'>
+      <li><NavLink to='/mypage'>INFORMATION</NavLink></li>
+      <li><NavLink to='/mypage/post'>POST</NavLink></li>
+    </nav>
+  )
+};

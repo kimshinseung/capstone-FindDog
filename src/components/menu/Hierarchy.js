@@ -7,7 +7,7 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 // import components
 import {
-  MainBoard, MyInfo,
+  MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
   MissBoard, FindBoard, HospitalMap, Search, Notfound, Login, Signup, Upload, MoreInfo, MoreInfo2
   } from "../page/Pages";
 
@@ -29,7 +29,14 @@ const Hierarchy = () => (
       <Route path="/login" element={<Login />} />
       <Route path="/login/signup" element={<Signup />} />
 
-      <Route path="/mypage" element={<MyInfo />} />
+      <Route path="/mypage/*" element={<MyInfo />}>
+        <Route path='' element={<MyPersonalInfo />} />
+        <Route path='information' element={<MyPersonalInfo />} />
+        <Route path='post' element={<MyUploadingPost />} />
+      </Route>
+
+      <Route path='/information' element={<Navigate replace='true' to='mypage/information' />} />
+      <Route path='/post' element={<Navigate replace='true' to='mypage/post' />} />
 
       <Route path="*" element={<Notfound />} />
     </Routes>

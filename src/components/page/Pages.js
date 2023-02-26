@@ -6,13 +6,15 @@
 
 // import
 import { useLocation, Outlet } from "react-router-dom";
-import { MainMenu, SearchMenu } from "../menu/Menu";
+import { MainMenu, SearchMenu, MyMenu } from "../menu/Menu";
 // import
 import {FindPage} from './find/FindPage';
 import {MissPage} from './miss/MissPage';
 import {SearchPage} from './search/SearchPage';
 import {MainPage} from './main/MainPage';
 import {MyPage} from './mypage/MyPage';
+import { MyInformation } from "./mypage/MyInformation";
+import { MyPost } from "./mypage/MyPost";
 import LoginPage  from "./Login/LoginPage";
 import SignupPage from "./Login/SignupPage";
 import UploadPage from "./miss/UploadPage";
@@ -21,6 +23,7 @@ import Moreinfo2Page from "./miss/moreInfo2";
 import Map from "../map";
 // import
 import '../../style/style.css';
+
 
 // Page Template
 const PageTemplate = ({ children }) => (
@@ -49,9 +52,18 @@ export const MainBoard = () => (
 export const MyInfo = () => (
   <PageTemplate>
     <section className="my-info">
-      <MyPage />
+      <MyMenu />
+      <Outlet />
     </section>
   </PageTemplate>
+)
+
+export const MyPersonalInfo = () => (
+  <MyInformation />
+)
+
+export const MyUploadingPost = () => (
+  <MyPost />
 )
 
 /**
