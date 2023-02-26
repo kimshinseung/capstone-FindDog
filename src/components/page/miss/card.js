@@ -1,4 +1,3 @@
-
 import {Col} from 'reactstrap';
 
 function Card(props) {
@@ -6,9 +5,8 @@ function Card(props) {
       <>
         <Col>
           <img src={`images/missfind${props.i}.jpg`} width={300} height={300} />
-          <h4>{props.profiles.title}</h4>
-          <p>{props.profiles.content}</p>
-          <p>{props.profiles.price}</p>
+          <h4>이름: {props.profiles.name}</h4>
+          <p>실종위치: {props.profiles.missedplace}</p>
         </Col>
       </>
     )

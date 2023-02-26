@@ -3,23 +3,26 @@
 let data = [
     {
       id : 0,
-      title : "CALONE 17",
-      content : "245 g / 8.6 oz classic candle",
-      price : 170000
+      name : "버블",
+      missedplace : "성북구 한성대학교 앞"
     },
   
     {
       id : 1,
-      title : "THÉ NOIR 29",
-      content : "50 ml / 1.7 fl oz eau de parfum",
-      price : 220000
+      name : "달고나",
+      missedplace : "화계역 앞"
     },
   
     {
       id : 2,
-      title : "SHOWER GEL",
-      content : "250 ml / 8.5 fl oz hinoki",
-      price : 110000
+      name : "라떼",
+      missedplace : "남위례역 앞"
+    },
+
+    {
+      id : 3,
+      name : "마시",
+      missedplace : "천호역 OO동물병원 앞"
     }
   ]
   
