@@ -7,6 +7,7 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 // import components
 import {
+  MainBoard, MyInfo,
   MissBoard, FindBoard, HospitalMap, Search, Notfound, Login, Signup, Upload, MoreInfo
   } from "../page/Pages";
 
@@ -14,7 +15,7 @@ import {
 const Hierarchy = () => (
     <>
     <Routes>
-      <Route exact path='/' element={<Navigate replace='true' to='/miss' />} />
+      <Route exact path='/' element={<MainBoard />} />
 
       <Route path="/miss/*" element={<MissBoard />} />
       <Route path="/miss/uplode*" element={<Upload />} />
@@ -26,6 +27,8 @@ const Hierarchy = () => (
 
       <Route path="/login" element={<Login />} />
       <Route path="/login/signup" element={<Signup />} />
+
+      <Route path="/mypage" element={<MyInfo />} />
 
       <Route path="*" element={<Notfound />} />
     </Routes>

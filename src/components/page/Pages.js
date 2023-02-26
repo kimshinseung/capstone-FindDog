@@ -11,6 +11,8 @@ import { MainMenu, SearchMenu } from "../menu/Menu";
 import {FindPage} from './find/FindPage';
 import {MissPage} from './miss/MissPage';
 import {SearchPage} from './search/SearchPage';
+import {MainPage} from './main/MainPage';
+import {MyPage} from './mypage/MyPage';
 import LoginPage  from "./Login/LoginPage";
 import SignupPage from "./Login/SignupPage";
 import UploadPage from "./miss/UploadPage";
@@ -26,6 +28,30 @@ const PageTemplate = ({ children }) => (
     {children}
   </div>
 );
+
+/**
+ * MainBoard
+ * 메인 페이지
+ */
+export const MainBoard = () => (
+  <PageTemplate>
+    <section className="main-board">
+      <MainPage />
+    </section>
+  </PageTemplate>
+)
+
+/**
+ * MyInfo
+ * 마이 페이지
+ */
+export const MyInfo = () => (
+  <PageTemplate>
+    <section className="my-info">
+      <MyPage />
+    </section>
+  </PageTemplate>
+)
 
 /**
  * MissBoard

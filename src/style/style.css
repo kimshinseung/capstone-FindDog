@@ -69,20 +69,20 @@ a {
 }
 
 /* Miss Menu, Find Menu, Search Menu */
-.miss-board, .find-board, .search-board {
+.miss-board, .find-board, .search-board, .main-board {
   width: 100%;
   height: 100vh;
   background-color: #DDDDDD;
 }
 
-.miss-page, .find-page, .search-page {
+.miss-page, .find-page, .search-page, .main-page {
   width: 98%;
   height: 100vh;
   margin: auto;
   background-color: #FFFFFF;
 }
 
-.miss-page h3, .find-page h3, .search-page h3 {
+.miss-page h3, .find-page h3, .search-page h3, .main-page h3 {
   margin: 0;
 }
 
