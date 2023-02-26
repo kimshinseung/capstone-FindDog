@@ -13,8 +13,16 @@ export const MissPage = () => {
             <div className="miss-page">
                 <h2>실종 게시판</h2>
                 <Link to="uplode"> 실종 등록하기</Link>
+
+                <br/><br/><br/>
                 <h3>최근 실종 순</h3> 
                 <Link to="moreInfo"> 더보기</Link>
+                <br/>
+                <Carousel/>
+
+                <br/><br/><br/>
+                <h3>우리 지역 관련 순</h3>
+                <Link to="moreInfo2"> 더보기</Link> 
                 <br/>
                 <Carousel/>
             </div>

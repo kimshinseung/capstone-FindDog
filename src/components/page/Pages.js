@@ -17,6 +17,7 @@ import LoginPage  from "./Login/LoginPage";
 import SignupPage from "./Login/SignupPage";
 import UploadPage from "./miss/UploadPage";
 import MoreinfoPage from "./miss/moreInfo";
+import Moreinfo2Page from "./miss/moreInfo2";
 import Map from "../map";
 // import
 import '../../style/style.css';
@@ -79,6 +80,14 @@ export const MoreInfo = () => (
   <PageTemplate>
     <section className="moreinfo-page">
       <MoreinfoPage />
+    </section>
+  </PageTemplate>
+)
+
+export const MoreInfo2 = () => (
+  <PageTemplate>
+    <section className="moreinfo2-page">
+      <Moreinfo2Page />
     </section>
   </PageTemplate>
 )

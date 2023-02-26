@@ -8,7 +8,7 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 // import components
 import {
   MainBoard, MyInfo,
-  MissBoard, FindBoard, HospitalMap, Search, Notfound, Login, Signup, Upload, MoreInfo
+  MissBoard, FindBoard, HospitalMap, Search, Notfound, Login, Signup, Upload, MoreInfo, MoreInfo2
   } from "../page/Pages";
 
 // path 정의
@@ -20,6 +20,7 @@ const Hierarchy = () => (
       <Route path="/miss/*" element={<MissBoard />} />
       <Route path="/miss/uplode*" element={<Upload />} />
       <Route path="/miss/moreInfo*" element={<MoreInfo />} />
+      <Route path="/miss/moreInfo2*" element={<MoreInfo2 />} />
 
       <Route path="/find/*" element={<FindBoard />} />
       <Route path="/hospital/*" element={<HospitalMap />} />
