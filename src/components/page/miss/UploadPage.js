@@ -5,7 +5,6 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-
 const UploadPage = () => {
     const handler = () =>{
 
@@ -37,6 +36,12 @@ const UploadPage = () => {
                         <option value="Brown">Brown</option>
                         <option value="White">White</option>
                     </select>
+
+                    <h3>실종장소</h3>
+
+                    <h3>성격 및 특징</h3>
+
+                    <h3>실종전 사진</h3>
                 </form>
             </div>
         </>

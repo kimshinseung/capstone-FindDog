@@ -23,6 +23,18 @@ let data = [
       id : 3,
       name : "마시",
       missedplace : "천호역 OO동물병원 앞"
+    },
+
+    {
+      id : 4,
+      name : "마시",
+      missedplace : "천호역 OO동물병원 앞"
+    },
+
+    {
+      id : 5,
+      name : "마시",
+      missedplace : "천호역 OO동물병원 앞"
     }
   ]
   
