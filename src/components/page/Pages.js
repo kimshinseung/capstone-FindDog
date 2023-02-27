@@ -11,6 +11,7 @@ import { MainMenu, SearchMenu, MyMenu } from "../menu/Menu";
 import {FindPage} from './find/FindPage';
 import {MissPage} from './miss/MissPage';
 import {SearchPage} from './search/SearchPage';
+import {ReviewPage} from './review/ReviewPage';
 import {MainPage} from './main/MainPage';
 import {MyPage} from './mypage/MyPage';
 import { MyInformation } from "./mypage/MyInformation";
@@ -141,6 +142,15 @@ export const Search = () => (
   <PageTemplate>
     <section className="search-board">
       <SearchPage />
+    </section>
+  </PageTemplate>
+);
+
+// 후기 메뉴
+export const Review = () => (
+  <PageTemplate>
+    <section className="review-board">
+      <ReviewPage />
     </section>
   </PageTemplate>
 );
