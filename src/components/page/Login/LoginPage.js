@@ -1,5 +1,6 @@
 /**
  * ./src/components/page/Login/LoginPage.js
+ * 로그인 페이지
  */
 
 import "./LoginPage.scss";

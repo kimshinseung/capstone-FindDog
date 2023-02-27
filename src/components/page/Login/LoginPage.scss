@@ -46,10 +46,8 @@
     }
 }
 
-
-
 .signup{
-    height: 50vh;   //div height
+    height: 70vh;   //div height
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,6 +74,12 @@
             color: white;
             font-weight: bold;
             cursor: pointer;
+        }
+
+        div{
+            input{
+                width: 400px;
+            }
         }
 
     }
