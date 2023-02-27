@@ -12,19 +12,10 @@ export const MainPage = () => {
             <div className="main-page">
             <BannerCarousel/>
                 <br/><br/>
-                <ReactPlayer className="video1" 
+                <ReactPlayer className="video" 
                 url="https://www.youtube.com/watch?v=XMsDXtFWJ2U" 
-                width="400px"
-                height="225px"
-                playing={true}
-                muted={true}
-                controls={true}
-                />
-                <br/><br/>
-                <ReactPlayer className="video2" 
-                url="https://www.youtube.com/watch?v=XMsDXtFWJ2U" 
-                width="400px"
-                height="225px"
+                width="520px"
+                height="320px"
                 playing={true}
                 muted={true}
                 controls={true}
