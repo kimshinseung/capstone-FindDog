@@ -1,0 +1,25 @@
+.upload-page{
+    padding-left: 30px;
+
+    form{
+
+
+        select{
+            width: 200px;
+            height: 30px;
+            margin: 1px;
+        }
+
+        button{
+            margin-top: 50px;
+            width: 200px;
+            height: 30px;
+            border: none;
+            border-radius: 10px;
+            background-color: #92c465;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}
