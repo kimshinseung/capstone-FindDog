@@ -14,6 +14,8 @@ const SingupPage = () => {
     const [error, setError] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
 
     const [fullAddress, setFullAddress] = useState({
         address:'',
@@ -50,11 +52,14 @@ const SingupPage = () => {
     return(
         <div className="signup">
             <form onSubmit = {LoginHandler}>                
-                이메일<input type="email" placeholder="email" onChange={(e=>setEmail(e.target.value))} /><br/>
-                비밀번호<input type="password" placeholder="password" onChange={(e=>setPassword(e.target.value))}/><br/>
+                이메일
+                <input type="email" placeholder="email" onChange={(e=>setEmail(e.target.value))} /><br/>
+                비밀번호
+                <input type="password" placeholder="password" onChange={(e=>setPassword(e.target.value))}/><br/>
                 이름
                 <input type="text" placeholder="이름" onChange={(e=>setName(e.target.value))}/><br/>
-                
+                전화번호
+                <input type="text" placeholder="전화번호" onChange={(e=>setPhoneNumber(e.target.value))}/><br/>
                 주소
                 <div>
                     <input className="address" placeholder="주소"
