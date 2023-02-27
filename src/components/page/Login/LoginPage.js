@@ -4,30 +4,33 @@
 
 import "./LoginPage.scss";
 import { useState } from "react";
-import { useNavigate, useLocation, Link } from "react-router-dom";
-import { auth } from "../../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate, Link } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from "firebase/auth";
 
 const LoginPage = () => {
     const [error, setError] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const auth = getAuth();
     const navigate = useNavigate();
 
-    const LoginHandler = e =>{
-        e.preventDefault();
+    const LoginHandler = e => {
+        e.preventDefault();        
 
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            //const user = userCredential.user;
-            navigate("/");
+        setPersistence(auth, browserSessionPersistence).then(() => {
+            return signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+                //const user = userCredential.user;
+                navigate("/");
+            })
+            .catch((error) => {
+                setError(true);
+            })
         })
         .catch((error) => {
             setError(true);
         });
     };
-
 
     return(
         <>
@@ -44,4 +47,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage
+export default LoginPage;
