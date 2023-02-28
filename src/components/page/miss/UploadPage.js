@@ -74,35 +74,9 @@ const UploadPage = () => {
             //time: serverTimestamp()
         });
         alert("등록되었습니다");
+        location.reload();
     }
 
-
-
-    // const handlePostCode = (data) => {
-    //     let fullAddress = data.address;
-    //     let extraAddress = ''; 
-        
-    //     if (data.addressType === 'R') {
-    //         if (data.bname !== '') {
-    //             extraAddress += data.bname;
-    //         }
-    //         if (data.buildingName !== '') {
-    //             extraAddress += (extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName);
-    //         }
-    //         fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
-    //     }
-    //     console.log(data)
-    //     console.log(fullAddress)
-    //     console.log(data.zonecode)
-    //     props.onClose()
-
-        
-    // }
-
-    // const onCompletePost = data => {
-    //     setModalState(false);
-    //     setAddress(data.address);
-    // };
 
     const handleComplete = (data) => {
         let fullAddress = data.address;
@@ -117,8 +91,9 @@ const UploadPage = () => {
             fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
         }
         //fullAddress -> 전체 주소반환
-        //setPopup(false);
+        setPopup(false);
         setAddress(data.address);
+        setData((prev)=>({...prev, address:data.address}));
     }
 
     const postCodeStyle = {
@@ -128,7 +103,6 @@ const UploadPage = () => {
         width: "500px",
         height: "600px",
         padding: "30px",
-        
     };
 
 
@@ -138,6 +112,11 @@ const UploadPage = () => {
         <>
             <div className="upload-page">
                 <form onSubmit = {handler}>
+
+                    <div>
+                    <h3>이름</h3>
+                    <input type="text" id="name" size="25" onChange={handleInput}></input>
+                    </div>
 
                     {userInputs.map((input)=>(
                         <div>
@@ -159,7 +138,7 @@ const UploadPage = () => {
                     <input type="button" onClick={()=>setPopup(true)} value="주소찾기"></input>
 
                     <h3>성격 및 특징</h3>
-                    <textarea cols="30" rows="5" id="place" onChange={handleInput}></textarea>
+                    <textarea cols="30" rows="5" id="feature" onChange={handleInput}></textarea>
 
                     <h3>실종전 사진</h3>
                     <input type="file" accept='image/*' onChange={(e)=>setFile(e.target.files[0])}/>
