@@ -2,12 +2,14 @@
  * ./src/components/page/mypage/MyInformation.js
  * 개인정보
  */
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {getAuth, signOut} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import {app} from '../../../firebase';
+import { getFirestore, doc, getDoc, collection, query, where } from 'firebase/firestore';
 
 const auth = getAuth(); // 현재 사용자 인증 정보 가져오기
+const db = getFirestore();
 
 export const MyInformation = () => {
     const [userInfo, setUserInfo] = useState();
@@ -37,6 +39,13 @@ export const MyInformation = () => {
     }
 
     //console.log(userInfo);
+
+    const getUserInfo = () => {
+        const infoQuery = query(collection(db, "Users"), where("Email", "==", userInfo?.email));
+        const info = getDoc(infoQuery);
+
+        console.log(info);
+    }
 
     return (
         <>

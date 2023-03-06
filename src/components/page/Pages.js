@@ -13,7 +13,6 @@ import {MissPage} from './miss/MissPage';
 import {SearchPage} from './search/SearchPage';
 import {ReviewPage} from './review/ReviewPage';
 import {MainPage} from './main/MainPage';
-import {MyPage} from './mypage/MyPage';
 import { MyInformation } from "./mypage/MyInformation";
 import { MyPost } from "./mypage/MyPost";
 import LoginPage  from "./Login/LoginPage";

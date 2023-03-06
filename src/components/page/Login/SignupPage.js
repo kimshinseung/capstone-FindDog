@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import Post from './Post';
 
 const SingupPage = () => {
@@ -22,6 +23,8 @@ const SingupPage = () => {
     });
 
     const [openPopup, setOpenPopup] = useState(false);
+
+    const db = getFirestore();
 
     const handleInput = (e) => {
         setFullAddress({
@@ -49,6 +52,18 @@ const SingupPage = () => {
         });
     };
 
+    const signUp = () => {
+        setDoc(doc(db, "Users", email), {
+            Email: email,
+            Password: password,
+            Name: name,
+            PhoneNumber: phoneNumber,
+            Address: fullAddress
+        });
+
+        alert('회원가입 완료!');
+    };
+
     return(
         <div className="signup">
             <form onSubmit = {LoginHandler}>                
@@ -71,7 +86,7 @@ const SingupPage = () => {
                 </div>
                 
                 <br/><br/><br/>
-                <button type="submit">회원가입</button>
+                <button type="submit" onClick={signUp}>회원가입</button>
             </form>
         </div>
     )
