@@ -17,9 +17,9 @@ const SingupPage = () => {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-
     const [fullAddress, setFullAddress] = useState({
         address:'',
+        extraAddress: '',
     });
 
     const [openPopup, setOpenPopup] = useState(false);
@@ -81,6 +81,11 @@ const SingupPage = () => {
                         type="text" required={true} name="address"
                         onChange={handleInput} value={fullAddress.address}/>
                     <button type="button" onClick={handleComplete}>우편번호 찾기</button>
+                    <br/>
+                    <input className="address" placeholder="상세주소"
+                        type="text" required={true} name="extraAddress"
+                        onChange={handleInput} value={fullAddress.extraAddress} />
+                    
                     {openPopup &&
                         <Post company={fullAddress} setcompany={setFullAddress}></Post>}
                 </div>
