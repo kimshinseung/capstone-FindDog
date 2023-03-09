@@ -2,18 +2,21 @@
  * ./src/components/page/search/SearchPage.js
  * 검색 게시판
  */
+
+//아예 specify,gender,farcolor을 carousel함수로 보내서 거기서 검색조건 처리하게 하기
 import React, { useEffect } from "react";
 import { db, storage } from "../../../firebase";
-import { getDoc, getDocs, collection,updateDoc, addDoc, query, where, orderBy, QuerySnapshot } from "firebase/firestore";
+import { getDoc, getDocs, collection,updateDoc, addDoc, query, where, orderBy, QuerySnapshot, doc } from "firebase/firestore";
 import { async } from "@firebase/util";
 import {Col} from 'reactstrap';
+import Carousel  from "./carousel1";
 
 
 export function SearchPage() {
     useEffect(() => {
         Search();
     }, []);
-    
+    let docs;
     //검색 조건에 맞는 doc id 찾는 함수
     const find = async (specify, gender, farColor) => {
         const q = query(collection(db, "Missing"), where("specify", "==", specify),
@@ -22,10 +25,9 @@ export function SearchPage() {
         
         const QuerySnapshot = await getDocs(q);
         QuerySnapshot.forEach((doc) => {
-            let docs= doc.data();// docs에 doc데이터들 다 받아옴
+            docs= doc.data();// docs에 doc데이터들 다 받아옴
             let str=document.getElementById("Info");
-            let url=docs["img"];
-            getImage(url);
+            docs= doc.data();// docs에 doc데이터들 다 받아옴
             //str.innerText+= "\n"+url;
             for(let item in docs){
             str.innerText+=docs[item]+"\r";
@@ -33,7 +35,7 @@ export function SearchPage() {
             // Show(doc.id);
         })
 
-
+        return docs; //docs에 데이터 들어감
     }
 
     //아직 이 함수 못 씀
@@ -97,8 +99,8 @@ export function SearchPage() {
                 <div>
             <textfield id="Info"></textfield>
             </div>
-            {/* <Carousel/> */}
-            <img id="Image" src={`images/missfind2.jpg`} width={200} height={200} />        
+
+            <Carousel a={3} />
         </div>
     </>
 
