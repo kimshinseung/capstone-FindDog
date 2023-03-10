@@ -1,0 +1,21 @@
+.map-page{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .box{
+        width: 1468px;
+        background: #92c465;
+        padding: 1em;
+        color: #fff;
+    }
+
+    #box1{
+        border-radius: 15px 15px 0 0;
+    }
+
+    #box2{
+        border-radius: 0 0 15px 15px;
+    }
+}
