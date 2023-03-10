@@ -20,7 +20,7 @@ import SignupPage from "./Login/SignupPage";
 import UploadPage from "./miss/UploadPage";
 import MoreinfoPage from "./miss/moreInfo";
 import Moreinfo2Page from "./miss/moreInfo2";
-import Map from "../map";
+import Map from "./map/map";
 // import
 import '../../style/style.css';
 
