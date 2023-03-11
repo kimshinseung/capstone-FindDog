@@ -7,37 +7,64 @@
 import React, { useEffect } from "react";
 import { db, storage } from "../../../firebase";
 import { getDoc, getDocs, collection,updateDoc, addDoc, query, where, orderBy, QuerySnapshot, doc } from "firebase/firestore";
-import { async } from "@firebase/util";
-import {Col} from 'reactstrap';
-import Carousel  from "./carousel1";
+import { useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Card from './card';
+//import data from './data';
+
 
 
 export function SearchPage() {
+
+  let data = [
+    {
+      id : 0,
+      name : "",
+      missedplace : ""
+    },
+  
+    {
+      id : 1,
+      name : "",
+      missedplace : ""
+    },
+  
+    {
+      id : 2,
+      name : "라떼",
+      missedplace : "남위례역 앞"
+    },
+  ]
+    let [profiles] = useState(data);
+
     useEffect(() => {
-        Search();
+       Search();
     }, []);
-    let docs;
-    //검색 조건에 맞는 doc id 찾는 함수
+   
     const find = async (specify, gender, farColor) => {
         const q = query(collection(db, "Missing"), where("specify", "==", specify),
             where("gender", "==", gender), where("farColor", "==", farColor)
             );
         
         const QuerySnapshot = await getDocs(q);
+        let count=0;
         QuerySnapshot.forEach((doc) => {
-            docs= doc.data();// docs에 doc데이터들 다 받아옴
-            let str=document.getElementById("Info");
-            docs= doc.data();// docs에 doc데이터들 다 받아옴
+            
+            let docs= doc.data();// docs에 doc데이터들 다 받아옴
+            //let str=document.getElementById("Info");
             //str.innerText+= "\n"+url;
-            for(let item in docs){
-            str.innerText+=docs[item]+"\r";
-            }
-            // Show(doc.id);
+            profiles[count].name=docs["name"];
+            console.log(profiles[count].name);
+            profiles[count].missedplace=docs["address"];
+            console.log(profiles[count].missedplace);
+            count++;
+
         })
-
-        return docs; //docs에 데이터 들어감
+        return alert("asd")
     }
-
+    
     //아직 이 함수 못 씀
     //게시물들 찾아주는 함수 만들어야됨
     const Show = async(id) => { //id 받아와서 게시물 생성
@@ -51,6 +78,42 @@ export function SearchPage() {
        
     }
 
+    const settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 3,
+                  infinite: true,
+                  dots: true
+                }
+              },
+              {
+                breakpoint: 600,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 2
+                }
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+              }
+            ]
+        }
+
+    const sa =()=>{
+      return alert();
+    }
     const Search = () => {
         let element = document.querySelector("#specify");
         let specify = element.value;
@@ -58,12 +121,13 @@ export function SearchPage() {
         let gender = element1.value;
         let element2 = document.querySelector("#farColor");
         let farColor = element2.value;
-
+        
         find(specify, gender, farColor);
+        
+      };
 
-
-    };
-
+    
+        
     return <>
 
         <div className="search-page">
@@ -94,13 +158,16 @@ export function SearchPage() {
                 </select>
             </div>
             <button
-                onClick={() => Search()}>
+                onClick={() => {Search();}}>
                 검색</button>
                 <div>
-            <textfield id="Info"></textfield>
             </div>
 
-            <Carousel a={3} />
+            <div className="carousel">
+            <Slider {...settings}>
+              {profiles.map((item, i) => <Card profiles={item} i={i+1} key={item.id} />)}
+            </Slider>
+        </div>
         </div>
     </>
 
