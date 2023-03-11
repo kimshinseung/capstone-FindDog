@@ -21,7 +21,12 @@ export default function Map() {
 
 	const mapscript = () => {
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+		var placeOverlay = new kakao.maps.InfoWindow({zIndex:1}),
+			contentNode = document.createElement('div'); // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
+		contentNode.className = 'placeinfo_wrap';
+		addEventHandle(contentNode, 'mousedown', kakao.maps.event.preventMap);
+		addEventHandle(contentNode, 'touchstart', kakao.maps.event.preventMap);
+		placeOverlay.setContent(contentNode);
 
 		let container = document.getElementById("map");
 		let options = {
@@ -44,44 +49,65 @@ export default function Map() {
 		});
 
 
+		function addEventHandle(target, type, callback) {
+			if (target.addEventListener) {
+				target.addEventListener(type, callback);
+			} else {
+				target.attachEvent('on' + type, callback);
+			}
+		}
 
 
 
 
-// 키워드 검색 완료 시 호출되는 콜백함수 입니다
-function placesSearchCB (data, status, pagination) {
-    if (status === kakao.maps.services.Status.OK) {
+		// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+		function placesSearchCB (data, status, pagination) {
+			if (status === kakao.maps.services.Status.OK) {
 
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-        // LatLngBounds 객체에 좌표를 추가합니다
-        var bounds = new kakao.maps.LatLngBounds();
+				// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+				// LatLngBounds 객체에 좌표를 추가합니다
+				var bounds = new kakao.maps.LatLngBounds();
 
-        for (var i=0; i<data.length; i++) {
-            displayMarker2(data[i]);    
-            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-        }       
+				for (var i=0; i<data.length; i++) {
+					displayMarker(data[i]);    
+					bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+				}       
 
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-        //map.setBounds(bounds);
-    } 
-}
+				// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+				//map.setBounds(bounds);
+			} 
+		}
 
-// 지도에 마커를 표시하는 함수입니다
-function displayMarker2(place) {
-    
-    // 마커를 생성하고 지도에 표시합니다
-    var marker = new kakao.maps.Marker({
-        map: map,
-        position: new kakao.maps.LatLng(place.y, place.x) 
-    });
+		// 지도에 마커를 표시하는 함수입니다
+		function displayMarker(place) {
+			
+			// 마커를 생성하고 지도에 표시합니다
+			var marker = new kakao.maps.Marker({
+				map: map,
+				position: new kakao.maps.LatLng(place.y, place.x) 
+			});
 
-    // 마커에 클릭이벤트를 등록합니다
-    kakao.maps.event.addListener(marker, 'click', function() {
-        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-        infowindow.open(map, marker);
-    });
-}
+			// 마커에 클릭이벤트를 등록합니다
+			kakao.maps.event.addListener(marker, 'click', function() {
+				// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+				var content = '<div class="placeinfo">' +
+							'   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';   
+
+				if (place.road_address_name) {
+					content += '    <span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
+								'  <span class="jibun" title="' + place.address_name + '">(지번 : ' + place.address_name + ')</span>';
+				}  else {
+					content += '    <span title="' + place.address_name + '">' + place.address_name + '</span>';
+				}                
+				content += '    <span class="tel">' + place.phone + '</span>' + 
+							'</div>' + 
+							'<div class="after"></div>';
+
+				contentNode.innerHTML = content;
+				placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
+				placeOverlay.setMap(map);
+			});
+		}
 
 
 
@@ -132,35 +158,35 @@ function displayMarker2(place) {
 
 
 				// 마커와 인포윈도우를 표시합니다
-				displayMarker(locPosition, message);
+				setLocation(locPosition, message);
 
 			});
 
 		} else { // HTML5의 GeoLocation을 사용할 수 없을때 
 			let locPosition = new kakao.maps.LatLng(33.450701, 126.570667),
 				message = 'geolocation을 사용할수 없습니다..'
-			displayMarker(locPosition, message);
+				setLocation(locPosition, message);
 		}
 
 
 
 
     	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-		function displayMarker(locPosition, message) {
-			// 마커를 생성합니다
-			let marker = new kakao.maps.Marker({
-				map: map,
-				position: locPosition
-			});
+		function setLocation(locPosition, message) {
+			// // 마커를 생성합니다
+			// let marker = new kakao.maps.Marker({
+			// 	map: map,
+			// 	position: locPosition
+			// });
 
-			let iwContent = message, // 인포윈도우에 표시할 내용
-				iwRemoveable = true;
+			// let iwContent = message, // 인포윈도우에 표시할 내용
+			// 	iwRemoveable = true;
 
-			// 인포윈도우를 생성합니다
-			let infowindow = new kakao.maps.InfoWindow({
-				content: iwContent,
-				removable: iwRemoveable
-			});
+			// // 인포윈도우를 생성합니다
+			// let infowindow = new kakao.maps.InfoWindow({
+			// 	content: iwContent,
+			// 	removable: iwRemoveable
+			// });
 
 			// 장소 검색 객체를 생성합니다
 			var ps = new kakao.maps.services.Places(); 
@@ -174,7 +200,7 @@ function displayMarker2(place) {
 			ps.keywordSearch('동물병원', placesSearchCB, searchOption); 
 
 			// 인포윈도우를 마커위에 표시합니다 
-			infowindow.open(map, marker);
+			//infowindow.open(map, marker);
 
 			// 지도 중심좌표를 접속위치로 변경합니다
 			map.setCenter(locPosition);
@@ -191,7 +217,7 @@ function displayMarker2(place) {
 			<div id="map" style={{ width: "1500px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
 			<div className="box" id="box2"/>
 			<br></br>
-			<button onClick={()=>mapscript()}> 내 위치 </button>
 		</div>
+		<button id="button" onClick={()=>mapscript()}> 내 위치 </button>
 	</>
 }
