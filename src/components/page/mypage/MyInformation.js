@@ -69,10 +69,10 @@ export const MyInformation = () => {
         <>
             <div className="my-information">
                 <p>개인정보</p>
-                <p>email: {user?.email}</p>
-                <p>name: {user?.name}</p>
-                <p>phone Number: {user?.phone}</p>
-                <p>Address: {user?.address}</p>
+                <p>email: {localStorage.getItem('Email')}</p>
+                <p>name: {localStorage.getItem('Name')}</p>
+                <p>phone Number: {localStorage.getItem('PhoneNumber')}</p>
+                <p>Address: {`${localStorage.getItem('Address')} ${localStorage.getItem('ExtraAddress')}`}</p>
                 <button onClick={logoutHandler}>로그아웃</button>
             </div>
         </>

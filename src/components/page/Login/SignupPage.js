@@ -61,6 +61,14 @@ const SingupPage = () => {
             Address: fullAddress
         });
 
+        localStorage.clear();
+        localStorage.setItem('Email', email);
+        localStorage.setItem('Password', password);
+        localStorage.setItem('Name', name);
+        localStorage.setItem('PhoneNumber', phoneNumber);
+        localStorage.setItem('Address', fullAddress.address);
+        localStorage.setItem('ExtraAddress', fullAddress.extraAddress);
+
         alert('회원가입 완료!');
     };
 
