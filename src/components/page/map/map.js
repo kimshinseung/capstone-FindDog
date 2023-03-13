@@ -20,10 +20,13 @@ export default function Map() {
 	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 
 	const mapscript = () => {
+		// 마커 이미지의 이미지 주소입니다
+		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 		var placeOverlay = new kakao.maps.InfoWindow({zIndex:1}),
 			contentNode = document.createElement('div'); // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
-		contentNode.className = 'placeinfo_wrap';
+		//contentNode.className = 'placeinfo_wrap';
 		addEventHandle(contentNode, 'mousedown', kakao.maps.event.preventMap);
 		addEventHandle(contentNode, 'touchstart', kakao.maps.event.preventMap);
 		placeOverlay.setContent(contentNode);
@@ -78,11 +81,19 @@ export default function Map() {
 			} 
 		}
 
+
 		// 지도에 마커를 표시하는 함수입니다
 		function displayMarker(place) {
+
+			// 마커 이미지의 이미지 크기 입니다
+			var imageSize = new kakao.maps.Size(24, 35); 
+    
+			// 마커 이미지를 생성합니다    
+			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
 			
 			// 마커를 생성하고 지도에 표시합니다
 			var marker = new kakao.maps.Marker({
+				image : markerImage, // 마커 이미지 
 				map: map,
 				position: new kakao.maps.LatLng(place.y, place.x) 
 			});
@@ -173,11 +184,11 @@ export default function Map() {
 
     	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
 		function setLocation(locPosition, message) {
-			// // 마커를 생성합니다
-			// let marker = new kakao.maps.Marker({
-			// 	map: map,
-			// 	position: locPosition
-			// });
+			// 마커를 생성합니다
+			let marker = new kakao.maps.Marker({
+				map: map,
+				position: locPosition
+			});
 
 			// let iwContent = message, // 인포윈도우에 표시할 내용
 			// 	iwRemoveable = true;
@@ -192,7 +203,7 @@ export default function Map() {
 			var ps = new kakao.maps.services.Places(); 
 			var searchOption = {
 				location: locPosition,
-				radius: 1000,
+				radius: 3000,
 				//size: 5,
 				//level: 4
 			};
