@@ -3,13 +3,10 @@
  * 개인정보
  */
 import React, {useEffect, useState} from 'react';
-import {getAuth, signOut} from 'firebase/auth';
+import { signOut, deleteUser } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import {app} from '../../../firebase';
-import { getFirestore, getDocs, collection, query, where } from 'firebase/firestore';
-
-const auth = getAuth(); // 현재 사용자 인증 정보 가져오기
-const db = getFirestore();
+import { db, auth } from '../../../firebase';
+import { getDocs, collection, query, where, deleteDoc } from 'firebase/firestore';
 
 export const MyInformation = () => {
     const [userInfo, setUserInfo] = useState();
@@ -57,23 +54,51 @@ export const MyInformation = () => {
             });
 
             console.log("user: ", user);
-        })
+        });
+    };
+
+    async function deleteInfo() {
+        const infoQuery = query(collection(db, "Users"), where("Email", "==", userInfo?.email || ''));
+        const QuerySnapshot = await getDocs(infoQuery);
+        if(QuerySnapshot.docs.length !== 0) {
+            await deleteDoc(QuerySnapshot.docs[0].ref);
+        }
+    };
+
+    // 회원 정보 수정
+    const changeHandler = () => {
+        
     }
 
+    // 로그아웃
     const logoutHandler = () => {
+        signOut(auth); // 로그아웃
+        localStorage.clear(); // 로컬 스토리지에서 유저 정보 삭제
+        navigate('/');
+    }
+
+    // 회원 탈퇴
+    const deleteHandler = () => {
         signOut(auth);
+        
+        deleteInfo(); // Firestroe 해당 회원 정보 삭제
+        deleteUser(userInfo); // Auth 해당 회원 정보 삭제
+        localStorage.clear();
+
         navigate('/');
     }
 
     return (
         <>
             <div className="my-information">
-                <p>개인정보</p>
-                <p>email: {user?.email}</p>
-                <p>name: {user?.name}</p>
-                <p>phone Number: {user?.phone}</p>
-                <p>Address: {user?.address}</p>
+                <p>회원 정보</p>
+                <p>email: {localStorage.getItem('Email')}</p>
+                <p>name: {localStorage.getItem('Name')}</p>
+                <p>phone Number: {localStorage.getItem('PhoneNumber')}</p>
+                <p>Address: {`${localStorage.getItem('Address')} ${localStorage.getItem('ExtraAddress')}`}</p>
+                <button onClick={changeHandler}>회원 정보 수정</button>
                 <button onClick={logoutHandler}>로그아웃</button>
+                <button onClick={deleteHandler}>회원 탈퇴</button>
             </div>
         </>
     );
