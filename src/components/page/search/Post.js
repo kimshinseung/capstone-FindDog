@@ -1,5 +1,5 @@
 import React from "react";
-
+import Item from './item';
 const Post=({postObj})=>{
   
   //검색하기 전 null일 때 상태 값
@@ -14,8 +14,11 @@ const Post=({postObj})=>{
   else{
     //console.log(postObj);
     return(
-      <div>
-        <h4>{postObj[0].name}</h4>
+      <div>{
+        postObj.map((item)=>
+            <Item item = {item}/>
+          )
+        }
       </div>
     );
   }
