@@ -22,41 +22,31 @@ export function SearchPage() {
     const [postdata, setpost] = useState(new Map());
     
 
-    const find = async (specify, gender, farColor) => {
-        const q = query(collection(db, "Missing"), where("specify", "==", specify),
-            where("gender", "==", gender), where("farColor", "==", farColor)
-        );
+    const find = async (division, specify, gender, farColor) => {
+
+        if(division=="MISS"){
+            const q = query(collection(db, "Missing"), where("specify", "==", specify),
+            where("gender", "==", gender), where("farColor", "==", farColor) );
+        Show(q);
+        }
+
+        else if(division=="FIND"){
+            const q = query(collection(db, "Finding"), where("specify", "==", specify),
+            where("gender", "==", gender), where("farColor", "==", farColor) );
+        Show(q);
+        }
+        
+    }
+
+    //게시물들 데이터값들 보내줌
+    const Show = async (q) => { 
         const QuerySnapshot = await getDocs(q);
-       
         const data = QuerySnapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
         }));
-        setpost(data);
-
+        setpost(data); //postdata값을 세팅시켜줌.
     }
-
-    //아직 이 함수 못 씀
-    //게시물들 찾아주는 함수 만들어야됨
-    const Show = async (q) => { //id 받아와서 게시물 생성
-        const QuerySnapshot = await getDocs(q);
-        let count = 0;
-        QuerySnapshot.forEach((doc) => {
-
-            let docs = doc.data();// docs에 doc데이터들 다 받아옴
-            //profiles[count].name=docs["name"];
-            count++;
-            console.log(docs);
-
-        })
-    }
-
-    //파이어베이스 스토리지에서 이미지 가져오기
-    const getImage = async (url) => {
-        document.getElementById("Image").src = "images/missfind1.jpg";
-
-    }
-
 
     const Search = () => {
         let element = document.querySelector("#specify");
@@ -66,7 +56,10 @@ export function SearchPage() {
         let element2 = document.querySelector("#farColor");
         let farColor = element2.value;
 
-        find(specify, gender, farColor);
+        let divi = document.querySelector("#Division");
+        let division = divi.value;
+
+        find(division,specify, gender, farColor);
 
     };
 
@@ -77,6 +70,12 @@ export function SearchPage() {
         <div className="search-page">
 
             <div className='selectBox'>
+            <select id="Division">
+                    <option value="MISS">실종</option>
+                    <option value="FIND">목격</option>
+                </select>
+
+
                 <h3>품종</h3>
                 <select id="specify">
                     <option disabled selected>-------</option>
