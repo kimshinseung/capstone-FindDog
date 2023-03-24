@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "51164326788",
+    "project_id": "capstone-firebase-1c410",
+    "storage_bucket": "capstone-firebase-1c410.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51164326788:android:8046bb0ddef0f78a838bd1",
+        "android_client_info": {
+          "package_name": "com.monotics.app.capstone_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51164326788-mc0u2cbfvq83ojr52hci2him2r6rpr0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB76KFEJXMnW74BIMG7IAayrJfAeuGzLOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51164326788-mc0u2cbfvq83ojr52hci2him2r6rpr0o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

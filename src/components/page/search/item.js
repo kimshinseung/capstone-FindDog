@@ -4,6 +4,7 @@ import { Col } from 'reactstrap';
 
 function Item({ item }) {
 
+    //목격- 일단 보통 목격은 이름을 모르니 null값으로 처리
     if(item.name==null){
         return (
             <div>
@@ -16,11 +17,14 @@ function Item({ item }) {
         );
 
     }
+    //실종
     else{
     return (
         <div>
             <Col>
+                <NavLink to={'/view/${item.name}'}>
                 <img src={item.img} width={300} height={300} />
+                </NavLink>
                 <h4>이름: {item.name}</h4>
                 <p>위치: {item.address}</p>
             </Col>
