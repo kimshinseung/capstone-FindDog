@@ -70,6 +70,7 @@ export function SearchPage() {
         <div className="search-page">
 
             <div className='selectBox'>
+                <h3>분류</h3>
             <select id="Division">
                     <option value="MISS">실종</option>
                     <option value="FIND">목격</option>
