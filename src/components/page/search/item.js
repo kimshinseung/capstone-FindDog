@@ -22,9 +22,9 @@ function Item({ item }) {
     return (
         <div>
             <Col>
-                <NavLink to={'/view/${item.name}'}>
+               
                 <img src={item.img} width={300} height={300} />
-                </NavLink>
+            
                 <h4>이름: {item.name}</h4>
                 <p>위치: {item.address}</p>
             </Col>
