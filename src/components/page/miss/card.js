@@ -1,16 +1,15 @@
 import {Col} from 'reactstrap';
 
-function Card({item}) {
-  return (
-    <div>
+function Card(props) {
+    return (
+      <>
         <Col>
-            <img src={item.img} width={300} height={300} />
-            <h4>이름: {item.name}</h4>
-            <p>위치: {item.address}</p>
+          <img src={`images/missfind${props.i}.jpg`} width={300} height={300} />
+          <h4>이름: {props.profiles.name}</h4>
+          <p>실종위치: {props.profiles.missedplace}</p>
         </Col>
-        {/* <li>{item.name} {item.address}</li> */}
-    </div>
-);
+      </>
+    )
   }
 
 export default Card;
