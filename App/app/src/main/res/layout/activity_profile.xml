@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D9D9D9"
     tools:context=".ProfileActivity">
 
 
@@ -29,13 +30,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.466"
             app:srcCompat="@drawable/home" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/map_View"
-        android:layout_width="228dp"
-        android:layout_height="329dp"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="201dp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필"
+            android:textColor="#F6F4F4"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.334"
+            app:layout_constraintStart_toEndOf="@+id/HomeButton"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

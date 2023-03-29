@@ -17,9 +17,7 @@ class ProfileActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val mapView = MapView(this)
-        val mapViewContainer = map_View
-        mapViewContainer.addView(mapView)
+
 
         binding.HomeButton.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)

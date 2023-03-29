@@ -30,7 +30,10 @@
                 android:value="" />
         </activity>
         <activity android:name=".ProfileActivity"></activity>
-
+        <activity android:name=".MissActivity"></activity>
+        <activity android:name=".FindActivity"></activity>
+        <activity android:name=".HospitalActivity"></activity>
+        <activity android:name=".SearchActivity"></activity>
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="c41df9984c43c2eaf05b3b1b0d075ae4"/>
