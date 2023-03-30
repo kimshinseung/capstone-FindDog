@@ -41,12 +41,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
 
-        //홈화면 돌아가기
+        //프로필화면 돌아가기
         binding.profile.setOnClickListener{
             val intent = Intent(this,ProfileActivity::class.java)
             startActivity(intent)
         }
-        
+
+        //로고화면 누르면 메인액티비티로
+        binding.logo.setOnClickListener {
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
         //데이터베이스 불러와짐
         val db = Firebase.firestore
     }

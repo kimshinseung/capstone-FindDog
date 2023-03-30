@@ -18,10 +18,13 @@ class ProfileActivity : AppCompatActivity()  {
         setContentView(binding.root)
 
 
-
+        //홈으로 돌아가기
         binding.HomeButton.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+        }
+        binding.createAccount.setOnClickListener {
+            startActivity(Intent(this,SigninActivity::class.java))
         }
     }
 
