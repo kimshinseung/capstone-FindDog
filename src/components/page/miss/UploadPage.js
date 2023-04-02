@@ -8,7 +8,7 @@ import { React, useState, useEffect} from "react";
 import { useNavigate, Link } from "react-router-dom";
 import DaumPostcode from "react-daum-postcode";
 import { addDoc, collection } from "@firebase/firestore";
-import { db, storage } from "../../../firebase";
+import { db, storage } from "../../../firebase.js";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 
@@ -116,9 +116,10 @@ const UploadPage = () => {
                     <div>
                     <h3>이름</h3>
                     <input type="text" id="name" size="25" onChange={handleInput}></input>
-                    </div>
+                    </div><br/>
 
                     {userInputs.map((input)=>(
+                        <>
                         <div>
                             <h3>{input.label}</h3>
                             <select id={input.id} onChange={handleInput}>
@@ -128,20 +129,31 @@ const UploadPage = () => {
                                 ))}
                             </select>
                         </div>
+                        <br/>
+                        </>
                     ))} 
 
                     
 
-                    <h3>실종장소</h3>
-                    {popup && <div><DaumPostcode style={postCodeStyle} onComplete={handleComplete}/></div>}
-                    <input type="text" id="place" onChange={handleInput} value={address}></input>
-                    <input type="button" onClick={()=>setPopup(true)} value="주소찾기"></input>
+                    <div>
+                    <h3>연락처</h3>
+                    <input type="text" id="tel" maxLength="11" onChange={handleInput} />
+                    </div><br/>
 
+                    <div>
+                    <h3>날짜 및 시간</h3>
+                    <input type="datetime-local" id="date" onChange={handleInput}/>
+                    </div><br/>
+
+                    <div>
                     <h3>성격 및 특징</h3>
                     <textarea cols="30" rows="5" id="feature" onChange={handleInput}></textarea>
+                    </div><br/>
 
+                    <div>
                     <h3>실종전 사진</h3>
                     <input type="file" accept='image/*' onChange={(e)=>setFile(e.target.files[0])}/>
+                    </div><br/>
 
                     <br/>
                     <button type="submit">등록하기</button>

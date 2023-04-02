@@ -81,7 +81,7 @@ export default function Map() {
 			} 
 		}
 
-
+		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 		// 지도에 마커를 표시하는 함수입니다
 		function displayMarker(place) {
 
@@ -98,9 +98,8 @@ export default function Map() {
 				position: new kakao.maps.LatLng(place.y, place.x) 
 			});
 
-			// 마커에 클릭이벤트를 등록합니다
+
 			kakao.maps.event.addListener(marker, 'click', function() {
-				// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
 				var content = '<div class="placeinfo">' +
 							'   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';   
 
@@ -114,9 +113,9 @@ export default function Map() {
 							'</div>' + 
 							'<div class="after"></div>';
 
-				contentNode.innerHTML = content;
-				placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
-				placeOverlay.setMap(map);
+				// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+				infowindow.setContent(content);
+				infowindow.open(map, marker);
 			});
 		}
 
