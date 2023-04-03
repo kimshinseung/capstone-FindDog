@@ -10,19 +10,29 @@ import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.PopupMenu
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.monotics.app.capstone_app.data.ProfileDataViewModel
 import com.monotics.app.capstone_app.databinding.ActivityMainBinding
+import com.monotics.app.capstone_app.databinding.NavheaderBinding
 import net.daum.mf.map.api.MapView
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val binding2 by lazy { NavheaderBinding.inflate(layoutInflater)}
+    lateinit var profileDataViewModel: ProfileDataViewModel
+    private val db: FirebaseFirestore = Firebase.firestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -32,8 +42,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //        val mapViewContainer = map_View
 //        mapViewContainer.addView(mapView)
 
+
+
         //메뉴 버튼 누르면 drawerlayout실행됨
         binding.menu.setOnClickListener{
+            profileDataViewModel = ViewModelProvider(this).get(ProfileDataViewModel::class.java)
+            profileDataViewModel.refreshData()
+
+            profileDataViewModel.address.observeForever {
+                val textView: TextView = findViewById(R.id.address)
+                textView.text= it
+            }
+            profileDataViewModel.email.observeForever {
+                val textView: TextView = findViewById(R.id.email)
+                textView.text= it
+            }
+            profileDataViewModel.phoneNumber.observeForever {
+                val textView: TextView = findViewById(R.id.phone)
+                textView.text= it
+            }
+
             binding.layoutDrawer.openDrawer(GravityCompat.START)
         }
         // 네비게이션 메뉴 아이템에 클릭 속성 부여
@@ -52,8 +80,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
-        //데이터베이스 불러와짐
-        val db = Firebase.firestore
     }
 
 

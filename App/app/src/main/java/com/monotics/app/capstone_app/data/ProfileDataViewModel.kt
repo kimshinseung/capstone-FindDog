@@ -14,6 +14,7 @@ class ProfileDataViewModel : ViewModel() {
     var username = MutableLiveData<String>()
     var email = MutableLiveData<String>()
     var phoneNumber = MutableLiveData<String>()
+    var address = MutableLiveData<String>()
 
     fun refreshData(){
         viewModelScope.launch{
@@ -21,6 +22,7 @@ class ProfileDataViewModel : ViewModel() {
                 username.value = it.get("Name").toString()
                 email.value = it.get("Email").toString()
                 phoneNumber.value = it.get("PhoneNumber").toString()
+                address.value = it.get("Address").toString()
             }
         }
     }
