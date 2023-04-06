@@ -27,6 +27,11 @@ class MissActivity: AppCompatActivity()  {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
+        //실종등록하기 버튼
+        binding.missEnroll.setOnClickListener {
+            val intent = Intent(this,MissEnrollActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }
