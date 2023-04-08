@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -31,6 +32,12 @@ class MissEnrollActivity: AppCompatActivity() {
 
         //사진업로드 버튼
         binding.uploadImg.setOnClickListener {
+            //권한 있는 지 확인 먼저
+            val readPermission = ActivityCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = MediaStore.Images.Media.CONTENT_TYPE
             //startActivityForResult(intent, 1)
@@ -42,13 +49,14 @@ class MissEnrollActivity: AppCompatActivity() {
             val feature = binding.personalityEdit.text.toString()
             val gender = binding.genderEdit.text.toString()
             val specify = binding.specifyEdit.text.toString()
-
+            val name = binding.nameEdit.text.toString()
             val enrollinf= hashMapOf(
                 "address" to address,
                 "farColor" to farcolor,
                 "feature" to feature,
                 "gender" to gender,
-                "specify" to specify
+                "specify" to specify,
+                "name" to name
             )
             MissingCollectionRef.document().set(enrollinf).addOnFailureListener{
                 Toast.makeText(this,"실종 등록에 실패하였습니다.", Toast.LENGTH_SHORT).show()
