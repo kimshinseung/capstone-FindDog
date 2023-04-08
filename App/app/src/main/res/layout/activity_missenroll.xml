@@ -150,20 +150,25 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="258dp"
+                android:layout_height="129dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/upload_img"
-                android:layout_width="250dp"
-                android:layout_height="112dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="17dp"
-                android:background="#B3FFFFFF"
-                android:text="(최대 5장까지 사진을 업로드해주세요)"
+                android:id="@+id/findimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:background="#D0ECE6"
+                android:text="최대 5장까지 사진을 올려주세요"
                 android:textColor="@color/black"
-                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -225,6 +230,7 @@
                 android:id="@+id/farcolor_edit"
                 android:layout_width="260dp"
                 android:layout_height="45dp"
+                android:layout_marginTop="37dp"
                 android:background="@color/white"
                 android:elevation="3dp"
                 android:hint="ex)갈색"
@@ -232,9 +238,10 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="TouchTargetSizeCheck"
-                tools:layout_editor_absoluteY="117dp" />
+                app:layout_constraintTop_toTopOf="@+id/name_edit"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <EditText
                 android:id="@+id/gender_edit"

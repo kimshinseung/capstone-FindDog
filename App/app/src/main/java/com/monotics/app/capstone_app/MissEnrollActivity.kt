@@ -1,11 +1,16 @@
 package com.monotics.app.capstone_app
 
 import android.content.Intent
+import android.graphics.Insets.add
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -14,10 +19,14 @@ import com.monotics.app.capstone_app.databinding.ActivityMissenrollBinding
 class MissEnrollActivity: AppCompatActivity() {
     val db:FirebaseFirestore = Firebase.firestore
     private val MissingCollectionRef = db.collection("Missing")
+    var list=ArrayList<Uri>()
+    val adapter = MultiImageAdapter(list, this)
     val binding by lazy { ActivityMissenrollBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        var recyclerview = findViewById<RecyclerView>(R.id.recyclerView)
 
         //프로필화면 돌아가기
         binding.profile.setOnClickListener{
@@ -31,17 +40,24 @@ class MissEnrollActivity: AppCompatActivity() {
         }
 
         //사진업로드 버튼
-        binding.uploadImg.setOnClickListener {
-            //권한 있는 지 확인 먼저
-            val readPermission = ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.READ_EXTERNAL_STORAGE
-            )
-
+        binding.findimg.setOnClickListener {
+//            //권한 있는 지 확인 먼저
+//            val readPermission = ActivityCompat.checkSelfPermission(
+//                this,
+//                android.Manifest.permission.READ_EXTERNAL_STORAGE
+//            )
+            binding.findimg.visibility= View.INVISIBLE
             val intent = Intent(Intent.ACTION_PICK)
-            intent.type = MediaStore.Images.Media.CONTENT_TYPE
-            //startActivityForResult(intent, 1)
+            intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true)
+            intent.action=Intent.ACTION_GET_CONTENT
+
+            startActivityForResult(intent, 10)
         }
+        val layoutManager = LinearLayoutManager(this)
+        recyclerview.layoutManager= layoutManager
+        recyclerview.adapter=adapter
+
         //등록하기 버튼
         binding.enroll.setOnClickListener {
             val address = binding.addressEdit.text.toString()
@@ -64,6 +80,34 @@ class MissEnrollActivity: AppCompatActivity() {
             super.onBackPressed()
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(resultCode== RESULT_OK && requestCode == 10){
+            list.clear()
+            if(data?.clipData != null){ //다중 선택
+                val count = data.clipData!!.itemCount
+
+                if(count>5){
+                    Toast.makeText(applicationContext,"사진은 5장까지만 선택 가능합니다", Toast.LENGTH_SHORT)
+                    return
+                }
+                for(i in 0 until count){
+                    val imageUri = data.clipData!!.getItemAt(i).uri
+                    list.add(imageUri)
+                }
+            }else{// 단일 선택
+                data?.data?.let{ uri ->
+                    val imageUri : Uri? = data?.data
+                    if(imageUri != null){
+                        list.add(imageUri)
+                    }
+                }
+            }
+            adapter.notifyDataSetChanged()
+        }
     }
 
 }
