@@ -109,7 +109,7 @@ class MissEnrollActivity: AppCompatActivity() {
                 }
                 for(i in 0 until count){
                     val imageUri = data.clipData!!.getItemAt(i).uri
-                    uploadImageFirebase(imageUri)
+                    //uploadImageFirebase(imageUri)
                     list.add(imageUri)
                 }
             }else{// 단일 선택
@@ -117,7 +117,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     val imageUri : Uri? = data?.data
                     if(imageUri != null){
                         list.add(imageUri)
-                        uploadImageFirebase(imageUri)
+                        //uploadImageFirebase(imageUri)
                     }
                 }
             }
