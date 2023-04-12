@@ -5,6 +5,7 @@ import android.graphics.Insets.add
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +15,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.Constants.MessageNotificationKeys.TAG
+import com.google.firebase.storage.FirebaseStorage
 import com.monotics.app.capstone_app.databinding.ActivityMissenrollBinding
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MissEnrollActivity: AppCompatActivity() {
     val db:FirebaseFirestore = Firebase.firestore
@@ -60,6 +66,12 @@ class MissEnrollActivity: AppCompatActivity() {
 
         //등록하기 버튼
         binding.enroll.setOnClickListener {
+            
+            if(binding.farcolorEdit.text.isBlank()||binding.nameEdit.text.isBlank()){
+                Toast.makeText(this,"필수항목을 채워야 합니다", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            
             val address = binding.addressEdit.text.toString()
             val farcolor = binding.farcolorEdit.text.toString()
             val feature = binding.personalityEdit.text.toString()
@@ -78,6 +90,7 @@ class MissEnrollActivity: AppCompatActivity() {
                 Toast.makeText(this,"실종 등록에 실패하였습니다.", Toast.LENGTH_SHORT).show()
             }
             super.onBackPressed()
+
         }
 
     }
@@ -96,6 +109,7 @@ class MissEnrollActivity: AppCompatActivity() {
                 }
                 for(i in 0 until count){
                     val imageUri = data.clipData!!.getItemAt(i).uri
+                    uploadImageFirebase(imageUri)
                     list.add(imageUri)
                 }
             }else{// 단일 선택
@@ -103,11 +117,26 @@ class MissEnrollActivity: AppCompatActivity() {
                     val imageUri : Uri? = data?.data
                     if(imageUri != null){
                         list.add(imageUri)
+                        uploadImageFirebase(imageUri)
                     }
                 }
             }
             adapter.notifyDataSetChanged()
         }
     }
+    fun uploadImageFirebase(uri: Uri){
+        var storage: FirebaseStorage? = FirebaseStorage.getInstance()   //FirebaseStorage 인스턴스 생성
+        //파일 이름 생성.
+        var fileName = "IMAGE_${SimpleDateFormat("yyyymmdd_HHmmss").format(Date())}_.png"
+        //파일 업로드, 다운로드, 삭제, 메타데이터 가져오기 또는 업데이트를 하기 위해 참조를 생성.
+        //참조는 클라우드 파일을 가리키는 포인터라고 할 수 있음.
+        var imagesRef = storage!!.reference.child(fileName)    //기본 참조 위치/images/${fileName}
+        //이미지 파일 업로드
+        imagesRef.putFile(uri!!).addOnSuccessListener {
 
+        }.addOnFailureListener {
+            println(it)
+            Toast.makeText(this, "올리기 실패", Toast.LENGTH_SHORT).show()
+        }
+    }
 }

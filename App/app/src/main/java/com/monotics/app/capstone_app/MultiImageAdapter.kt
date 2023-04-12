@@ -13,7 +13,6 @@ class MultiImageAdapter(private val items: ArrayList<Uri>,val context: Context):
     RecyclerView.Adapter<MultiImageAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = items.size
-
 //    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int){
 //        val item=items[position]
 //        Glide.with(context).load(item)
@@ -23,7 +22,7 @@ class MultiImageAdapter(private val items: ArrayList<Uri>,val context: Context):
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         Glide.with(context).load(item)
-            .override(500,500)
+            .override(800,500)
             .into(holder.image)
     }
 
