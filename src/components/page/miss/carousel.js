@@ -5,62 +5,23 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { getDocs, collection, query, doc, where } from "firebase/firestore";
 import { db, storage } from "../../../firebase";
+import Cardcom from './Cardcom';
 import Card from './card';
 import data from './data';
 
 const Carousel = ()=>{
-  var sample1 = new Array(10);
   let [profiles] = useState(data);
 
-  // const [profiles, setProfiles] = useState(new Map());
-
-  // const a = useState(async ()=> {
+  
+  // const [profiles] = useState(async ()=> {
   //   const QuerySnapshot = await getDocs(query(collection(db, "Missing")));
   //   const data = QuerySnapshot.docs.map((doc) => ({
   //     id: doc.id,
   //     ...doc.data()
   //   }));
   //   console.log(data);
-  //   sample1 = data;
-  //   //setProfiles(data);
   //   return data;
   // });
-
-  // const [profiles, setProfiles] = useState(async ()=> {
-  //   const QuerySnapshot = await getDocs(query(collection(db, "Missing")));
-  //   const data = QuerySnapshot.docs.map((doc) => ({
-  //     id: doc.id,
-  //     ...doc.data()
-  //   }));
-  //   console.log(data);
-  //   sample1 = data;
-  //   //setProfiles(data);
-  //   return data;
-  // });
-
-  // var a = "abc";
-
-
-  // const [profiles, setProfiles] = useState(async ()=> {
-  //     const QuerySnapshot = await getDocs(query(collection(db, "Missing")));
-  //     const data = QuerySnapshot.docs.map((doc) => ({
-  //       //id: doc.id,
-  //       ...doc.data()
-  //     }));
-  //     console.log(data);
-  //     sample1 = data;
-  //     //setProfiles(data);
-  //     return data;
-  //   });
-
-    //console.log(sample1);
-
-  // const [profiles, setProfiles] = useState(async ()=> {
-  //   const QuerySnapshot = await getDocs(query(collection(db, "Missing")));
-  //     QuerySnapshot.docs.map((doc) => {
-  //       console.log(doc.id, " => ", doc.data());
-  //     });
-  //   });
 
 
 
@@ -100,7 +61,8 @@ const Carousel = ()=>{
     return(
         <div className="carousel">
             <Slider {...settings}>
-              {profiles.map((item, i) => <Card profile={item} i={i+1} key={item.id} />)}
+              {profiles.map(item => <Card profiles={item} i={i+1} key={item.id} />)}
+              {/* <Cardcom profiles={profiles}/> */}
             </Slider>
         </div>
     )
