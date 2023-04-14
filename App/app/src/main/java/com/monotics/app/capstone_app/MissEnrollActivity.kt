@@ -28,6 +28,8 @@ class MissEnrollActivity: AppCompatActivity() {
     var list=ArrayList<Uri>()
     val adapter = MultiImageAdapter(list, this)
     val binding by lazy { ActivityMissenrollBinding.inflate(layoutInflater) }
+
+    var storage: FirebaseStorage? = FirebaseStorage.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -78,13 +80,17 @@ class MissEnrollActivity: AppCompatActivity() {
             val gender = binding.genderEdit.text.toString()
             val specify = binding.specifyEdit.text.toString()
             val name = binding.nameEdit.text.toString()
+            val img = storage!!.reference.child("0_20231512_111516_.png").downloadUrl.addOnSuccessListener {
+
+            }
             val enrollinf= hashMapOf(
                 "address" to address,
                 "farColor" to farcolor,
                 "feature" to feature,
                 "gender" to gender,
                 "specify" to specify,
-                "name" to name
+                "name" to name,
+                "img" to img
             )
             MissingCollectionRef.document().set(enrollinf).addOnFailureListener{
                 Toast.makeText(this,"실종 등록에 실패하였습니다.", Toast.LENGTH_SHORT).show()
@@ -102,21 +108,24 @@ class MissEnrollActivity: AppCompatActivity() {
             list.clear()
             if(data?.clipData != null){ //다중 선택
                 val count = data.clipData!!.itemCount
-
                 if(count>5){
                     Toast.makeText(applicationContext,"사진은 5장까지만 선택 가능합니다", Toast.LENGTH_SHORT)
                     return
                 }
+
                 for(i in 0 until count){
                     val imageUri = data.clipData!!.getItemAt(i).uri
                     //uploadImageFirebase(imageUri)
                     list.add(imageUri)
+                    uploadImageFirebase(list[i],i)
                 }
+
             }else{// 단일 선택
                 data?.data?.let{ uri ->
                     val imageUri : Uri? = data?.data
                     if(imageUri != null){
                         list.add(imageUri)
+                        uploadImageFirebase(list[0],0)
                         //uploadImageFirebase(imageUri)
                     }
                 }
@@ -124,10 +133,11 @@ class MissEnrollActivity: AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
     }
-    fun uploadImageFirebase(uri: Uri){
+    fun uploadImageFirebase(uri: Uri, i: Int){
         var storage: FirebaseStorage? = FirebaseStorage.getInstance()   //FirebaseStorage 인스턴스 생성
         //파일 이름 생성.
-        var fileName = "IMAGE_${SimpleDateFormat("yyyymmdd_HHmmss").format(Date())}_.png"
+
+        var fileName = "${i}_${SimpleDateFormat("yyyymmdd_HHmmss").format(Date())}_.png"
         //파일 업로드, 다운로드, 삭제, 메타데이터 가져오기 또는 업데이트를 하기 위해 참조를 생성.
         //참조는 클라우드 파일을 가리키는 포인터라고 할 수 있음.
         var imagesRef = storage!!.reference.child(fileName)    //기본 참조 위치/images/${fileName}
@@ -136,7 +146,6 @@ class MissEnrollActivity: AppCompatActivity() {
 
         }.addOnFailureListener {
             println(it)
-            Toast.makeText(this, "올리기 실패", Toast.LENGTH_SHORT).show()
         }
     }
 }
