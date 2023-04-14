@@ -10,6 +10,7 @@ import {
   MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
   MissBoard, FindBoard, HospitalMap, Search, Review, Notfound, Login, Signup, Upload, MoreInfo, MoreInfo2
   } from "../page/Pages";
+import { DetailPage } from '../page/miss/DetailPage';
 
 // path 정의
 const Hierarchy = () => (
@@ -38,6 +39,9 @@ const Hierarchy = () => (
 
       <Route path='/information' element={<Navigate replace='true' to='mypage/information' />} />
       <Route path='/post' element={<Navigate replace='true' to='mypage/post' />} />
+
+      {/* 상세페이지 */}
+      <Route path='detail/:id' element={<DetailPage />} />
 
       <Route path="*" element={<Notfound />} />
     </Routes>
