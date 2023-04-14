@@ -1,6 +1,6 @@
 /**
  * ./src/components/page/review/ReviewPage.js
- * 리뷰 게시판
+ * 후기 게시판
  */
 
 import React from "react";
@@ -8,7 +8,7 @@ import React from "react";
 export const ReviewPage = () => {
     return (
         <>
-            <h3>리뷰게시판</h3>
+            <h3>후기게시판</h3>
         </>
     );
 };
