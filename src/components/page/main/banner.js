@@ -19,9 +19,9 @@ const BannerCarousel = ()=>{
     return(
         <div classname="bannercarousel">
             <Slider {...settings}>
-                <img className='main-logo1' img src="images/banner.jpg" width={300} height={300}/>
-                <img className='main-logo2' img src="images/banner.jpg" width={300} height={300}/>
-                <img className='main-logo3' img src="images/banner.jpg" width={300} height={300}/>
+                <img className='main-logo1' img src="images/banner1.png" width={300} height={400}/>
+                <img className='main-logo2' img src="images/banner2.png" width={300} height={400}/>
+                <img className='main-logo3' img src="images/banner.jpg" width={300} height={400}/>
             </Slider>
         </div>    
     )
