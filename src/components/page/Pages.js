@@ -6,12 +6,12 @@
 
 // import
 import { useLocation, Outlet } from "react-router-dom";
-import { MainMenu, SearchMenu, MyMenu } from "../menu/Menu";
+import { MainMenu, MyMenu } from "../menu/Menu";
 // import
 import {FindPage} from './find/FindPage';
 import {MissPage} from './miss/MissPage';
 import {SearchPage} from './search/SearchPage';
-import {ReviewPage} from './review/ReviewPage';
+import {PostingPage} from './posting/PostingPage';
 import {MainPage} from './main/MainPage';
 import { MyInformation } from "./mypage/MyInformation";
 import { MyPost } from "./mypage/MyPost";
@@ -128,9 +128,6 @@ export const FindBoard = () => (
 export const HospitalMap = () => (
   <PageTemplate>
     <section className="hospital-map">
-      <div>
-        <h3>근처 동물병원 및 보호소 찾기</h3>
-      </div>
       <Map />
     </section>
   </PageTemplate>
@@ -146,10 +143,10 @@ export const Search = () => (
 );
 
 // 후기게시판
-export const Review = () => (
+export const Posting = () => (
   <PageTemplate>
-    <section className="review-board">
-      <ReviewPage />
+    <section className="posting-board">
+      <PostingPage />
     </section>
   </PageTemplate>
 );

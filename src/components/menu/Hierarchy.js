@@ -8,9 +8,10 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 // import components
 import {
   MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
-  MissBoard, FindBoard, HospitalMap, Search, Review, Notfound, Login, Signup, Upload, MoreInfo, MoreInfo2
+  MissBoard, FindBoard, HospitalMap, Search, Posting, Notfound, Login, Signup, Upload, MoreInfo, MoreInfo2
   } from "../page/Pages";
 import { DetailPage } from '../page/miss/DetailPage';
+import data from '../page/miss/data';
 
 // path 정의
 const Hierarchy = () => (
@@ -19,14 +20,14 @@ const Hierarchy = () => (
       <Route exact path='/' element={<MainBoard />} />
 
       <Route path="/miss/*" element={<MissBoard />} />
-      <Route path="/miss/uplode*" element={<Upload />} />
+      <Route path="/miss/upload*" element={<Upload />} />
       <Route path="/miss/moreInfo*" element={<MoreInfo />} />
       <Route path="/miss/moreInfo2*" element={<MoreInfo2 />} />
 
       <Route path="/find/*" element={<FindBoard />} />
       <Route path="/hospital/*" element={<HospitalMap />} />
       <Route path="/search/*" element={<Search />} />
-      <Route path="/review/*" element={<Review />} />
+      <Route path="/posting/*" element={<Posting />} />
 
       <Route path="/login" element={<Login />} />
       <Route path="/login/signup" element={<Signup />} />
@@ -41,7 +42,7 @@ const Hierarchy = () => (
       <Route path='/post' element={<Navigate replace='true' to='mypage/post' />} />
 
       {/* 상세페이지 */}
-      <Route path='detail/:id' element={<DetailPage />} />
+      <Route path='detail/:id' element={<DetailPage props={data}/>} />
 
       <Route path="*" element={<Notfound />} />
     </Routes>

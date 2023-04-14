@@ -6,7 +6,7 @@ import "./map.scss";
 import React, { useEffect } from "react";
 import { shelters, hospitals } from "./data";
 
-
+import '../../../style/style.css';
 
 
 export default function Map() {
@@ -223,10 +223,13 @@ export default function Map() {
 
 	return <>
 		<div className="map-page">
-			<div className="box" id="box1" />
-			<div id="map" style={{ width: "1500px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
-			<div className="box" id="box2"/>
-			<br></br>
+        	<h2>근처 동물병원 및 보호소 찾기</h2>
+			<div className="map-section">
+				<div className="box" id="box1" />
+				<div id="map" style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
+				<div className="box" id="box2"/>
+				<br></br>
+			</div>
 		</div>
 		<button id="button" onClick={()=>mapscript()}> 내 위치 </button>
 	</>

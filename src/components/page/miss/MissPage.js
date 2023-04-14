@@ -3,7 +3,7 @@
  * 실종 게시판
  */
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Carousel  from "./carousel";
 
 
@@ -11,8 +11,8 @@ export const MissPage = () => {
     return (
         <>
             <div className="miss-page">
-                <h2>실종 게시판</h2>
-                <Link to="uplode"> 실종 등록하기</Link>
+                <h2>실종 게시판</h2><br/>
+                <Link to="upload"> 실종 등록하기</Link>
 
                 <br/><br/><br/>
                 <h3>최근 실종 순</h3> 

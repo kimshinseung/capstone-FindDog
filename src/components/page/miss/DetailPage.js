@@ -8,7 +8,7 @@ import { db } from '../../../firebase';
 
 export const DetailPage = (props) => {
     let {id} = useParams();
-    console.log(id)
+    //console.log(id);
 
     const navigate = useNavigate();
 
@@ -18,8 +18,15 @@ export const DetailPage = (props) => {
 
     return (
         <>
-        <h2>상세 페이지입니다.</h2>
-        <p>ID: {id}</p>
+        <h2>상세 페이지</h2>
+        <p>게시글 번호: {id}</p>
+        <img src={`images/missfind${id}.jpg`} width={300} height={300} />
+        {/* <h4>이름: {Array.from(props)[id].name}</h4>
+        <p>실종위치: {Array.from(props)[id].missedplace}</p> */}
+        {/* <p>test: {Array.from(props).map((item, i) => {
+            item[i].name
+            console.log("item: " + item[i].name);
+        })}</p> */}
         <br/>
         <button onClick={back}>뒤로가기</button>
         </>

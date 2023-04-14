@@ -7,7 +7,7 @@ export const FindPage = () => {
     return (
         <>
             <div className="find-page">
-                <h3>목격 게시판</h3>
+                <h2>목격 게시판</h2>
             </div>
         </>
     );

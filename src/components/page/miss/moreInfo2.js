@@ -13,7 +13,7 @@ const Moreinfo2Page = () => {
  <>
             <div className="moreInfo2-page">
                 <h2>실종 게시판</h2>
-                <Link to="uplode"> 실종 등록하기</Link>
+                <Link to="upload"> 실종 등록하기</Link>
                 <br/>
                 <h3>우리 지역 관련 순</h3> 
                 <br/>

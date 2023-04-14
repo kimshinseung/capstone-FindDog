@@ -68,7 +68,7 @@ export function SearchPage() {
     return <>
 
         <div className="search-page">
-
+            <h2>검색</h2>
             <div className='selectBox'>
                 <h3>분류</h3>
             <select id="Division">
@@ -101,10 +101,12 @@ export function SearchPage() {
                     <option value="하얀색">하얀색</option>
                 </select>
             </div>
+            <br/>
             <button
                 onClick={() => { Search() }}>
                 검색</button>
-            <h2>게시물 목록</h2>
+            <br/><br/><hr/>
+            <h2>검색 결과</h2>
             <div>
                 <Post postObj={postdata} />
             </div>

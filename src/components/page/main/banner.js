@@ -1,5 +1,8 @@
 import React from "react";
 import Slider from 'react-slick';
+import { Link } from "react-router-dom";
+// import css
+import '../../../style/style.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -19,8 +22,10 @@ const BannerCarousel = ()=>{
     return(
         <div classname="bannercarousel">
             <Slider {...settings}>
-                <img className='main-logo1' img src="images/banner1.png" width={300} height={400}/>
-                <img className='main-logo2' img src="images/banner2.png" width={300} height={400}/>
+                <img className='main-logo1' img src="images/banner1.png"/>
+                <Link to="/find">
+                <img className='main-logo2' img src="images/banner2.png"/>
+                </Link>         
                 <img className='main-logo3' img src="images/banner.jpg" width={300} height={400}/>
             </Slider>
         </div>    

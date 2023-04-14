@@ -22,7 +22,7 @@ export const MainMenu = () => {
       <NavLink to="/find" style={({ isActive }) => isActive ? activeStyle : undefined}>목격</NavLink>
       <NavLink to="/hospital" style={({ isActive }) => isActive ? activeStyle : undefined}>보호소 및 동물병원</NavLink>
       <NavLink to="/search" style={({ isActive }) => isActive ? activeStyle : undefined}>검색</NavLink>
-      <NavLink to="/review" style={({ isActive }) => isActive ? activeStyle : undefined}>후기</NavLink>
+      <NavLink to="/posting" style={({ isActive }) => isActive ? activeStyle : undefined}>자유게시판</NavLink>
     </nav>
   )
 };
