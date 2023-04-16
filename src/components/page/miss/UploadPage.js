@@ -136,6 +136,12 @@ const UploadPage = () => {
                         </>
                     ))} 
 
+                    <div>
+                    <h3>중성화 여부</h3>
+                    <label><input type="radio" id="neutering" name="neutering" value="yes" onChange={handleInput}/>예</label> &nbsp;
+                    <label><input type="radio" id="neutering" name="neutering" value="no" onChange={handleInput}/>아니오</label>
+                    </div><br/>
+
                     <h3>실종장소</h3>
                     {popup && <div><DaumPostcode style={postCodeStyle} onComplete={handleComplete}/></div>}
                     <input type="text" id="place" onChange={handleInput} value={address}></input>
