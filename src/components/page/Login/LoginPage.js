@@ -7,8 +7,9 @@ import "./LoginPage.scss";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { db } from '../../../firebase';
-import { getAuth, signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, setPersistence, browserSessionPersistence, GoogleAuthProvider } from "firebase/auth";
 import { getDocs, collection, query, where } from 'firebase/firestore';
+import { GoogleLogin } from "./GoogleLogin";
 
 const LoginPage = () => {
     const [error, setError] = useState(false);
@@ -34,6 +35,34 @@ const LoginPage = () => {
             setError(true);
         });
     };
+
+    const GoogleLoginHandler = e => {
+        e.preventDefault();
+        GoogleLogin()
+        .then(res => {
+            const credential = GoogleAuthProvider.credentialFromResult(res);
+            const token = credential.accessToken;
+            const userName = res.user.displayName;
+
+            // local storage에 token, username 저장해주기 
+            setToken(token);
+            setUserName(userName);
+        })
+        .then(res => {
+            navigate("/");
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
+
+    const setToken = (t) => {
+        localStorage.setItem('Token', t);
+    }
+
+    const setUserName = (n) => {
+        localStorage.setItem('Name', n);
+    }
 
     async function setInfo() {
         console.log("setInfo() 실행");
@@ -64,6 +93,9 @@ const LoginPage = () => {
                 <button type="submit" onClick={setInfo}>Login</button>
                 { error && <span>잘못된 이메일 혹은 비밀번호입니다.</span> }
             </form>
+            <div>
+                <button onClick={GoogleLoginHandler}>Google 로그인</button>
+            </div>
             <div><Link to="signup">회원가입</Link></div>
         </div>
         </>
