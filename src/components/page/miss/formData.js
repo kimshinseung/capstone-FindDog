@@ -11,7 +11,7 @@ const userInputs = [
     },
     {
         id: "farColor",
-        label: "털색",
+        label: "모색",
         datas: ["검은색", "갈색", "하얀색"]
     }
 ];

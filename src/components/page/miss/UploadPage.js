@@ -10,6 +10,7 @@ import DaumPostcode from "react-daum-postcode";
 import { addDoc, collection } from "@firebase/firestore";
 import { db, storage } from "../../../firebase.js";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+//import Dropzone from 'react-dropzone'
 
 
 
@@ -17,12 +18,15 @@ const UploadPage = () => {
     //const inputs = ["품종", "성별", "털색"];
 
     const [data, setData] = useState({});
-    const [file, setFile] = useState("");
+    //const [file, setFile] = useState("");
+    const [files, setFiles] = useState([]);
+    const files2 = Array.from(files);
     const [address, setAddress] = useState("");
     const [popup, setPopup] = useState(false);
 
+
     useEffect(()=>{
-        const uploadFile= () => {
+        const uploadFile= (file, i) => {
             const name = new Date().getTime() + file.name;
             const storageRef = ref(storage, file.name);
             const uploadTask = uploadBytesResumable(storageRef, file);
@@ -31,29 +35,19 @@ const UploadPage = () => {
                 (snapshot) => {
                     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     console.log('Upload is ' + progress + '% done');
-                    switch (snapshot.state) {
-                        case 'paused':
-                            console.log('Upload is paused');
-                            break;
-                        case 'running':
-                            console.log('Upload is running');
-                            break;
-                        default:
-                            break;
-                    }
                 },
                 (error) => {
                     console.log(error)
                 },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        setData((prev)=>({...prev, img:downloadURL}))
+                        files2[i] = {img:downloadURL};
                     });
                 }
             );
         };
-        file && uploadFile();
-    }, [file]);
+        files && Array.from(files).map((file, i) => (uploadFile(file, i))); //유사배열객체라서 map함수 쓰기위해 Array.from함수 사용
+    }, [files]);
     
 
 
@@ -69,9 +63,10 @@ const UploadPage = () => {
 
     const handler = async(e) =>{
         e.preventDefault();
+        console.log(files2);
         await addDoc(collection(db, "Missing" ), {
-            ...data
-            //time: serverTimestamp()
+            ...data,
+            imgs: files2
         });
         alert("등록되었습니다");
         location.reload();
@@ -110,12 +105,20 @@ const UploadPage = () => {
 
     return (
         <>
+            <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+            <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+
             <div className="upload-page">
                 <form onSubmit = {handler}>
 
                     <div>
                     <h3>이름</h3>
                     <input type="text" id="name" size="25" onChange={handleInput}></input>
+                    </div><br/>
+
+                    <div>
+                    <h3>나이</h3>
+                    <input type="number" id="age" size="2" onChange={handleInput}></input>
                     </div><br/>
 
                     {userInputs.map((input)=>(
@@ -133,11 +136,14 @@ const UploadPage = () => {
                         </>
                     ))} 
 
-                    
+                    <h3>실종장소</h3>
+                    {popup && <div><DaumPostcode style={postCodeStyle} onComplete={handleComplete}/></div>}
+                    <input type="text" id="place" onChange={handleInput} value={address}></input>
+                    <input type="button" onClick={()=>setPopup(true)} value="주소찾기"></input><br/>
 
                     <div>
                     <h3>연락처</h3>
-                    <input type="text" id="tel" maxLength="11" onChange={handleInput} />
+                    <input type="number" id="tel" maxLength="11" onChange={handleInput} />
                     </div><br/>
 
                     <div>
@@ -152,7 +158,16 @@ const UploadPage = () => {
 
                     <div>
                     <h3>실종전 사진</h3>
-                    <input type="file" accept='image/*' onChange={(e)=>setFile(e.target.files[0])}/>
+                    <input type="file" multiple accept='image/*' onChange={(e)=>setFiles(e.target.files)}/>
+                    {/* <form action="/target" class="dropzone" id="myDropzone"></form>
+                    <script>
+                        Dropzone.discover();
+                        Dropzone.options.myDropzone = {
+                            url: "https://httpbin.org/post",
+                            method: 'post',
+                        };
+                    </script> */}
+
                     </div><br/>
 
                     <br/>
