@@ -22,7 +22,9 @@ const Hierarchy = () => (
       <Route path="/miss/*" element={<MissBoard />} />
       <Route path="/miss/upload*" element={<Upload />} />
       <Route path="/miss/moreInfo*" element={<MoreInfo />} />
+      <Route path="/miss/moreInfo/upload*" element={<Upload />} />
       <Route path="/miss/moreInfo2*" element={<MoreInfo2 />} />
+      <Route path="/miss/moreInfo2/upload*" element={<Upload />} />
 
       <Route path="/find/*" element={<FindBoard />} />
       <Route path="/hospital/*" element={<HospitalMap />} />
@@ -42,7 +44,8 @@ const Hierarchy = () => (
       <Route path='/post' element={<Navigate replace='true' to='mypage/post' />} />
 
       {/* 상세페이지 */}
-      <Route path='detail/:id' element={<DetailPage props={data}/>} />
+      <Route path='detail/:id' element={<DetailPage data={data} />} />
+      {/* <Route path='detail/:id' element={data.map((item, i) => <DetailPage data={item} i={i+1} key={item.id}/>)} /> */}
 
       <Route path="*" element={<Notfound />} />
     </Routes>

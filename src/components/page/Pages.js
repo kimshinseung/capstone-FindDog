@@ -90,7 +90,7 @@ export const Upload = () => (
 
 export const MoreInfo = () => (
   <PageTemplate>
-    <section className="moreinfo-page">
+    <section className="moreinfo-board">
       <MoreinfoPage />
     </section>
   </PageTemplate>
@@ -98,7 +98,7 @@ export const MoreInfo = () => (
 
 export const MoreInfo2 = () => (
   <PageTemplate>
-    <section className="moreinfo2-page">
+    <section className="moreinfo2-board">
       <Moreinfo2Page />
     </section>
   </PageTemplate>
