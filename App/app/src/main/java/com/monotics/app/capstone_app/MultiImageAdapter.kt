@@ -24,7 +24,7 @@ class MultiImageAdapter(private val items: ArrayList<Uri>,val context: Context):
 
         if(items[0]!=null){
             Glide.with(context).load(item)
-                .override(800,500)
+                .override(500,500)
                 .into(holder.image1)
             //uploadImageFirebase(items[position])
             //uploadImageFirebase(items[1])

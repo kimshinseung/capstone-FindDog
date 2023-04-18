@@ -21,6 +21,7 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import com.monotics.app.capstone_app.data.MissModel
 import com.monotics.app.capstone_app.databinding.ActivityMissenrollBinding
+import kotlinx.android.synthetic.main.activity_missenroll.recyclerView
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -29,6 +30,8 @@ import kotlin.collections.ArrayList
 class MissEnrollActivity: AppCompatActivity() {
     val binding by lazy { ActivityMissenrollBinding.inflate(layoutInflater) }
     private val imageUrls = ArrayList<String>()
+    var list = ArrayList<Uri>()
+    val adapter = MultiImageAdapter(list,this)
 
     private val PICK_IMAGE_REQUEST = 1
 
@@ -44,6 +47,11 @@ class MissEnrollActivity: AppCompatActivity() {
         db = Firebase.firestore
 
         selectedImageUris = mutableListOf()
+
+        val layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter=adapter
+
 
         //프로필화면 돌아가기
         binding.profile.setOnClickListener{
@@ -136,11 +144,16 @@ class MissEnrollActivity: AppCompatActivity() {
             val clipData= data?.clipData
 
             if(clipData != null){
-                
+                val count = data.clipData!!.itemCount
+                if(count>5){
+                    Toast.makeText(this,"사진은 5장까지 선택 가능합니다", Toast.LENGTH_SHORT).show()
+                    return
+                }
 
                 for(i in 0 until clipData.itemCount){
                     val imageUri = clipData.getItemAt(i).uri
                     imageUriList.add(imageUri)
+                    list.add(imageUri)
                     //imageUrls.add(imageUri.toString())
                 }
 
@@ -148,10 +161,12 @@ class MissEnrollActivity: AppCompatActivity() {
                 val imageUri = data!!.data
                 if (imageUri != null) {
                     imageUriList.add(imageUri)
+                    list.add(imageUri)
                     //imageUrls.add(imageUri.toString())
                 }
             }
             uploadImagesToFirebaseStorage(imageUriList)
+            adapter.notifyDataSetChanged()
         }
     }
     private fun uploadImagesToFirebaseStorage(imageUriList: ArrayList<Uri>) {
