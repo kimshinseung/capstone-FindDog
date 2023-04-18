@@ -58,12 +58,8 @@ class MissEnrollActivity: AppCompatActivity() {
 
         //사진업로드 버튼
         binding.findimg.setOnClickListener {
-//            //권한 있는 지 확인 먼저
-//            val readPermission = ActivityCompat.checkSelfPermission(
-//                this,
-//                android.Manifest.permission.READ_EXTERNAL_STORAGE
-//            )
-            binding.findimg.visibility= View.INVISIBLE
+
+            //binding.findimg.visibility= View.INVISIBLE
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "image/*"
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
@@ -92,40 +88,39 @@ class MissEnrollActivity: AppCompatActivity() {
                 "gender" to gender,
                 "specify" to specify,
                 "name" to name,
-                "imageUrls" to ArrayList<String>(imageUrls)
+                "img" to ArrayList<String>(imageUrls)
             )
             db.collection("Missing")
                 .add(enrollinf)
                 .addOnSuccessListener { documentReference->
-                    val imagePaths = mutableListOf<String>()
+                    Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
 
-                    selectedImageUris.forEachIndexed { index, imageUri ->
-                        val imagePath = "images/${documentReference.id}/${UUID.randomUUID()}_${index}.jpg"
-                        imagePaths.add(imagePath)
-
-                        val imageRef = storageRef.child(imagePath)
-                        imageRef.putFile(imageUri)
-                            .addOnSuccessListener {
-                                imageRef.downloadUrl.addOnSuccessListener { imageUrl ->
-                                    val imageUrls = enrollinf["imageUrls"] as ArrayList<String>
-                                    imageUrls.add(imageUrl.toString())
-
-                                    db.collection("Missing")
-                                        .document(documentReference.id)
-                                        .update("imageUrls",imageUrls)
-                                        .addOnSuccessListener {
-
-                                        }
-                                }
-                            }
-                    }
+//                    val imagePaths = mutableListOf<String>()
+//
+//                    selectedImageUris.forEachIndexed { index, imageUri ->
+//                        val imagePath = "images/${documentReference.id}/${UUID.randomUUID()}_${index}.jpg"
+//                        imagePaths.add(imagePath)
+//
+//                        val imageRef = storageRef.child(imagePath)
+//                        imageRef.putFile(imageUri)
+//                            .addOnSuccessListener {
+//                                imageRef.downloadUrl.addOnSuccessListener { imageUrl ->
+//                                    val imageUrls = enrollinf["imageUrls"] as ArrayList<String>
+//                                    imageUrls.add(imageUrl.toString())
+//
+//                                    db.collection("Missing")
+//                                        .document(documentReference.id)
+//                                        .update("imageUrls",imageUrls)
+//                                        .addOnSuccessListener {
+//
+//                                        }
+//                                }
+//                            }
+//                    }
 
 
                 }
 
-//            MissingCollectionRef.document().set(enrollinf).addOnFailureListener{
-//                Toast.makeText(this,"실종 등록에 실패하였습니다.", Toast.LENGTH_SHORT).show()
-//            }
             super.onBackPressed()
 
         }
@@ -141,6 +136,8 @@ class MissEnrollActivity: AppCompatActivity() {
             val clipData= data?.clipData
 
             if(clipData != null){
+                
+
                 for(i in 0 until clipData.itemCount){
                     val imageUri = clipData.getItemAt(i).uri
                     imageUriList.add(imageUri)
@@ -178,6 +175,7 @@ class MissEnrollActivity: AppCompatActivity() {
     }
 
 
+
     fun uploadImageFirebase(uri: Uri, i: Int){
         var storage: FirebaseStorage? = FirebaseStorage.getInstance()   //FirebaseStorage 인스턴스 생성
         //파일 이름 생성.
@@ -195,7 +193,5 @@ class MissEnrollActivity: AppCompatActivity() {
             println(it)
         }
     }
-    fun uploadFirebase(address: String, farcolor: String,feature: String,gender: String,name: String,specify: String,img: String ){
-        val model = MissModel(address,farcolor,feature,gender,name,specify,img)
-    }
+
 }

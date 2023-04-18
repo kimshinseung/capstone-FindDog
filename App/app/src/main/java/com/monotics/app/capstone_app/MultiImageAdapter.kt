@@ -47,19 +47,4 @@ class MultiImageAdapter(private val items: ArrayList<Uri>,val context: Context):
             view.setOnClickListener(listener)
         }
     }
-    fun uploadImageFirebase(uri: Uri){
-        var storage: FirebaseStorage? = FirebaseStorage.getInstance()   //FirebaseStorage 인스턴스 생성
-        //파일 이름 생성.
-
-        var fileName = "IMAGE_${SimpleDateFormat("yyyymmdd_HHmmss").format(Date())}_.png"
-        //파일 업로드, 다운로드, 삭제, 메타데이터 가져오기 또는 업데이트를 하기 위해 참조를 생성.
-        //참조는 클라우드 파일을 가리키는 포인터라고 할 수 있음.
-        var imagesRef = storage!!.reference.child(fileName)    //기본 참조 위치/images/${fileName}
-        //이미지 파일 업로드
-        imagesRef.putFile(uri!!).addOnSuccessListener {
-
-        }.addOnFailureListener {
-            println(it)
-        }
-    }
 }
