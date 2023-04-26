@@ -16,7 +16,6 @@ class FindActivity: AppCompatActivity()  {
             val intent = Intent(this,ProfileActivity::class.java)
             startActivity(intent)
         }
-
         //뒤로가기 버튼
         binding.backbtn.setOnClickListener{
             super.onBackPressed();
@@ -24,6 +23,10 @@ class FindActivity: AppCompatActivity()  {
         //로고화면 누르면 메인액티비티로
         binding.logo.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
+        binding.findEnroll.setOnClickListener {
+            val intent = Intent(this,MissEnrollActivity::class.java)
             startActivity(intent)
         }
     }
