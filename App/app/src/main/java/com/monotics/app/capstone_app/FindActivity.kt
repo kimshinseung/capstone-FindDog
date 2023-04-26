@@ -26,7 +26,7 @@ class FindActivity: AppCompatActivity()  {
             startActivity(intent)
         }
         binding.findEnroll.setOnClickListener {
-            val intent = Intent(this,MissEnrollActivity::class.java)
+            val intent = Intent(this,FindEnrollActivity::class.java)
             startActivity(intent)
         }
     }
