@@ -16,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -23,6 +24,7 @@ import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.data.ProfileDataViewModel
 import com.monotics.app.capstone_app.databinding.ActivityMainBinding
 import com.monotics.app.capstone_app.databinding.NavheaderBinding
+import kotlinx.android.synthetic.main.activity_main.recyclerHorizon
 import net.daum.mf.map.api.MapView
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
@@ -42,6 +44,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //        val mapViewContainer = map_View
 //        mapViewContainer.addView(mapView)
 
+        var list = arrayListOf("Test 1", "Test 2", "Test 3", "Test 4")
+        var manager02 = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        var adapter02 = FindboardAdapter(list)
+
+        var RecyclerView02 = recyclerHorizon.apply {
+            adapter = adapter02
+            layoutManager = manager02
+        }
 
 
         //메뉴 버튼 누르면 drawerlayout실행됨
