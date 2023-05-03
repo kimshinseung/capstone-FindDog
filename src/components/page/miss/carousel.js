@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { getDocs, collection, query, doc, where } from "firebase/firestore";
 import { db, storage } from "../../../firebase";
-import Cardcom from './Cardcom';
+// import Cardcom from './Cardcom';
 import Card from './card';
 import data from './data';
 
