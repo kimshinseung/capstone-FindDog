@@ -11,7 +11,7 @@ import { MainMenu, MyMenu } from "../menu/Menu";
 import {FindPage} from './find/FindPage';
 import {MissPage} from './miss/MissPage';
 import {SearchPage} from './search/SearchPage';
-import {PostingPage} from './posting/PostingPage';
+import {ForumPage} from './forum/ForumPage';
 import {MainPage} from './main/MainPage';
 import { MyInformation } from "./mypage/MyInformation";
 import { MyPost } from "./mypage/MyPost";
@@ -23,6 +23,7 @@ import Moreinfo2Page from "./miss/moreInfo2";
 import Map from "./map/map";
 // import
 import '../../style/style.css';
+import { UploadPost } from "./forum/UploadPost";
 
 
 // Page Template
@@ -142,14 +143,22 @@ export const Search = () => (
   </PageTemplate>
 );
 
-// 후기게시판
-export const Posting = () => (
+// 자유게시판
+export const Forum = () => (
   <PageTemplate>
-    <section className="posting-board">
-      <PostingPage />
+    <section className="forum-board">
+      <ForumPage />
     </section>
   </PageTemplate>
 );
+
+export const General = () => (
+  <PageTemplate>
+    <section className="genaral-page">
+      <UploadPost />
+    </section>
+  </PageTemplate>
+)
 
 // 로그인 페이지
 export const Login = () => (
