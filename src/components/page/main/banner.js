@@ -26,7 +26,7 @@ const BannerCarousel = ()=>{
                 <Link to="/find">
                 <img className='main-logo2' img src="images/banner2.png"/>
                 </Link>         
-                <img className='main-logo3' img src="images/banner.jpg" width={300} height={400}/>
+                <img className='main-logo3' img src="images/banner3.png"/>
             </Slider>
         </div>    
     )
