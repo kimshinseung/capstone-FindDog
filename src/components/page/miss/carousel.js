@@ -10,19 +10,18 @@ import Card from './card';
 import data from './data';
 
 const Carousel = ()=>{
-  let [profiles] = useState(data);
-
+  //let [profiles] = useState(data);
   
-  // const [profiles] = useState(async ()=> {
-  //   const QuerySnapshot = await getDocs(query(collection(db, "Missing")));
-  //   const data = QuerySnapshot.docs.map((doc) => ({
-  //     id: doc.id,
-  //     ...doc.data()
-  //   }));
-  //   console.log(data);
-  //   return data;
-  // });
-
+  const [profiles, setProfiles] = useState(async ()=> {
+    const QuerySnapshot = await getDocs(query(collection(db, "Missing")));
+    const data = QuerySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    console.log("data:" + data);
+    //return Array.from(data);
+    setProfiles(Array.from(data));
+  });
 
 
     const settings = {
@@ -57,11 +56,16 @@ const Carousel = ()=>{
               }
             ]
         }
+    
+    console.log(profiles);
+    let profileArray = Array.from(profiles);
+    console.log(profileArray);
 
     return(
         <div className="carousel">
             <Slider {...settings}>
-              {profiles.map((item, i) => <Card profiles={item} i={i+1} key={item.id} />)}
+              {Array.from(profiles).map((item, i) => <Card profiles={item} i={i+1} key={item.id} />)}
+              {/*profileArray.from(profiles).map((item, i) => <Card profiles={item} i={i+1} key={item.id} />)*/}
               {/* <Cardcom profiles={profiles}/> */}
             </Slider>
         </div>

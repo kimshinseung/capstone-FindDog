@@ -15,12 +15,10 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 
 const UploadPage = () => {
-    //const inputs = ["품종", "성별", "털색"];
 
     const [data, setData] = useState({});
-    //const [file, setFile] = useState("");
     const [files, setFiles] = useState([]);
-    const files2 = Array.from(files);
+    const Imgs = Array.from(files);
     const [address, setAddress] = useState("");
     const [popup, setPopup] = useState(false);
 
@@ -41,7 +39,7 @@ const UploadPage = () => {
                 },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        files2[i] = {img:downloadURL};
+                        Imgs[i] = {img:downloadURL};
                     });
                 }
             );
@@ -63,10 +61,10 @@ const UploadPage = () => {
 
     const handler = async(e) =>{
         e.preventDefault();
-        console.log(files2);
+        //console.log(files2);
         await addDoc(collection(db, "Missing" ), {
             ...data,
-            imgs: files2
+            imgs: Imgs
         });
         alert("등록되었습니다");
         location.reload();
