@@ -64,9 +64,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
         //실종게시물 부분
-        var list = arrayListOf("Test 1", "Test 2", "Test 3", "Test 4")
         var manager02 = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        var adapter02 = FindboardAdapter(list)
+        var adapter02 = FindboardAdapter()
 
         var RecyclerView02 = recyclerHorizon.apply {
             adapter = adapter02
