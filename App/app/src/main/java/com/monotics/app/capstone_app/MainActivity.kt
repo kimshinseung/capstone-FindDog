@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
     fun setPage(){
-        if(currentPosition==4) currentPosition=0
+        if(currentPosition==3) currentPosition=0
         binding.pager.setCurrentItem(currentPosition,true)
         currentPosition+=1
     }
@@ -150,10 +150,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
     private  fun getImages(): ArrayList<Int>{
         return arrayListOf<Int>(
-            R.drawable.img,
-            R.drawable.profile,
-            R.drawable.find,
-            R.drawable.logo
+            R.drawable.banner1,
+            R.drawable.banner2,
+            R.drawable.banner3
         )
     }
 }
