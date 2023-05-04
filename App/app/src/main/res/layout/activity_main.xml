@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="115dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="252dp"
             android:text="이렇게 대처하세요!"
             android:textColor="@color/black"
@@ -27,14 +27,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/menu" />
+            app:layout_constraintTop_toBottomOf="@+id/pager" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="156dp"
+            android:layout_marginTop="110dp"
             android:layout_marginEnd="284dp"
             android:text="최근 실종 동물"
             android:textColor="@color/black"
@@ -147,14 +147,14 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/pager"
-            android:layout_width="409dp"
-            android:layout_height="113dp"
+            android:layout_width="410dp"
+            android:layout_height="160dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
-            android:layout_marginBottom="1dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu" />
         />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
