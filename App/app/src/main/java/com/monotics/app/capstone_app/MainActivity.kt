@@ -7,6 +7,8 @@ import android.content.pm.PackageManager
 import android.content.pm.Signature
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Base64
 import android.util.Log
 import android.view.MenuItem
@@ -17,6 +19,7 @@ import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -34,16 +37,33 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val binding2 by lazy { NavheaderBinding.inflate(layoutInflater)}
     lateinit var profileDataViewModel: ProfileDataViewModel
     private val db: FirebaseFirestore = Firebase.firestore
+    lateinit var viewPager: ViewPager2
+    var currentPosition = 0
+    val handler= Handler(Looper.getMainLooper()){
+        setPage()
+        true
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        //배너 부분
+        viewPager = binding.pager
+        viewPager.adapter = ViewPagerAdapter(getImages()) //어댑터 생성
+        viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL //방향 가로로
+        //5초마다 자동으로 페이지 넘어가기
+        val thread=Thread(PagerRunnable())
+        thread.start()
+
 
 //        맵실현은 되는데 에뮬레이터에서는 안됨
 //        val mapView = MapView(this)
 //        val mapViewContainer = map_View
 //        mapViewContainer.addView(mapView)
 
+
+        //실종게시물 부분
         var list = arrayListOf("Test 1", "Test 2", "Test 3", "Test 4")
         var manager02 = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         var adapter02 = FindboardAdapter(list)
@@ -92,7 +112,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-
+    inner class PagerRunnable:Runnable{
+        override fun run(){
+            while(true){
+                Thread.sleep(5000)
+                handler.sendEmptyMessage(0)
+            }
+        }
+    }
+    fun setPage(){
+        if(currentPosition==4) currentPosition=0
+        binding.pager.setCurrentItem(currentPosition,true)
+        currentPosition+=1
+    }
 
 
     //네비게이션 메뉴 아이템 클릭시 수행
@@ -115,5 +147,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }else {
             super.onBackPressed()
         }
+    }
+    private  fun getImages(): ArrayList<Int>{
+        return arrayListOf<Int>(
+            R.drawable.img,
+            R.drawable.profile,
+            R.drawable.find,
+            R.drawable.logo
+        )
     }
 }
