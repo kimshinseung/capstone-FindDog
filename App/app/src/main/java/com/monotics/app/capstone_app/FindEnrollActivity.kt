@@ -67,7 +67,7 @@ class FindEnrollActivity :AppCompatActivity(){
         //등록하기 버튼
         binding.enroll.setOnClickListener {
 
-            if(binding.farcolorEdit.text.isBlank()){
+            if(binding.farcolorEdit.text.isBlank()||binding.addressEdit.text.isBlank()){
                 Toast.makeText(this,"필수항목을 채워야 합니다", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -139,7 +139,7 @@ class FindEnrollActivity :AppCompatActivity(){
         for (imageUri in imageUriList) {
             val imageName = "image_${System.currentTimeMillis()}"
 
-            val imageRef = storageRef.child("images/$imageName")
+            val imageRef = storageRef.child("$imageName")
 
             imageRef.putFile(imageUri)
                 .addOnSuccessListener {
