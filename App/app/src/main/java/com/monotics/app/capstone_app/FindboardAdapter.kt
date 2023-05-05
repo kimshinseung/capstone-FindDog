@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.data.MissData
+import kotlinx.android.synthetic.main.missboard.view.boardimg
 import kotlinx.android.synthetic.main.missboard.view.textImg
 
 class FindboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -38,8 +40,11 @@ class FindboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         var viewHolder = (holder as ViewHolder).itemView
+        Glide.with(viewHolder.boardimg)
+            .load(misslist[position].img)
+            .into(viewHolder.boardimg)
 
-        viewHolder.textImg.text = misslist[position].address
+        viewHolder.textImg.text = misslist[position].address//주소
 
     }
 
