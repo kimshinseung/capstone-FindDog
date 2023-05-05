@@ -40,9 +40,19 @@ class FindboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         var viewHolder = (holder as ViewHolder).itemView
-        Glide.with(viewHolder.boardimg)
-            .load(misslist[position].img)
-            .into(viewHolder.boardimg)
+
+
+        if(misslist[position].img!=null){ //이미지가 한 장일때
+            Glide.with(viewHolder.boardimg)
+                .load(misslist[position].img)
+                .into(viewHolder.boardimg)
+
+        }else if(misslist[position].imgs!=null){ //이미지가 여러 장일 때 첫 장만 보여줌
+            Glide.with(viewHolder.boardimg)
+                .load(misslist[position].imgs?.get(0))
+                .into(viewHolder.boardimg)
+
+        }
 
         viewHolder.textImg.text = misslist[position].address//주소
 

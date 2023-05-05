@@ -40,9 +40,6 @@ class MultiImageAdapter(private val items: ArrayList<Uri>,val context: Context):
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v){
         private var view: View =v
         var image1 = v.findViewById<ImageView>(R.id.image1)
-        var image2 = v.findViewById<ImageView>(R.id.image2)
-        var image3 = v.findViewById<ImageView>(R.id.image3)
-
         fun bind(listener: View.OnClickListener, item:String){
             view.setOnClickListener(listener)
         }

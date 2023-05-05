@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.Constants
 import com.google.firebase.messaging.Constants.MessageNotificationKeys.TAG
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -52,6 +54,7 @@ class MissEnrollActivity: AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter=adapter
 
+        binding.progressBar.setVisibility(View.INVISIBLE)
 
         //프로필화면 돌아가기
         binding.profile.setOnClickListener{
@@ -89,45 +92,37 @@ class MissEnrollActivity: AppCompatActivity() {
             val specify = binding.specifyEdit.text.toString()
             val name = binding.nameEdit.text.toString()
 
-            val enrollinf= hashMapOf(
-                "address" to address,
-                "farColor" to farcolor,
-                "feature" to feature,
-                "gender" to gender,
-                "specify" to specify,
-                "name" to name,
-                "img" to ArrayList<String>(imageUrls)
-            )
-            db.collection("Missing")
-                .add(enrollinf)
-                .addOnSuccessListener { documentReference->
-                    Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
-
-//                    val imagePaths = mutableListOf<String>()
-//
-//                    selectedImageUris.forEachIndexed { index, imageUri ->
-//                        val imagePath = "images/${documentReference.id}/${UUID.randomUUID()}_${index}.jpg"
-//                        imagePaths.add(imagePath)
-//
-//                        val imageRef = storageRef.child(imagePath)
-//                        imageRef.putFile(imageUri)
-//                            .addOnSuccessListener {
-//                                imageRef.downloadUrl.addOnSuccessListener { imageUrl ->
-//                                    val imageUrls = enrollinf["imageUrls"] as ArrayList<String>
-//                                    imageUrls.add(imageUrl.toString())
-//
-//                                    db.collection("Missing")
-//                                        .document(documentReference.id)
-//                                        .update("imageUrls",imageUrls)
-//                                        .addOnSuccessListener {
-//
-//                                        }
-//                                }
-//                            }
-//                    }
-
-
-                }
+            if(imageUrls.size == 1){ //사진이 1장만 있을 때
+                val enrollinf= hashMapOf(
+                    "address" to address,
+                    "farColor" to farcolor,
+                    "feature" to feature,
+                    "gender" to gender,
+                    "specify" to specify,
+                    "name" to name,
+                    "img" to imageUrls[0]
+                )
+                db.collection("Missing")
+                    .add(enrollinf)
+                    .addOnSuccessListener { documentReference->
+                        Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
+                    }
+            }else { //사진 여러장 있을 때
+                val enrollinf= hashMapOf(
+                    "address" to address,
+                    "farColor" to farcolor,
+                    "feature" to feature,
+                    "gender" to gender,
+                    "specify" to specify,
+                    "name" to name,
+                    "imgs" to ArrayList<String>(imageUrls)
+                )
+                db.collection("Missing")
+                    .add(enrollinf)
+                    .addOnSuccessListener { documentReference->
+                        Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
+                    }
+            }
 
             super.onBackPressed()
 
@@ -171,16 +166,20 @@ class MissEnrollActivity: AppCompatActivity() {
     }
     private fun uploadImagesToFirebaseStorage(imageUriList: ArrayList<Uri>) {
         val storageRef = Firebase.storage.reference
-
+        binding.progressBar.setVisibility(View.VISIBLE)
         for (imageUri in imageUriList) {
             val imageName = "image_${System.currentTimeMillis()}"
 
             val imageRef = storageRef.child("$imageName")
 
+            val uploadTask = imageRef.putFile(imageUri)
             imageRef.putFile(imageUri)
                 .addOnSuccessListener {
                     imageRef.downloadUrl.addOnSuccessListener { uri->
                         imageUrls.add(uri.toString())
+                        binding.progressBar.setVisibility(View.INVISIBLE)
+                        val progress = (100.0 * it.bytesTransferred / it.totalByteCount)
+                        updateProgressBar(progress.toInt())
                     }
                 }
                 .addOnFailureListener {
@@ -188,7 +187,12 @@ class MissEnrollActivity: AppCompatActivity() {
                 }
         }
     }
-
+    fun updateProgressBar(progress: Int) {
+        // 프로그래스 바 가져오기
+        val progressBar = findViewById<ProgressBar>(R.id.progress_bar)
+        // 프로그래스 바 업데이트
+        progressBar.progress = progress
+    }
 
 
     fun uploadImageFirebase(uri: Uri, i: Int){

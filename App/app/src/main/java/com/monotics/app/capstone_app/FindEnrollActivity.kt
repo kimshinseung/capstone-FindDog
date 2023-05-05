@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,6 +44,7 @@ class FindEnrollActivity :AppCompatActivity(){
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter=adapter
 
+        binding.progressBar.setVisibility(View.INVISIBLE)
 
         //프로필화면 돌아가기
         binding.profile.setOnClickListener{
@@ -79,20 +82,34 @@ class FindEnrollActivity :AppCompatActivity(){
             val specify = binding.specifyEdit.text.toString()
             //val name = binding.nameEdit.text.toString()
 
-            val enrollinf= hashMapOf(
-                "address" to address,
-                "farColor" to farcolor,
-                "gender" to gender,
-                "specify" to specify,
-                "img" to ArrayList<String>(imageUrls)
-            )
-            db.collection("Finding")
-                .add(enrollinf)
-                .addOnSuccessListener { documentReference->
-                    Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
+            if(imageUrls.size == 1){ //사진이 1장만 있을 때
+                val enrollinf= hashMapOf(
+                    "address" to address,
+                    "farColor" to farcolor,
+                    "gender" to gender,
+                    "specify" to specify,
+                    "img" to imageUrls[0]
+                )
+                db.collection("Finding")
+                    .add(enrollinf)
+                    .addOnSuccessListener { documentReference->
+                        Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
+                    }
+            } else { // 사진이 여러장 있을 때
+                val enrollinf= hashMapOf(
+                    "address" to address,
+                    "farColor" to farcolor,
+                    "gender" to gender,
+                    "specify" to specify,
+                    "imgs" to ArrayList<String>(imageUrls)
+                )
+                db.collection("Finding")
+                    .add(enrollinf)
+                    .addOnSuccessListener { documentReference->
+                        Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
+                    }
+            }
 
-
-                }
 
             super.onBackPressed()
 
@@ -136,6 +153,8 @@ class FindEnrollActivity :AppCompatActivity(){
     private fun uploadImagesToFirebaseStorage(imageUriList: ArrayList<Uri>) {
         val storageRef = Firebase.storage.reference
 
+        binding.progressBar.setVisibility(View.VISIBLE)
+
         for (imageUri in imageUriList) {
             val imageName = "image_${System.currentTimeMillis()}"
 
@@ -145,6 +164,9 @@ class FindEnrollActivity :AppCompatActivity(){
                 .addOnSuccessListener {
                     imageRef.downloadUrl.addOnSuccessListener { uri->
                         imageUrls.add(uri.toString())
+                        binding.progressBar.setVisibility(View.INVISIBLE)
+                        val progress = (100.0 * it.bytesTransferred / it.totalByteCount)
+                        updateProgressBar(progress.toInt())
                     }
                 }
                 .addOnFailureListener {
@@ -152,6 +174,11 @@ class FindEnrollActivity :AppCompatActivity(){
                 }
         }
     }
-
+    fun updateProgressBar(progress:Int){
+        // 프로그래스 바 가져오기
+        val progressBar = findViewById<ProgressBar>(R.id.progress_bar)
+        // 프로그래스 바 업데이트
+        progressBar.progress = progress
+    }
 
 }
