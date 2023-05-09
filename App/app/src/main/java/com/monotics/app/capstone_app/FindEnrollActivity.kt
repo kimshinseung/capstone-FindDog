@@ -44,7 +44,7 @@ class FindEnrollActivity :AppCompatActivity(){
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter=adapter
 
-        binding.progressBar.setVisibility(View.INVISIBLE)
+        binding.progressBar1.setVisibility(View.INVISIBLE)
 
         //프로필화면 돌아가기
         binding.profile.setOnClickListener{
@@ -153,7 +153,7 @@ class FindEnrollActivity :AppCompatActivity(){
     private fun uploadImagesToFirebaseStorage(imageUriList: ArrayList<Uri>) {
         val storageRef = Firebase.storage.reference
 
-        binding.progressBar.setVisibility(View.VISIBLE)
+        binding.progressBar1.setVisibility(View.VISIBLE)
 
         for (imageUri in imageUriList) {
             val imageName = "image_${System.currentTimeMillis()}"
@@ -164,7 +164,7 @@ class FindEnrollActivity :AppCompatActivity(){
                 .addOnSuccessListener {
                     imageRef.downloadUrl.addOnSuccessListener { uri->
                         imageUrls.add(uri.toString())
-                        binding.progressBar.setVisibility(View.INVISIBLE)
+                        binding.progressBar1.setVisibility(View.INVISIBLE)
                         val progress = (100.0 * it.bytesTransferred / it.totalByteCount)
                         updateProgressBar(progress.toInt())
                     }
@@ -176,7 +176,7 @@ class FindEnrollActivity :AppCompatActivity(){
     }
     fun updateProgressBar(progress:Int){
         // 프로그래스 바 가져오기
-        val progressBar = findViewById<ProgressBar>(R.id.progress_bar)
+        val progressBar = findViewById<ProgressBar>(R.id.progress_bar1)
         // 프로그래스 바 업데이트
         progressBar.progress = progress
     }
