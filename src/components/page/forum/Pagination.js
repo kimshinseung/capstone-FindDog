@@ -49,7 +49,7 @@ const Button = styled.button`
   font-size: 1rem;
 
   &:hover {
-    background: tomato;
+    background: #95C77E;
     cursor: pointer;
     transform: translateY(-2px);
   }
