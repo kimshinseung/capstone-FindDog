@@ -3,6 +3,7 @@
  * 메인 홈
  */
 import BannerCarousel  from "./banner";
+import Explain from "./explain";
 import React from "react";
 import ReactPlayer from 'react-player'
 
@@ -29,6 +30,7 @@ export const MainPage = () => {
                 muted={true}
                 controls={true}
                 />
+            <Explain/>
             </div>
         </>
     );
