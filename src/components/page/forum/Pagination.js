@@ -3,20 +3,70 @@
  * 페이지네이션
  */
 
-import {useState, useEffect} from 'react';
+import styled from "styled-components";
 
-export const Pagination = () => {
-    // 데이터
+function Pagination({ total, limit, now, setNow }) {
+  const numPages = Math.ceil(total / limit);
 
-    const [limit, setLimit] = useState(10); // 페이지 당 게시물 수(기본 10개씩)
-    const [now, setNow] = useState(1);      // 현재 페이지 번호(시작은 첫번째)
-    const offset = (now - 1) * limit;       // 각 페이지의 첫 게시물 위치
-
-    return (
-        <>
-            페이지 당 게시물 수: {limit}<br/>
-            현재 페이지 번호: {now}<br/>
-            각 페이지의 첫 게시물 위치: {offset}<br/>
-        </>
-    )
+  return (
+    <>
+      <Nav>
+        <Button onClick={() => setNow(now - 1)} disabled={now === 1}>
+          &lt;
+        </Button>
+        {Array(numPages)
+          .fill()
+          .map((_, i) => (
+            <Button
+              key={i + 1}
+              onClick={() => setNow(i + 1)}
+              aria-current={now === i + 1 ? "now" : null}
+            >
+              {i + 1}
+            </Button>
+          ))}
+        <Button onClick={() => setNow(now + 1)} disabled={now === numPages}>
+          &gt;
+        </Button>
+      </Nav>
+    </>
+  );
 }
+
+const Nav = styled.nav`
+  display: flex;
+  gap: 4px;
+  margin: 16px;
+`;
+
+const Button = styled.button`
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 0;
+  background: black;
+  color: white;
+  font-size: 1rem;
+
+  &:hover {
+    background: #95C77E;
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+
+  &[disabled] {
+    background: grey;
+    cursor: revert;
+    transform: revert;
+  }
+
+  &[aria-current] {
+    color: black;
+    background: white;
+    font-weight: bold;
+    cursor: revert;
+    transform: revert;
+  }
+`;
+
+export default Pagination;
