@@ -5,10 +5,12 @@ import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.pm.Signature
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.util.Linkify
 import android.util.Base64
 import android.util.Log
 import android.view.MenuItem
@@ -16,6 +18,7 @@ import android.view.View
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.text.HtmlCompat
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +30,7 @@ import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.data.ProfileDataViewModel
 import com.monotics.app.capstone_app.databinding.ActivityMainBinding
 import com.monotics.app.capstone_app.databinding.NavheaderBinding
+import kotlinx.android.synthetic.main.activity_main.hyperlink
 import kotlinx.android.synthetic.main.activity_main.recyclerHorizon
 import net.daum.mf.map.api.MapView
 import java.security.MessageDigest
@@ -55,6 +59,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //5초마다 자동으로 페이지 넘어가기
         val thread=Thread(PagerRunnable())
         thread.start()
+
+        //하이퍼링크
+        val linktext= "- 참고 사이트"
+        val linkUrl = "http://www.angel.or.kr/missing.php"
+        val hyperLink = "<a href=\"$linkUrl\">$linktext</a>"
+        binding.hyperlink.text = HtmlCompat.fromHtml(hyperLink, HtmlCompat.FROM_HTML_MODE_COMPACT)
+        binding.hyperlink.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(linkUrl))
+            startActivity(intent)
+        }
+//        binding.hyperlink.text = "http://www.angel.or.kr/missing.php"
+//        binding.hyperlink.autoLinkMask = Linkify.WEB_URLS
+//        binding.hyperlink.movementMethod
+
 
 
 //        맵실현은 되는데 에뮬레이터에서는 안됨
