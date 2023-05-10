@@ -3,7 +3,9 @@ package com.monotics.app.capstone_app
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.monotics.app.capstone_app.databinding.ActivityMissBinding
+import kotlinx.android.synthetic.main.activity_miss.missrecycler
 
 class MissActivity: AppCompatActivity()  {
     val binding by lazy { ActivityMissBinding.inflate(layoutInflater) }
@@ -31,6 +33,15 @@ class MissActivity: AppCompatActivity()  {
         binding.missEnroll.setOnClickListener {
             val intent = Intent(this,MissEnrollActivity::class.java)
             startActivity(intent)
+        }
+
+        //실종게시물 부분
+        var manager01 = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        var adapter01 = MissAdapter()
+
+        var RecyclerView02 = missrecycler.apply {
+            adapter = adapter01
+            layoutManager = manager01
         }
 
     }

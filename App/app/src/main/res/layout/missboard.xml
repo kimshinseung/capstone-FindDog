@@ -16,7 +16,7 @@
         android:id="@+id/textImg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Test 1"
+        android:text="NUll"
         android:textSize="18sp"
         android:background="@color/cardview_dark_background"
         android:textColor="@color/white"

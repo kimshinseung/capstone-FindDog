@@ -1,21 +1,14 @@
 package com.monotics.app.capstone_app
 
-import android.content.ContentValues.TAG
 import android.content.Intent
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
-import android.content.pm.Signature
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Base64
-import android.util.Log
 import android.view.MenuItem
-import android.view.View
-import android.widget.PopupMenu
 import android.widget.TextView
-import android.widget.Toast
+import androidx.core.text.HtmlCompat
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,9 +21,6 @@ import com.monotics.app.capstone_app.data.ProfileDataViewModel
 import com.monotics.app.capstone_app.databinding.ActivityMainBinding
 import com.monotics.app.capstone_app.databinding.NavheaderBinding
 import kotlinx.android.synthetic.main.activity_main.recyclerHorizon
-import net.daum.mf.map.api.MapView
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -56,6 +46,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val thread=Thread(PagerRunnable())
         thread.start()
 
+        //하이퍼링크
+        val linktext= "- 참고 사이트"
+        val linkUrl = "http://www.angel.or.kr/missing.php"
+        val hyperLink = "<a href=\"$linkUrl\">$linktext</a>"
+        binding.hyperlink.text = HtmlCompat.fromHtml(hyperLink, HtmlCompat.FROM_HTML_MODE_COMPACT)
+        binding.hyperlink.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(linkUrl))
+            startActivity(intent)
+        }
+
 
 //        맵실현은 되는데 에뮬레이터에서는 안됨
 //        val mapView = MapView(this)
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         //실종게시물 부분
         var manager02 = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        var adapter02 = FindboardAdapter()
+        var adapter02 = MissboardAdapter()
 
         var RecyclerView02 = recyclerHorizon.apply {
             adapter = adapter02
