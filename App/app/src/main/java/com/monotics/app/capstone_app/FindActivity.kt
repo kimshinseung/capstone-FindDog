@@ -5,7 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.monotics.app.capstone_app.databinding.ActivityFindBinding
+import kotlinx.android.synthetic.main.activity_find.findrecycler
 import kotlinx.android.synthetic.main.activity_main.recyclerHorizon
+import kotlinx.android.synthetic.main.activity_miss.missrecycler
+
 class FindActivity: AppCompatActivity()  {
     val binding by lazy { ActivityFindBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +33,14 @@ class FindActivity: AppCompatActivity()  {
             val intent = Intent(this,FindEnrollActivity::class.java)
             startActivity(intent)
         }
+        //목격게시물 부분
+        var manager11 = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        var adapter11 = FindAdapter()
 
+        var RecyclerView02 = findrecycler.apply {
+            adapter = adapter11
+            layoutManager = manager11
+        }
 
 
 
