@@ -3,8 +3,9 @@ package com.monotics.app.capstone_app
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.monotics.app.capstone_app.databinding.ActivityFindBinding
-
+import kotlinx.android.synthetic.main.activity_main.recyclerHorizon
 class FindActivity: AppCompatActivity()  {
     val binding by lazy { ActivityFindBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,5 +30,13 @@ class FindActivity: AppCompatActivity()  {
             val intent = Intent(this,FindEnrollActivity::class.java)
             startActivity(intent)
         }
+
+
+
+
+
+
+
+
     }
 }
