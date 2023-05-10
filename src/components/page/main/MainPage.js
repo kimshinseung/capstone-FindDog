@@ -23,7 +23,7 @@ export const MainPage = () => {
                 muted={true}
                 controls={true}
                 />
-                <br/>
+                <br/><br/>
                 <ReactPlayer className="video2" 
                 url="https://www.youtube.com/watch?v=tIJjeCMB4Jo" 
                 width="400px"

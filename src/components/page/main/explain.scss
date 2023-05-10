@@ -2,20 +2,33 @@
  * ./src/components/page/main/explain.scss
  */
 
-.table, .td, .th {
-    border : 1px solid white;
+table, td, th {
     border-collapse : collapse;
-    background-color: #e3ffe3;
+    background-color: #eef5ed;
   }
 
-.table {
+table {
+    border-left : 20px solid white;
+    border-right : 10px solid white;
     width : 100%;
     height: 100%;
     margin: auto;
 }
 
-.td, .th {
+td {
     padding: 20px;
     text-align : center;
     vertical-align : middle;
+    border-bottom: 3px solid white;
+    border-left: 3px solid white;
+}
+
+th {
+    background-color: #b4c5b0;
+    padding: 10px;
+    text-align : center;
+    vertical-align : middle;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    border-left: 3px solid white;
 }
