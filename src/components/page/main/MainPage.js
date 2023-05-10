@@ -21,6 +21,7 @@ export const MainPage = () => {
                 muted={true}
                 controls={true}
                 />
+                <Explain/>
                 <br/><br/>
                 <ReactPlayer className="video2" 
                 url="https://www.youtube.com/watch?v=tIJjeCMB4Jo" 
@@ -30,7 +31,6 @@ export const MainPage = () => {
                 muted={true}
                 controls={true}
                 />
-            <Explain/>
             </div>
         </>
     );
