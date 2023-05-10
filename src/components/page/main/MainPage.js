@@ -13,6 +13,8 @@ export const MainPage = () => {
             <div className="main-page">
             <BannerCarousel/>
                 <br/><br/>
+                <div className="Bind">
+                <div className="Video">
                 <ReactPlayer className="video1" 
                 url="https://www.youtube.com/watch?v=XMsDXtFWJ2U" 
                 width="400px"
@@ -21,8 +23,7 @@ export const MainPage = () => {
                 muted={true}
                 controls={true}
                 />
-                <Explain/>
-                <br/><br/>
+                <br/>
                 <ReactPlayer className="video2" 
                 url="https://www.youtube.com/watch?v=tIJjeCMB4Jo" 
                 width="400px"
@@ -31,6 +32,9 @@ export const MainPage = () => {
                 muted={true}
                 controls={true}
                 />
+                </div>
+                <Explain/>
+                </div>
             </div>
         </>
     );

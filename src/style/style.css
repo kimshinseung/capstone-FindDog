@@ -86,6 +86,10 @@ a {
   background-color: #FFFFFF;
 }
 
+.Bind{
+  display:flex;
+}
+
 .miss-page {
   width: 98%;
   height: 170vh;

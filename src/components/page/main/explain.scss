@@ -5,16 +5,17 @@
 .table, .td, .th {
     border : 1px solid white;
     border-collapse : collapse;
-    background-color: #ddfadd;
+    background-color: #e3ffe3;
   }
 
 .table {
-    width : 200px;
-    height : 600px;
+    width : 100%;
+    height: 100%;
     margin: auto;
 }
 
 .td, .th {
+    padding: 20px;
     text-align : center;
     vertical-align : middle;
 }

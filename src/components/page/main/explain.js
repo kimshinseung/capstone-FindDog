@@ -5,9 +5,8 @@ import './explain.scss';
 const Explain =()=>{
 return(
     /*
-    <div className="explain-page">
-    <div style="display: table;">
-    <h2>[실종대처방법]</h2>
+    <div className="explain-page" style="display: table;">
+    <h3>[실종대처방법]</h3>
     <br/>
     <h3>1. 현장확인</h3>
     실종현장 확인, 실종된장소와 실종된 장소의 부근을 신속히 이동하면서 탐문한다.
@@ -24,13 +23,12 @@ return(
     <h3>5. 원점에서 재점검</h3>
     주변을 겉돌거나 같은 지역을 계속 반복하지말고 원점에서 다시 점검한다. 점차 점검지역을 더 확대한다.
     </div>
-    </div>
     */
-   
+
     <table align="right">
-    <tr>
-      <th>[실종대처방법]</th>
-    </tr>
+      <tr>
+        <th><h3>[실종대처방법]</h3></th>
+      </tr>
     <tr>
       <td>1. 현장확인</td>
       <td>실종현장 확인, 실종된장소와 실종된 장소의 부근을 신속히 이동하면서 탐문한다.</td>
@@ -52,7 +50,7 @@ return(
       <td>주변을 겉돌거나 같은 지역을 계속 반복하지말고 원점에서 다시 점검한다. 점차 점검지역을 더 확대한다.</td>
     </tr>
     </table>
-    
+
 );
 };
 
