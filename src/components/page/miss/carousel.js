@@ -18,8 +18,10 @@ const Carousel = ()=>{
       id: doc.id,
       ...doc.data()
     }));
-    console.log("data:" + data);
+    //console.log("data:" + data);
     //return Array.from(data);
+    //data = Array.from(data).filter(obj => obj.visible=true) //프로필마다 visible이라는 필드를 만들어서 걔가 true일때만 보이도록
+    //setProfiles(Array.from(data).sort(function compare(a,b){ b.uploadTime - a.uploadTime })); //업로드 시간에따라 데이터 정렬
     setProfiles(Array.from(data));
   });
 
@@ -57,9 +59,9 @@ const Carousel = ()=>{
             ]
         }
     
-    console.log(profiles);
-    let profileArray = Array.from(profiles);
-    console.log(profileArray);
+    // console.log(profiles);
+    // let profileArray = Array.from(profiles);
+    // console.log(profileArray);
 
     return(
         <div className="carousel">
