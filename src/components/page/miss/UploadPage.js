@@ -39,7 +39,7 @@ const UploadPage = () => {
                 },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        Imgs[i] = {img:downloadURL};
+                        Imgs[i] = downloadURL;
                     });
                 }
             );
