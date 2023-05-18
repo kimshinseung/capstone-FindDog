@@ -11,7 +11,7 @@ const Explain =()=>{
       <tr>
         <th> [ 순서 ] </th>
         <th> [ 반려견 실종시 대처방법 ]
-          <button className='customBtn' onclick="window.open('http://www.angel.or.kr/missing.php')" >click! 더 많은 정보 확인하기</button></th>
+        <Link target="_blank" to="http://www.angel.or.kr/missing.php" className='customBtn'> click! 더 많은 정보 확인하기  </Link></th>
       </tr>
     <tr>
       <td>1. 현장확인</td> 
