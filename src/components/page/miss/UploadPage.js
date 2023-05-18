@@ -39,7 +39,7 @@ const UploadPage = () => {
                 },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        Imgs[i] = {img:downloadURL};
+                        Imgs[i] = downloadURL;
                     });
                 }
             );
@@ -61,10 +61,12 @@ const UploadPage = () => {
 
     const handler = async(e) =>{
         e.preventDefault();
-        //console.log(files2);
+        var time = new Date()
         await addDoc(collection(db, "Missing" ), {
             ...data,
-            imgs: Imgs
+            imgs: Imgs, 
+            uploadTime: time.getFullYear() + "-" + time.getMonth() + "-" + time.getDate() + "-" + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds()
+
         });
         alert("등록되었습니다");
         location.reload();
@@ -146,8 +148,8 @@ const UploadPage = () => {
                     <input type="button" onClick={()=>setPopup(true)} value="주소찾기"></input><br/>
 
                     <div>
-                    <h3>연락처</h3>
-                    <input type="number" id="tel" maxLength="11" onChange={handleInput} />
+                    <h3>카카오톡ID</h3>
+                    <input id="kakaoId" maxLength="11" onChange={handleInput} />
                     </div><br/>
 
                     <div>

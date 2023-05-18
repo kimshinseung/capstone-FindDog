@@ -1,5 +1,7 @@
 import React from "react";
 import './explain.scss';
+import { Link } from "react-router-dom";
+import styled from "styled-components"
 //import '../../../style/style.css';
 
 const Explain =()=>{
@@ -7,11 +9,12 @@ const Explain =()=>{
     <div>
     <table align="right">
       <tr>
-        <th>( 순서 )</th>
-        <th>( 반려견 실종시 대처방법 )</th>
+        <th> [ 순서 ] </th>
+        <th> [ 반려견 실종시 대처방법 ]
+        <Link target="_blank" to="http://www.angel.or.kr/missing.php" className='customBtn'> click! 더 많은 정보 확인하기  </Link></th>
       </tr>
     <tr>
-      <td>1. 현장확인</td>
+      <td>1. 현장확인</td> 
       <td>실종현장 확인, 실종된장소와 실종된 장소의 부근을 신속히 이동하면서 탐문한다.</td>
     </tr>
     <tr>
