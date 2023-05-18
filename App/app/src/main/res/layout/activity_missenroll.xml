@@ -7,15 +7,169 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/enrollboard"
-        android:layout_width="344dp"
-        android:layout_height="521dp"
+        android:layout_width="339dp"
+        android:layout_height="617dp"
         android:layout_marginStart="46dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="46dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/button_round"
-        app:layout_constraintBottom_toTopOf="@+id/enroll"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/find_board">
+
+        <EditText
+            android:id="@+id/date_edit"
+            android:layout_width="260dp"
+            android:layout_height="35dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:hint="ex) date"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@+id/kakaoid_edit"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="63dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:background="#D2EDC5"
+            android:gravity="center"
+            android:text="> 실종 시간"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+        <EditText
+            android:id="@+id/kakaoid_edit"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:hint="ex) id"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/textView22"
+            app:layout_constraintTop_toBottomOf="@+id/neutering_edit"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="63dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:background="#D2EDC5"
+            android:gravity="center"
+            android:text="> 카카오톡 id"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <EditText
+            android:id="@+id/neutering_edit"
+            android:layout_width="260dp"
+            android:layout_height="35dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:hint="ex) yes or no"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/farcolor_edit2"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="63dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:background="#D2EDC5"
+            android:gravity="center"
+            android:text="> 모색2"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <EditText
+            android:id="@+id/farcolor_edit2"
+            android:layout_width="260dp"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:hint="ex)하얀색"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView21"
+            app:layout_constraintTop_toBottomOf="@+id/farcolor_edit"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/age_edit"
+            android:layout_width="260dp"
+            android:layout_height="38dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:hint="ex)3"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView20"
+            app:layout_constraintTop_toBottomOf="@+id/name_edit"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="63dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="76dp"
+            android:background="#D2EDC5"
+            android:gravity="center"
+            android:text="> 나이"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="63dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:background="#D2EDC5"
+            android:gravity="center"
+            android:text="> 중성화     여부"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
         <TextView
             android:id="@+id/textView17"
@@ -51,7 +205,7 @@
         <TextView
             android:id="@+id/textView14"
             android:layout_width="63dp"
-            android:layout_height="88dp"
+            android:layout_height="45dp"
             android:layout_marginStart="16dp"
             android:background="#D2EDC5"
             android:gravity="center"
@@ -61,12 +215,12 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="63dp"
-            android:layout_height="91dp"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:background="#D2EDC5"
             android:gravity="center"
@@ -85,13 +239,13 @@
             android:layout_marginStart="16dp"
             android:background="#D2EDC5"
             android:gravity="center"
-            android:text="> 털색"
+            android:text="> 모색1"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
         <TextView
             android:id="@+id/textView13"
@@ -101,7 +255,7 @@
             android:layout_marginTop="36dp"
             android:background="#D2EDC5"
             android:gravity="center"
-            android:text="> 견종"
+            android:text="> 품종"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -144,8 +298,7 @@
             android:id="@+id/photo"
             android:layout_width="260dp"
             android:layout_height="131dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="1dp"
             android:background="#D1EDE7"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -155,7 +308,7 @@
                 android:layout_width="258dp"
                 android:layout_height="129dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
@@ -169,109 +322,96 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/input"
+        <EditText
+            android:id="@+id/specify_edit"
             android:layout_width="260dp"
-            android:layout_height="338dp"
-            android:layout_marginEnd="4dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="9dp"
             android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/photo"
-            app:layout_constraintEnd_toEndOf="parent" >
+            android:elevation="3dp"
+            android:hint="ex)말티즈"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/text_enroll"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <EditText
-                android:id="@+id/name_edit"
-                android:layout_width="260dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="40dp"
-                android:background="@color/white"
-                android:elevation="3dp"
-                android:hint="ex)이름"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/specify_edit"
-                tools:ignore="TouchTargetSizeCheck" />
+        <EditText
+            android:id="@+id/farcolor_edit"
+            android:layout_width="260dp"
+            android:layout_height="43dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:hint="ex)갈색"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView15"
+            app:layout_constraintTop_toBottomOf="@+id/age_edit"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <EditText
-                android:id="@+id/address_edit"
-                android:layout_width="260dp"
-                android:layout_height="88dp"
-                android:background="@color/white"
-                android:elevation="3dp"
-                android:hint="ex)서울특별시"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/farcolor_edit"
-                tools:ignore="TouchTargetSizeCheck" />
+        <EditText
+            android:id="@+id/address_edit"
+            android:layout_width="260dp"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:hint="ex)서울특별시"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/date_edit"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <EditText
-                android:id="@+id/personality_edit"
-                android:layout_width="260dp"
-                android:layout_height="91dp"
-                android:background="@color/white"
-                android:elevation="3dp"
-                android:hint="ex)온순하고 귀엽습니다"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/address_edit"
-                tools:ignore="TouchTargetSizeCheck" />
+        <EditText
+            android:id="@+id/name_edit"
+            android:layout_width="260dp"
+            android:layout_height="38dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:hint="ex)이름"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/gender_edit"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <EditText
-                android:id="@+id/farcolor_edit"
-                android:layout_width="260dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="37dp"
-                android:background="@color/white"
-                android:elevation="3dp"
-                android:hint="ex)갈색"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/name_edit"
-                tools:ignore="TouchTargetSizeCheck" />
+        <EditText
+            android:id="@+id/gender_edit"
+            android:layout_width="260dp"
+            android:layout_height="39dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:hint="ex)수컷"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/specify_edit"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <EditText
-                android:id="@+id/gender_edit"
-                android:layout_width="260dp"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:elevation="3dp"
-                android:hint="ex)수컷"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/specify_edit"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <EditText
-                android:id="@+id/specify_edit"
-                android:layout_width="260dp"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:elevation="3dp"
-                android:hint="ex)말티즈"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/personality_edit"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:hint="ex)온순하고 귀엽습니다"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/address_edit"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -359,13 +499,14 @@
         android:layout_width="wrap_content"
         android:layout_height="33dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="133dp"
+        android:layout_marginBottom="21dp"
         android:background="@drawable/rect_round"
         android:text="사진 업로드"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/enroll"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enrollboard" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

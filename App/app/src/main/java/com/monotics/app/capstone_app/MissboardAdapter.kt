@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.data.MissData
@@ -19,7 +20,7 @@ class MissboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class ListAdapter(val layout: View): RecyclerView.ViewHolder(layout)
     init {
-        missData.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+        missData.orderBy("uploadTime",Query.Direction.DESCENDING).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
             misslist.clear()
 
             for(snapshot in querySnapshot!!.documents){

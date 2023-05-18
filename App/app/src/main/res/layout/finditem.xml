@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/FindImg"
-        android:layout_width="144dp"
-        android:layout_height="136dp"
+        android:layout_width="151dp"
+        android:layout_height="151dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,10 +17,11 @@
 
     <TextView
         android:id="@+id/findaddress"
-        android:layout_width="223dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="224dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
+        android:background="#eef5ed"
         android:gravity="center"
         android:text="address"
         android:textSize="18sp"
@@ -31,9 +32,9 @@
     <TextView
         android:id="@+id/findcolor"
         android:layout_width="224dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="12dp"
+        android:background="#eef5ed"
         android:gravity="center"
         android:text="color"
         android:textSize="18sp"

@@ -9,6 +9,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -80,20 +81,34 @@ class MissEnrollActivity: AppCompatActivity() {
 
             val address = binding.addressEdit.text.toString()
             val farcolor = binding.farcolorEdit.text.toString()
+            val farcolor2 = binding.farcolorEdit2.text.toString()
+            val age = binding.ageEdit.text.toString()
+            val neutering = binding.neuteringEdit.text.toString()
+            val tel = binding.kakaoidEdit.text.toString()
+            val time = binding.dateEdit.text.toString()
             val feature = binding.personalityEdit.text.toString()
             val gender = binding.genderEdit.text.toString()
             val specify = binding.specifyEdit.text.toString()
             val name = binding.nameEdit.text.toString()
-
+            //val currentDate = Date()
+            //val format = SimpleDateFormat("yyyy-MM-dd-HH:mm:ss")
+            val dateString = Timestamp.now()
             if(imageUrls.size == 1){ //사진이 1장만 있을 때
                 val enrollinf= hashMapOf(
                     "address" to address,
-                    "farColor" to farcolor,
+                    "farColor1" to farcolor,
+                    "farColor2" to farcolor2,
                     "feature" to feature,
                     "gender" to gender,
                     "specify" to specify,
                     "name" to name,
+                    "age" to age,
+                    "date" to time,
+                    "kakaoId" to tel,
+                    "neutering" to neutering,
+                    "uploadTime" to dateString,
                     "img" to imageUrls[0]
+                //"img" to imageUrls[0] 사진 오류 나면 이렇게 바꾸면 됨
                 )
                 db.collection("Missing")
                     .add(enrollinf)
@@ -103,11 +118,17 @@ class MissEnrollActivity: AppCompatActivity() {
             }else { //사진 여러장 있을 때
                 val enrollinf= hashMapOf(
                     "address" to address,
-                    "farColor" to farcolor,
+                    "farColor1" to farcolor,
+                    "farColor2" to farcolor2,
                     "feature" to feature,
                     "gender" to gender,
                     "specify" to specify,
                     "name" to name,
+                    "age" to age,
+                    "date" to time,
+                    "kakaoId" to tel,
+                    "neutering" to neutering,
+                    "uploadTime" to dateString,
                     "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Missing")

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.data.FindData
@@ -19,12 +20,13 @@ import kotlinx.android.synthetic.main.missitem.view.missname
 
 class FindAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val db: FirebaseFirestore = Firebase.firestore
-    private val findData = db.collection("Finding")
+    private val findData = db.collection("Finding").orderBy("uploadTime")
     var findlist: ArrayList<FindData> = arrayListOf()
 
     class ListAdapter(val layout: View): RecyclerView.ViewHolder(layout)
     init {
-        findData.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+        findData.orderBy("uploadTime",
+            Query.Direction.DESCENDING).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
             findlist.clear()
 
             for(snapshot in querySnapshot!!.documents){
