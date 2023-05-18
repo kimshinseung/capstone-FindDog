@@ -16,7 +16,7 @@ table {
 }
 
 td {
-    padding: 20px;
+    padding: 10px;
     text-align : center;
     vertical-align : middle;
     border-bottom: 3px solid white;
@@ -32,3 +32,33 @@ th {
     border-bottom: 3px solid white;
     border-left: 3px solid white;
 }
+
+
+.customBtn {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    background-image: linear-gradient(to right, #eef5ed, #c0e2bb, #eef5ed);
+    width: 250px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    cursor: pointer;
+    height: 30px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+  
+    border-radius: 10px;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .customBtn:hover {
+    background-position: 30% 0;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
