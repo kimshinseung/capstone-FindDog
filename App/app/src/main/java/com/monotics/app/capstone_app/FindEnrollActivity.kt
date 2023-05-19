@@ -95,7 +95,7 @@ class FindEnrollActivity :AppCompatActivity(){
                     .addOnSuccessListener { documentReference->
                         Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
                     }
-            } else { // 사진이 여러장 있을 때
+            } else if(imageUrls.size>1) { // 사진이 여러장 있을 때
                 val enrollinf= hashMapOf(
                     "address" to address,
                     "farColor" to farcolor,
@@ -109,8 +109,20 @@ class FindEnrollActivity :AppCompatActivity(){
                         Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
                     }
             }
-
-
+            else{ //사진이 없을 때
+                val enrollinf= hashMapOf(
+                    "address" to address,
+                    "farColor" to farcolor,
+                    "gender" to gender,
+                    "specify" to specify,
+                    "img" to "null"
+                )
+                db.collection("Finding")
+                    .add(enrollinf)
+                    .addOnSuccessListener { documentReference->
+                        Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
+                    }
+            }
             super.onBackPressed()
 
         }

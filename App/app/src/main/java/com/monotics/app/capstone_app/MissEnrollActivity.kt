@@ -115,7 +115,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     .addOnSuccessListener { documentReference->
                         Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
                     }
-            }else { //사진 여러장 있을 때
+            }else if(imageUrls.size>1){ //사진 여러장 있을 때
                 val enrollinf= hashMapOf(
                     "address" to address,
                     "farColor1" to farcolor,
@@ -130,6 +130,28 @@ class MissEnrollActivity: AppCompatActivity() {
                     "neutering" to neutering,
                     "uploadTime" to dateString,
                     "imgs" to ArrayList<String>(imageUrls)
+                )
+                db.collection("Missing")
+                    .add(enrollinf)
+                    .addOnSuccessListener { documentReference->
+                        Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
+                    }
+            }
+            else{ //사진이 없을 때
+                val enrollinf= hashMapOf(
+                    "address" to address,
+                    "farColor1" to farcolor,
+                    "farColor2" to farcolor2,
+                    "feature" to feature,
+                    "gender" to gender,
+                    "specify" to specify,
+                    "name" to name,
+                    "age" to age,
+                    "date" to time,
+                    "kakaoId" to tel,
+                    "neutering" to neutering,
+                    "uploadTime" to dateString,
+                    "img" to "null"
                 )
                 db.collection("Missing")
                     .add(enrollinf)
