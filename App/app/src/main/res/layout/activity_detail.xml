@@ -57,12 +57,12 @@
         android:id="@+id/textView36"
         android:layout_width="20dp"
         android:layout_height="34dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="1dp"
         android:text="살"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/detail_age"
-        app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
 
     <TextView
         android:id="@+id/textView35"
@@ -129,12 +129,12 @@
         android:layout_width="wrap_content"
         android:layout_height="34dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="1dp"
         android:text="나이 : "
-        android:textStyle="bold"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/detail_name"
-        app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
 
     <TextView
         android:id="@+id/detail_neutering"
@@ -152,11 +152,11 @@
         android:layout_width="140dp"
         android:layout_height="34dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="1dp"
         android:text="name"
         android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/detail_img" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
 
     <TextView
         android:id="@+id/detail_kakaoId"
@@ -226,10 +226,10 @@
         android:id="@+id/detail_age"
         android:layout_width="40dp"
         android:layout_height="34dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="1dp"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView28"
-        app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
 
     <TextView
         android:id="@+id/detail_farColor2"
@@ -305,26 +305,25 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/detail_img"
-        android:layout_width="189dp"
-        android:layout_height="212dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titlebar"
-        app:srcCompat="@drawable/find" />
-
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="1dp"
         android:text="이  름 : "
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_img" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/detail_recycler"
+        android:layout_width="409dp"
+        android:layout_height="246dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titlebar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

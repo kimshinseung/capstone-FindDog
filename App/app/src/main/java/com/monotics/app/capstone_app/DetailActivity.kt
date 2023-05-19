@@ -3,10 +3,9 @@ package com.monotics.app.capstone_app
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.monotics.app.capstone_app.databinding.ActivityDetailBinding
-import com.monotics.app.capstone_app.databinding.ActivitySearchBinding
-import kotlinx.android.synthetic.main.missboard.view.boardimg
+import kotlinx.android.synthetic.main.activity_detail.detail_recycler
 
 class DetailActivity: AppCompatActivity()  {
     val binding by lazy { ActivityDetailBinding.inflate(layoutInflater) }
@@ -27,10 +26,19 @@ class DetailActivity: AppCompatActivity()  {
         binding.detailNeutering.text=inf["neutering"] as String
         binding.detailSpecify.text=inf["specify"] as String
         val imageUrls = inf["imgs"] as ArrayList<String>
+
+        var manager02 = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        var adapter02 = DetailImageAdapter(imageUrls)
+
+        var RecyclerView02 = detail_recycler.apply {
+            adapter = adapter02
+            layoutManager = manager02
+        }
         //사진
-        Glide.with(binding.detailImg)
-            .load(imageUrls[0])
-            .into(binding.detailImg)
+//        Glide.with(binding.detailImg)
+//            .load(imageUrls[0])
+//            .into(binding.detailImg)
+
         //프로필화면 돌아가기
         binding.profile.setOnClickListener{
             val intent = Intent(this,ProfileActivity::class.java)

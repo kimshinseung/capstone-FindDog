@@ -12,7 +12,6 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.data.MissData
-import kotlinx.android.synthetic.main.missboard.view.boardimg
 import kotlinx.android.synthetic.main.missitem.view.missaddress
 import kotlinx.android.synthetic.main.missitem.view.missimg
 import kotlinx.android.synthetic.main.missitem.view.missname

@@ -12,14 +12,4 @@
         android:background="@color/cardview_dark_background"
         android:src="@drawable/ic_launcher_foreground" />
 
-    <TextView
-        android:id="@+id/textImg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#b4c5b0"
-        android:gravity="center"
-        android:text="NUll"
-        android:textColor="@color/white"
-        android:textSize="15sp" />
-
 </LinearLayout>
