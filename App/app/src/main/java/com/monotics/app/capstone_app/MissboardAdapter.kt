@@ -67,19 +67,21 @@ class MissboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             val context = viewHolder.context
             val intent = Intent(context,DetailActivity::class.java)
-            val bundle= Bundle()
-            bundle.putString("name", misslist[position].name)
-            bundle.putString("address", misslist[position].address)
-            bundle.putString("age", misslist[position].age)
-            bundle.putString("date", misslist[position].date)
-            bundle.putString("farColor1", misslist[position].farColor1)
-            bundle.putString("farColor2", misslist[position].farColor2)
-            bundle.putString("feature", misslist[position].feature)
-            bundle.putString("kakaoId", misslist[position].kakaoId)
-            bundle.putString("gender", misslist[position].gender)
-            bundle.putString("neutering", misslist[position].neutering)
-            bundle.putString("specify", misslist[position].specify)
-            intent.putExtra("missData",bundle)
+            val missenrollinf = hashMapOf(
+                "name" to misslist[position].name,
+                "address" to misslist[position].address,
+                "age" to misslist[position].age,
+                "date" to misslist[position].date,
+                "farColor1" to misslist[position].farColor1,
+                "farColor2" to misslist[position].farColor2,
+                "feature" to misslist[position].feature,
+                "kakaoId" to misslist[position].kakaoId,
+                "gender" to misslist[position].gender,
+                "neutering" to misslist[position].neutering,
+                "specify" to misslist[position].specify,
+                "imgs" to ArrayList<String>(misslist[position].imgs)
+            )
+            intent.putExtra("missData",missenrollinf)
             context.startActivity(intent)
         }
 

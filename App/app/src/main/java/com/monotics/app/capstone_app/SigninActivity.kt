@@ -21,6 +21,11 @@ class SigninActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        //프로필화면 돌아가기
+        binding.HomeButton.setOnClickListener{
+            val intent = Intent(this,ProfileActivity::class.java)
+            startActivity(intent)
+        }
         //회원가입 버튼
         binding.signinButton.setOnClickListener {
             //형식이나 올바른지 확인하는 부분 틀리면 다시 클릭리스너로 돌아감

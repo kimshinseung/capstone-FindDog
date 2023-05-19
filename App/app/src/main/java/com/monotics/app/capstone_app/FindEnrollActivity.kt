@@ -9,6 +9,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -17,6 +18,7 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import com.monotics.app.capstone_app.databinding.ActivityFindenrollBinding
 import kotlinx.android.synthetic.main.activity_missenroll.*
+
 
 class FindEnrollActivity :AppCompatActivity(){
     val binding by lazy { ActivityFindenrollBinding.inflate(layoutInflater) }
@@ -81,6 +83,7 @@ class FindEnrollActivity :AppCompatActivity(){
             val gender = binding.genderEdit.text.toString()
             val specify = binding.specifyEdit.text.toString()
             //val name = binding.nameEdit.text.toString()
+            val dateString = Timestamp.now()
 
             if(imageUrls.size == 1){ //사진이 1장만 있을 때
                 val enrollinf= hashMapOf(
@@ -88,6 +91,7 @@ class FindEnrollActivity :AppCompatActivity(){
                     "farColor" to farcolor,
                     "gender" to gender,
                     "specify" to specify,
+                    "uploadTime" to dateString,
                     "img" to imageUrls[0]
                 )
                 db.collection("Finding")
@@ -101,6 +105,7 @@ class FindEnrollActivity :AppCompatActivity(){
                     "farColor" to farcolor,
                     "gender" to gender,
                     "specify" to specify,
+                    "uploadTime" to dateString,
                     "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Finding")
@@ -115,6 +120,7 @@ class FindEnrollActivity :AppCompatActivity(){
                     "farColor" to farcolor,
                     "gender" to gender,
                     "specify" to specify,
+                    "uploadTime" to dateString,
                     "img" to "null"
                 )
                 db.collection("Finding")

@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.missitem.view.missname
 
 class FindAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val db: FirebaseFirestore = Firebase.firestore
-    private val findData = db.collection("Finding").orderBy("uploadTime")
+    private val findData = db.collection("Finding")
     var findlist: ArrayList<FindData> = arrayListOf()
 
     class ListAdapter(val layout: View): RecyclerView.ViewHolder(layout)

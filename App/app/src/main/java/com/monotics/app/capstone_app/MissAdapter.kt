@@ -1,5 +1,7 @@
 package com.monotics.app.capstone_app
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.data.MissData
+import kotlinx.android.synthetic.main.missboard.view.boardimg
 import kotlinx.android.synthetic.main.missitem.view.missaddress
 import kotlinx.android.synthetic.main.missitem.view.missimg
 import kotlinx.android.synthetic.main.missitem.view.missname
@@ -58,8 +61,27 @@ class MissAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         viewHolder.missname.text = misslist[position].name
         viewHolder.missaddress.text = misslist[position].address//주소
 
-        viewHolder.setOnClickListener {
-            
+        viewHolder.missimg.setOnClickListener {
+            Log.e("kimshinseung","success") // 검사
+
+            val context = viewHolder.context
+            val intent = Intent(context,DetailActivity::class.java)
+            val missenrollinf = hashMapOf(
+                "name" to misslist[position].name,
+                "address" to misslist[position].address,
+                "age" to misslist[position].age,
+                "date" to misslist[position].date,
+                "farColor1" to misslist[position].farColor1,
+                "farColor2" to misslist[position].farColor2,
+                "feature" to misslist[position].feature,
+                "kakaoId" to misslist[position].kakaoId,
+                "gender" to misslist[position].gender,
+                "neutering" to misslist[position].neutering,
+                "specify" to misslist[position].specify,
+                "imgs" to ArrayList<String>(misslist[position].imgs)
+            )
+            intent.putExtra("missData",missenrollinf)
+            context.startActivity(intent)
         }
     }
 

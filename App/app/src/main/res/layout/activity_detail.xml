@@ -57,11 +57,10 @@
         android:id="@+id/textView36"
         android:layout_width="20dp"
         android:layout_height="34dp"
-        android:textStyle="bold"
-        android:layout_marginStart="1dp"
         android:layout_marginTop="248dp"
         android:text="살"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/detail_age"
         app:layout_constraintTop_toBottomOf="@+id/titlebar" />
 
@@ -143,7 +142,7 @@
         android:layout_height="31dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="22dp"
-        android:text="중성화"
+        android:text="null"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView32"
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
@@ -157,7 +156,7 @@
         android:text="name"
         android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_img" />
 
     <TextView
         android:id="@+id/detail_kakaoId"
@@ -165,7 +164,7 @@
         android:layout_height="34dp"
         android:layout_marginStart="19dp"
         android:layout_marginTop="5dp"
-        android:text="kakaoid"
+        android:text="id"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView38"
         app:layout_constraintTop_toBottomOf="@+id/detail_feature" />
@@ -176,7 +175,6 @@
         android:layout_height="34dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="24dp"
-        android:text="specify"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView37"
         app:layout_constraintTop_toBottomOf="@+id/detail_farColor1" />
@@ -187,7 +185,6 @@
         android:layout_height="87dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:text="feature"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView40"
         app:layout_constraintTop_toBottomOf="@+id/textView39" />
@@ -198,7 +195,7 @@
         android:layout_height="53dp"
         android:layout_marginStart="23dp"
         android:layout_marginTop="26dp"
-        android:text="address"
+        android:text="null"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textView33"
         app:layout_constraintTop_toBottomOf="@+id/textView32" />
@@ -209,7 +206,7 @@
         android:layout_height="34dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="21dp"
-        android:text="date"
+        android:text="시간"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView39"
         app:layout_constraintTop_toBottomOf="@+id/detail_specify" />
@@ -220,17 +217,16 @@
         android:layout_height="31dp"
         android:layout_marginStart="17dp"
         android:layout_marginTop="22dp"
-        android:text="gender"
+        android:text="null"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView29"
         app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
     <TextView
         android:id="@+id/detail_age"
-        android:layout_width="21dp"
+        android:layout_width="40dp"
         android:layout_height="34dp"
         android:layout_marginTop="248dp"
-        android:text="age"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView28"
         app:layout_constraintTop_toBottomOf="@+id/titlebar" />
@@ -250,11 +246,11 @@
         android:id="@+id/detail_farColor1"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:textStyle="bold"
         android:layout_marginStart="34dp"
         android:layout_marginTop="10dp"
         android:text="farcolor1"
         android:textSize="20sp"
+        android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/textView34"
         app:layout_constraintTop_toBottomOf="@+id/detail_address" />
 
@@ -310,7 +306,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/detail_img"
         android:layout_width="189dp"
         android:layout_height="212dp"
         android:layout_marginStart="20dp"
@@ -329,6 +325,6 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
