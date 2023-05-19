@@ -1,8 +1,12 @@
 package com.monotics.app.capstone_app
 
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
@@ -55,6 +59,29 @@ class MissboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
 
         viewHolder.textImg.text = misslist[position].address//주소
+
+
+
+        viewHolder.boardimg.setOnClickListener {
+            Log.e("kimshinseung","success") // 검사
+
+            val context = viewHolder.context
+            val intent = Intent(context,DetailActivity::class.java)
+            val bundle= Bundle()
+            bundle.putString("name", misslist[position].name)
+            bundle.putString("address", misslist[position].address)
+            bundle.putString("age", misslist[position].age)
+            bundle.putString("date", misslist[position].date)
+            bundle.putString("farColor1", misslist[position].farColor1)
+            bundle.putString("farColor2", misslist[position].farColor2)
+            bundle.putString("feature", misslist[position].feature)
+            bundle.putString("kakaoId", misslist[position].kakaoId)
+            bundle.putString("gender", misslist[position].gender)
+            bundle.putString("neutering", misslist[position].neutering)
+            bundle.putString("specify", misslist[position].specify)
+            intent.putExtra("missData",bundle)
+            context.startActivity(intent)
+        }
 
     }
 
