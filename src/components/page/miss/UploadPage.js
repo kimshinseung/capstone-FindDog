@@ -7,7 +7,7 @@ import userInputs from "./formData.js";
 import { React, useState, useEffect} from "react";
 import { useNavigate, Link } from "react-router-dom";
 import DaumPostcode from "react-daum-postcode";
-import { addDoc, collection } from "@firebase/firestore";
+import { addDoc, collection, updateDoc } from "@firebase/firestore";
 import { db, storage } from "../../../firebase.js";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 //import Dropzone from 'react-dropzone'
@@ -15,6 +15,8 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 
 const UploadPage = () => {
+
+    var img = 1;
 
     const [data, setData] = useState({});
     const [files, setFiles] = useState([]);
@@ -25,7 +27,7 @@ const UploadPage = () => {
 
     useEffect(()=>{
         const uploadFile= (file, i) => {
-            const name = new Date().getTime() + file.name;
+            //const name = new Date().getTime() + file.name;
             const storageRef = ref(storage, file.name);
             const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -40,6 +42,7 @@ const UploadPage = () => {
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                         Imgs[i] = downloadURL;
+                        img = 0;
                     });
                 }
             );
@@ -62,12 +65,12 @@ const UploadPage = () => {
     const handler = async(e) =>{
         e.preventDefault();
         var time = new Date()
-        await addDoc(collection(db, "Missing" ), {
+        const docRef = await addDoc(collection(db, "Missing"), {
             ...data,
             imgs: Imgs, 
-            uploadTime: time.getFullYear() + "-" + time.getMonth() + "-" + time.getDate() + "-" + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds()
-
+            uploadTime: time
         });
+        await updateDoc(docRef, {id: docRef.id});   //현재 문서의 id를 필드에 다시 추가
         alert("등록되었습니다");
         location.reload();
     }

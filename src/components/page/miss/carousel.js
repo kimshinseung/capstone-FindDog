@@ -9,11 +9,12 @@ import { db, storage } from "../../../firebase";
 import Card from './card';
 import data from './data';
 
-const Carousel = ()=>{
+const Carousel = (category)=>{
   //let [profiles] = useState(data);
   
   const [profiles, setProfiles] = useState(async ()=> {
-    const QuerySnapshot = await getDocs(query(collection(db, "Missing")));
+    console.log(category);
+    const QuerySnapshot = await getDocs(query(collection(db, category.category)));
     const data = QuerySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data()
@@ -21,8 +22,8 @@ const Carousel = ()=>{
     //console.log("data:" + data);
     //return Array.from(data);
     //data = Array.from(data).filter(obj => obj.visible=true) //프로필마다 visible이라는 필드를 만들어서 걔가 true일때만 보이도록
-    //setProfiles(Array.from(data).sort(function compare(a,b){ b.uploadTime - a.uploadTime })); //업로드 시간에따라 데이터 정렬
-    setProfiles(Array.from(data));
+    setProfiles(Array.from(data).sort(function compare(a,b){ b.uploadTime - a.uploadTime })); //업로드 시간에따라 데이터 정렬
+    //setProfiles(Array.from(data));
   });
 
 

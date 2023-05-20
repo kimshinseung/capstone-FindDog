@@ -29,7 +29,7 @@ function Card(props) {
           <div>
             <img src={props.profiles.imgs[0]} width={300} height={300} />
             <h4>이름: {props.profiles.name}</h4>
-            <p>실종위치: {props.profiles.missedplace}</p>
+            <p>실종위치: {props.profiles.address}</p>
           </div>
         </Link>
         </Col>
