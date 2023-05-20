@@ -20,6 +20,9 @@ import SignupPage from "./Login/SignupPage";
 import UploadPage from "./miss/UploadPage";
 import MoreinfoPage from "./miss/moreInfo";
 import Moreinfo2Page from "./miss/moreInfo2";
+import FindUploadPage from "./find/FindUploadPage";
+//import MoreinfoPage from "./miss/FindMoreInfo";
+//import Moreinfo2Page from "./miss/FindMoreInfo2";
 import Map from "./map/map";
 // import
 import '../../style/style.css';
@@ -119,6 +122,14 @@ export const FindBoard = () => (
     </section>
   </PageTemplate>
 );
+
+export const FindUpload = () => (
+  <PageTemplate>
+    <section className="find-upload-page">
+      <FindUploadPage />
+    </section>
+  </PageTemplate>
+)
 
 /**
  * HospitalMap
