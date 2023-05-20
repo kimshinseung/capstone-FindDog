@@ -14,26 +14,27 @@ class DetailActivity: AppCompatActivity()  {
         setContentView(binding.root)
 
         val inf = intent.getSerializableExtra("missData") as HashMap<String,Any>
-        binding.detailName.text=inf["name"] as String
-        binding.detailAddress.text=inf["address"] as String
-        binding.detailAge.text=inf["age"] as String
-        binding.detailDate.text=inf["date"] as String
-        binding.detailFarColor1.text=inf["farColor1"] as String
-        binding.detailFarColor2.text=inf["farColor2"] as String
-        binding.detailFeature.text=inf["feature"] as String
-        binding.detailKakaoId.text=inf["kakaoId"] as String
-        binding.detailGender.text=inf["gender"] as String
-        binding.detailNeutering.text=inf["neutering"] as String
-        binding.detailSpecify.text=inf["specify"] as String
-        val imageUrls = inf["imgs"] as ArrayList<String>
+        binding.detailName.text=inf["name"] as? String
+        binding.detailAddress.text=inf["address"] as? String
+        binding.detailAge.text=inf["age"] as? String
+        binding.detailDate.text=inf["date"] as? String
+        binding.detailFarColor1.text=inf["farColor1"] as? String
+        binding.detailFarColor2.text=inf["farColor2"] as? String
+        binding.detailFeature.text=inf["feature"] as? String
+        binding.detailKakaoId.text=inf["kakaoId"] as? String
+        binding.detailGender.text=inf["gender"] as? String
+        binding.detailNeutering.text=inf["neutering"] as? String
+        binding.detailSpecify.text=inf["specify"] as? String
+        val imageUrls = inf["imgs"] as ArrayList<String>?
 
         var manager02 = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        var adapter02 = DetailImageAdapter(imageUrls)
+        var adapter02 = if (imageUrls != null) DetailImageAdapter(imageUrls) else DetailImageAdapter(ArrayList<String>())
 
         var RecyclerView02 = detail_recycler.apply {
             adapter = adapter02
             layoutManager = manager02
         }
+
         //사진
 //        Glide.with(binding.detailImg)
 //            .load(imageUrls[0])

@@ -107,7 +107,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "kakaoId" to tel,
                     "neutering" to neutering,
                     "uploadTime" to dateString,
-                    "img" to imageUrls[0]
+                    "imgs" to ArrayList<String>(imageUrls)
                 //"img" to imageUrls[0] 사진 오류 나면 이렇게 바꾸면 됨
                 )
                 db.collection("Missing")
@@ -138,6 +138,8 @@ class MissEnrollActivity: AppCompatActivity() {
                     }
             }
             else{ //사진이 없을 때
+                val imageUrls = ArrayList<String>()
+                imageUrls.add(0, null.toString()) //0번째 값에 Null넣어놓기
                 val enrollinf= hashMapOf(
                     "address" to address,
                     "farColor1" to farcolor,
@@ -151,7 +153,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "kakaoId" to tel,
                     "neutering" to neutering,
                     "uploadTime" to dateString,
-                    "img" to "null"
+                    "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Missing")
                     .add(enrollinf)
