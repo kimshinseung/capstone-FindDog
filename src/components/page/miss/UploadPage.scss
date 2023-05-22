@@ -1,37 +1,82 @@
-.upload-page{
-    padding-left: 30px;
-    padding-bottom: 50px;
+.upload-page2{
+    padding-left: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eef5ed;
+    margin-left:12px;
+    margin-right:12px;
+    margin-top:10px;
 
     form{
-        
-
         select{
-            width: 200px;
-            height: 30px;
-            margin: 1px;
+          width: 200px;
+          height: 25px;
+          display: flex;
+          position: relative;
         }
 
-        div{
-            margin-bottom: 10px;
-            button{
-                margin-left: 10px;
-            }
+        .name, .age, .nuetering, .place, .kakaoId, .date, .feature, .photo {
+          padding: 10px;
+          display: flex;
+          position: relative;
+          width:500px;
+          height:25px;
+          margin-left:-9px;
+          margin-bottom:2px;
+          align-items: center;
+
+          //justify-content: space-evenly;
         }
 
-        button{
-            margin-top: 50px;
-            width: 200px;
-            height: 30px;
-            border: none;
-            border-radius: 10px;
-            background-color: #92c465;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
+        .missplaceButton{
+          background-color: #84b77d;
+          border: none;
+          color: white;
+          padding: 4px 15px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 13px;
+          font-family: 'NanumSquare', sans-serif, bold;
+          margin-left: 5px;
+          border-radius: 5px;
         }
-        
+
+        .missphotoButton{
+          background-color: #84b77d;
+          border: none;
+          color: white;
+          padding: 4px 15px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 13px;
+          font-family: 'NanumSquare', sans-serif, bold;
+          margin-left: 5px;
+          border-radius: 5px;
+        }
+
+              
     }
 }
+
+button{
+  margin-top: 10px;
+  margin-bottom: 35px;
+  margin-left: 25px;
+  width: 200px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: #69a65f;
+  color: white;
+  font-weight: bold;
+  font-size:14px;
+  cursor: pointer;
+  font-family: 'NanumSquare', sans-serif, bold;
+}  
+
+
 
 body {
     

@@ -110,64 +110,67 @@ const UploadPage = () => {
         <>
             <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
             <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-
+            
             <div className="upload-page">
+            <h2>실종 등록하기</h2>
+            <div className="upload-page2">
                 <form onSubmit = {handler}>
 
-                    <div>
-                    <h3>이름</h3>
+                    <div className="name">
+                    <h4>이름</h4>
                     <input type="text" id="name" size="25" onChange={handleInput}></input>
-                    </div><br/>
+                    </div>
 
-                    <div>
-                    <h3>나이</h3>
+                    <div className="age">
+                    <h4>나이</h4>
                     <input type="number" id="age" size="2" onChange={handleInput}></input>
-                    </div><br/>
+                    </div>
 
                     {userInputs.map((input)=>(
                         <>
                         <div>
-                            <h3>{input.label}</h3>
+                            <h4>{input.label}</h4>
                             <select id={input.id} onChange={handleInput}>
-                                <option disabled selected>-------</option>
+                                <option disabled selected></option>
                                 {input.datas.map((item)=>(
                                     <option value={item} key={item}>{item}</option>
                                 ))}
                             </select>
                         </div>
-                        <br/>
                         </>
                     ))} 
 
-                    <div>
-                    <h3>중성화 여부</h3>
+                    <div className="neutering">
+                    <h4>중성화 여부</h4>
                     <label><input type="radio" id="neutering" name="neutering" value="yes" onChange={handleInput}/>예</label> &nbsp;
                     <label><input type="radio" id="neutering" name="neutering" value="no" onChange={handleInput}/>아니오</label>
-                    </div><br/>
+                    </div>
 
-                    <h3>실종장소</h3>
+                    <div className="place">
+                    <h4>실종장소</h4>
                     {popup && <div><DaumPostcode style={postCodeStyle} onComplete={handleComplete}/></div>}
                     <input type="text" id="place" onChange={handleInput} value={address}></input>
-                    <input type="button" onClick={()=>setPopup(true)} value="주소찾기"></input><br/>
+                    <input type="button" className="missplaceButton" onClick={()=>setPopup(true)} value="주소찾기"></input><br/>
+                    </div>
 
-                    <div>
-                    <h3>카카오톡ID</h3>
+                    <div className="kakaoId">
+                    <h4>카카오톡ID</h4>
                     <input id="kakaoId" maxLength="11" onChange={handleInput} />
-                    </div><br/>
+                    </div>
 
-                    <div>
-                    <h3>날짜 및 시간</h3>
+                    <div className="date">
+                    <h4>날짜 및 시간</h4>
                     <input type="datetime-local" id="date" onChange={handleInput}/>
-                    </div><br/>
+                    </div>
 
-                    <div>
-                    <h3>성격 및 특징</h3>
-                    <textarea cols="30" rows="5" id="feature" onChange={handleInput}></textarea>
-                    </div><br/>
+                    <div className="feature">
+                    <h4>성격 및 특징</h4>
+                    <textarea cols="30" id="feature" onChange={handleInput}></textarea>
+                    </div>
 
-                    <div>
-                    <h3>실종전 사진</h3>
-                    <input type="file" multiple accept='image/*' onChange={(e)=>setFiles(e.target.files)}/>
+                    <div className="photo">
+                    <h4>실종전 사진</h4>
+                    <input type="file" className="missphotoButton" multiple accept='image/*' onChange={(e)=>setFiles(e.target.files)}/>
                     {/* <form action="/target" class="dropzone" id="myDropzone"></form>
                     <script>
                         Dropzone.discover();
@@ -176,13 +179,11 @@ const UploadPage = () => {
                             method: 'post',
                         };
                     </script> */}
-
-                    </div><br/>
-
-                    <br/>
-                    <button type="submit">등록하기</button>
+                    </div>
                 </form>
+                </div>
             </div>
+            <button type="submit">등록하기</button>
         </>
     );
 };

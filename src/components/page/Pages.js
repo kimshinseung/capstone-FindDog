@@ -86,7 +86,7 @@ export const MissBoard = () => (
 
 export const Upload = () => (
   <PageTemplate>
-    <section className="upload-page">
+    <section className="upload-board">
       <UploadPage />
     </section>
   </PageTemplate>
