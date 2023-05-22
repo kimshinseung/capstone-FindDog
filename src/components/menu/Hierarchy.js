@@ -11,7 +11,6 @@ import {
   MissBoard, FindBoard, HospitalMap, Search, Notfound, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload, Forum, General
   } from "../page/Pages";
 import { DetailPage } from '../page/miss/DetailPage';
-import data from '../page/miss/data';
 
 // path 정의
 const Hierarchy = () => (
@@ -52,7 +51,7 @@ const Hierarchy = () => (
       <Route path='/post' element={<Navigate replace='true' to='mypage/post' />} />
 
       {/* 상세페이지 */}
-      <Route path='detail/:id' element={<DetailPage data={data} />} />
+      <Route path='detail/:id' element={<DetailPage/>} />
       {/* <Route path='detail/:id' element={data.map((item, i) => <DetailPage data={item} i={i+1} key={item.id}/>)} /> */}
 
       <Route path="*" element={<Notfound />} />
