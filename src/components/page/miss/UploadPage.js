@@ -118,7 +118,7 @@ const UploadPage = () => {
 
                     <div className="name">
                     <h4>이름</h4>
-                    <input type="text" id="name" size="25" onChange={handleInput}></input>
+                    <input type="text" id="name" size="20" onChange={handleInput}></input>
                     </div>
 
                     <div className="age">
@@ -128,7 +128,7 @@ const UploadPage = () => {
 
                     {userInputs.map((input)=>(
                         <>
-                        <div>
+                        <div className="specify_farColor">
                             <h4>{input.label}</h4>
                             <select id={input.id} onChange={handleInput}>
                                 <option disabled selected></option>
@@ -165,12 +165,15 @@ const UploadPage = () => {
 
                     <div className="feature">
                     <h4>성격 및 특징</h4>
-                    <textarea cols="30" id="feature" onChange={handleInput}></textarea>
+                    <textarea cols="25" id="feature" onChange={handleInput}></textarea>
                     </div>
 
                     <div className="photo">
                     <h4>실종전 사진</h4>
-                    <input type="file" className="missphotoButton" multiple accept='image/*' onChange={(e)=>setFiles(e.target.files)}/>
+                    <label className="input-file-btn" for="input-file">
+                        파일 업로드하기
+                    </label>
+                    <input type="file" id="input-file" style={{display:"none"}} multiple accept='image/*' onChange={(e)=>setFiles(e.target.files)}/>
                     {/* <form action="/target" class="dropzone" id="myDropzone"></form>
                     <script>
                         Dropzone.discover();
@@ -179,11 +182,12 @@ const UploadPage = () => {
                             method: 'post',
                         };
                     </script> */}
-                    </div>
+                    </div>    
                 </form>
                 </div>
+                <button type="submit">등록하기</button>
             </div>
-            <button type="submit">등록하기</button>
+            
         </>
     );
 };
