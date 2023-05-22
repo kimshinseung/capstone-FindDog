@@ -114,11 +114,12 @@ export function SearchPage() {
                 검색
             </button>
 
-            <br/><hr/>
+            <hr/>
             <h2>검색 결과</h2>
             <div>
                 <Post postObj={postdata} />
             </div>
+            <br/><br/>
         </div>
     </>
 

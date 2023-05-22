@@ -141,7 +141,7 @@ const UploadPage = () => {
                     ))} 
 
                     <div className="neutering">
-                    <h4>중성화 여부</h4>
+                    <h4>중성화 여부 |</h4>
                     <label><input type="radio" id="neutering" name="neutering" value="yes" onChange={handleInput}/>예</label> &nbsp;
                     <label><input type="radio" id="neutering" name="neutering" value="no" onChange={handleInput}/>아니오</label>
                     </div>
