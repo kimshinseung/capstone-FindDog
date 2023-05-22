@@ -41,7 +41,7 @@ function Card(props) {
 const ItemStyle = styled.div`
   padding: 16px;
   margin: 8px;
-  background-color: aliceblue;
+  background-color: #eef5ed;
 `;
 
 export default Card;

@@ -1,0 +1,38 @@
+.selectBox {
+    margin-left:12px;
+    margin-right:12px;
+    margin-top:10px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    background-color: #eef5ed;
+
+    text-align: left;
+}
+
+.division2, .specify2, .gender2, .farColor2{
+    padding: 10px;
+    display: flex;
+    position: relative;
+    width:300px;
+    height:25px;
+    margin-left:-45px;
+    margin-bottom:2px;
+    align-items: center;
+
+    justify-content: space-evenly;
+}
+
+.searchButton {
+    background-color: #69a65f;
+    border: none;
+    color: white;
+    padding: 10px 23px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'NanumSquare', sans-serif, bold;
+    margin-left: 12px;
+    margin-top: 5px;
+    border-radius: 6px;
+  }

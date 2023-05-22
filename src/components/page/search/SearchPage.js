@@ -10,6 +10,7 @@ import { getDoc, getDocs, collection, updateDoc, addDoc, query, where, orderBy, 
 import { useState } from 'react';
 import Post from "./Post";
 import { post } from "jquery";
+import "./SearchPage.scss";
 
 
 
@@ -66,46 +67,54 @@ export function SearchPage() {
 
 
     return <>
-
         <div className="search-page">
-            <h2>검색</h2>
+            <h2>검색 게시판</h2>
             <div className='selectBox'>
-                <h3>분류</h3>
-            <select id="Division">
+                <div className='division2'>
+                <h4>분류</h4>
+                <select id="Division">
+                    <option disabled selected>ㅡㅡㅡㅡㅡ</option>
                     <option value="MISS">실종</option>
                     <option value="FIND">목격</option>
                 </select>
+                </div>
 
-
-                <h3>품종</h3>
+                <div className="specify2">
+                <h4>품종</h4>
                 <select id="specify">
-                    <option disabled selected>-------</option>
+                    <option disabled selected>ㅡㅡㅡㅡㅡ</option>
                     <option value="말티즈">말티즈</option>
                     <option value="시바">시바</option>
                     <option value="허스키">허스키</option>
                 </select>
+                </div>
 
-                <h3>성별</h3>
+                <div className="gender2">
+                <h4>성별</h4>
                 <select id="gender">
-                    <option disabled selected>-------</option>
+                    <option disabled selected>ㅡㅡㅡㅡㅡ</option>
                     <option value="수컷">수컷</option>
                     <option value="암컷">암컷</option>
                     <option value="중성화">중성화</option>
                 </select>
+                </div>
 
-                <h3>모색</h3>
+                <div className="farColor2">
+                <h4>모색</h4>
                 <select id="farColor">
-                    <option disabled selected>-------</option>
+                    <option disabled selected>ㅡㅡㅡㅡㅡ</option>
                     <option value="검은색">검은색</option>
                     <option value="갈색">갈색</option>
                     <option value="하얀색">하얀색</option>
                 </select>
+                </div>
             </div>
-            <br/>
-            <button
-                onClick={() => { Search() }}>
-                검색</button>
-            <br/><br/><hr/>
+
+            <button className="searchButton" onClick={() => { Search() }}>
+                검색
+            </button>
+
+            <br/><hr/>
             <h2>검색 결과</h2>
             <div>
                 <Post postObj={postdata} />
