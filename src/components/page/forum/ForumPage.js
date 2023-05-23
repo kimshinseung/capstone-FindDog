@@ -17,22 +17,20 @@ export const ForumPage = () => {
     const [now, setNow] = useState(1);      // 현재 페이지 번호(시작은 첫번째)
     const offset = (now - 1) * limit;       // 각 페이지의 첫 게시물 위치
 
-    useEffect(async () => {
+    useEffect(() => {
         // firebase의 Forum Collection에서 글 목록 가져오기
-        setPost();
-        
-    }, []);
+        const setPost = async () => {
+            const QuerySnapshot = await getDocs(query(collection(db, "Forum")));
+            const data = QuerySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            // console.log(Array.from(data));
+            setPosting(Array.from(data));
+        }
 
-    const setPost = async () => {
-        const QuerySnapshot = await getDocs(query(collection(db, "Forum")));
-        const data = QuerySnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data()
-        }));
-        // console.log(Array.from(data));
-        setPosting(Array.from(data));
-        // console.log(posting);
-    }
+        setPost();
+    }, []);
 
     const navigate = useNavigate();
 
@@ -45,8 +43,7 @@ export const ForumPage = () => {
         <div className="forum-page">
             <h2>자유게시판</h2>
             
-            한 페이지 당 표시할 게시물 수: 
-            {/* 페이지 당 게시물 수: {limit} */}
+            한 페이지 당 표시할 게시물 수:
             <select type="number" value={limit}
             onChange={({ target: { value } }) => setLimit(Number(value))}
             >
@@ -57,8 +54,6 @@ export const ForumPage = () => {
                 <option value="50">50</option>
             </select>
             <br/>
-            {/* 현재 페이지 번호: {now}<br/>
-            각 페이지의 첫 게시물 위치: {offset}<br/><br/> */}
 
             <br/>
             <button onClick={toUploadHandler}>글 올리기</button>
