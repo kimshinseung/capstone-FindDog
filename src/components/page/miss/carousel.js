@@ -14,7 +14,7 @@ const Carousel = (category)=>{
   
   const [profiles, setProfiles] = useState(async ()=> {
     console.log(category);
-    const QuerySnapshot = await getDocs(query(collection(db, category.category), orderBy("uploadTime")));
+    const QuerySnapshot = await getDocs(query(collection(db, category.category), orderBy("uploadTime", "desc")));
     const data = QuerySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data()
