@@ -113,23 +113,24 @@ const UploadPage = () => {
             
             <div className="upload-page">
             <h2>실종 등록하기</h2>
+            <div className="warning"><h4>※ 최대한 정확하고 자세히 적을수록 좋습니다.</h4></div>
             <div className="upload-page2">
                 <form onSubmit = {handler}>
 
                     <div className="name">
-                    <h4>이름</h4>
+                    <h4>이름</h4>&emsp;
                     <input type="text" id="name" size="20" onChange={handleInput}></input>
                     </div>
 
                     <div className="age">
-                    <h4>나이</h4>
+                    <h4>나이</h4>&emsp;
                     <input type="number" id="age" size="2" onChange={handleInput}></input>
                     </div>
 
                     {userInputs.map((input)=>(
                         <>
                         <div className="specify_farColor">
-                            <h4>{input.label}</h4>
+                            <h4>{input.label}</h4>&emsp;
                             <select id={input.id} onChange={handleInput}>
                                 <option disabled selected></option>
                                 {input.datas.map((item)=>(
@@ -141,37 +142,36 @@ const UploadPage = () => {
                     ))} 
 
                     <div className="neutering">
-                    <h4>중성화 여부 |</h4>
+                    <h4>중성화 여부 |</h4>&ensp;
                     <label><input type="radio" id="neutering" name="neutering" value="yes" onChange={handleInput}/>예</label> &nbsp;
                     <label><input type="radio" id="neutering" name="neutering" value="no" onChange={handleInput}/>아니오</label>
                     </div>
 
                     <div className="place">
-                    <h4>실종장소</h4>
+                    <h4>실종장소</h4>&emsp;
                     {popup && <div><DaumPostcode style={postCodeStyle} onComplete={handleComplete}/></div>}
                     <input type="text" id="place" onChange={handleInput} value={address}></input>
                     <input type="button" className="missplaceButton" onClick={()=>setPopup(true)} value="주소찾기"></input><br/>
                     </div>
 
                     <div className="kakaoId">
-                    <h4>카카오톡ID</h4>
+                    <h4>카카오톡ID</h4>&emsp;
                     <input id="kakaoId" maxLength="11" onChange={handleInput} />
                     </div>
 
                     <div className="date">
-                    <h4>날짜 및 시간</h4>
+                    <h4>날짜 및 시간</h4>&ensp;
                     <input type="datetime-local" id="date" onChange={handleInput}/>
                     </div>
 
                     <div className="feature">
-                    <h4>성격 및 특징</h4>
+                    <h4>성격 및 특징</h4>&ensp;
                     <textarea cols="25" id="feature" onChange={handleInput}></textarea>
                     </div>
 
                     <div class="photo">
-                        <h4>실종전 사진</h4>
+                        <h4>실종전 사진</h4>&ensp;
                         <label className="input-file-btn" for="input-file">
-                            파일 업로드하기
                         </label>
                         <input type="file" id="input-file"  multiple accept='image/*' onChange={(e)=>setFiles(e.target.files)}/>
                         {/* <form action="/target" class="dropzone" id="myDropzone"></form>
@@ -185,7 +185,7 @@ const UploadPage = () => {
                     </div>    
                 </form>
                 </div>
-                <button type="submit">등록하기</button>
+                <button className="submit-btn" type="submit">등록하기</button>
             </div>
             
         </>

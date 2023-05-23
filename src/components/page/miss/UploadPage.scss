@@ -1,12 +1,22 @@
+.warning{
+  margin-left:50%;
+  margin-right:31%;
+  margin-bottom:-10px;
+  font-size: 15px;
+  color: #40643b;
+}
+
 .upload-page2{
     padding-left: 25px;
     padding-top: 12px;
     padding-bottom: 15px;
-    background-color: #eef5ed;
-    margin-left:12px;
-    margin-right:12px;
-    margin-top:10px;
-    margin-bottom:5px;
+    background-color: white;
+    margin-left:30%;
+    margin-right:30%;
+    margin-top: 2px;
+    //margin-bottom:5px;
+    border:2px #84b77d;
+    border-radius: 15px;
 
     form{
         .specify_farColor{
@@ -74,24 +84,31 @@
         }
 
         input[type=file]::file-selector-button {
-          width: 150px;
-          height: 30px;
-          background: #84b77d;
-          border: 1px solid rgb(77,77,77);
-          border-radius: 10px;
+          background-color: #84b77d;
+          border: none;
+          color: white;
+          padding: 4px 15px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 13px;
+          font-family: 'NanumSquare', sans-serif, bold;
+          margin-left: 5px;
+          border-radius: 5px;
           cursor: pointer;
           &:hover {
-            background: rgb(77,77,77);
+            background: #84b77d;
             color: #fff;
           }
         }
     }
 }
 
-button{
-  margin-top: 10px;
-  margin-bottom: 35px;
-  margin-left: 12px;
+.submit-btn{
+  margin-top: 8px;
+  margin-bottom: 40px;
+  margin-left: 56%;
+  margin-right:31%;
   width: 200px;
   height: 30px;
   border: none;
@@ -103,57 +120,3 @@ button{
   cursor: pointer;
   font-family: 'NanumSquare', sans-serif, bold;
 }  
-
-
-
-body {    
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  .dropzone {
-    width: 98%;
-    margin: 1%;
-    border: 2px dashed #3498db !important;
-    border-radius: 5px;
-    -webkit-transition: .2s;
-    transition: .2s;
-  }
-  
-  .dropzone.dz-drag-hover {
-    border: 2px solid #3498db !important;
-  }
-  
-  .dz-message.needsclick img {
-    width: 50px;
-    display: block;
-    margin: auto;
-    opacity: .6;
-    margin-bottom: 15px;
-  }
-  
-  span.plus {
-    display: none;
-  }
-  
-  .dropzone.dz-started .dz-message {
-    display: inline-block !important;
-    width: 120px;
-    float: right;
-    border: 1px solid rgba(238, 238, 238, 0.36);
-    border-radius: 30px;
-    height: 120px;
-    margin: 16px;
-    -webkit-transition: .2s;
-    transition: .2s;
-  }
-  
-  .dropzone.dz-started .dz-message span.text {
-    display: none;
-  }
-  
-  .dropzone.dz-started .dz-message span.plus {
-    display: block;
-    font-size: 70px;
-    color: #AAA;
-    line-height: 110px;
-  }

@@ -79,11 +79,18 @@ a {
   background-color: #DDDDDD;
 }
 
-.find-page, .search-page, .main-page, .forum-page, .map-page, .moreInfo-page, .upload-page{
+.find-page, .search-page, .main-page, .forum-page, .map-page, .moreInfo-page {
   width: 98%;
   height: auto;
   margin: auto;
   background-color: #FFFFFF;
+}
+
+.upload-page{
+  width: 98%;
+  height: auto;
+  margin: auto;
+  background-color: #eef5ed;  
 }
 
 .Bind{
@@ -98,6 +105,14 @@ a {
 }
 
 .miss-page h2, .find-page h2, .search-page h2, .forum-page h2, .hospital-map h2, .moreInfo-page h2, .upload-page h2{
+  padding: 5px;
   background-color: #FFFFFF;
   margin: 0;
+}
+
+.upload-page h2{
+  padding: 5px;
+  height: auto;
+  margin: auto;
+  background-color: #eef5ed;  
 }
