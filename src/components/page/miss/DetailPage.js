@@ -24,7 +24,7 @@ export const DetailPage = () => {
     const [profiles, setProfiles] = useState([]);
 
       // useEffect
-      useEffect(() => {
+    useEffect(() => {
 
         const fetchData = async () => {
             // 여기서 비동기 작업 수행
@@ -48,23 +48,18 @@ export const DetailPage = () => {
 
         // fetch
         fetchData();
-      }, [location]);
+    }, [location]);
 
     return (
         <>
         <h2>상세 페이지</h2>
         <p>게시글 번호: {no}</p>
 
-        <div>
-            {profiles.length > 0 && profiles[0].imgs.map((url) => {
-                    console.log(url);
-                    <img width={300} height={300} key={url} src={url} alt="Uploaded Image" />
-                })
-            }
-        </div>
-
         {profiles.length > 0 && (
             <div>
+                <div>
+                    {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300}/>)}
+                </div>
                 <h4>이름: {profiles[0].name}</h4>
                 <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
                 <p>실종위치: {profiles[0].address}</p>
