@@ -26,9 +26,10 @@ export const DetailPage = () => {
 
       // useEffect
       useEffect(() => {
+
         const fetchData = async () => {
             // 여기서 비동기 작업 수행
-            const QuerySnapshot = await getDocs(query(collection(db, "Missing"), orderBy("uploadTime")));
+            const QuerySnapshot = await getDocs(query(collection(db, "Missing"), orderBy("uploadTime", "desc")));
 
             const data = QuerySnapshot.docs.map((doc, i) => ({
                     ids: i,
@@ -36,9 +37,9 @@ export const DetailPage = () => {
                 }
             ));
 
+            console.log(data);
             const detail = data.filter((d) => {
-                // console.log(String(d.ids));
-                if(String(d.ids) === no.id) {
+                if((d.ids + 1) === parseInt(no, 10)) {
                     return d;
                 }
             });
@@ -77,7 +78,15 @@ export const DetailPage = () => {
         {profiles.length > 0 && (
             <div>
                 <h4>이름: {profiles[0].name}</h4>
-                <p>asdf</p>
+                <p>실종위치: {profiles[0].address}</p>
+                <p>실종시간: {profiles[0].date} </p>
+                <p>종: {profiles[0].specify}</p>
+                <p>나이: {profiles[0].age}</p>
+                <p>성별: {profiles[0].gender}</p>
+                <p>중성화 여부: {profiles[0].neutering}</p>
+                <p>연락처: {profiles[0].tel}</p>
+                <p>털색: {profiles[0].farColor1}, {profiles[0].farColor2} </p>
+                <p>특징: {profiles[0].feature}</p>
             </div>
         )}
         <br/>
