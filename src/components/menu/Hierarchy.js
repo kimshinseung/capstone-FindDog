@@ -7,10 +7,9 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 // import components
 import {
-  MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
+  DetailBoard, MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
   MissBoard, FindBoard, HospitalMap, Search, Notfound, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload, Forum, General
   } from "../page/Pages";
-import { DetailPage } from '../page/miss/DetailPage';
 
 // path 정의
 const Hierarchy = () => (
@@ -26,9 +25,9 @@ const Hierarchy = () => (
       <Route path="/miss/moreInfo2/upload*" element={<Upload />} />
 
        {/* 실종 | 시간 순 상세페이지 */}
-       <Route path='/miss/moreInfo/detail/:id' element={<DetailPage/>} />
+       <Route path='/miss/moreInfo/detail/:id' element={<DetailBoard/>} />
        {/* 실종 | 지역 순 상세페이지 */}
-       <Route path='/miss/moreInfo2/detail/:id' element={<DetailPage/>} />
+       <Route path='/miss/moreInfo2/detail/:id' element={<DetailBoard/>} />
 
       <Route path="/find/*" element={<FindBoard />} />
       <Route path="/find/upload*" element={<FindUpload />} />
@@ -38,9 +37,9 @@ const Hierarchy = () => (
       <Route path="/find/moreInfo2/upload*" element={<FindUpload />} /> */}
 
       {/* 목격 | 시간 순 상세페이지 */}
-      <Route path='/find/moreInfo/detail/:id' element={<DetailPage/>} />
+      <Route path='/find/moreInfo/detail/:id' element={<DetailBoard/>} />
       {/* 목격 | 지역 순 상세페이지 */}
-      <Route path='/find/moreInfo2/detail/:id' element={<DetailPage/>} />
+      <Route path='/find/moreInfo2/detail/:id' element={<DetailBoard/>} />
 
       <Route path="/hospital/*" element={<HospitalMap />} />
       <Route path="/search/*" element={<Search />} />

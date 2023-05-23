@@ -23,6 +23,7 @@ import Moreinfo2Page from "./miss/moreInfo2";
 import FindUploadPage from "./find/FindUploadPage";
 //import MoreinfoPage from "./miss/FindMoreInfo";
 //import Moreinfo2Page from "./miss/FindMoreInfo2";
+import {DetailPage} from "./miss/DetailPage";
 import Map from "./map/map";
 // import
 import '../../style/style.css';
@@ -36,6 +37,18 @@ const PageTemplate = ({ children }) => (
     {children}
   </div>
 );
+
+/**
+ * Detail
+ * 상세 페이지
+ */
+export const DetailBoard = () => (
+  <PageTemplate>
+    <section className="main-board">
+      <DetailPage />
+    </section>
+  </PageTemplate>
+)
 
 /**
  * MainBoard
