@@ -168,20 +168,20 @@ const UploadPage = () => {
                     <textarea cols="25" id="feature" onChange={handleInput}></textarea>
                     </div>
 
-                    <div className="photo">
-                    <h4>실종전 사진</h4>
-                    <label className="input-file-btn" for="input-file">
-                        파일 업로드하기
-                    </label>
-                    <input type="file" id="input-file" style={{display:"none"}} multiple accept='image/*' onChange={(e)=>setFiles(e.target.files)}/>
-                    {/* <form action="/target" class="dropzone" id="myDropzone"></form>
-                    <script>
-                        Dropzone.discover();
-                        Dropzone.options.myDropzone = {
-                            url: "https://httpbin.org/post",
-                            method: 'post',
-                        };
-                    </script> */}
+                    <div class="photo">
+                        <h4>실종전 사진</h4>
+                        <label className="input-file-btn" for="input-file">
+                            파일 업로드하기
+                        </label>
+                        <input type="file" id="input-file"  multiple accept='image/*' onChange={(e)=>setFiles(e.target.files)}/>
+                        {/* <form action="/target" class="dropzone" id="myDropzone"></form>
+                        <script>
+                            Dropzone.discover();
+                            Dropzone.options.myDropzone = {
+                                url: "https://httpbin.org/post",
+                                method: 'post',
+                            };
+                        </script> */}
                     </div>    
                 </form>
                 </div>

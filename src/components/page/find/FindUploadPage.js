@@ -7,7 +7,7 @@ import userInputs from "../miss/formData.js";
 import { React, useState, useEffect} from "react";
 import { useNavigate, Link } from "react-router-dom";
 import DaumPostcode from "react-daum-postcode";
-import { addDoc, collection } from "@firebase/firestore";
+import { addDoc, collection, updateDoc } from "@firebase/firestore";
 import { db, storage } from "../../../firebase.js";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 //import Dropzone from 'react-dropzone'
@@ -62,11 +62,15 @@ const FindUpload = () => {
     const handler = async(e) =>{
         e.preventDefault();
         var time = new Date()
-        await addDoc(collection(db, "Missing" ), {
+        if (Imgs[0] == null){
+            Imgs[0] = "null"
+        }
+        const docRef = await addDoc(collection(db, "Finding"), {
             ...data,
             imgs: Imgs, 
             uploadTime: time
         });
+        await updateDoc(docRef, {id: docRef.id}); 
         alert("등록되었습니다");
         location.reload();
     }

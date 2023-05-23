@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { getDocs, collection, query, doc, where } from "firebase/firestore";
+import { getDocs, collection, query, doc, where, orderBy } from "firebase/firestore";
 import { db, storage } from "../../../firebase";
 // import Cardcom from './Cardcom';
 import Card from './card';
@@ -14,7 +14,7 @@ const Carousel = (category)=>{
   
   const [profiles, setProfiles] = useState(async ()=> {
     console.log(category);
-    const QuerySnapshot = await getDocs(query(collection(db, category.category)));
+    const QuerySnapshot = await getDocs(query(collection(db, category.category), orderBy("uploadTime")));
     const data = QuerySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data()
@@ -22,8 +22,8 @@ const Carousel = (category)=>{
     //console.log("data:" + data);
     //return Array.from(data);
     //data = Array.from(data).filter(obj => obj.visible=true) //프로필마다 visible이라는 필드를 만들어서 걔가 true일때만 보이도록
-    setProfiles(Array.from(data).sort(function compare(a,b){ b.uploadTime - a.uploadTime })); //업로드 시간에따라 데이터 정렬
-    //setProfiles(Array.from(data));
+    //setProfiles(Array.from(data).sort(function compare(a,b){ b.uploadTime - a.uploadTime })); //업로드 시간에따라 데이터 정렬
+    setProfiles(Array.from(data));
   });
 
 

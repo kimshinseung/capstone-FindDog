@@ -11,7 +11,7 @@ export const MissPage = () => {
     return (
         <>
             <div className="miss-page">
-                <h2>실종 게시판</h2><br/>
+                <h2>실종 게시판</h2>
                 <Link to="upload"> 실종 등록하기</Link>
 
                 <br/><br/><br/>
