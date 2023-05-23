@@ -19,7 +19,6 @@ export const DetailPage = () => {
     };
 
     const location = useLocation();
-   
 
     // 가져올 게시글 내용
     const [profiles, setProfiles] = useState([]);
@@ -30,54 +29,44 @@ export const DetailPage = () => {
         const fetchData = async () => {
             // 여기서 비동기 작업 수행
             const QuerySnapshot = await getDocs(query(collection(db, "Missing"), orderBy("uploadTime", "desc")));
-
             const data = QuerySnapshot.docs.map((doc, i) => ({
                     ids: i,
                     ...doc.data()
                 }
             ));
 
-            console.log(data);
+            // data의 ids+1 과 파라미터를 가져와 비교해서 같은 수면 return
             const detail = data.filter((d) => {
                 if((d.ids + 1) === parseInt(no, 10)) {
                     return d;
                 }
             });
-        
-            // console.dir(Array.from(data));
+
+            // profiles useState() set
             setProfiles(detail);
-            // console.log(Array.from(detail));
         };
 
+        // fetch
         fetchData();
-
-        // console.log(Array.from(profiles));
       }, [location]);
-
-      
 
     return (
         <>
         <h2>상세 페이지</h2>
         <p>게시글 번호: {no}</p>
-        {/* <img width="300" height="300" src={Array.from(profiles)[0].imgs[0].img} /> */}
-        {/* <p>test: {console.log(Array.from(profiles))}</p>
-        
-        <h4>이름: {Array.from(profiles)[0].name} </h4> */}
-        {/* <p>업로드 날짜: {Array.from(profiles)[0].uploadTime}</p> */}
-        {/* <p>실종위치: {Array.from(profiles)[0].address}</p>
-        <p>실종시간: {Array.from(profiles)[0].date} </p>
-        <p>종: {Array.from(profiles)[0].specify}</p>
-        <p>나이: {Array.from(profiles)[0].age}</p>
-        <p>성별: {Array.from(profiles)[0].gender}</p>
-        <p>중성화 여부: {Array.from(profiles)[0].neutering}</p>
-        <p>연락처: {Array.from(profiles)[0].tel}</p>
-        <p>털색: {Array.from(profiles)[0].farColor1}, {Array.from(profiles)[0].farColor2} </p>
-        <p>특징: {Array.from(profiles)[0].feature}</p> */}
+
+        <div>
+            {profiles.length > 0 && profiles[0].imgs.map((url) => {
+                    console.log(url);
+                    <img width={300} height={300} key={url} src={url} alt="Uploaded Image" />
+                })
+            }
+        </div>
 
         {profiles.length > 0 && (
             <div>
                 <h4>이름: {profiles[0].name}</h4>
+                <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
                 <p>실종위치: {profiles[0].address}</p>
                 <p>실종시간: {profiles[0].date} </p>
                 <p>종: {profiles[0].specify}</p>
@@ -89,6 +78,7 @@ export const DetailPage = () => {
                 <p>특징: {profiles[0].feature}</p>
             </div>
         )}
+
         <br/>
         <button onClick={back}>뒤로가기</button>
         <br/><br/>
