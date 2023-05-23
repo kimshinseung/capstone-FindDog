@@ -54,15 +54,19 @@ export const DetailPage = () => {
     return (
         <>
         <div className="detail-page">
-        <h2>상세 페이지</h2>
-        <div className="upload-date"><p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p></div>
+            <div className="title-btn">
+            <h2>상세 페이지</h2>
+            <button className="goBack-btn" onClick={back}>뒤로가기</button>
+            </div>
+        
         {profiles.length > 0 && (
             <div className="detail-page2">
-                <div>
+                <div className="imgs">
                     {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300}/>)}
                 </div>
+
                 <div className="detailContent">
-                <h3>{profiles[0].name}</h3>
+                <h3>🐶{profiles[0].name}🐶</h3>
                 <p>실종위치: {profiles[0].address}</p>
                 <p>실종시간: {profiles[0].date} </p>
                 <p>종: {profiles[0].specify}</p>
@@ -72,13 +76,14 @@ export const DetailPage = () => {
                 <p>카카오톡 아이디: {profiles[0].kakaoId}</p>
                 <p>털색: {profiles[0].farColor1}, {profiles[0].farColor2} </p>
                 <p>특징: {profiles[0].feature}</p>
+                
+                <div className="upload-date">
+                    <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
+                </div>
                 </div>
             </div>
         )}
-
-        <br/>
-        <button className="goBack-btn" onClick={back}>뒤로가기</button>
-        <br/><br/>
+        <br/><br/><br/>
         </div>
         </>
     );

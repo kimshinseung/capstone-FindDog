@@ -1,17 +1,18 @@
-.upload-date{
-    margin-left:60%;
-    margin-right:20%;
-    margin-bottom:-10px;
-    font-size: 15px;
-    color: #40643b;
-  }
-
 .detail-page2{
     display:flex;
     position: relative;
     align-items: center;
     justify-content: space-around;
     //flex-direction: column;
+
+    .imgs{
+        margin-left:-10%;
+    }
+
+    h3{
+        font-family: 'NanumSquare', sans-serif, bold;
+        color: #2d533e;
+    }
 
     .detailContent{
         background-color:#eef5ed;
@@ -21,22 +22,37 @@
         padding-bottom: 5px;
         flex-direction: column;
         border-radius:10px;
-        margin-left:-10%;
+        margin-left:-20%;
     }
+
+    .upload-date{
+        padding-top:1px;
+        margin-bottom:-5px;
+        font-size: 15px;
+        color: #69a65f;
+        font-family: 'NanumSquare', sans-serif, light;
+      }
 }
 
-.goBack-btn{
-    margin-bottom: 40px;
-    margin-left: 63%;
-    margin-right:31%;
-    width: 200px;
-    height: 30px;
-    border: none;
-    border-radius: 8px;
-    background-color: #69a65f;
-    color: white;
-    font-weight: bold;
-    font-size:14px;
-    cursor: pointer;
-    font-family: 'NanumSquare', sans-serif, bold;
+.title-btn{
+    display:flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+
+    .goBack-btn{
+        margin-bottom: 5px;
+        margin-left: 80%;
+        margin-right: 2px;
+        width: 150px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: #69a65f;
+        color: white;
+        font-weight: bold;
+        font-size:14px;
+        cursor: pointer;
+        font-family: 'NanumSquare', sans-serif, bold;
+    }
 }
