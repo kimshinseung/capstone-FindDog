@@ -71,6 +71,7 @@ export const DetailPage = () => {
                 <p>연락처: {profiles[0].tel}</p>
                 <p>털색: {profiles[0].farColor1}, {profiles[0].farColor2} </p>
                 <p>특징: {profiles[0].feature}</p>
+                <p>카카오톡 아이디: {profiles[0].kakaoId}</p>
             </div>
         )}
 
