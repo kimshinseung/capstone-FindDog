@@ -3,6 +3,7 @@
  * 상세 페이지
  */
 
+import "./DetailPage.scss";
 import React, {useState, useEffect} from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { db } from '../../../firebase';
@@ -52,11 +53,12 @@ export const DetailPage = () => {
 
     return (
         <>
+        <div className="detail-page">
         <h2>상세 페이지</h2>
         <p>게시글 번호: {no}</p>
 
         {profiles.length > 0 && (
-            <div>
+            <div className="detail-page2">
                 <div>
                     {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300}/>)}
                 </div>
@@ -77,6 +79,7 @@ export const DetailPage = () => {
         <br/>
         <button onClick={back}>뒤로가기</button>
         <br/><br/>
+        </div>
         </>
     );
 }

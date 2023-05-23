@@ -44,7 +44,7 @@ const PageTemplate = ({ children }) => (
  */
 export const DetailBoard = () => (
   <PageTemplate>
-    <section className="main-board">
+    <section className="detail-board">
       <DetailPage />
     </section>
   </PageTemplate>
