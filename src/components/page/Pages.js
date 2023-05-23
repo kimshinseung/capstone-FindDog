@@ -174,7 +174,6 @@ export const General = () => (
 // 로그인 페이지
 export const Login = () => (
   <div className="login-page">
-    <h3>LOGIN</h3>
     <LoginPage/>
   </div>
 );
@@ -182,7 +181,7 @@ export const Login = () => (
 // 회원가입 페이지
 export const Signup = () => (
   <div className="signup-page">
-    <h3>회원가입</h3>
+    <h2>회원가입</h2>
     <SignupPage/>
   </div>
 );

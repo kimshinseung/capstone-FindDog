@@ -86,7 +86,10 @@ const LoginPage = () => {
 
     return(
         <>
-        <div className="login">
+        <div className="login-page">
+        <h2>로그인</h2>
+            <div className="login">
+                <h4>Login</h4>
             <form onSubmit = {LoginHandler}>
                 <input type="email" placeholder="email" onChange={(e=>setEmail(e.target.value))} />
                 <input type="password" placeholder="password" onChange={(e=>setPassword(e.target.value))}/>
@@ -94,9 +97,10 @@ const LoginPage = () => {
                 { error && <span>잘못된 이메일 혹은 비밀번호입니다.</span> }
             </form>
             <div>
-                <button onClick={GoogleLoginHandler}>Google 로그인</button>
+                <button className="googleLogin-btn" onClick={GoogleLoginHandler}>Google 로그인</button>
             </div>
-            <div><Link to="signup">회원가입</Link></div>
+            <div><Link className="signup-btn" to="signup">회원가입</Link></div>
+            </div>
         </div>
         </>
     )
