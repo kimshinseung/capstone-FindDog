@@ -16,13 +16,13 @@ export const FindPage = () => {
                 <h3>최근 목격 순</h3> 
                 
                 <br/>
-                <Carousel category={"Finding"}/>
+                <Carousel category={"Finding"} cg={"moreInfo"}/>
 
                 <br/><br/><br/>
                 <h3>우리 지역 관련 순</h3>
                 
                 <br/>
-                <Carousel category={"Finding"}/>
+                <Carousel category={"Finding"} cg={"moreInfo2"}/>
             </div>
         </>
     );

@@ -18,13 +18,13 @@ export const MissPage = () => {
                 <h3>최근 실종 순</h3> 
                 <Link to="moreInfo"> 더보기</Link>
                 <br/>
-                <Carousel category={"Missing"}/>
+                <Carousel category={"Missing"} cg={"moreInfo"}/>
 
                 <br/><br/><br/>
                 <h3>우리 지역 관련 순</h3>
                 <Link to="moreInfo2"> 더보기</Link> 
                 <br/>
-                <Carousel category={"Missing"}/>
+                <Carousel category={"Missing"} cg={"moreInfo2"}/>
             </div>
         </>
     );

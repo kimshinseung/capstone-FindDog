@@ -25,12 +25,22 @@ const Hierarchy = () => (
       <Route path="/miss/moreInfo2*" element={<MoreInfo2 />} />
       <Route path="/miss/moreInfo2/upload*" element={<Upload />} />
 
+       {/* 실종 | 시간 순 상세페이지 */}
+       <Route path='/miss/moreInfo/detail/:id' element={<DetailPage/>} />
+       {/* 실종 | 지역 순 상세페이지 */}
+       <Route path='/miss/moreInfo2/detail/:id' element={<DetailPage/>} />
+
       <Route path="/find/*" element={<FindBoard />} />
       <Route path="/find/upload*" element={<FindUpload />} />
       {/*<Route path="/find/moreInfo*" element={<FindMoreInfo />} />
       <Route path="/find/moreInfo/upload*" element={<FindUpload />} />
       <Route path="/find/moreInfo2*" element={<FindMoreInfo2 />} />
       <Route path="/find/moreInfo2/upload*" element={<FindUpload />} /> */}
+
+      {/* 목격 | 시간 순 상세페이지 */}
+      <Route path='/find/moreInfo/detail/:id' element={<DetailPage/>} />
+      {/* 목격 | 지역 순 상세페이지 */}
+      <Route path='/find/moreInfo2/detail/:id' element={<DetailPage/>} />
 
       <Route path="/hospital/*" element={<HospitalMap />} />
       <Route path="/search/*" element={<Search />} />
@@ -49,10 +59,6 @@ const Hierarchy = () => (
 
       <Route path='/information' element={<Navigate replace='true' to='mypage/information' />} />
       <Route path='/post' element={<Navigate replace='true' to='mypage/post' />} />
-
-      {/* 상세페이지 */}
-      <Route path='detail/:id' element={<DetailPage/>} />
-      {/* <Route path='detail/:id' element={data.map((item, i) => <DetailPage data={item} i={i+1} key={item.id}/>)} /> */}
 
       <Route path="*" element={<Notfound />} />
     </Routes>
