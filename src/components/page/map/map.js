@@ -5,11 +5,12 @@
 import "./map.scss";
 import React, { useEffect } from "react";
 import { shelters, hospitals } from "./data";
+import areas from "./seoulData.js"
 
 import '../../../style/style.css';
 
 
-export default function Map() {
+/*export default function Map() {
 	useEffect(() => {
 		mapscript();
 	}, []);
@@ -232,5 +233,106 @@ export default function Map() {
 			</div>
 		</div>
 		<button id="button" onClick={()=>mapscript()}> 내 위치 </button>
+	</>
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+export default function seoulMap(){
+	useEffect(() => {
+		mapscript();
+	}, []);
+
+	const mapscript = () => {
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = { 
+			center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+			level: 8 // 지도의 확대 레벨
+		};
+
+		var map = new kakao.maps.Map(mapContainer, mapOption),
+			customOverlay = new kakao.maps.CustomOverlay({}),
+			infowindow = new kakao.maps.InfoWindow({removable: true});
+
+		// 지도에 영역데이터를 폴리곤으로 표시합니다 
+		for (var i = 0, len = areas.length; i < len; i++) {
+			displayArea(areas[i]);
+		}
+
+		// 다각형을 생상하고 이벤트를 등록하는 함수입니다
+		function displayArea(area) {
+			// 다각형을 생성합니다 
+			var polygon = new kakao.maps.Polygon({
+				map: map, // 다각형을 표시할 지도 객체
+				path: area.path,
+				strokeWeight: 2,
+				strokeColor: '#769B63',
+				strokeOpacity: 0.8,
+				fillColor: '#92c465',
+				fillOpacity: 0.2
+			});
+			//polygon.setMap(map);
+
+			// 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
+			// 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
+			kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
+				polygon.setOptions({fillOpacity: 0.5});
+
+				var content = '<div class="area">' + area.name + '</div>';
+				//+			'	<div class="number"> 실종마리수: ' + missed.number + '</div>';
+
+				customOverlay.setContent(content);
+
+				customOverlay.setPosition(mouseEvent.latLng); 
+				customOverlay.setMap(map);
+			});
+
+			// 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다 
+			kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent) {
+				
+				customOverlay.setPosition(mouseEvent.latLng); 
+			});
+
+			// 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
+			// 커스텀 오버레이를 지도에서 제거합니다 
+			kakao.maps.event.addListener(polygon, 'mouseout', function() {
+				polygon.setOptions({fillOpacity: 0.2});
+				customOverlay.setMap(null);
+			}); 
+
+			// 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다 
+			kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
+				var content = '<div class="info">' + 
+							'   <div class="title">' + area.name + '</div>' +
+							'   <div class="size">총 면적 : 약 ' + Math.floor(polygon.getArea()) + ' m<sup>2</sup></div>' +
+							'</div>';
+
+				infowindow.setContent(content); 
+				infowindow.setPosition(mouseEvent.latLng); 
+				infowindow.setMap(map);
+			});
+		}
+	};
+
+
+	return <>
+		<div className="map-page">
+        	<h2>주변 실종동물 현황</h2>
+			<div className="map-section">
+				<div className="box" id="box1" />
+				<div id="map" style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
+				<div className="box" id="box2"/>
+				<br></br>
+			</div>
+		</div>
 	</>
 }
