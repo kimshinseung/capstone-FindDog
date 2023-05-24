@@ -38,6 +38,7 @@
         <activity android:name=".MissEnrollActivity"></activity>
         <activity android:name="FindEnrollActivity"></activity>
         <activity android:name="DetailActivity"></activity>
+        <activity android:name="DetailfindActivity"></activity>
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="c41df9984c43c2eaf05b3b1b0d075ae4"/>

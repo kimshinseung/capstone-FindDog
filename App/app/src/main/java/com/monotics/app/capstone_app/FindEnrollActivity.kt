@@ -77,22 +77,30 @@ class FindEnrollActivity :AppCompatActivity(){
                 return@setOnClickListener
             }
 
-            val address = binding.addressEdit.text.toString()
-            val farcolor = binding.farcolorEdit.text.toString()
-            //val feature = binding.personalityEdit.text.toString()
-            val gender = binding.genderEdit.text.toString()
             val specify = binding.specifyEdit.text.toString()
-            //val name = binding.nameEdit.text.toString()
+            val farcolor = binding.farcolorEdit.text.toString()
+            val farcolor2 = binding.farcolorEdit1.text.toString()
+            val gender = binding.genderEdit.text.toString()
+            val age = binding.ageEdit1.text.toString()
+            val time = binding.dateEdit1.text.toString()
+            val address = binding.addressEdit.text.toString()
+            val kakaoid = binding.kakoidEdit.text.toString()
+            val feature = binding.featureEdit.text.toString()
             val dateString = Timestamp.now()
 
             if(imageUrls.size == 1){ //사진이 1장만 있을 때
                 val enrollinf= hashMapOf(
                     "address" to address,
-                    "farColor" to farcolor,
+                    "age" to age,
+                    "date" to time,
+                    "farColor1" to farcolor,
+                    "farColor2" to farcolor2,
+                    "feature" to feature,
                     "gender" to gender,
                     "specify" to specify,
+                    "kakaoId" to kakaoid,
                     "uploadTime" to dateString,
-                    "img" to imageUrls[0]
+                    "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Finding")
                     .add(enrollinf)
@@ -102,9 +110,14 @@ class FindEnrollActivity :AppCompatActivity(){
             } else if(imageUrls.size>1) { // 사진이 여러장 있을 때
                 val enrollinf= hashMapOf(
                     "address" to address,
-                    "farColor" to farcolor,
+                    "age" to age,
+                    "date" to time,
+                    "farColor1" to farcolor,
+                    "farColor2" to farcolor2,
+                    "feature" to feature,
                     "gender" to gender,
                     "specify" to specify,
+                    "kakaoId" to kakaoid,
                     "uploadTime" to dateString,
                     "imgs" to ArrayList<String>(imageUrls)
                 )
@@ -115,13 +128,20 @@ class FindEnrollActivity :AppCompatActivity(){
                     }
             }
             else{ //사진이 없을 때
+                val imageUrls = ArrayList<String>()
+                imageUrls.add(0, null.toString()) //0번째 값에 Null넣어놓기
                 val enrollinf= hashMapOf(
                     "address" to address,
-                    "farColor" to farcolor,
+                    "age" to age,
+                    "date" to time,
+                    "farColor1" to farcolor,
+                    "farColor2" to farcolor2,
+                    "feature" to feature,
                     "gender" to gender,
                     "specify" to specify,
+                    "kakaoId" to kakaoid,
                     "uploadTime" to dateString,
-                    "img" to "null"
+                    "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Finding")
                     .add(enrollinf)

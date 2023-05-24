@@ -5,33 +5,31 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.monotics.app.capstone_app.databinding.ActivityDetailFindBinding
-import com.monotics.app.capstone_app.databinding.ActivityDetailMissBinding
-import kotlinx.android.synthetic.main.activity_detail_miss.detail_recycler
+import kotlinx.android.synthetic.main.activity_detail_find.detail_find_recycler
 
-class DetailActivity: AppCompatActivity()  {
-    val binding by lazy { ActivityDetailMissBinding.inflate(layoutInflater) }
+
+class DetailfindActivity: AppCompatActivity()  {
+    val binding by lazy { ActivityDetailFindBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val inf = intent.getSerializableExtra("missData") as HashMap<String,Any>
-        binding.detailName.text=inf["name"] as? String
-        binding.detailAddress.text=inf["address"] as? String
-        binding.detailAge.text=inf["age"] as? String
-        binding.detailDate.text=inf["date"] as? String
-        binding.detailFarColor1.text=inf["farColor1"] as? String
-        binding.detailFarColor2.text=inf["farColor2"] as? String
-        binding.detailFeature.text=inf["feature"] as? String
-        binding.detailKakaoId.text=inf["kakaoId"] as? String
-        binding.detailGender.text=inf["gender"] as? String
-        binding.detailNeutering.text=inf["neutering"] as? String
-        binding.detailSpecify.text=inf["specify"] as? String
+        val inf = intent.getSerializableExtra("findData") as HashMap<String,Any>
+        binding.detailFindAddress.text=inf["address"] as? String
+        binding.detailFindAge.text=inf["age"] as? String
+        binding.detailFindTime.text=inf["date"] as? String
+        binding.detailFindFarColor1.text=inf["farColor1"] as? String
+        binding.detailFindFarColor2.text=inf["farColor2"] as? String
+        binding.detailFindFeature.text=inf["feature"] as? String
+        binding.detailFindKakaid.text=inf["kakaoId"] as? String
+        binding.detailFindGender.text=inf["gender"] as? String
+        binding.detailFindSpecify.text=inf["specify"] as? String
         val imageUrls = inf["imgs"] as ArrayList<String>?
 
         var manager02 = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         var adapter02 = if (imageUrls != null) DetailImageAdapter(imageUrls) else DetailImageAdapter(ArrayList<String>())
 
-        var RecyclerView02 = detail_recycler.apply {
+        var RecyclerView02 = detail_find_recycler.apply {
             adapter = adapter02
             layoutManager = manager02
         }

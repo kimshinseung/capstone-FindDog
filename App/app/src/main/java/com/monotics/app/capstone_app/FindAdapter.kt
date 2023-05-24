@@ -1,5 +1,7 @@
 package com.monotics.app.capstone_app
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,8 +61,29 @@ class FindAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 .into(viewHolder.FindImg)
 
         }
-        viewHolder.findcolor.text = findlist[position].farColor
+        viewHolder.findcolor.text = findlist[position].farColor1
         viewHolder.findaddress.text = findlist[position].address//주소
+
+        viewHolder.FindImg.setOnClickListener {
+            Log.e("kimshinseung","success") // 검사
+            val context = viewHolder.context
+            val intent = Intent(context, DetailfindActivity::class.java)
+            val findenrollinf = hashMapOf(
+                "address" to findlist[position].address,
+                "age" to findlist[position].age,
+                "date" to findlist[position].date,
+                "farColor1" to findlist[position].farColor1,
+                "farColor2" to findlist[position].farColor2,
+                "feature" to findlist[position].feature,
+                "kakaoId" to findlist[position].kakaoId,
+                "gender" to findlist[position].gender,
+                "specify" to findlist[position].specify,
+                "imgs" to ArrayList<String>(findlist[position].imgs)
+            )
+            intent.putExtra("findData", findenrollinf)
+            context.startActivity(intent)
+        }
+
 
     }
 

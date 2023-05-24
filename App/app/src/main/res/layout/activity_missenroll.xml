@@ -408,7 +408,7 @@
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@+id/textView16"
             app:layout_constraintTop_toBottomOf="@+id/address_edit"
             tools:ignore="TouchTargetSizeCheck" />
