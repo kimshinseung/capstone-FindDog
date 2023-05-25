@@ -7,7 +7,7 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 // import components
 import {
-  DetailBoard, MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
+  DetailBoard, MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost, Post,
   MissBoard, FindBoard, HospitalMap, Search, Notfound, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload, Forum, General
   } from "../page/Pages";
 
@@ -46,6 +46,8 @@ const Hierarchy = () => (
 
       <Route path="/forum/*" element={<Forum />} />
       <Route path="/forum/general" element={<General />} />
+      {/* 자유게시판 | 각 게시글 접근 */}
+      <Route path="/forum/posting/:id" element={<Post />} />
 
       <Route path="/login" element={<Login />} />
       <Route path="/login/signup" element={<Signup />} />

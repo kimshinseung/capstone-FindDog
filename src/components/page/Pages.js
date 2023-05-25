@@ -28,6 +28,7 @@ import Map from "./map/map";
 // import
 import '../../style/style.css';
 import { UploadPost } from "./forum/UploadPost";
+import {PostPage} from "./forum/PostPage";
 
 
 // Page Template
@@ -180,6 +181,14 @@ export const General = () => (
   <PageTemplate>
     <section className="genaral-page">
       <UploadPost />
+    </section>
+  </PageTemplate>
+)
+
+export const Post = () => (
+  <PageTemplate>
+    <section className="post-page">
+      <PostPage />
     </section>
   </PageTemplate>
 )
