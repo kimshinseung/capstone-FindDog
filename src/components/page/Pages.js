@@ -21,8 +21,8 @@ import UploadPage from "./miss/UploadPage";
 import MoreinfoPage from "./miss/moreInfo";
 import Moreinfo2Page from "./miss/moreInfo2";
 import FindUploadPage from "./find/FindUploadPage";
-//import MoreinfoPage from "./miss/FindMoreInfo";
-//import Moreinfo2Page from "./miss/FindMoreInfo2";
+import FindMoreinfoPage from "./find/FindMoreInfo";
+import FindMoreinfo2Page from "./find/FindMoreInfo2";
 import {DetailPage} from "./miss/DetailPage";
 import Map from "./map/map";
 // import
@@ -141,6 +141,22 @@ export const FindUpload = () => (
   <PageTemplate>
     <section className="find-upload-page">
       <FindUploadPage />
+    </section>
+  </PageTemplate>
+)
+
+export const FindMoreInfo = () => (
+  <PageTemplate>
+    <section className="moreinfo-board">
+      <FindMoreinfoPage />
+    </section>
+  </PageTemplate>
+)
+
+export const FindMoreInfo2 = () => (
+  <PageTemplate>
+    <section className="moreinfo2-board">
+      <FindMoreinfo2Page />
     </section>
   </PageTemplate>
 )

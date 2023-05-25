@@ -14,7 +14,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 
 
-const FindUpload = () => {
+const FindUploadPage = () => {
 
     const [data, setData] = useState({});
     const [files, setFiles] = useState([]);
@@ -187,4 +187,4 @@ const FindUpload = () => {
     );
 };
 
-export default FindUpload
+export default FindUploadPage
