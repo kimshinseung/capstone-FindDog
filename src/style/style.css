@@ -88,11 +88,24 @@ a {
   background-color: #DDDDDD;
 }
 
-.find-page, .search-page, .detail-page, .main-page, .forum-page, .map-page, .moreInfo-page, .my-information {
+.find-page, .search-page, .detail-page, .main-page, .forum-page, .map-page, .moreInfo-page {
   width: 98%;
   height: auto;
   margin: auto;
   background-color: #FFFFFF;
+}
+
+.my-menu{
+  background-color: #eef5ed;
+  margin-left: 1%;
+  margin-right:1%;
+  margin-bottom:-1%;
+  padding-left:1%; 
+}
+
+.my-information2{
+  margin-left:1%;
+  padding-bottom:30%;
 }
 
 .Video{

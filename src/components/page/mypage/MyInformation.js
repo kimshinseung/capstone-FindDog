@@ -7,6 +7,7 @@ import { signOut, deleteUser } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { db, auth } from '../../../firebase';
 import { getDocs, collection, query, where, deleteDoc } from 'firebase/firestore';
+import "./mypage.scss";
 
 export const MyInformation = () => {
     const [userInfo, setUserInfo] = useState();
@@ -91,14 +92,21 @@ export const MyInformation = () => {
     return (
         <>
             <div className="my-information">
-                <p>회원 정보</p>
+                <hr/>
+                <div className='my-information2'>
+                <div className="my-information-title"><p>🍏 회원 정보 🍏</p></div>
+                <div className="my-information3">
                 <p>email: {localStorage.getItem('Email')}</p>
                 <p>name: {localStorage.getItem('Name')}</p>
                 <p>phone Number: {localStorage.getItem('PhoneNumber')}</p>
                 <p>Address: {`${localStorage.getItem('Address')} ${localStorage.getItem('ExtraAddress')}`}</p>
-                <button onClick={changeHandler}>회원 정보 수정</button>
-                <button onClick={logoutHandler}>로그아웃</button>
-                <button onClick={deleteHandler}>회원 탈퇴</button>
+                </div>
+                <div className="my-information-btn">
+                <button className="myInfo-edit" onClick={changeHandler}>회원 정보 수정</button>
+                <button className="myInfo-Logout" onClick={logoutHandler}>로그아웃</button>
+                <button className="myInfo-exit" onClick={deleteHandler}>회원 탈퇴</button>
+                </div>
+                </div>
             </div>
         </>
     );
