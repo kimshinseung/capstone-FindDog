@@ -11,18 +11,20 @@ import '../../style/style.css';
 
 // 메뉴 클릭 시 스타일 변경
 const activeStyle = {
-  background: 'white'
+  color: '#69a65f',
+  //border: '#69a65f'
+  //background: "white"
 };
 
 // 상위 카테고리 메뉴
 export const MainMenu = () => {
   return (
     <nav className="main-menu">
-      <NavLink to="/miss" style={({ isActive }) => isActive ? activeStyle : undefined}>실종</NavLink>
-      <NavLink to="/find" style={({ isActive }) => isActive ? activeStyle : undefined}>목격</NavLink>
-      <NavLink to="/hospital" style={({ isActive }) => isActive ? activeStyle : undefined}>보호소 및 동물병원</NavLink>
-      <NavLink to="/search" style={({ isActive }) => isActive ? activeStyle : undefined}>검색</NavLink>
-      <NavLink to="/forum" style={({ isActive }) => isActive ? activeStyle : undefined}>자유게시판</NavLink>
+      <NavLink className="missMenu" to="/miss" style={({ isActive }) => isActive ? activeStyle : undefined}>실종</NavLink>
+      <NavLink className="findMenu" to="/find" style={({ isActive }) => isActive ? activeStyle : undefined}>목격</NavLink>
+      <NavLink className="hospitalMenu" to="/hospital" style={({ isActive }) => isActive ? activeStyle : undefined}>보호소 및 동물병원</NavLink>
+      <NavLink className="searchMenu" to="/search" style={({ isActive }) => isActive ? activeStyle : undefined}>검색</NavLink>
+      <NavLink className="forumMenu" to="/forum" style={({ isActive }) => isActive ? activeStyle : undefined}>자유게시판</NavLink>
     </nav>
   )
 };
