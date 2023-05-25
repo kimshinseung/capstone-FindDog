@@ -90,7 +90,7 @@ export const DetailPage = (props) => {
                     {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300}/>)}
                 </div>
                 <div className="detailContent">
-                <h3>🐶{profiles[0].address}에서 목격했어요🐶</h3>
+                <div className="detailText"><h3>🐶{profiles[0].address}</h3><p>&ensp;에서 목격했어요</p><h3>🐶</h3></div>
                 <p>품종: {profiles[0].specify}</p>
                 <p>성별: {profiles[0].gender}</p>
                 <p>추정 나이: {profiles[0].age}</p>
