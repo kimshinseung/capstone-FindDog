@@ -97,10 +97,13 @@ const UploadPage = () => {
     const postCodeStyle = {
         display: "block",
         position: "absolute",
-        top: "10%",
-        width: "500px",
-        height: "600px",
-        padding: "30px",
+        top: "-650%",
+        right: "-70%",
+        
+        width: "90%",
+        height: "1100%",
+        // padding: "50px",
+        background : "rgba(0,0,0,0.25)",
     };
 
 
@@ -149,7 +152,7 @@ const UploadPage = () => {
 
                     <div className="place">
                     <h4>실종장소</h4>&emsp;
-                    {popup && <div><DaumPostcode style={postCodeStyle} onComplete={handleComplete}/></div>}
+                    {popup && <div className="postDiv"><DaumPostcode className="postModal" style={postCodeStyle} onComplete={handleComplete}/></div>}
                     <input type="text" id="place" onChange={handleInput} value={address}></input>
                     <input type="button" className="missplaceButton" onClick={()=>setPopup(true)} value="주소찾기"></input><br/>
                     </div>

@@ -18,6 +18,21 @@
     border:2px #84b77d;
     border-radius: 15px;
 
+    .postDiv{
+    }
+    .postModal{
+      background-color: #84b77d;
+      display: "block";
+      position: "absolute";
+      top: "-650%";
+      right: "-70%";
+      width: "90%";
+      height: "1100%";
+
+      border:#40643b 2px;
+      border-radius: 2px;
+    }
+
     form{
         .specify_farColor{
           width: 300px;
