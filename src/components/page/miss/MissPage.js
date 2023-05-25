@@ -28,20 +28,20 @@ export const MissPage = () => {
             <div className="miss-page">
                 <div className="miss-page-upload-btn">
                 <h2>실종 게시판</h2>
-                <button type="button" onClick={toUpload}>실종 등록하기</button>
+                <button className="miss-page-upload-btn2" type="button" onClick={toUpload}>실종 등록하기</button>
                 </div>
 
                 <br/>
                 <div className="misspage-moreInfo-btn">
                 <h3>최근 실종 순</h3> 
-                <button type="button" onClick={toMoreInfo}>더보기</button>
+                <button className="misspage-moreInfo-btn2" type="button" onClick={toMoreInfo}>더보기 &gt;</button>
                 </div>
                 <Carousel category={"Missing"} cg={"moreInfo"}/>
 
                 <br/><br/>
                 <div className="miss-page-moreInfo2-btn">
                 <h3>우리 지역 관련 순</h3>
-                <button type="button" onClick={toMoreInfo2}>더보기</button>
+                <button className="miss-page-moreInfo2-btn2" type="button" onClick={toMoreInfo2}>더보기 &gt;</button>
                 </div>
 
                 <Carousel category={"Missing"} cg={"moreInfo2"}/>

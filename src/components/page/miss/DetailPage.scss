@@ -3,6 +3,7 @@
     position: relative;
     align-items: center;
     justify-content: space-around;
+    margin-bottom:30px;
     //flex-direction: column;
 
     .imgs{
@@ -40,11 +41,14 @@
     position: relative;
     align-items: center;
     justify-content: space-between;
+    margin-right:0.2%;
+    justify-content: row;
 
     .goBack-btn{
         margin-bottom: 5px;
         margin-left: 80%;
-        margin-right: 2px;
+        margin-top:auto;
+        //margin-right: 2px;
         width: 150px;
         height: 30px;
         border: none;
