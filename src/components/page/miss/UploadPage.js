@@ -68,7 +68,8 @@ const UploadPage = () => {
         const docRef = await addDoc(collection(db, "Missing"), {
             ...data,
             imgs: Imgs, 
-            uploadTime: time
+            uploadTime: time,
+            visibled: true
         });
         await updateDoc(docRef, {id: docRef.id});   //현재 문서의 id를 필드에 다시 추가
         alert("등록되었습니다");

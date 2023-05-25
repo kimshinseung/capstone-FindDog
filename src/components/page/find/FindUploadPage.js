@@ -68,7 +68,8 @@ const FindUploadPage = () => {
         const docRef = await addDoc(collection(db, "Finding"), {
             ...data,
             imgs: Imgs, 
-            uploadTime: time
+            uploadTime: time,
+            visibled: true
         });
         await updateDoc(docRef, {id: docRef.id}); 
         alert("등록되었습니다");

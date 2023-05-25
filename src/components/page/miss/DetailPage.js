@@ -7,22 +7,27 @@ import "./DetailPage.scss";
 import React, {useState, useEffect} from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { db } from '../../../firebase';
-import { getDocs, collection, query, orderBy } from "firebase/firestore";
+import { getDocs, collection, query, orderBy, updateDoc } from "firebase/firestore";
 
 export const DetailPage = (props) => {
+    const [profiles, setProfiles] = useState([]); // 가져올 게시글 내용
+
     let { id } = useParams();
     const no = id;
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const back = () => {
         navigate(-1); // 이전 페이지로 이동
     };
 
-    const location = useLocation();
-
-    // 가져올 게시글 내용
-    const [profiles, setProfiles] = useState([]);
+    const handleFind = async () => {
+        const docRef = doc(db, props.cg, "visibled");
+        await updateDoc(docRef, {
+            visibled: false
+        })
+    }
 
       // useEffect
     useEffect(() => {
@@ -80,6 +85,7 @@ export const DetailPage = (props) => {
                 <div className="upload-date">
                     <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
                 </div>
+                <button onClick={handleFind}>찾았어요</button>
                 </div>
             </div>
         )}
@@ -102,6 +108,7 @@ export const DetailPage = (props) => {
                 <div className="upload-date">
                     <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
                 </div>
+                <button onClick={handleFind}>찾았어요</button>
                 </div>
             </div>
         )}
