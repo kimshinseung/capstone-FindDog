@@ -43,10 +43,34 @@ const PageTemplate = ({ children }) => (
  * Detail
  * 상세 페이지
  */
-export const DetailBoard = () => (
+export const MissTimeDetailBoard = () => (
   <PageTemplate>
     <section className="detail-board">
-      <DetailPage />
+      <DetailPage cg="Missing" cg2="time"/>
+    </section>
+  </PageTemplate>
+)
+
+export const MissLocalDetailBoard = () => (
+  <PageTemplate>
+    <section className="detail-board">
+      <DetailPage cg="Missing" cg2="local"/>
+    </section>
+  </PageTemplate>
+)
+
+export const FindTimeDetailBoard = () => (
+  <PageTemplate>
+    <section className="detail-board">
+      <DetailPage cg="Finding" cg2="time"/>
+    </section>
+  </PageTemplate>
+)
+
+export const FindLocalDetailBoard = () => (
+  <PageTemplate>
+    <section className="detail-board">
+      <DetailPage cg="Finding" cg2="local"/>
     </section>
   </PageTemplate>
 )

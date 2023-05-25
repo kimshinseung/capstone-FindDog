@@ -7,8 +7,12 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 // import components
 import {
-  DetailBoard, MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost, Post, FindMoreInfo, FindMoreInfo2,
-  MissBoard, FindBoard, HospitalMap, Search, Notfound, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload, Forum, General
+  MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
+  MissBoard, MissTimeDetailBoard, MissLocalDetailBoard,
+  FindBoard, FindTimeDetailBoard, FindLocalDetailBoard,
+  Post, FindMoreInfo, FindMoreInfo2,
+  HospitalMap, Search, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload,
+  Forum, General, Notfound
   } from "../page/Pages";
 
 // path 정의
@@ -25,9 +29,9 @@ const Hierarchy = () => (
       <Route path="/miss/moreInfo2/upload*" element={<Upload />} />
 
        {/* 실종 | 시간 순 상세페이지 */}
-       <Route path='/miss/moreInfo/detail/:id' element={<DetailBoard/>} />
+       <Route path='/miss/moreInfo/detail/:id' element={<MissTimeDetailBoard/>} />
        {/* 실종 | 지역 순 상세페이지 */}
-       <Route path='/miss/moreInfo2/detail/:id' element={<DetailBoard/>} />
+       <Route path='/miss/moreInfo2/detail/:id' element={<MissLocalDetailBoard/>} />
 
       <Route path="/find/*" element={<FindBoard />} />
       <Route path="/find/upload*" element={<FindUpload />} />
@@ -37,9 +41,9 @@ const Hierarchy = () => (
       <Route path="/find/moreInfo2/upload*" element={<FindUpload />} />
 
       {/* 목격 | 시간 순 상세페이지 */}
-      <Route path='/find/moreInfo/detail/:id' element={<DetailBoard/>} />
+      <Route path='/find/moreInfo/detail/:id' element={<FindTimeDetailBoard/>} />
       {/* 목격 | 지역 순 상세페이지 */}
-      <Route path='/find/moreInfo2/detail/:id' element={<DetailBoard/>} />
+      <Route path='/find/moreInfo2/detail/:id' element={<FindLocalDetailBoard/>} />
 
       <Route path="/hospital/*" element={<HospitalMap />} />
       <Route path="/search/*" element={<Search />} />
