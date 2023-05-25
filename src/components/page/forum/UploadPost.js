@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection } from "@firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../firebase.js";
 
 export const UploadPost = () => {

@@ -59,13 +59,12 @@ export const ForumPage = () => {
             <button onClick={toUploadHandler}>글 올리기</button>
             <br/><br/>
             <div className="forum-posts">
-                <table>
+                <table className="posting-table">
                     <th>번호</th>
                     <th>제목</th>
                     <th>작성자</th>
                     <th>작성일</th>
                     {posting.slice(offset, offset + limit).map(({ title, user, uploadTime, id }) => (
-                    // table로 묶으니까 얘네 알아서 스타일이 생겼다??
                     <tr className="posting-tr">
                         <td>
                             <p className="posting-id" key={id}>{id}</p>
