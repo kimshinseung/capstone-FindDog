@@ -83,12 +83,12 @@ a {
 }
 
 /* Miss Menu, Find Menu, Search Menu, Forum Menu */
-.miss-board, .detail-board, .find-board, .search-board, .main-board, .forum-board, .hospital-map, .moreInfo-board, .upload-board {
+.miss-board, .detail-board, .find-board, .search-board, .main-board, .forum-board, .hospital-map, .moreInfo-board, .upload-board, .my-info {
   width: 100%;
   background-color: #DDDDDD;
 }
 
-.find-page, .search-page, .detail-page, .main-page, .forum-page, .map-page, .moreInfo-page {
+.find-page, .search-page, .detail-page, .main-page, .forum-page, .map-page, .moreInfo-page, .my-information {
   width: 98%;
   height: auto;
   margin: auto;
