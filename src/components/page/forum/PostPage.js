@@ -12,7 +12,6 @@ import { db } from "../../../firebase.js";
 export const PostPage = () => {
     const [posting, setPosting] = useState([]); // 가져올 게시글 내용
     const [postNum, setPostNum] = useState(0); // 총 게시글 개수
-    const [isDisabled, setIsDisabled] = useState(false); // 버튼 비활성화
 
     let { id } = useParams();
     const no = id;
@@ -70,8 +69,6 @@ export const PostPage = () => {
                     <button className='next-button' onClick={handleNext} disabled={parseInt(no) === 1 ? true : false}>다음 게시글</button>
                     <button className='pre-button' onClick={handlePrevious} disabled={parseInt(no) === postNum ? true : false}>이전 게시글</button>
                     <br/><br/>
-
-                    {console.log(postNum)}
 
                     {posting.length > 0 && (
                         <table className='post-detail-table'>
