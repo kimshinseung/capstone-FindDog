@@ -83,7 +83,7 @@ a {
 }
 
 /* Miss Menu, Find Menu, Search Menu, Forum Menu */
-.miss-board, .detail-board, .find-board, .search-board, .main-board, .forum-board, .hospital-map, .moreInfo-board, .upload-board {
+.miss-board, .detail-board, .find-board, .search-board, .main-board, .forum-board, .hospital-map, .moreInfo-board, .upload-board, .my-info {
   width: 100%;
   background-color: #DDDDDD;
 }
@@ -93,6 +93,19 @@ a {
   height: auto;
   margin: auto;
   background-color: #FFFFFF;
+}
+
+.my-menu{
+  background-color: #eef5ed;
+  margin-left: 1%;
+  margin-right:1%;
+  margin-bottom:-1%;
+  padding-left:1%; 
+}
+
+.my-information2{
+  margin-left:1%;
+  padding-bottom:30%;
 }
 
 .Video{

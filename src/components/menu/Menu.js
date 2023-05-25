@@ -33,8 +33,10 @@ export const MainMenu = () => {
 export const MyMenu = () => {
   return (
     <nav className='my-menu'>
+      <br/>
       <li><NavLink to='/mypage'>INFORMATION</NavLink></li>
       <li><NavLink to='/mypage/post'>POST</NavLink></li>
+      <br/>
     </nav>
   )
 };

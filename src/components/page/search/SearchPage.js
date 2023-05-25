@@ -116,7 +116,7 @@ export function SearchPage() {
 
             <hr/>
             <h2>검색 결과</h2>
-            <div>
+            <div className="postObj">
                 <Post postObj={postdata} />
             </div>
             <br/><br/>

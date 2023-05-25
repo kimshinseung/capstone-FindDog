@@ -11,7 +11,10 @@ export const MyPost = () => {
     return (
         <>
             <div className="my-information">
-                <p>내가 올린 게시글 목록</p>
+            <hr/>
+                <div className="my-post">               
+                <p>🍏 내가 올린 게시글 목록 🍏</p>
+                </div>  
             </div>
         </>
     );
