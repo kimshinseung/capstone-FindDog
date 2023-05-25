@@ -1,5 +1,5 @@
 /**
- * ./src/components/page/posting/Pagination.js
+ * ./src/components/page/forum/Pagination.js
  * 페이지네이션
  */
 
