@@ -10,6 +10,12 @@
         //margin-left:-10%;
     }
 
+    .detailText{
+        display:flex;
+        position:relative;
+        align-items: center;
+    }
+
     h3{
         font-family: 'NanumSquare', sans-serif, bold;
         color: #2d533e;
