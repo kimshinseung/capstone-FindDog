@@ -3,7 +3,7 @@
  */
 
 import "./map.scss";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { shelters, hospitals } from "./data";
 import areas from "./seoulData.js"
 
@@ -243,14 +243,112 @@ import '../../../style/style.css';
 
 
 
-
+import { getDocs, collection, query } from "firebase/firestore";
+import { db } from "../../../firebase";
 
 
 
 export default function seoulMap(){
+	const [counts, setCounts] = useState([]);
+
+	var plag = true;
+
+	
+	// const [counts] = useState(()=>{
+	// });
+
+
+
+	// const [missingData, setMissingData] = useState([]);
+	// const [findingData, setFindingData] = useState([]);
+
+	const [missingData, setMissingData] = useState(async ()=> {
+		//console.log("missing들어옴");
+		const QuerySnapshot = await getDocs(query(collection(db, "Missing")));
+		const data = QuerySnapshot.docs.map((doc) => ({
+			id: doc.id,
+			...doc.data()
+		}));
+
+		setMissingData(Array.from(data));
+		// console.log(Array.from(data));
+		// console.log(Array.from(data).length);
+		// console.log(missingData.length);
+		// console.log(Array.from(missingData).length);
+		//Array.from(data);
+	});
+
+	const [findingData, setFindingData] = useState(async ()=> {
+		//console.log("finding들어옴");
+		const QuerySnapshot = await getDocs(query(collection(db, "Finding")));
+		const data = QuerySnapshot.docs.map((doc) => ({
+			id: doc.id,
+			...doc.data()
+		}));
+		setFindingData(Array.from(Array.from(data)));
+	});
+
+
 	useEffect(() => {
 		mapscript();
 	}, []);
+
+
+
+
+	const getDatas = () => {
+		if (plag == false){return 0;}
+		for (var i=0, len = areas.length; i<len; i++){
+			counts[i] = {name: areas[i]["name"], missingCounts: 0, findingCounts: 0};
+			//setCounts([...counts, ]);
+			// counts[i]["name"] = areas[i]["name"];
+			// counts[i]["missingCounts"] = 0;
+			// counts[i]["findingCounts"] = 0;
+
+
+
+			// const QuerySnapshot = getDocs(collection(db, "Missing"));
+			// const data1 = Array.from(QuerySnapshot).forEach((doc) => ({
+			// 	id: doc.id,
+			// 	...doc.data()
+			// }));
+			// setMissingData(data1);
+
+			// const QuerySnapshot2 = getDocs(collection(db, "Finding"));
+			// const data2 = Array.from(QuerySnapshot2).forEach((doc) => ({
+			// 	id: doc.id,
+			// 	...doc.data()
+			// }));
+			// setFindingData(data2);
+
+			for(var j=0, len = areas.length; j<len; j++){
+				var missingStr, findingStr;
+				//console.log(Array.from(missingData).length);
+				
+				if(Array.from(missingData).length > j){
+					// console.log("들어옴");
+					// console.log(missingData[j]);
+					missingStr = missingData[j]["address"].split(" ", 2)[1];
+					//console.log("missingStr" + missingStr);
+					if(counts[i]["name"] == missingStr){
+						counts[i]["missingCounts"] += 1;
+					}
+				}
+				
+				if(Array.from(findingData).length > j){
+					findingStr = findingData[j]["address"].split(" ", 2)[1];
+					//console.log("findingStr" + findingStr);
+					if(counts[i]["name"] == findingStr){
+						counts[i]["findingCounts"] += 1;
+					}
+				}
+			}
+			//console.log(counts);
+		}
+		plag = false;
+	}
+
+
 
 	const mapscript = () => {
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -287,11 +385,22 @@ export default function seoulMap(){
 			kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
 				polygon.setOptions({fillOpacity: 0.5});
 
-				var content = '<div class="area">' + area.name + '</div>';
-				//+			'	<div class="number"> 실종마리수: ' + missed.number + '</div>';
+				//plag && getDatas();
+
+				var missingNum, findingNum;
+				for(var i=0; i<counts.length; i++){
+					if(counts[i]["name"] == area.name){
+						missingNum = counts[i]["missingCounts"];
+						findingNum = counts[i]["findingCounts"];
+						break;
+					}
+				}
+
+				var content = '<div class="area"> <strong>' + area.name + '</strong>'
+				+			'	<div class="number"> 실종마리수: ' + missingNum
+				+			'	</br> 목격마리수: ' + findingNum + '</div></div>';
 
 				customOverlay.setContent(content);
-
 				customOverlay.setPosition(mouseEvent.latLng); 
 				customOverlay.setMap(map);
 			});
@@ -329,7 +438,7 @@ export default function seoulMap(){
         	<h2>주변 실종동물 현황</h2>
 			<div className="map-section">
 				<div className="box" id="box1" />
-				<div id="map" style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
+				<div id="map" onMouseOver={plag && getDatas()} style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
 				<div className="box" id="box2"/>
 				<br></br>
 			</div>
