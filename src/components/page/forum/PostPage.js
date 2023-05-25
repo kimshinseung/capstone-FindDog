@@ -3,10 +3,112 @@
  * 자유 게시판
  */
 
+import React, {useState, useEffect} from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { getDocs, collection, query, orderBy } from "firebase/firestore";
+import { db } from "../../../firebase.js";
+
+
 export const PostPage = () => {
+    const [posting, setPosting] = useState([]); // 가져올 게시글 내용
+    const [postNum, setPostNum] = useState(0); // 총 게시글 개수
+    const [isDisabled, setIsDisabled] = useState(false); // 버튼 비활성화
+
+    let { id } = useParams();
+    const no = id;
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleBack = () => {
+        navigate(`/forum/posting`); // 자유게시판 목록으로 이동
+    };
+
+    const handleNext = () => {
+        navigate(`/forum/posting/${(parseInt(no, 10) - 1)}`); // 다음 게시글로 이동(최신)
+    }
+
+    const handlePrevious = () => {
+        navigate(`/forum/posting/${(parseInt(no, 10) + 1)}`); // 이전 게시글로 이동(과거)
+    }
+
+    // useEffect
+    useEffect(() => {
+
+        const fetchData = async () => {
+            // 여기서 비동기 작업 수행
+            const QuerySnapshot = await getDocs(query(collection(db, "Forum"), orderBy("uploadTime", "desc")));
+            const data = QuerySnapshot.docs.map((doc, i) => ({
+                    ids: i,
+                    ...doc.data()
+                }
+            ));
+
+            setPostNum(data.length);
+
+            // data의 ids+1 과 파라미터를 가져와 비교해서 같은 수면 return
+            const detail = data.filter((d) => {
+                if((d.ids + 1) === parseInt(no, 10)) {
+                    return d;
+                }
+            });
+
+            // posting useState() set
+            setPosting(detail);
+        };
+
+        // fetch
+        fetchData();
+
+        // console.log(Array.from(posting));
+    }, [location]);
+
     return (
         <>
-            <h1>내용!! 표시해야 됨!! 금방 수정해올게...</h1>
+            <div className='post-detail-page'>
+                <div>
+                    <button className='next-button' onClick={handleNext} disabled={parseInt(no) === 1 ? true : false}>다음 게시글</button>
+                    <button className='pre-button' onClick={handlePrevious} disabled={parseInt(no) === postNum ? true : false}>이전 게시글</button>
+                    <br/><br/>
+
+                    {console.log(postNum)}
+
+                    {posting.length > 0 && (
+                        <table className='post-detail-table'>
+                        <tr>
+                            <th>번호</th>
+                            <td>
+                                <p>{parseInt(posting[0].ids, 10) + 1}</p>
+                            </td>
+                            <th>제목</th>
+                            <td>
+                                <p>{posting[0].title}</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>작성일</th>
+                            <td>
+                                <p>{posting[0].uploadTime.toDate().toLocaleDateString()} {posting[0].uploadTime.toDate().toLocaleTimeString()}</p>
+                            </td>
+                            <th>작성자</th>
+                            <td>
+                                <p>{posting[0].user}</p>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th>내용</th>
+                            <td colSpan={3}>
+                                <p>{posting[0].content}</p>
+                            </td>
+                        </tr>
+                    </table>
+                    )}
+
+                    <button className='back-button' onClick={handleBack}>목록</button>
+                </div>
+            </div>
         </>
     )
 }
