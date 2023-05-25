@@ -6,6 +6,7 @@
 import { Link } from 'react-router-dom';
 import {Col} from 'reactstrap';
 import styled from 'styled-components';
+import "./carousel.scss";
 
 function Card(props) {
   return (
@@ -14,9 +15,11 @@ function Card(props) {
         <Col>
         <Link to={`${props.cg}/detail/${props.i}`}>
           <div>
-            <img src={props.profiles.imgs[0]} width={300} height={300} />
-            <h4>이름: {props.profiles.name}</h4>
+            <img className="carouselImg" src={props.profiles.imgs[0]} width={310} height={300} />
+            <div className="carousel-dogInfo">
+            <p>이름: {props.profiles.name}</p>
             <p>실종위치: {props.profiles.address}</p>
+            </div>
           </div>
         </Link>
         </Col>
@@ -29,6 +32,7 @@ const ItemStyle = styled.div`
   padding: 16px;
   margin: 8px;
   background-color: #eef5ed;
+  border-radius:8px;
 `;
 
 export default Card;
