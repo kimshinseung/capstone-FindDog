@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getDocs, collection, query, orderBy } from "firebase/firestore";
 import { db } from "../../../firebase";
 import styled from "styled-components";
+import "./ForumPage.scss";
 
 export const ForumPage = () => {
     const [posting, setPosting] = useState([]);
@@ -43,9 +44,10 @@ export const ForumPage = () => {
         <>
         <div className="forum-page">
             <h2>자유게시판</h2>
-            
-            한 페이지 당 표시할 게시물 수:
-            <select type="number" value={limit}
+            <br/>
+            <div className="forum-page2">
+            <p>한 페이지 당 표시할 게시물 수:</p>
+            <select className="forumNumber" type="number" value={limit}
                 onChange={({ target: { value } }) => setLimit(Number(value))}>
                     <option value="3">3</option>
                     <option value="5">5</option>
@@ -53,11 +55,13 @@ export const ForumPage = () => {
                     <option value="20">20</option>
                     <option value="50">50</option>
             </select>
-            <br/>
+            </div>
 
             <br/>
-            <button onClick={toUploadHandler}>글 올리기</button>
-            <br/><br/>
+            <button className="forumUpload-btn" onClick={toUploadHandler}>글 올리기</button>
+            <br/>
+
+            <br/><hr/><br/>
             <div className="forum-posts">
                 <table className="posting-table">
                     <th>번호</th>
@@ -67,7 +71,7 @@ export const ForumPage = () => {
                     {posting.slice(offset, offset + limit).map(({ title, user, uploadTime, id }) => (
                     <tr className="posting-tr">
                         <td>
-                            <p className="posting-id" key={id}>{id}</p>
+                            <p className="posting-id" key={id}>{id+1}</p>
                         </td>
                         <td>
                             <Link to={`/forum/posting/${id + 1}`}>
@@ -84,12 +88,14 @@ export const ForumPage = () => {
             ))}
                 </table>
             </div>
+
             <footer>
                 <Pagination
                     total={posting.length}
                     limit={limit}
                     now={now}
                     setNow={setNow}
+                    className="PageNumber"
                 />
             </footer>
         </div>
