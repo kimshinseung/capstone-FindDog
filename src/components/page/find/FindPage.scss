@@ -1,0 +1,47 @@
+.find-page-upload-btn{
+    margin-right:0.2%;
+    margin-bottom:-1%;
+    margin-top:-2px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: row;
+    justify-content: space-between;
+
+    .find-page-upload-btn2{
+        width: 150px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: #69a65f;
+        color: white;
+        font-weight: bold;
+        font-size:14px;
+        cursor: pointer;
+        font-family: 'NanumSquare', sans-serif, bold;
+    }
+}
+
+.find-page-moreInfo-btn, .find-page-moreInfo2-btn{
+    margin-left:1%;
+    margin-right:0.5%;
+    margin-bottom:-1%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: row;
+    justify-content: space-between;
+
+    .find-page-moreInfo-btn2, .find-page-moreInfo2-btn2{
+        width: 100px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: none;
+        color: black;
+        font-weight: bold;
+        font-size:14px;
+        cursor: pointer;
+        font-family: 'NanumSquare', sans-serif, bold;
+    }
+}

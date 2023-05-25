@@ -5,6 +5,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Carousel from "../miss/carousel";
+import "./FindPage.scss";
 
 export const FindPage = () => {
     const navigate = useNavigate();
@@ -24,18 +25,23 @@ export const FindPage = () => {
     return (
         <>
             <div className="find-page">
+                <div className="find-page-upload-btn">
                 <h2>목격 게시판</h2>
-                <button type="button" onClick={toUpload}>목격 등록하기</button>
-                <br/><br/><br/>
-                <h3>최근 목격 순</h3> 
-                <button type="button" onClick={toMoreInfo}>더보기</button>
+                <button className="find-page-upload-btn2" type="button" onClick={toUpload}>목격 등록하기</button>
+                </div>
+
                 <br/>
+                <div className="find-page-moreInfo-btn">
+                <h3>최근 목격 순</h3> 
+                <button className="find-page-moreInfo-btn2" type="button" onClick={toMoreInfo}>더보기</button>
+                </div>
                 <Carousel category={"Finding"} cg={"moreInfo"}/>
 
-                <br/><br/><br/>
+                <br/><br/>
+                <div className="find-page-moreInfo2-btn">
                 <h3>우리 지역 관련 순</h3>
-                <button type="button" onClick={toMoreInfo2}>더보기</button>
-                <br/>
+                <button className="find-page-moreInfo2-btn2" type="button" onClick={toMoreInfo2}>더보기</button>
+                </div>
                 <Carousel category={"Finding"} cg={"moreInfo2"}/>
             </div>
         </>

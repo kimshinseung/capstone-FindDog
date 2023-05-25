@@ -4,11 +4,8 @@
 
 // import
 import { useEffect, useState } from 'react';
-
 import { Link } from 'react-router-dom';
-
 import {getAuth, onAuthStateChanged} from 'firebase/auth';
-
 import {app} from '../firebase';    
 
 const auth = getAuth(); // 현재 사용자 인증 정보 가져오기
@@ -39,17 +36,14 @@ const Header = () => {
                     </Link>
                 </div>
     
-                <div className='header-profile-div'>
-                    {
+                <div className='header-profile-div'>{
                         (userState)
                         ? (<Link to="/mypage"><img className='header-profile' src='images/user.png' /></Link>)
                         : (<Link to="/login"><img className='header-profile' src='images/user.png' /></Link>)
                     }
-                    
                 </div>
             </div>
         )
 }
-
 // export this component
 export default Header;
