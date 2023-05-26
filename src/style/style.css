@@ -5,6 +5,10 @@
 /* 한글 웹폰트(나눔스퀘어) */
 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'NanumSquare', sans-serif, bold;
   font-weight: 900;
@@ -108,14 +112,40 @@ a {
 }
 
 /* Miss Menu, Find Menu, Search Menu, Forum Menu */
-.miss-board, .moreinfo-board, .moreinfo2-board, .moreInfo-page, .post-page, .UploadPost-page ,.detail-board, .find-upload-page, .find-board, .search-board, .main-board, .forum-board, .hospital-map, .upload-board, .my-info {
+.miss-board, .moreinfo-board, .moreinfo2-board, .moreInfo-page, .post-page, .UploadPost-page , .find-upload-page, .find-board, .search-board, .main-board, .hospital-map, .upload-board, .my-info {
   width: 100%;
   background-color: #DDDDDD;
 }
 
-.search-page, .FindUploadPage, .detail-page, .main-page, .forum-page, .map-page, .moreInfo-page,.moreInfo2-page, .post-detail-page {
+.forum-board {
+  width: 100%;
+  background-color: #DDDDDD;
+  height: 100%;
+}
+
+.detail-board {
+  width: 100%;
+  background-color: #DDDDDD;
+  height: 100vh;
+}
+
+.search-page, .FindUploadPage, .main-page, .map-page, .moreInfo-page,.moreInfo2-page, .post-detail-page {
   width: 98%;
   height: auto;
+  margin: auto;
+  background-color: #FFFFFF;
+}
+
+.forum-page {
+  width: 98%;
+  height: 100%;
+  margin: auto;
+  background-color: #FFFFFF;
+}
+
+.detail-page {
+  width: 98%;
+  height: 100%;
   margin: auto;
   background-color: #FFFFFF;
 }
