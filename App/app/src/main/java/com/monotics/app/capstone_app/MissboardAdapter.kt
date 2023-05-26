@@ -77,6 +77,7 @@ class MissboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 "gender" to misslist[position].gender,
                 "neutering" to misslist[position].neutering,
                 "specify" to misslist[position].specify,
+                "uid" to misslist[position].uid,
                 "imgs" to ArrayList<String>(misslist[position].imgs)
             )
             intent.putExtra("missData",missenrollinf)

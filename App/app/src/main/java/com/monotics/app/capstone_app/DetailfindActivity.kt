@@ -2,8 +2,10 @@ package com.monotics.app.capstone_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.monotics.app.capstone_app.databinding.ActivityDetailFindBinding
 import kotlinx.android.synthetic.main.activity_detail_find.detail_find_recycler
 
@@ -13,6 +15,7 @@ class DetailfindActivity: AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        binding.FindBtn.visibility = View.INVISIBLE
 
         val inf = intent.getSerializableExtra("findData") as HashMap<String,Any>
         binding.detailFindAddress.text=inf["address"] as? String
@@ -55,5 +58,10 @@ class DetailfindActivity: AppCompatActivity()  {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
+        //내 게시물일 경우 찾았어요 버튼 보이게하기
+        if(FirebaseAuth.getInstance().uid == inf["uid"] as? String){
+            binding.FindBtn.visibility = View.VISIBLE
+        }
+
     }
 }
