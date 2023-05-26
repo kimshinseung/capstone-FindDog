@@ -12,7 +12,7 @@ import {
   FindBoard, FindTimeDetailBoard, FindLocalDetailBoard,
   Post, FindMoreInfo, FindMoreInfo2,
   HospitalMap, Search, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload,
-  Forum, General, Notfound
+  Forum, UploadPostPage, Notfound
   } from "../page/Pages";
 
 // path 정의
@@ -49,7 +49,7 @@ const Hierarchy = () => (
       <Route path="/search/*" element={<Search />} />
 
       <Route path="/forum/*" element={<Forum />} />
-      <Route path="/forum/general" element={<General />} />
+      <Route path="/forum/general" element={<UploadPostPage />} />
       {/* 자유게시판 | 각 게시글 접근 */}
       <Route path="/forum/posting/:id" element={<Post />} />
 

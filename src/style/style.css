@@ -108,7 +108,7 @@ a {
 }
 
 /* Miss Menu, Find Menu, Search Menu, Forum Menu */
-.miss-board, .detail-board, .find-upload-page, .find-board, .search-board, .main-board, .forum-board, .hospital-map, .moreInfo-board, .upload-board, .my-info {
+.miss-board, .UploadPost-page ,.detail-board, .find-upload-page, .find-board, .search-board, .main-board, .forum-board, .hospital-map, .moreInfo-board, .upload-board, .my-info {
   width: 100%;
   background-color: #DDDDDD;
 }
@@ -132,7 +132,7 @@ a {
   margin-left:1.9%;
 }
 
-.upload-page {
+.upload-page, .Forum-UploadPost {
   width: 98%;
   height: auto;
   margin: auto;
@@ -166,7 +166,7 @@ a {
   margin: 0;
 }
 
-.upload-page h2 {
+.upload-page h2, .Forum-UploadPost h2 {
   padding: 5px;
   height: auto;
   margin: auto;

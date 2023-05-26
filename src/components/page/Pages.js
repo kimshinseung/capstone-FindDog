@@ -217,9 +217,9 @@ export const Forum = () => (
   </PageTemplate>
 );
 
-export const General = () => (
+export const UploadPostPage = () => (
   <PageTemplate>
-    <section className="genaral-page">
+    <section className="UploadPost-page">
       <UploadPost />
     </section>
   </PageTemplate>
