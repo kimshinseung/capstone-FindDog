@@ -113,7 +113,7 @@ a {
   background-color: #DDDDDD;
 }
 
-.find-page, .search-page, .FindUploadPage, .detail-page, .main-page, .forum-page, .map-page, .moreInfo-page {
+.search-page, .FindUploadPage, .detail-page, .main-page, .forum-page, .map-page, .moreInfo-page {
   width: 98%;
   height: auto;
   margin: auto;
@@ -153,9 +153,9 @@ a {
   display:flex;
 }
 
-.miss-page {
+.miss-page, .find-page {
   width: 98%;
-  height: 170vh;
+  height: 165vh;
   margin: auto;
   background-color: #FFFFFF;
 }
