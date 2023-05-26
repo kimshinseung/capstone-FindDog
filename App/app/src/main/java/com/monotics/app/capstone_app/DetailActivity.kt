@@ -2,8 +2,10 @@ package com.monotics.app.capstone_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.monotics.app.capstone_app.databinding.ActivityDetailFindBinding
 import com.monotics.app.capstone_app.databinding.ActivityDetailMissBinding
 import kotlinx.android.synthetic.main.activity_detail_miss.detail_recycler
@@ -13,6 +15,7 @@ class DetailActivity: AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        binding.FindBtn.visibility = View.INVISIBLE
 
         val inf = intent.getSerializableExtra("missData") as HashMap<String,Any>
         binding.detailName.text=inf["name"] as? String
@@ -26,6 +29,7 @@ class DetailActivity: AppCompatActivity()  {
         binding.detailGender.text=inf["gender"] as? String
         binding.detailNeutering.text=inf["neutering"] as? String
         binding.detailSpecify.text=inf["specify"] as? String
+
         val imageUrls = inf["imgs"] as ArrayList<String>?
 
         var manager02 = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -57,5 +61,10 @@ class DetailActivity: AppCompatActivity()  {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
+        //내 게시물일 경우 찾았어요 버튼 보이게하기
+        if(FirebaseAuth.getInstance().uid == inf["uid"] as? String){
+            binding.FindBtn.visibility = View.VISIBLE
+        }
+
     }
 }
