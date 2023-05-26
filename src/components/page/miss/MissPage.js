@@ -4,15 +4,20 @@
  */
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 import Carousel  from "./carousel";
 import "./MissPage.scss";
 
 
 export const MissPage = () => {
     const navigate = useNavigate();
+    const auth = getAuth();
     
     const toUpload = () => {
-        navigate(`/miss/upload`); // 업로드 페이지로 이동
+        if(auth.currentUser == null){
+            alert("로그인이 필요합니다");
+        }
+        else{ navigate(`/miss/upload`); } // 업로드 페이지로 이동
     }
 
     const toMoreInfo = () => {
