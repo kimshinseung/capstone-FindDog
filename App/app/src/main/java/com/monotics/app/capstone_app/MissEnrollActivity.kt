@@ -110,6 +110,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "neutering" to neutering,
                     "uploadTime" to dateString,
                     "uid" to FirebaseAuth.getInstance().uid,
+                    "visibled" to true,
                     "imgs" to ArrayList<String>(imageUrls)
                 //"img" to imageUrls[0] 사진 오류 나면 이렇게 바꾸면 됨
                 )
@@ -135,6 +136,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "neutering" to neutering,
                     "uploadTime" to dateString,
                     "uid" to FirebaseAuth.getInstance().uid,
+                    "visibled" to true,
                     "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Missing")
@@ -162,6 +164,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "neutering" to neutering,
                     "uploadTime" to dateString,
                     "uid" to FirebaseAuth.getInstance().uid,
+                    "visibled" to true,
                     "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Missing")

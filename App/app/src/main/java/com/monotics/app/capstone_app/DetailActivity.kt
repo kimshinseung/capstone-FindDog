@@ -2,20 +2,28 @@ package com.monotics.app.capstone_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.databinding.ActivityDetailFindBinding
 import com.monotics.app.capstone_app.databinding.ActivityDetailMissBinding
 import kotlinx.android.synthetic.main.activity_detail_miss.detail_recycler
 
 class DetailActivity: AppCompatActivity()  {
     val binding by lazy { ActivityDetailMissBinding.inflate(layoutInflater) }
+    private lateinit var db: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         binding.FindBtn.visibility = View.INVISIBLE
+
+        db = Firebase.firestore
 
         val inf = intent.getSerializableExtra("missData") as HashMap<String,Any>
         binding.detailName.text=inf["name"] as? String
@@ -64,6 +72,14 @@ class DetailActivity: AppCompatActivity()  {
         //내 게시물일 경우 찾았어요 버튼 보이게하기
         if(FirebaseAuth.getInstance().uid == inf["uid"] as? String){
             binding.FindBtn.visibility = View.VISIBLE
+            var id: String? = inf["id"] as? String
+            binding.FindBtn.setOnClickListener {
+                db.collection("Missing").document(id.toString()).update("visibled",false).addOnSuccessListener {
+                    Log.d("kimshinseung","aa")
+                    super.onBackPressed();
+                }
+
+            }
         }
 
     }

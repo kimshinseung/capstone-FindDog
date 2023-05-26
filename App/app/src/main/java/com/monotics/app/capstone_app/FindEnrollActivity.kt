@@ -103,6 +103,7 @@ class FindEnrollActivity :AppCompatActivity(){
                     "kakaoId" to kakaoid,
                     "uploadTime" to dateString,
                     "uid" to FirebaseAuth.getInstance().uid,
+                    "visibled" to true,
                     "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Finding")
@@ -125,6 +126,7 @@ class FindEnrollActivity :AppCompatActivity(){
                     "kakaoId" to kakaoid,
                     "uploadTime" to dateString,
                     "uid" to FirebaseAuth.getInstance().uid,
+                    "visibled" to true,
                     "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Finding")
@@ -150,6 +152,7 @@ class FindEnrollActivity :AppCompatActivity(){
                     "kakaoId" to kakaoid,
                     "uploadTime" to dateString,
                     "uid" to FirebaseAuth.getInstance().uid,
+                    "visibled" to true,
                     "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Finding")

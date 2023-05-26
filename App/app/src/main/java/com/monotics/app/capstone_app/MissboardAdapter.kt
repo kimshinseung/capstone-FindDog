@@ -58,9 +58,8 @@ class MissboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         viewHolder.textImg.text = misslist[position].address//주소
 
-
-
         viewHolder.detail_img.setOnClickListener {
+            if(misslist[position].visibled==true){ //visible필드가 true이면 상세 게시물로 이동한다.
             Log.e("kimshinseung","success") // 검사
 
             val context = viewHolder.context
@@ -78,10 +77,15 @@ class MissboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 "neutering" to misslist[position].neutering,
                 "specify" to misslist[position].specify,
                 "uid" to misslist[position].uid,
+                "id" to misslist[position].id,
                 "imgs" to ArrayList<String>(misslist[position].imgs)
             )
             intent.putExtra("missData",missenrollinf)
             context.startActivity(intent)
+        } else{
+                Log.e("kimshinseung","success") // 검사
+            }
+
         }
 
     }
