@@ -8,6 +8,7 @@ import { React, useState, useEffect} from "react";
 import { useNavigate, Link } from "react-router-dom";
 import DaumPostcode from "react-daum-postcode";
 import { addDoc, collection, updateDoc } from "@firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { db, storage } from "../../../firebase.js";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 //import Dropzone from 'react-dropzone'
@@ -15,14 +16,14 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 
 const UploadPage = () => {
-
-    var img = 1;
-
     const [data, setData] = useState({});
     const [files, setFiles] = useState([]);
     const Imgs = Array.from(files);
     const [address, setAddress] = useState("");
     const [popup, setPopup] = useState(false);
+    const auth = getAuth();
+    //var img = 1;
+
 
 
     useEffect(()=>{
@@ -42,7 +43,7 @@ const UploadPage = () => {
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                         Imgs[i] = downloadURL;
-                        img = 0;
+                        //img = 0;
                     });
                 }
             );
@@ -64,12 +65,17 @@ const UploadPage = () => {
 
     const handler = async(e) =>{
         e.preventDefault();
+
         var time = new Date()
+        if(Imgs[0]==null){
+            Imgs[0]="null";
+        }
         const docRef = await addDoc(collection(db, "Missing"), {
             ...data,
             imgs: Imgs, 
             uploadTime: time,
-            visibled: true
+            visibled: true,
+            uid: auth.currentUser.uid
         });
         await updateDoc(docRef, {id: docRef.id});   //현재 문서의 id를 필드에 다시 추가
         alert("등록되었습니다");

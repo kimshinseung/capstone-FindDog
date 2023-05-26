@@ -7,6 +7,7 @@ import React, {useState, useEffect} from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getDocs, collection, query, orderBy } from "firebase/firestore";
 import { db } from "../../../firebase.js";
+import "./ForumPage.scss";
 
 
 export const PostPage = () => {
@@ -65,7 +66,9 @@ export const PostPage = () => {
     return (
         <>
             <div className='post-detail-page'>
-                <div>
+            <h2>자유게시판</h2>
+            <br/>
+                <div className='post-detail-page2'>
                     <button className='next-button' onClick={handleNext} disabled={parseInt(no) === 1 ? true : false}>다음 게시글</button>
                     <button className='pre-button' onClick={handlePrevious} disabled={parseInt(no) === postNum ? true : false}>이전 게시글</button>
                     <br/><br/>
@@ -103,7 +106,7 @@ export const PostPage = () => {
                     </table>
                     )}
 
-                    <button className='back-button' onClick={handleBack}>목록</button>
+                    <button className='Post-back-btn' onClick={handleBack}>목록</button>
                 </div>
             </div>
         </>

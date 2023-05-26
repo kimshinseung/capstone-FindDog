@@ -7,7 +7,6 @@ import React from "react";
 import data from './data';
 import Card from './card';
 import { useNavigate, Link } from "react-router-dom";
-
 import '../../../style/style.css';
 
 const MoreinfoPage = () => {
