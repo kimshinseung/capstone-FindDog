@@ -99,10 +99,11 @@ const FindUploadPage = () => {
     const postCodeStyle = {
         display: "block",
         position: "absolute",
-        top: "10%",
-        width: "500px",
-        height: "600px",
-        padding: "30px",
+        top: "-590%",
+        right: "-60%",
+        width: "85%",
+        height: "1100%",
+        background : "rgba(0,0,0,0.25)",
     };
 
 
@@ -117,11 +118,7 @@ const FindUploadPage = () => {
             <h2>목격 등록하기</h2>
             <div className="warning"><h4>※ 최대한 정확하고 자세히 적을수록 좋습니다.</h4></div>
             <div className="upload-page2">
-                <form onSubmit = {handler}>{/* 
-                    <div>
-                    <h3>이름</h3>
-                    <input type="text" id="name" size="25" onChange={handleInput}></input>
-                    </div><br/> */}
+                <form onSubmit = {handler}>
 
                     <div className="age">
                     <h4>추정 나이</h4>&emsp;
@@ -141,12 +138,6 @@ const FindUploadPage = () => {
                         </div>
                         </>
                     ))} 
-{/* 
-                    <div>
-                    <h3>중성화 여부</h3>
-                    <label><input type="radio" id="neutering" name="neutering" value="yes" onChange={handleInput}/>예</label> &nbsp;
-                    <label><input type="radio" id="neutering" name="neutering" value="no" onChange={handleInput}/>아니오</label>
-                    </div><br/> */}
 
                     <div className="place">
                     <h4>목격장소</h4>&emsp;
