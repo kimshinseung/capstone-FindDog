@@ -11,7 +11,7 @@ import "./carousel.scss";
 function Card(props) {
   return (
     <>
-      <ItemStyle>
+      <ItemStyle visible={props.profiles.visibled}>
         <Col>
         <Link to={`${props.cg}/detail/${props.i}`}>
           <div>
@@ -33,6 +33,9 @@ const ItemStyle = styled.div`
   margin: 8px;
   background-color: #eef5ed;
   border-radius:8px;
+  ${({ visible }) => {
+    return visible ? null: `pointer-events: none; filter: grayscale(100%); opacity: 80%;`;
+  }}
 `;
 
 export default Card;
