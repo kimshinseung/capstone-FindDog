@@ -15,6 +15,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 export const DetailPage = (props) => {
     const [profiles, setProfiles] = useState([]); // 가져올 게시글 내용
+    const [visible, setVisible] = useState(true); // visibled를 위한 변수
 
     let { id } = useParams();
     const no = id;
@@ -22,21 +23,30 @@ export const DetailPage = (props) => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    // console.log(visible);
+
     const back = () => {
         navigate(-1); // 이전 페이지로 이동
     };
 
     const handleFind = async () => {
         const idRef = Array.from(profiles)[0].id;
-        // console.log(idRef);
+        console.log(idRef);
 
-        const docRef = doc(db, props.cg, idRef);
+        const docRef = doc(db, props.cg, idRef.trim());
         console.log(docRef);
 
+        // console.log(visible);
+
         await updateDoc(docRef, {
-            visibled: false
+            visibled: visible
         });
     };
+
+    const handleVisible = () => {
+        setVisible(false);
+        handleFind();
+    }
 
     const DetailCarousel = () => {
         const settings = {
@@ -120,7 +130,7 @@ export const DetailPage = (props) => {
                     <div className="upload-date">
                         <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
                     </div>
-                    <button onClick={handleFind}>찾았어요</button>
+                    <button onClick={handleVisible}>찾았어요</button>
                 </div>
             </div>
             </>
