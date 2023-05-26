@@ -6,253 +6,279 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView40"
+        android:id="@+id/textView43"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="실종일시 및 장소"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:layout_marginTop="30dp"
-        android:text="특징:"
-        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:text="실종동물 정보"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
     <TextView
-        android:id="@+id/textView39"
+        android:id="@+id/textView42"
+        android:layout_width="100sp"
+        android:layout_height="34dp"
+        android:background="#eff3f7"
+        android:gravity="center"
+        android:text="중성화 여부"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/detail_gender"
+        app:layout_constraintTop_toBottomOf="@+id/detail_farColor2" />
+
+    <TextView
+        android:id="@+id/textView41"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:textStyle="bold"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="21dp"
-        android:text="실종 시간:"
-        android:textSize="20sp"
+        android:layout_marginTop="40dp"
+        android:text="실종 신고자 정보"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="100sp"
+        android:layout_height="33dp"
+        android:layout_marginStart="20dp"
+        android:background="#eff3f7"
+        android:gravity="center"
+        android:text="특징"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
     <TextView
-        android:id="@+id/textView38"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView39"
+        android:layout_width="100sp"
         android:layout_height="34dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="1dp"
+        android:background="#eff3f7"
+        android:gravity="center"
+        android:text="실종 시간"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        android:text="카카오톡 ID :"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_feature" />
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="100sp"
+        android:layout_height="34dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="9dp"
+        android:background="#eff3f7"
+        android:gravity="center"
+        android:text="카카오톡 ID"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
     <TextView
         android:id="@+id/textView37"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
+        android:layout_width="100sp"
         android:layout_height="34dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        android:text="종 :"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView34" />
-
-    <TextView
-        android:id="@+id/textView36"
-        android:layout_width="20dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="1dp"
-        android:text="살"
-        android:textSize="20sp"
+        android:background="#eff3f7"
+        android:gravity="center"
+        android:text="품종"
+        android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/detail_age"
-        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="20dp"
         android:layout_height="34dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
+        android:layout_marginStart="1dp"
         android:text="/"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/detail_farColor1"
-        app:layout_constraintTop_toBottomOf="@+id/detail_address" />
-
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="29dp"
-        android:textStyle="bold"
-        android:text="모색 :"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView33" />
-
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:layout_marginStart="20dp"
-        android:textStyle="bold"
-        android:layout_marginTop="26dp"
-        android:text="실종 장소: "
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
-
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="20dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="7dp"
-        android:textStyle="bold"
-        android:layout_marginTop="22dp"
-        android:text="/"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/detail_gender"
-        app:layout_constraintTop_toBottomOf="@+id/detail_age" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="173dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="22dp"
-        android:textStyle="bold"
-        android:text="성별 및 중성화 여부 : "
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_name" />
 
     <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView34"
+        android:layout_width="100sp"
         android:layout_height="34dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="1dp"
-        android:text="나이 : "
-        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        android:background="#eff3f7"
+        android:gravity="center"
+        android:text="색상"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="100sp"
+        android:layout_height="34dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="19dp"
+        android:background="#eff3f7"
+        android:gravity="center"
+        android:text="실종 장소"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="100sp"
+        android:layout_height="34dp"
+        android:layout_marginStart="20dp"
+        android:background="#eff3f7"
+        android:gravity="center"
+        android:text="성별"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="100sp"
+        android:layout_height="34dp"
+        android:layout_marginTop="15dp"
+        android:background="#eff3f7"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:text="나이 "
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/detail_name"
-        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <TextView
         android:id="@+id/detail_neutering"
-        android:layout_width="75dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="22dp"
-        android:text="null"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+        android:layout_width="85dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="1dp"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/textView42"
+        app:layout_constraintTop_toBottomOf="@+id/detail_farColor2" />
 
     <TextView
         android:id="@+id/detail_name"
-        android:layout_width="140dp"
+        android:layout_width="100sp"
         android:layout_height="34dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="1dp"
-        android:text="name"
-        android:textSize="17sp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <TextView
         android:id="@+id/detail_kakaoId"
         android:layout_width="121dp"
         android:layout_height="34dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="5dp"
-        android:text="id"
-        android:textSize="20sp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="9dp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView38"
-        app:layout_constraintTop_toBottomOf="@+id/detail_feature" />
+        app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
     <TextView
         android:id="@+id/detail_specify"
-        android:layout_width="100dp"
+        android:layout_width="285dp"
         android:layout_height="34dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="24dp"
-        android:textSize="20sp"
+        android:layout_marginStart="1dp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView37"
-        app:layout_constraintTop_toBottomOf="@+id/detail_farColor1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
     <TextView
         android:id="@+id/detail_feature"
         android:layout_width="285dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:textSize="20sp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView40"
-        app:layout_constraintTop_toBottomOf="@+id/textView39" />
-
-    <TextView
-        android:id="@+id/detail_address"
-        android:layout_width="271dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="26dp"
-        android:text="null"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView33"
-        app:layout_constraintTop_toBottomOf="@+id/textView32" />
-
-    <TextView
-        android:id="@+id/detail_date"
-        android:layout_width="200dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="21dp"
-        android:text="시간"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView39"
         app:layout_constraintTop_toBottomOf="@+id/detail_specify" />
 
     <TextView
+        android:id="@+id/detail_address"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="1dp"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toBottomOf="@+id/detail_date" />
+
+    <TextView
+        android:id="@+id/detail_date"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="19dp"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/textView33"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <TextView
         android:id="@+id/detail_gender"
-        android:layout_width="wrap_content"
-        android:layout_height="31dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="22dp"
-        android:text="null"
-        android:textSize="20sp"
+        android:layout_width="100sp"
+        android:layout_height="34dp"
+        android:layout_marginStart="1dp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView29"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <TextView
         android:id="@+id/detail_age"
-        android:layout_width="40dp"
+        android:layout_width="85dp"
         android:layout_height="34dp"
-        android:layout_marginTop="1dp"
-        android:textSize="20sp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView28"
-        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <TextView
         android:id="@+id/detail_farColor2"
-        android:layout_width="wrap_content"
+        android:layout_width="150sp"
         android:layout_height="34dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="farcolor2"
-        android:textSize="20sp"
+        android:layout_marginStart="1dp"
+        android:gravity="left"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView35"
-        app:layout_constraintTop_toBottomOf="@+id/detail_address" />
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
     <TextView
         android:id="@+id/detail_farColor1"
-        android:layout_width="wrap_content"
+        android:layout_width="100sp"
         android:layout_height="34dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="10dp"
-        android:text="farcolor1"
-        android:textSize="20sp"
+        android:layout_marginStart="1dp"
+        android:textSize="15sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/textView34"
-        app:layout_constraintTop_toBottomOf="@+id/detail_address" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_name" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/titlebar"
@@ -307,19 +333,22 @@
 
     <TextView
         android:id="@+id/textView24"
-        android:layout_width="wrap_content"
+        android:layout_width="100sp"
         android:layout_height="34dp"
-        android:layout_marginStart="24dp"
-        android:text="이  름 : "
-        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:background="#eff3f7"
+        android:gravity="center"
+        android:text="이  름 "
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detail_recycler"
         android:layout_width="409dp"
-        android:layout_height="246dp"
+        android:layout_height="220dp"
         android:layout_marginTop="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

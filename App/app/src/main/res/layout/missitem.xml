@@ -3,20 +3,156 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="220dp">
 
     <TextView
-        android:id="@+id/missname"
-        android:layout_width="224dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="12dp"
+        android:id="@+id/missfeature"
+        android:layout_width="147dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="9dp"
+        android:gravity="left"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textview7"
+        app:layout_constraintTop_toBottomOf="@+id/missaddress" />
+
+    <TextView
+        android:id="@+id/missspecify"
+        android:layout_width="147dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="9dp"
+        android:gravity="left"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textview6"
+        app:layout_constraintTop_toBottomOf="@+id/misstime" />
+
+    <TextView
+        android:id="@+id/misskakaoid"
+        android:layout_width="147dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="9dp"
+        android:gravity="left"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textview8"
+        app:layout_constraintTop_toBottomOf="@+id/missspecify" />
+
+    <TextView
+        android:id="@+id/misstime"
+        android:layout_width="147dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="9dp"
+        android:gravity="left"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textview5"
+        app:layout_constraintTop_toBottomOf="@+id/missname" />
+
+    <TextView
+        android:id="@+id/textview9"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
+        android:background="#eef5ed"
+        android:gravity="center"
+        android:text="실종 장소"
+
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/viewbutton"
+        app:layout_constraintTop_toBottomOf="@+id/textview8" />
+
+    <TextView
+        android:id="@+id/textview8"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
+        android:background="#eef5ed"
+        android:gravity="center"
+        android:text="카카오톡 id"
+
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/missimg"
+        app:layout_constraintTop_toBottomOf="@+id/textview6" />
+
+    <TextView
+        android:id="@+id/textview6"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
+        android:background="#eef5ed"
+        android:gravity="center"
+        android:text="품종"
+
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/missimg"
+        app:layout_constraintTop_toBottomOf="@+id/textview5" />
+
+    <TextView
+        android:id="@+id/textview5"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
+        android:background="#eef5ed"
+        android:gravity="center"
+        android:text="실종 날짜"
+
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/missimg"
+        app:layout_constraintTop_toBottomOf="@+id/textview111" />
+
+    <TextView
+        android:id="@+id/textview111"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:background="#eef5ed"
         android:gravity="center"
-        android:text="name"
-        android:textSize="18sp"
+        android:text="이름"
+
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/missimg"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview7"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
+        android:background="#eef5ed"
+        android:gravity="center"
+        android:text="특징"
+
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/viewbutton"
+        app:layout_constraintTop_toBottomOf="@+id/textview9" />
+
+    <TextView
+        android:id="@+id/missname"
+        android:layout_width="147dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="16dp"
+        android:gravity="left"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textview111"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -31,14 +167,27 @@
 
     <TextView
         android:id="@+id/missaddress"
-        android:layout_width="224dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="12dp"
-        android:background="#eef5ed"
-        android:gravity="center"
-        android:text="address"
-        android:textSize="18sp"
+        android:layout_width="147dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="9dp"
+        android:gravity="left"
+        android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/missimg"
-        app:layout_constraintTop_toBottomOf="@+id/missname" />
+        app:layout_constraintStart_toEndOf="@+id/textview9"
+        app:layout_constraintTop_toBottomOf="@+id/misskakaoid" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/viewbutton"
+        android:layout_width="151dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/rect_round2"
+        android:text="자세히 보기"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/missimg" />
 </androidx.constraintlayout.widget.ConstraintLayout>

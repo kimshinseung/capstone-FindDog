@@ -3,7 +3,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="220dp">
+
+    <TextView
+        android:id="@+id/findtuploadime"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="16dp"
+        android:gravity="left"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textview2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview4"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:background="#eef5ed"
+        android:gravity="center"
+        android:text="모색 1"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/FindImg"
+        app:layout_constraintTop_toBottomOf="@+id/textview2" />
+
+    <TextView
+        android:id="@+id/textview3"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:background="#eef5ed"
+        android:gravity="center"
+        android:text="모색 2"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/FindImg"
+        app:layout_constraintTop_toBottomOf="@+id/textview4" />
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:background="#eef5ed"
+        android:gravity="center"
+        android:text="목격 날짜"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/FindImg"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/findcolor2"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="14dp"
+        android:gravity="left"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textview3"
+        app:layout_constraintTop_toBottomOf="@+id/findcolor" />
+
+    <TextView
+        android:id="@+id/findfeature"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="14dp"
+        android:gravity="left"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textview"
+        app:layout_constraintTop_toBottomOf="@+id/findaddress" />
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:background="#eef5ed"
+        android:gravity="center"
+        android:text="특징"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/viewbutton"
+        app:layout_constraintTop_toBottomOf="@+id/textview100" />
+
+    <TextView
+        android:id="@+id/textview100"
+        android:layout_width="57dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:background="#eef5ed"
+        android:gravity="center"
+        android:text="목격 장소"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/FindImg"
+        app:layout_constraintTop_toBottomOf="@+id/textview3" />
 
     <ImageView
         android:id="@+id/FindImg"
@@ -17,28 +123,39 @@
 
     <TextView
         android:id="@+id/findaddress"
-        android:layout_width="224dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:background="#eef5ed"
-        android:gravity="center"
-        android:text="address"
-        android:textSize="18sp"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="14dp"
+        android:gravity="left"
+        android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/FindImg"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textview100"
+        app:layout_constraintTop_toBottomOf="@+id/findcolor2" />
 
     <TextView
         android:id="@+id/findcolor"
-        android:layout_width="224dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="12dp"
-        android:background="#eef5ed"
-        android:gravity="center"
-        android:text="color"
-        android:textSize="18sp"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="14dp"
+        android:gravity="left"
+        android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/FindImg"
-        app:layout_constraintTop_toBottomOf="@+id/findaddress" />
+        app:layout_constraintStart_toEndOf="@+id/textview4"
+        app:layout_constraintTop_toBottomOf="@+id/findtuploadime" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/viewbutton"
+        android:layout_width="151dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rect_round2"
+        android:text="자세히 보기"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FindImg" />
 </androidx.constraintlayout.widget.ConstraintLayout>

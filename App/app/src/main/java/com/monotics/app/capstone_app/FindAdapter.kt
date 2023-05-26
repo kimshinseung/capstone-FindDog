@@ -16,6 +16,10 @@ import com.monotics.app.capstone_app.data.MissData
 import kotlinx.android.synthetic.main.finditem.view.FindImg
 import kotlinx.android.synthetic.main.finditem.view.findaddress
 import kotlinx.android.synthetic.main.finditem.view.findcolor
+import kotlinx.android.synthetic.main.finditem.view.findcolor2
+import kotlinx.android.synthetic.main.finditem.view.findfeature
+import kotlinx.android.synthetic.main.finditem.view.findtuploadime
+import kotlinx.android.synthetic.main.finditem.view.viewbutton
 import kotlinx.android.synthetic.main.missitem.view.missaddress
 import kotlinx.android.synthetic.main.missitem.view.missimg
 import kotlinx.android.synthetic.main.missitem.view.missname
@@ -63,8 +67,11 @@ class FindAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
         viewHolder.findcolor.text = findlist[position].farColor1
         viewHolder.findaddress.text = findlist[position].address//주소
+        viewHolder.findcolor2.text = findlist[position].farColor2
+        viewHolder.findfeature.text = findlist[position].feature
+        viewHolder.findtuploadime.text = findlist[position].date
 
-        viewHolder.FindImg.setOnClickListener {
+        viewHolder.viewbutton.setOnClickListener {
             Log.e("kimshinseung","success") // 검사
             val context = viewHolder.context
             val intent = Intent(context, DetailfindActivity::class.java)

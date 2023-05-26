@@ -13,8 +13,13 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.data.MissData
 import kotlinx.android.synthetic.main.missitem.view.missaddress
+import kotlinx.android.synthetic.main.missitem.view.missfeature
 import kotlinx.android.synthetic.main.missitem.view.missimg
+import kotlinx.android.synthetic.main.missitem.view.misskakaoid
 import kotlinx.android.synthetic.main.missitem.view.missname
+import kotlinx.android.synthetic.main.missitem.view.missspecify
+import kotlinx.android.synthetic.main.missitem.view.misstime
+import kotlinx.android.synthetic.main.missitem.view.viewbutton
 
 class MissAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val db: FirebaseFirestore = Firebase.firestore
@@ -59,8 +64,12 @@ class MissAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
         viewHolder.missname.text = misslist[position].name
         viewHolder.missaddress.text = misslist[position].address//주소
+        viewHolder.misstime.text = misslist[position].date
+        viewHolder.missspecify.text = misslist[position].specify
+        viewHolder.misskakaoid.text = misslist[position].kakaoId
+        viewHolder.missfeature.text = misslist[position].feature
 
-        viewHolder.missimg.setOnClickListener {
+        viewHolder.viewbutton.setOnClickListener {
             Log.e("kimshinseung","success") // 검사
 
             val context = viewHolder.context
