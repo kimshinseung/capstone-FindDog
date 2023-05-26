@@ -9,7 +9,7 @@
 .upload-page2{
     padding-left: 25px;
     padding-top: 12px;
-    padding-bottom: 15px;
+    //padding-bottom: 15px;
     background-color: white;
     margin-left:30%;
     margin-right:30%;
@@ -18,8 +18,11 @@
     border:2px #84b77d;
     border-radius: 15px;
 
+    /*
     .postDiv{
     }
+    */
+
     .postModal{
       background-color: #84b77d;
       display: "block";
@@ -84,7 +87,18 @@
           align-items: center;
         }
 
-        .missplaceButton{
+        .Findfeature{
+          padding: 10px;
+          display: flex;
+          position: relative;
+          width: 35%;
+          height: 3%;
+          margin-left: 8px;
+          margin-bottom: 3px;
+          align-items: center;
+        }
+
+        .missplaceButton, .findplaceButton{
           background-color: #84b77d;
           border: none;
           color: white;
@@ -121,9 +135,9 @@
 
 .submit-btn{
   margin-top: 8px;
-  margin-bottom: 40px;
-  margin-left: 56%;
-  margin-right:31%;
+  margin-bottom: 5%;;
+  margin-left: 60%;
+  margin-right:30%;
   width: 200px;
   height: 30px;
   border: none;

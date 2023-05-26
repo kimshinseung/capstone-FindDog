@@ -10,6 +10,7 @@ import DaumPostcode from "react-daum-postcode";
 import { addDoc, collection, updateDoc } from "@firebase/firestore";
 import { db, storage } from "../../../firebase.js";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import "../miss/UploadPage.scss";
 //import Dropzone from 'react-dropzone'
 
 
@@ -113,22 +114,24 @@ const FindUploadPage = () => {
             <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 
             <div className="upload-page">
-                <form onSubmit = {handler}>
-{/* 
+            <h2>목격 등록하기</h2>
+            <div className="warning"><h4>※ 최대한 정확하고 자세히 적을수록 좋습니다.</h4></div>
+            <div className="upload-page2">
+                <form onSubmit = {handler}>{/* 
                     <div>
                     <h3>이름</h3>
                     <input type="text" id="name" size="25" onChange={handleInput}></input>
                     </div><br/> */}
 
-                    <div>
-                    <h3>추정 나이</h3>
+                    <div className="age">
+                    <h4>추정 나이</h4>&emsp;
                     <input type="number" id="age" size="2" onChange={handleInput}></input>
-                    </div><br/>
+                    </div>
 
                     {userInputs.map((input)=>(
                         <>
-                        <div>
-                            <h3>{input.label}</h3>
+                        <div className="specify_farColor">
+                            <h4>{input.label}</h4>&emsp;
                             <select id={input.id} onChange={handleInput}>
                                 <option disabled selected>-------</option>
                                 {input.datas.map((item)=>(
@@ -136,7 +139,6 @@ const FindUploadPage = () => {
                                 ))}
                             </select>
                         </div>
-                        <br/>
                         </>
                     ))} 
 {/* 
@@ -146,28 +148,32 @@ const FindUploadPage = () => {
                     <label><input type="radio" id="neutering" name="neutering" value="no" onChange={handleInput}/>아니오</label>
                     </div><br/> */}
 
-                    <h3>목격장소</h3>
-                    {popup && <div><DaumPostcode style={postCodeStyle} onComplete={handleComplete}/></div>}
+                    <div className="place">
+                    <h4>목격장소</h4>&emsp;
+                    {popup && <div className="postDiv"><DaumPostcode style={postCodeStyle} onComplete={handleComplete}/></div>}
                     <input type="text" id="place" onChange={handleInput} value={address}></input>
-                    <input type="button" onClick={()=>setPopup(true)} value="주소찾기"></input><br/>
+                    <input type="button" className="findplaceButton" onClick={()=>setPopup(true)} value="주소찾기"></input><br/>
+                    </div>
 
-                    <div>
-                    <h3>카카오톡ID</h3>
+                    <div className="kakaoId">
+                    <h4>카카오톡ID</h4>&emsp;
                     <input id="kakaoId" maxLength="11" onChange={handleInput} />
-                    </div><br/>
+                    </div>
 
-                    <div>
-                    <h3>날짜 및 시간</h3>
+                    <div className="date">
+                    <h4>날짜 및 시간</h4>&ensp;
                     <input type="datetime-local" id="date" onChange={handleInput}/>
-                    </div><br/>
+                    </div>
 
-                    <div>
-                    <h3>성격 및 특징</h3>
-                    <textarea cols="30" rows="5" id="feature" onChange={handleInput}></textarea>
-                    </div><br/>
+                    <div className="feature">
+                    <h4>성격 및 특징</h4>&ensp;
+                    <textarea className="Findfeature" cols="25" rows="5" id="feature" onChange={handleInput}></textarea>
+                    </div>
 
-                    <div>
-                    <h3>목격 사진</h3>
+                    <div className="photo">
+                    <h4>목격 사진</h4>&ensp;
+                    <label className="input-file-btn" for="input-file">
+                        </label>
                     <input type="file" multiple accept='image/*' onChange={(e)=>setFiles(e.target.files)}/>
                     {/* <form action="/target" class="dropzone" id="myDropzone"></form>
                     <script>
@@ -177,12 +183,10 @@ const FindUploadPage = () => {
                             method: 'post',
                         };
                     </script> */}
-
-                    </div><br/>
-
-                    <br/>
-                    <button type="submit">등록하기</button>
-                </form>
+                    </div>
+                <button className="submit-btn" type="submit">등록하기</button>
+            </form>
+            </div>
             </div>
         </>
     );

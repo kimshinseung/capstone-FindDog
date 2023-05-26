@@ -173,7 +173,7 @@ const UploadPage = () => {
                     <textarea cols="25" id="feature" onChange={handleInput}></textarea>
                     </div>
 
-                    <div class="photo">
+                    <div className="photo">
                         <h4>실종전 사진</h4>&ensp;
                         <label className="input-file-btn" for="input-file">
                         </label>
@@ -187,9 +187,9 @@ const UploadPage = () => {
                             };
                         </script> */}
                     </div>    
+                    <button className="submit-btn" type="submit">등록하기</button>
                 </form>
                 </div>
-                <button className="submit-btn" type="submit">등록하기</button>
             </div>
             
         </>
