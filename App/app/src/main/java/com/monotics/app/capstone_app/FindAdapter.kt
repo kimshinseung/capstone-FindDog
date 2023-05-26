@@ -85,6 +85,7 @@ class FindAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 "kakaoId" to findlist[position].kakaoId,
                 "gender" to findlist[position].gender,
                 "specify" to findlist[position].specify,
+                "uid" to findlist[position].uid,
                 "imgs" to ArrayList<String>(findlist[position].imgs)
             )
             intent.putExtra("findData", findenrollinf)
