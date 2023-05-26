@@ -9,6 +9,7 @@ import { useNavigate, Link } from "react-router-dom";
 import DaumPostcode from "react-daum-postcode";
 import { addDoc, collection, updateDoc } from "@firebase/firestore";
 import { db, storage } from "../../../firebase.js";
+import { getAuth } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import "../miss/UploadPage.scss";
 //import Dropzone from 'react-dropzone'
@@ -22,6 +23,7 @@ const FindUploadPage = () => {
     const Imgs = Array.from(files);
     const [address, setAddress] = useState("");
     const [popup, setPopup] = useState(false);
+    const auth = getAuth();
 
 
     useEffect(()=>{
@@ -70,7 +72,8 @@ const FindUploadPage = () => {
             ...data,
             imgs: Imgs, 
             uploadTime: time,
-            visibled: true
+            visibled: true,
+            uid: auth.currentUser.uid
         });
         await updateDoc(docRef, {id: docRef.id}); 
         alert("등록되었습니다");
