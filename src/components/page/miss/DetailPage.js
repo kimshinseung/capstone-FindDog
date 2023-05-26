@@ -9,6 +9,10 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { db } from '../../../firebase';
 import { getDocs, collection, query, orderBy, updateDoc, doc } from "firebase/firestore";
 
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 export const DetailPage = (props) => {
     const [profiles, setProfiles] = useState([]); // 가져올 게시글 내용
 
@@ -33,6 +37,30 @@ export const DetailPage = (props) => {
             visibled: false
         });
     };
+
+    const DetailCarousel = () => {
+        const settings = {
+            dots: true,
+            autoplay: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            arrows: false,
+            lazyLoad: true
+        };
+    
+        return (
+            <>
+            <Slider {...settings}>
+                {profiles[0].imgs.map((url, i) =>
+                <img src={url} width={500} height={500} key={i}/>
+                // <img src={url} width="100%" height="100%" key={i}/>
+                )}
+            </Slider>
+            </>
+        )
+    }
 
       // useEffect
     useEffect(() => {
@@ -70,29 +98,32 @@ export const DetailPage = (props) => {
             </div>
         
         {profiles.length > 0 && props.cg === "Missing" && (
+            <>
             <div className="detail-page2">
+            
                 <div className="imgs">
-                    {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300} key={i}/>)}
+                <DetailCarousel />
+                    {/* {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300} key={i}/>)} */}
                 </div>
 
                 <div className="detailContent">
-                <h3>🐶{profiles[0].name}🐶</h3>
-                <p>실종 위치: {profiles[0].address}</p>
-                <p>실종 시간: {profiles[0].date} </p>
-                <p>종: {profiles[0].specify}</p>
-                <p>나이: {profiles[0].age}</p>
-                <p>성별: {profiles[0].gender}</p>
-                <p>중성화 여부: {profiles[0].neutering}</p>
-                <p>카카오톡 아이디: {profiles[0].kakaoId}</p>
-                <p>털색: {profiles[0].farColor1}, {profiles[0].farColor2} </p>
-                <p>특징: {profiles[0].feature}</p>
-                
-                <div className="upload-date">
-                    <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
-                </div>
-                <button onClick={handleFind}>찾았어요</button>
+                    <h3>🐶{profiles[0].name}🐶</h3>
+                    <p>실종 위치: {profiles[0].address}</p>
+                    <p>실종 시간: {profiles[0].date} </p>
+                    <p>종: {profiles[0].specify}</p>
+                    <p>나이: {profiles[0].age}</p>
+                    <p>성별: {profiles[0].gender}</p>
+                    <p>중성화 여부: {profiles[0].neutering}</p>
+                    <p>카카오톡 아이디: {profiles[0].kakaoId}</p>
+                    <p>털색: {profiles[0].farColor1}, {profiles[0].farColor2} </p>
+                    <p>특징: {profiles[0].feature}</p>
+                    <div className="upload-date">
+                        <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
+                    </div>
+                    <button onClick={handleFind}>찾았어요</button>
                 </div>
             </div>
+            </>
         )}
 
         {profiles.length > 0 && props.cg === "Finding" && (
@@ -101,7 +132,8 @@ export const DetailPage = (props) => {
                     {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300}/>)}
                 </div>
                 <div className="detailContent">
-                <div className="detailText"><h3>🐶{profiles[0].address}</h3><p>&ensp;에서 목격했어요</p><h3>🐶</h3></div>
+                <div className="detailText">
+                    <h3>🐶{profiles[0].address}</h3><p>&ensp;에서 목격했어요</p><h3>🐶</h3></div>
                 <p>품종: {profiles[0].specify}</p>
                 <p>성별: {profiles[0].gender}</p>
                 <p>추정 나이: {profiles[0].age}</p>
