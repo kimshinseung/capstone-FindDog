@@ -100,6 +100,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "farColor2" to farcolor2,
                     "feature" to feature,
                     "gender" to gender,
+                    "id" to "null",
                     "specify" to specify,
                     "name" to name,
                     "age" to age,
@@ -113,6 +114,7 @@ class MissEnrollActivity: AppCompatActivity() {
                 db.collection("Missing")
                     .add(enrollinf)
                     .addOnSuccessListener { documentReference->
+                        db.collection("Missing").document(documentReference.id).update("id",documentReference.id)
                         Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
                     }
             }else if(imageUrls.size>1){ //사진 여러장 있을 때
@@ -122,6 +124,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "farColor2" to farcolor2,
                     "feature" to feature,
                     "gender" to gender,
+                    "id" to "null",
                     "specify" to specify,
                     "name" to name,
                     "age" to age,
@@ -134,6 +137,7 @@ class MissEnrollActivity: AppCompatActivity() {
                 db.collection("Missing")
                     .add(enrollinf)
                     .addOnSuccessListener { documentReference->
+                        db.collection("Missing").document(documentReference.id).update("id",documentReference.id)
                         Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
                     }
             }
@@ -146,6 +150,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "farColor2" to farcolor2,
                     "feature" to feature,
                     "gender" to gender,
+                    "id" to "null",
                     "specify" to specify,
                     "name" to name,
                     "age" to age,
@@ -158,6 +163,7 @@ class MissEnrollActivity: AppCompatActivity() {
                 db.collection("Missing")
                     .add(enrollinf)
                     .addOnSuccessListener { documentReference->
+                        db.collection("Missing").document(documentReference.id).update("id",documentReference.id)
                         Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
                     }
             }

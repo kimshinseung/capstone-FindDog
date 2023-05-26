@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -97,6 +98,7 @@ class FindEnrollActivity :AppCompatActivity(){
                     "farColor2" to farcolor2,
                     "feature" to feature,
                     "gender" to gender,
+                    "id" to "null",
                     "specify" to specify,
                     "kakaoId" to kakaoid,
                     "uploadTime" to dateString,
@@ -105,6 +107,7 @@ class FindEnrollActivity :AppCompatActivity(){
                 db.collection("Finding")
                     .add(enrollinf)
                     .addOnSuccessListener { documentReference->
+                        db.collection("Finding").document(documentReference.id).update("id",documentReference.id)
                         Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
                     }
             } else if(imageUrls.size>1) { // 사진이 여러장 있을 때
@@ -116,6 +119,7 @@ class FindEnrollActivity :AppCompatActivity(){
                     "farColor2" to farcolor2,
                     "feature" to feature,
                     "gender" to gender,
+                    "id" to "null",
                     "specify" to specify,
                     "kakaoId" to kakaoid,
                     "uploadTime" to dateString,
@@ -124,6 +128,7 @@ class FindEnrollActivity :AppCompatActivity(){
                 db.collection("Finding")
                     .add(enrollinf)
                     .addOnSuccessListener { documentReference->
+                        db.collection("Finding").document(documentReference.id).update("id",documentReference.id)
                         Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
                     }
             }
@@ -138,6 +143,7 @@ class FindEnrollActivity :AppCompatActivity(){
                     "farColor2" to farcolor2,
                     "feature" to feature,
                     "gender" to gender,
+                    "id" to "null",
                     "specify" to specify,
                     "kakaoId" to kakaoid,
                     "uploadTime" to dateString,
@@ -146,6 +152,7 @@ class FindEnrollActivity :AppCompatActivity(){
                 db.collection("Finding")
                     .add(enrollinf)
                     .addOnSuccessListener { documentReference->
+                        db.collection("Finding").document(documentReference.id).update("id",documentReference.id)
                         Toast.makeText(this,"게시물을 등록했습니다", Toast.LENGTH_SHORT).show()
                     }
             }
