@@ -9,8 +9,7 @@
         android:id="@+id/detail_img"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:background="@color/cardview_dark_background"
-        android:src="@drawable/ic_launcher_foreground" />
+         />
 
     <TextView
         android:id="@+id/textImg"

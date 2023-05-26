@@ -70,27 +70,33 @@ class MissAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         viewHolder.missfeature.text = misslist[position].feature
 
         viewHolder.viewbutton.setOnClickListener {
-            Log.e("kimshinseung","success") // 검사
+            Log.e("kimshinseung", "success") // 검사
+            if (misslist[position].visibled == true) { //visible필드가 true이면 상세 게시물로 이동한다.
 
-            val context = viewHolder.context
-            val intent = Intent(context,DetailActivity::class.java)
-            val missenrollinf = hashMapOf(
-                "name" to misslist[position].name,
-                "address" to misslist[position].address,
-                "age" to misslist[position].age,
-                "date" to misslist[position].date,
-                "farColor1" to misslist[position].farColor1,
-                "farColor2" to misslist[position].farColor2,
-                "feature" to misslist[position].feature,
-                "kakaoId" to misslist[position].kakaoId,
-                "gender" to misslist[position].gender,
-                "neutering" to misslist[position].neutering,
-                "specify" to misslist[position].specify,
-                "uid" to misslist[position].uid,
-                "imgs" to ArrayList<String>(misslist[position].imgs)
-            )
-            intent.putExtra("missData",missenrollinf)
-            context.startActivity(intent)
+                val context = viewHolder.context
+                val intent = Intent(context, DetailActivity::class.java)
+                val missenrollinf = hashMapOf(
+                    "name" to misslist[position].name,
+                    "address" to misslist[position].address,
+                    "age" to misslist[position].age,
+                    "date" to misslist[position].date,
+                    "farColor1" to misslist[position].farColor1,
+                    "farColor2" to misslist[position].farColor2,
+                    "feature" to misslist[position].feature,
+                    "kakaoId" to misslist[position].kakaoId,
+                    "gender" to misslist[position].gender,
+                    "neutering" to misslist[position].neutering,
+                    "specify" to misslist[position].specify,
+                    "uid" to misslist[position].uid,
+                    "id" to misslist[position].id,
+                    "imgs" to ArrayList<String>(misslist[position].imgs)
+                )
+                intent.putExtra("missData", missenrollinf)
+                context.startActivity(intent)
+            }
+            else{
+                Log.e("kimshinseung","success") // 검사
+            }
         }
     }
 
