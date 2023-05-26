@@ -47,6 +47,7 @@ const Button = styled.button`
   font-size: 1rem;
   border-radius: 5px;
   border: 1px;
+  margin-bottom:4%;
 
   &:hover {
     background: #95C77E;
