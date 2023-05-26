@@ -11,7 +11,13 @@ import '../../style/style.css';
 
 // 메뉴 클릭 시 스타일 변경
 const activeStyle = {
-  color: '#69a65f',
+  //color: '#40643b',
+  fontWeight: '750',
+  textDecorationLine: 'underline',
+  textUnderlinePosition : 'under',
+  textDecorationThickness: '2.5px',
+  textDecorationColor: '#69a65f',
+
   //border: '#69a65f'
   //background: "white"
 };

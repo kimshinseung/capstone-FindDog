@@ -79,6 +79,20 @@ a {
   padding: 1.8% 3%;
 }
 
+.missMenu, .findMenu, .hospitalMenu, .searchMenu, .forumMenu{
+  font-weight: 400;
+}
+
+.missMenu:hover, .findMenu:hover, .hospitalMenu:hover, .searchMenu:hover, .forumMenu:hover{
+  cursor:pointer;
+  color:#69a65f;
+  transition-property: color;
+  /*변형 완료 1초*/
+  transition-duration: 0.3s;
+  /*빠른 시작 서서히 감속*/
+  transition-timing-function: ease-out;
+}
+
 /*
 .missMenu:hover, .findMenu:hover, .hospitalMenu:hover, .searchMenu:hover, .forumMenu:hover{
   cursor:pointer;
