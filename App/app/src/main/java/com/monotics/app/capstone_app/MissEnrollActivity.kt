@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -108,6 +109,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "kakaoId" to tel,
                     "neutering" to neutering,
                     "uploadTime" to dateString,
+                    "uid" to FirebaseAuth.getInstance().uid,
                     "imgs" to ArrayList<String>(imageUrls)
                 //"img" to imageUrls[0] 사진 오류 나면 이렇게 바꾸면 됨
                 )
@@ -132,6 +134,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "kakaoId" to tel,
                     "neutering" to neutering,
                     "uploadTime" to dateString,
+                    "uid" to FirebaseAuth.getInstance().uid,
                     "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Missing")
@@ -158,6 +161,7 @@ class MissEnrollActivity: AppCompatActivity() {
                     "kakaoId" to tel,
                     "neutering" to neutering,
                     "uploadTime" to dateString,
+                    "uid" to FirebaseAuth.getInstance().uid,
                     "imgs" to ArrayList<String>(imageUrls)
                 )
                 db.collection("Missing")
