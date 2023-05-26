@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../firebase.js";
+import "./ForumPage.scss";
 
 export const UploadPost = () => {
     const [title, setTitle] = useState(''); // 게시글 제목
@@ -37,16 +38,18 @@ export const UploadPost = () => {
 
     return (
         <>
-            <div className="">
+            <div className="Forum-UploadPost">
                 <h2>자유게시판 글 올리기</h2>
-
-                    <div className="">
-                        제목 <input type="text" id="title" size="20" onBlur={handleInput}></input>
-                        <br/>
-                        내용 <textarea rows='20' cols='50' id="content" onBlur={handleTextarea}></textarea>
+                <div className="Forum-Upload-warning"><h4>※ 타인을 비방하거나 모욕을 주는 말은 삼가해주십시오.</h4></div>
+                    <div className="Forum-UploadPost2">
+                        제목 &nbsp; <input type="text" id="title" size="20" onBlur={handleInput}></input>
+                        <br/><br/>
+                        <div className="Form-UploadPost-textarea">
+                            내용 &ensp;<textarea className="Form-UploadPost-textarea2" rows='20' cols='50' id="content" onBlur={handleTextarea}></textarea>
+                        </div>
                     </div>
 
-                <button type="submit" onClick={setup}>올리기</button>
+                <button className="Forum-submit-btn" type="submit" onClick={setup}>올리기</button>
             </div>
         </>
     )
