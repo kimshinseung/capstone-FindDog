@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
@@ -95,7 +96,8 @@ class MissAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 context.startActivity(intent)
             }
             else{
-                Log.e("kimshinseung","success") // 검사
+                val context = viewHolder.context
+                Toast.makeText(context,"가족의 품으로 돌아간 반려견입니다.", Toast.LENGTH_LONG)
             }
         }
     }
