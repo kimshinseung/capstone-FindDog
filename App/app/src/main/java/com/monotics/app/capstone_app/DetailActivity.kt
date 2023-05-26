@@ -19,8 +19,8 @@ class DetailActivity: AppCompatActivity()  {
         binding.detailAddress.text=inf["address"] as? String
         binding.detailAge.text=inf["age"] as? String+"살"
         binding.detailDate.text=inf["date"] as? String
-        binding.detailFarColor1.text=inf["farColor1"] as? String
-        binding.detailFarColor2.text=inf["farColor2"] as? String
+        binding.detailFarColor1.text=inf["farColor1"] as? String + ", "+inf["farColor2"] as? String
+        //binding.detailFarColor2.text=inf["farColor2"] as? String
         binding.detailFeature.text=inf["feature"] as? String
         binding.detailKakaoId.text=inf["kakaoId"] as? String
         binding.detailGender.text=inf["gender"] as? String

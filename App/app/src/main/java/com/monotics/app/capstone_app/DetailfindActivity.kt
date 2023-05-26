@@ -18,8 +18,8 @@ class DetailfindActivity: AppCompatActivity()  {
         binding.detailFindAddress.text=inf["address"] as? String
         binding.detailFindAge.text=inf["age"] as? String+"살"
         binding.detailFindTime.text=inf["date"] as? String
-        binding.detailFindFarColor1.text=inf["farColor1"] as? String
-        binding.detailFindFarColor2.text=inf["farColor2"] as? String
+        binding.detailFindFarColor1.text=inf["farColor1"] as? String+", "+inf["farColor2"] as? String
+        //binding.detailFindFarColor2.text=inf["farColor2"] as? String
         binding.detailFindFeature.text=inf["feature"] as? String
         binding.detailFindKakaid.text=inf["kakaoId"] as? String
         binding.detailFindGender.text=inf["gender"] as? String
