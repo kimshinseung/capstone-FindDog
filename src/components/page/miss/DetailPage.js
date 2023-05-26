@@ -7,7 +7,7 @@ import "./DetailPage.scss";
 import React, {useState, useEffect} from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { db } from '../../../firebase';
-import { getDocs, collection, query, orderBy, updateDoc } from "firebase/firestore";
+import { getDocs, collection, query, orderBy, updateDoc, doc } from "firebase/firestore";
 
 export const DetailPage = (props) => {
     const [profiles, setProfiles] = useState([]); // 가져올 게시글 내용
@@ -23,11 +23,16 @@ export const DetailPage = (props) => {
     };
 
     const handleFind = async () => {
-        const docRef = doc(db, props.cg, "visibled");
+        const idRef = Array.from(profiles)[0].id;
+        // console.log(idRef);
+
+        const docRef = doc(db, props.cg, idRef);
+        console.log(docRef);
+
         await updateDoc(docRef, {
             visibled: false
-        })
-    }
+        });
+    };
 
       // useEffect
     useEffect(() => {
@@ -67,7 +72,7 @@ export const DetailPage = (props) => {
         {profiles.length > 0 && props.cg === "Missing" && (
             <div className="detail-page2">
                 <div className="imgs">
-                    {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300}/>)}
+                    {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300} key={i}/>)}
                 </div>
 
                 <div className="detailContent">
