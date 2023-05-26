@@ -108,12 +108,12 @@ a {
 }
 
 /* Miss Menu, Find Menu, Search Menu, Forum Menu */
-.miss-board, .UploadPost-page ,.detail-board, .find-upload-page, .find-board, .search-board, .main-board, .forum-board, .hospital-map, .moreInfo-board, .upload-board, .my-info {
+.miss-board, .post-page, .UploadPost-page ,.detail-board, .find-upload-page, .find-board, .search-board, .main-board, .forum-board, .hospital-map, .moreInfo-board, .upload-board, .my-info {
   width: 100%;
   background-color: #DDDDDD;
 }
 
-.search-page, .FindUploadPage, .detail-page, .main-page, .forum-page, .map-page, .moreInfo-page {
+.search-page, .FindUploadPage, .detail-page, .main-page, .forum-page, .map-page, .moreInfo-page, .post-detail-page {
   width: 98%;
   height: auto;
   margin: auto;
@@ -160,7 +160,7 @@ a {
   background-color: #FFFFFF;
 }
 
-.miss-page h2, .detail-page h2, .find-page h2, .search-page h2, .forum-page h2, .hospital-map h2, .moreInfo-page h2, .upload-page h2{
+.miss-page h2, .detail-page h2, .find-page h2, .search-page h2, .forum-page h2, .hospital-map h2, .moreInfo-page h2, .upload-page h2, .post-detail-page h2{
   padding: 5px;
   background-color: #FFFFFF;
   margin: 0;

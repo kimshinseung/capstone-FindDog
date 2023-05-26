@@ -32,6 +32,96 @@
 }
 
 
+
+/*PostPage.js*/
+
+.post-detail-page2{
+    padding-bottom:15%;
+
+    .next-button {
+        margin-left:1.4%;
+        width: 130px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: #69a65f;
+        color: white;
+        font-weight: bold;
+        font-size:14px;
+        cursor: pointer;
+        font-family: 'NanumSquare', sans-serif, bold;
+    }
+
+    .pre-button{
+        margin-left:0.5%;
+        width: 130px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: #69a65f;
+        color: white;
+        font-weight: bold;
+        font-size:14px;
+        cursor: pointer;
+        font-family: 'NanumSquare', sans-serif, bold;
+    }
+
+    .post-detail-table{
+        table, td, th {
+            border-collapse : collapse;
+            background-color: #eef5ed;
+          }
+        
+        table {
+            border-left : 20px solid white;
+            border-right : 20px solid white;
+            width : 100%;
+            height: 100%;
+            margin: auto;
+            table-layout:fixed;
+        }
+        
+        td {
+            padding: 10px;
+            text-align : center;
+            vertical-align : middle;
+            border-bottom: 3px solid white;
+            border-left: 3px solid white;
+            width: 90px;
+            height: 20px;
+        }
+        
+        th {
+            background-color: #b4c5b0;
+            padding: 10px;
+            text-align : center;
+            vertical-align : middle;
+            //border-top: 3px solid white;
+            border-bottom: 3px solid white;
+            border-left: 3px solid white;
+            width: 15px;
+            height: 20px;
+        }
+    }
+
+    .Post-back-btn{
+        margin-left:1.4%;
+        margin-top:0.5%;
+        width: 160px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: #69a65f;
+        color: white;
+        font-weight: bold;
+        font-size:14px;
+        cursor: pointer;
+        font-family: 'NanumSquare', sans-serif, bold;
+    }
+}
+
+
+
 /*UploadPage.js*/
 
 .Forum-Upload-warning{
