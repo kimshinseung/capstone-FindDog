@@ -26,6 +26,10 @@ const MoreinfoPage = () => {
         } 
     };
 
+    const toBack = () => {
+        navigate(`/miss`); // 실종 게시판으로 이동
+    }
+
     useEffect(() => {
         // firebase의 Missing Collection에서 글 목록 가져오기
         const setPost = async () => {
@@ -46,6 +50,7 @@ const MoreinfoPage = () => {
             <div className="moreInfo-page">
                 <h2>실종 게시판</h2>
                 <br/><br/>
+                <button className="" type="button" onClick={toBack}>뒤로 가기</button>
                 <button className="" type="button" onClick={toUpload}>실종 등록하기</button>
                 <br/><br/><br/>
                 <h3>최근 실종 순</h3> 
