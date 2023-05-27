@@ -95,7 +95,7 @@ class FindAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 context.startActivity(intent)
             }else {
                 val context = viewHolder.context
-                Toast.makeText(context,"가족의 품으로 돌아간 반려견입니다.",Toast.LENGTH_LONG)
+                Toast.makeText(context,"가족의 품으로 돌아간 반려견입니다.",Toast.LENGTH_LONG).show()
             }
         }
 
