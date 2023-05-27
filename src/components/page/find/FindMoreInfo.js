@@ -50,14 +50,18 @@ const FindMoreinfoPage = () => {
                 <br/>
                 <table className="">
                     <th>번호</th>
+                    <th>사진</th>
                     <th>목격 장소</th>
                     <th>목격일</th>
                     <th>작성자</th>
                     <th>작성일</th>
-                    {findPost.map(({ user, address, uploadTime, date, ids }) => (
-                    <tr className="posting-tr">
+                    {findPost.map(({ user, address, uploadTime, date, imgs, ids }) => (
+                    <tr className="">
                         <td>
-                            <p className="posting-id" key={ids}>{ids+1}</p>
+                            <p className="" key={ids}>{ids+1}</p>
+                        </td>
+                        <td>
+                            <img className="" key={ids} src={imgs[0]} width="30%"/>
                         </td>
                         <td>
                             <Link to={`/miss/moreInfo/detail/${ids + 1}`}>

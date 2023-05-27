@@ -63,12 +63,12 @@ const MoreinfoPage = () => {
                     <th>작성자</th>
                     <th>작성일</th>
                     {missPost.map(({ user, name, uploadTime, date, imgs, ids }) => (
-                    <tr className="posting-tr">
+                    <tr className="">
                         <td>
                             <p className="" key={ids}>{ids+1}</p>
                         </td>
                         <td>
-                            <img className="posting-id" key={ids} src={imgs[0]} width="30%"/>
+                            <img className="" key={ids} src={imgs[0]} width="30%"/>
                         </td>
                         <td>
                             <Link to={`/miss/moreInfo/detail/${ids + 1}`}>
