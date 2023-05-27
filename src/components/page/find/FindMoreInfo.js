@@ -1,6 +1,6 @@
 /**
  * ./src/components/page/find/FindMoreInfo.js
- * 목격 최근 실종 순 더보기란
+ * 목격 | 최근 목격 순 더보기란
  */
 
 import React, {useState, useEffect} from "react";
