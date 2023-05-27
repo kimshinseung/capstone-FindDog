@@ -10,6 +10,7 @@ import { db } from "../../../firebase";
 
 import { Link, useNavigate } from "react-router-dom";
 import '../../../style/style.css';
+import "./moreInfo.scss";
 
 const MoreinfoPage = () => {
     const [missPost, setMissPost] = useState([]);
@@ -48,45 +49,49 @@ const MoreinfoPage = () => {
     return (
         <>
             <div className="moreInfo-page">
+                <div className="moreInfo-page-upload-btn">
                 <h2>실종 게시판</h2>
-                <br/><br/>
-                <button className="" type="button" onClick={toBack}>뒤로 가기</button>
-                <button className="" type="button" onClick={toUpload}>실종 등록하기</button>
-                <br/><br/><br/>
-                <h3>최근 실종 순</h3> 
+                <button className="moreInfo-page-Back-btn" type="button" onClick={toBack}>뒤로 가기</button>
+                <button className="moreInfo-page-upload-btn2" type="button" onClick={toUpload}>실종 등록하기</button>
+                </div>
+
                 <br/>
-                <table className="">
-                    <th>번호</th>
-                    <th>사진</th>
-                    <th>이름</th>
-                    <th>실종일</th>
-                    <th>작성자</th>
-                    <th>작성일</th>
+                <div className="moreInfo-table">
+                <h3>최근 실종 순</h3> 
+                <table className="moreInfo-table2">
+                    <th width="6%">번호</th>
+                    <th width="35%">사진</th>
+                    <th width="10%">이름</th>
+                    <th widht="15%">실종일</th>
+                    <th width="11%">작성자</th>
+                    <th width="17%">작성일</th>
                     {missPost.map(({ user, name, uploadTime, date, imgs, ids }) => (
-                    <tr className="">
+                    <tr className="moreInfo-table-td">
                         <td>
-                            <p className="" key={ids}>{ids+1}</p>
+                            <p className="moreInfo-table-td-number" key={ids}>{ids+1}</p>
                         </td>
                         <td>
-                            <img className="" key={ids} src={imgs[0]} width="30%"/>
+                            <img className="moreInfo-table-td-imgs" key={ids} src={imgs[0]} width="30%"/>
                         </td>
                         <td>
                             <Link to={`/miss/moreInfo/detail/${ids + 1}`}>
-                                <p className="" key={ids}>{name}</p>
+                                <p className="moreInfo-table-td-name" key={ids}>{name}</p>
                             </Link>
                         </td>
                         <td>
-                            <p className="" key={ids}>{date}</p>
+                            <p className="moreInfo-table-td-date" key={ids}>{date}</p>
                         </td>
                         <td>
-                            <p className="" key={ids}>{user != null ? user : "익명"}</p>
+                            <p className="moreInfo-table-td-user" key={ids}>{user != null ? user : "익명"}</p>
                         </td>
                         <td>
-                            <p className="" key={ids}>{uploadTime.toDate().toLocaleDateString()}</p>
+                            <p className="moreInfo-table-td-uploadDate" key={ids}>{uploadTime.toDate().toLocaleDateString()}</p>
                         </td>
                     </tr>       
                     ))}
                 </table>
+                <br/><br/>
+                </div> 
             </div>
         </>
     );
