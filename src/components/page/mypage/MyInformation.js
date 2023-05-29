@@ -113,11 +113,11 @@ export const MyInformation = () => {
                         <p>🍏 회원 정보 🍏</p>
                     </div>
                     <div className="my-information3">
-                        <p>email: {localStorage.getItem('Email')}</p>
-                        <p>name: {localStorage.getItem('Name')}</p>
-                        <p>phone Number: {(localStorage.getItem('PhoneNumber') != null) ? localStorage.getItem('PhoneNumber') : ""}</p>
-                        <p>Address: {`${((localStorage.getItem('Address') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('Address') : ""} 
-                        ${((localStorage.getItem('ExtraAddress') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('ExtraAddress') : ""}`}</p>
+                        <p>이메일: {localStorage.getItem('Email')}</p>
+                        <p>닉네임: {localStorage.getItem('Name')}</p>
+                        <p>전화번호: {(localStorage.getItem('PhoneNumber') != null) ? localStorage.getItem('PhoneNumber') : ""}</p>
+                        <p>주소: {`${((localStorage.getItem('Address') != "undefined") && (localStorage.getItem('Address') != null) && (localStorage.getItem('Address') != "null")) ? localStorage.getItem('Address') : ""} 
+                        ${((localStorage.getItem('ExtraAddress') != "undefined") && (localStorage.getItem('ExtraAddress') != null) && (localStorage.getItem('ExtraAddress') != "null")) ? localStorage.getItem('ExtraAddress') : ""}`}</p>
                     </div>
                     <div className="my-information-btn">
                         <button className="myInfo-edit" onClick={changeHandler}>회원 정보 수정</button>
