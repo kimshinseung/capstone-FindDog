@@ -25,12 +25,10 @@ import FindUploadPage from "./find/FindUploadPage";
 import FindMoreinfoPage from "./find/FindMoreInfo";
 import FindMoreinfo2Page from "./find/FindMoreInfo2";
 import {DetailPage} from "./miss/DetailPage";
-import MapPage from "./map/map";
 import HospitalMapPage from "./map/hospitals";
 import SeoulMapPage from "./map/seoulMap";
 import { UploadPost } from "./forum/UploadPost";
 import {PostPage} from "./forum/PostPage";
-import {EditMyInfo} from "./mypage/EditMyInfo";
 
 // import
 import '../../style/style.css';
@@ -119,14 +117,6 @@ export const MyUploadingPost = () => (
     </section>
   </PageTemplate>
 )
-
-export const MyEditInfo = () => {
-  <PageTemplate>
-    <section className="my-info-edit">
-      <EditMyInfo />
-    </section>
-  </PageTemplate>
-}
 
 /**
  * MissBoard

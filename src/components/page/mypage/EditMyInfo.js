@@ -6,8 +6,9 @@
 import { useNavigate } from "react-router-dom";
 import '../../../style/style.css';
 import './mypage.scss';
+import { MainMenu } from "../../menu/Menu";
 
-export const EditMyInfo = () => {
+const EditMyInfo = () => {
     const navigate = useNavigate();
     
     const changeHandler = () => {
@@ -16,6 +17,7 @@ export const EditMyInfo = () => {
 
     return (
         <>
+            <MainMenu />
             <div className="my-info-edit-page">
                 <div className=""><p>🍏 회원 정보 수정 🍏</p></div>
                 <div className="">
@@ -32,3 +34,5 @@ export const EditMyInfo = () => {
         </>
     )
 };
+
+export default EditMyInfo;

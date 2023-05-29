@@ -52,9 +52,6 @@ const UploadPage = () => {
     }, [files]);
     
 
-
-
-
     const handleInput = (e) => {
         const id = e.target.id;
         const value = e.target.value;
@@ -78,7 +75,13 @@ const UploadPage = () => {
             uid: auth.currentUser.uid
         });
         await updateDoc(docRef, {id: docRef.id});   //현재 문서의 id를 필드에 다시 추가
-        alert("등록되었습니다");
+        
+        // 이거 안 됨 방법 다시 찾아야 함
+        // await updateDoc(collection(db, "Users", auth.currentUser.email), {
+        //     missing: FieldValue.arrayUnion(docRef.id)
+        // });
+        
+        alert("등록되었습니다.");
         location.reload();
     }
 
