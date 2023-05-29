@@ -9,11 +9,19 @@ import styled from 'styled-components';
 import "./carousel.scss";
 
 function Card(props) {
+  let visible =  props.profiles.visibled;
+
+  const onClickListener = () =>{
+    if(visible==false){
+      alert("가족의 품으로 돌아간 반려견입니다.");
+    }
+  }
+
   return (
     <>
-      <ItemStyle visible={props.profiles.visibled}>
+      <ItemStyle visible={visible}>
         <Col>
-        <Link to={`${props.cg}/detail/${props.i}`}>
+        <Link to={visible && `${props.cg}/detail/${props.i}` || !visible && ``} onClick={onClickListener}>
           <div>
             <img className="carouselImg" src={props.profiles.imgs[0]} width={310} height={300} />
             <div className="carousel-dogInfo">
@@ -34,7 +42,7 @@ const ItemStyle = styled.div`
   background-color: #eef5ed;
   border-radius:8px;
   ${({ visible }) => {
-    return visible ? null: `pointer-events: none; filter: grayscale(100%); opacity: 80%;`;
+    return visible ? null: `filter: grayscale(100%); opacity: 80%;`;
   }}
 `;
 
