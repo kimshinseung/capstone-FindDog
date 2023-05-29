@@ -2,7 +2,7 @@ const userInputs = [
     {
         id: "specify",
         label: "품종",
-        datas: ["말티즈", "시바", "허스키"]
+        datas: ["말티즈", "푸들", "포메라니안", "슈나우저", "믹스"]
     },
     {
         id: "gender",

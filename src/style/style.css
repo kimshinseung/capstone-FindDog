@@ -74,6 +74,19 @@ a {
   color:rgb(0, 77, 17);
 }
 
+.Footer{
+  background-color: #DDDDDD;
+  width: 100%;
+  height:100px;
+  bottom:0px;
+  position:relative;
+}
+
+.Footer2{
+  padding-top:1.5%;
+  margin-left: 2%;
+}
+
 /* Main Menu */
 .main-menu {
   display: flex;
