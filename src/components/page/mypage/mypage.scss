@@ -1,3 +1,4 @@
+// 회원정보
 .my-information{
     width: 98%;
     height: auto;
@@ -6,8 +7,8 @@
     padding-top:1%;
 
     .my-information2{
-        margin-left:1%;
-        padding-bottom:30%;
+        // margin-left:1%;
+        padding-bottom:20%;
     }
 
     .my-information-title{
@@ -46,13 +47,121 @@
         margin-top: 0.8%;
     }
 
-    .my-post{
-        margin-left:1%;
-        padding-bottom:30%;
+    .my-information-to-btn {
+        margin-left:40%;
+        margin-bottom:1.3%;
+    }
+
+    .myInfo-toInfo, .myInfo-toPost {
+        width: 150px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: #69a65f;
+        color: white;
+        font-weight: bold;
+        font-size:14px;
+        cursor: pointer;
+        font-family: 'NanumSquare', sans-serif, bold;
+        margin-right: 0.8%;
+        margin-top: 0.8%;
     }
 }
 
+// 회원정보 수정
+.my-info-edit-page {
+    width: 98%;
+    height: auto;
+    margin: auto;
+    background-color: #eef5ed;
+    padding-top:1%;
 
+    .my-info-edit-title {
+        margin-top:6%;
+        margin-left:35%;
+    }
 
+    .my-info-edit-page2 {
+        margin-left:1%;
+        padding-bottom:30%;
+    }
 
+    .my-info-edit-page3 {
+        margin-left:35%;
+        margin-right:35%;
+        padding-bottom:8px;
+        padding-top:0.8%;
+        padding-left:2%;
+        background-color:white;
+        border-radius:15px;
+    }
 
+    .my-info-edit-btn {
+        margin-left:35%;
+        margin-top:1%;
+    }
+
+    .my-info-complete {
+        width: 150px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: #69a65f;
+        color: white;
+        font-weight: bold;
+        font-size:14px;
+        cursor: pointer;
+        font-family: 'NanumSquare', sans-serif, bold;
+        margin-right: 0.8%;
+        margin-top: 0.8%;
+    }
+}
+
+// 내 게시글
+.my-post {
+    width: 98%;
+    height: auto;
+    margin: auto;
+    background-color: #eef5ed;
+    padding-top:1%;
+
+    .my-post-title {
+        margin-top:6%;
+        margin-left:35%;
+    }
+
+    .my-post-page2 {
+        margin-left:1%;
+        padding-bottom:30%;
+    }
+
+    .my-post-page3 {
+        margin-left:35%;
+        margin-right:35%;
+        padding-bottom:8px;
+        padding-top:0.8%;
+        // padding-left:2%;
+        background-color:white;
+        border-radius:15px;
+    }
+
+    .my-post-to-btn {
+        margin-left:40%;
+        margin-bottom:1.3%;
+    }
+
+    .myPost-toInfo, .myPost-toPost {
+        width: 150px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: #69a65f;
+        color: white;
+        font-weight: bold;
+        font-size:14px;
+        cursor: pointer;
+        font-family: 'NanumSquare', sans-serif, bold;
+        margin-right: 0.8%;
+        margin-top: 0.8%;
+    }
+}

@@ -4,16 +4,17 @@
  */
 
 // import Route, Routes, Navigate
-import {Route, Routes, Navigate} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 // import components
 import {
-  MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
+  MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost, MyEditInfo,
   MissBoard, MissTimeDetailBoard, MissLocalDetailBoard,
   FindBoard, FindTimeDetailBoard, FindLocalDetailBoard,
   Post, FindMoreInfo, FindMoreInfo2,
-  HospitalMap, Search, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload,
+  Map, HospitalMap, SeoulMap, Search, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload,
   Forum, UploadPostPage, Notfound
   } from "../page/Pages";
+import EditMyInfo from '../page/mypage/EditMyInfo';
 
 // path 정의
 const Hierarchy = () => (
@@ -45,7 +46,13 @@ const Hierarchy = () => (
       {/* 목격 | 지역 순 상세페이지 */}
       <Route path='/find/moreInfo2/detail/:id' element={<FindLocalDetailBoard/>} />
 
-      <Route path="/hospital/*" element={<HospitalMap />} />
+      <Route path="/map/*" element={<HospitalMap />} >
+        <Route path='' element={<HospitalMap/>}/>
+      </Route>
+      <Route path="map/hospital" element={<HospitalMap />} />
+      <Route path="map/seoul" element={<SeoulMap />} />
+      
+
       <Route path="/search/*" element={<Search />} />
 
       <Route path="/forum/*" element={<Forum />} />
@@ -53,18 +60,17 @@ const Hierarchy = () => (
       {/* 자유게시판 | 각 게시글 접근 */}
       <Route path="/forum/posting/:id" element={<Post />} />
 
+      {/* 로그인, 회원가입 */}
       <Route path="/login" element={<Login />} />
       <Route path="/login/signup" element={<Signup />} />
 
-      <Route path="/mypage/*" element={<MyInfo />}>
-        <Route path='' element={<MyPersonalInfo />} />
-        <Route path='information' element={<MyPersonalInfo />} />
-        <Route path='post' element={<MyUploadingPost />} />
-      </Route>
+      {/* 마이페이지 */}
+      <Route path="/mypage/*" element={<MyInfo />}/>
+      <Route path='/mypage/edit' element={<EditMyInfo />}/>
+      <Route path='/mypage/information' element={<MyPersonalInfo />} />
+      <Route path='/mypage/post' element={<MyUploadingPost />} />
 
-      <Route path='/information' element={<Navigate replace='true' to='mypage/information' />} />
-      <Route path='/post' element={<Navigate replace='true' to='mypage/post' />} />
-
+      {/* 오류 페이지 */}
       <Route path="*" element={<Notfound />} />
     </Routes>
     </>

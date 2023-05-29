@@ -68,3 +68,71 @@
 .info .title {
     font-weight: bold;
 }
+
+.map-page{
+    .map-page2{
+        margin-right:0.2%;
+        margin-bottom:-1%;
+        margin-top:-2px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: row;
+
+        .toHospital{
+            width: 200px;
+            height: 30px;
+            border: none;
+            border-radius: 8px;
+            background-color: #84b77d;
+            color: white;
+            font-weight: bold;
+            font-size:14px;
+            cursor: pointer;
+            font-family: 'NanumSquare', sans-serif, bold;
+            margin-left:54%;
+        }
+        
+        .toSeoulmap{
+            width: 180px;
+            height: 30px;
+            border: none;
+            border-radius: 8px;
+            background-color: #69a65f;
+            color: white;
+            font-weight: bold;
+            font-size:14px;
+            cursor: pointer;
+            font-family: 'NanumSquare', sans-serif, bold;
+            margin-left: 0.5%;
+        }
+
+        .toHospital2{
+            width: 200px;
+            height: 30px;
+            border: none;
+            border-radius: 8px;
+            background-color: #84b77d;
+            color: white;
+            font-weight: bold;
+            font-size:14px;
+            cursor: pointer;
+            font-family: 'NanumSquare', sans-serif, bold;
+            margin-left:60.65%;
+        }
+        
+        .toSeoulmap2{
+            width: 180px;
+            height: 30px;
+            border: none;
+            border-radius: 8px;
+            background-color: #69a65f;
+            color: white;
+            font-weight: bold;
+            font-size:14px;
+            cursor: pointer;
+            font-family: 'NanumSquare', sans-serif, bold;
+            margin-left: 0.5%;
+        }
+    }
+}

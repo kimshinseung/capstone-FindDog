@@ -97,7 +97,7 @@ export const ForumPage = () => {
                     setNow={setNow}
                     className="PageNumber"
                 />
-            </footer>
+            </footer><br/>
         </div>
         </>
     );
