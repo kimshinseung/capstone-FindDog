@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import Carousel from "../miss/carousel";
 import "./FindPage.scss";
+import { PieChart } from "../miss/PieChart";
 
 export const FindPage = () => {
     const navigate = useNavigate();
@@ -41,6 +42,13 @@ export const FindPage = () => {
                 <button className="find-page-moreInfo-btn2" type="button" onClick={toMoreInfo}>더보기</button>
                 </div>
                 <Carousel category={"Finding"} cg={"moreInfo"}/>
+                <br/><br/>
+                <div className="findpage-chart">
+                    <div className="find-pie">
+                        <p className="find-pie-p1">목격된 반려견들이 가족의 품으로 돌아간 비율이 얼마나 될까요?</p>
+                        <PieChart className="find-pie-chart" cg="Finding" />
+                    </div>
+                </div>
             </div>
         </>
     );

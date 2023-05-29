@@ -47,7 +47,7 @@ export const MissPage = () => {
                 <div className="misspage-chart">
                     <div className="miss-pie">
                         <p className="miss-pie-p1">실종된 반려견들이 가족의 품으로 돌아간 비율이 얼마나 될까요?</p>
-                        <PieChart className="miss-pie-chart" />
+                        <PieChart className="miss-pie-chart" cg="Missing" />
                     </div>
                 </div>
             </div>
