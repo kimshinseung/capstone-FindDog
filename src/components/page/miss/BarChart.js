@@ -5,7 +5,7 @@
 import { db } from '../../../firebase';
 import { collection, query, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import {VictoryBar} from 'victory';
+import { VictoryChart, VictoryBar, VictoryAxis } from 'victory';
 
 export const BarChart = (props) => {
     const [district, setDistrict] = useState([
@@ -43,10 +43,12 @@ export const BarChart = (props) => {
                     if(d.address.split(' ')[1] == d2.quarter) {
                         setDistrict((prevDistrict) => {
                            return prevDistrict.map((d2) => {
-                            if (d.address.split(' ')[1] === d2.quarter) {
-                              return { ...d2, earnings: d2.earnings + 1 };
+                            if(d.address != null) {
+                                if (d.address.split(' ')[1] === d2.quarter) {
+                                    return { ...d2, earnings: d2.earnings + 1 };
+                                  }
+                                  return d2;
                             }
-                            return d2;
                           });
                         });
                     }
@@ -59,11 +61,56 @@ export const BarChart = (props) => {
     
     return (
         <>
-            <VictoryBar
-                data={district}
-                x="quarter"
-                y="earnings"
-            />            
+            <VictoryChart
+                domain={{x: [0, 25], y: [0, 20]}}
+                domainPadding={{ x: 0 }}
+                width={500}
+                height={263}
+                style={{
+                    background: {fill:'#eef5ed'}
+                }}
+            >
+                <VictoryAxis
+                    // x축
+                    style={{
+                        tickLabels: {
+                          fontFamily: 'NanumSquare',
+                          fontSize: 5,
+                          fontWeight: 600,
+                          fill: '#376330',
+                        },
+                      }}
+                />
+                <VictoryAxis
+                    // y축
+                    dependentAxis
+                    style={{
+                      tickLabels: {
+                        fontFamily: 'NanumSquare',
+                        fontSize: 10,
+                        fontWeight: 400,
+                        fill: '#376330',
+                      },
+                    }}
+                />
+                <VictoryBar
+                    data={district}
+                    x="quarter"
+                    y="earnings"
+
+                    alignment='start'
+
+                    animate={{
+                        duration: 2000
+                    }}
+
+                    style={{
+                        data: {
+                            fill:"#376330"
+                        }
+                    }}
+                />
+            </VictoryChart>
         </>
     )
 }
