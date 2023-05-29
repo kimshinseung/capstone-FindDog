@@ -238,8 +238,6 @@ export default function HospitalMapPage() {
         	<h2>근처 동물병원 및 보호소 찾기</h2>
 			<button onClick={toHostpital}>주변 보호소 및 동물병원</button><br/>
 			<button onClick={toSeoulmap}>주변 실종동물</button><br/>
-            {/* <NavLink to={"/map/hospital"}>주변 병원 및 보호소</NavLink><br/>
-		    <NavLink to={"/map/seoul"}>주변 실종동물</NavLink> */}
 			<div className="map-section">
 				<div className="box" id="box1" />
 				<div id="map" style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>

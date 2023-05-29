@@ -149,12 +149,26 @@ export default function SeoulMapPage(){
 		}
 	};
 
+	
+	// 내 정보로 이동
+	const toHostpital = () => {
+		console.log("들어옴");
+		//navigate(-1);
+		navigate('/map/hospital');
+	}
+
+	// 내 게시글로 이동
+	const toSeoulmap = () => {
+		navigate('/map/seoul');
+	}
+
+
 
 	return <>
 		<div className="map-page">
         	<h2>주변 실종동물 현황</h2>
-            <NavLink to={"/map/hospital"}>주변 병원 및 보호소</NavLink><br/>
-		    <NavLink to={"/map/seoul"}>주변 실종동물</NavLink>
+			<button onClick={toHostpital}>주변 보호소 및 동물병원</button><br/>
+			<button onClick={toSeoulmap}>주변 실종동물</button><br/>
 			<div className="map-section">
 				<div className="box" id="box1" />
 				<div id="map" onMouseOver={plag && getDatas()} style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
