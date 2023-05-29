@@ -4,6 +4,7 @@
 
 import "./map.scss";
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import { shelters, hospitals } from "./data";
 
@@ -15,7 +16,7 @@ export default function HospitalMapPage() {
 		mapscript();
 	}, []);
 
-
+	const navigate = useNavigate();
 
 	// 마커 이미지의 이미지 주소입니다
 	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
@@ -219,14 +220,26 @@ export default function HospitalMapPage() {
 		
 	};
 
+	
+    // 내 정보로 이동
+    const toHostpital = () => {
+		console.log("들어옴");
+        navigate('/map/hospital');
+    }
 
+    // 내 게시글로 이동
+    const toSeoulmap = () => {
+        navigate('/map/seoul');
+    }
 
 
 	return <>
 		<div className="map-page">
         	<h2>근처 동물병원 및 보호소 찾기</h2>
-            <NavLink to={"/map/hospital"}>주변 병원 및 보호소</NavLink><br/>
-		    <NavLink to={"/map/seoul"}>주변 실종동물</NavLink>
+			<button onClick={toHostpital}>주변 보호소 및 동물병원</button><br/>
+			<button onClick={toSeoulmap}>주변 실종동물</button><br/>
+            {/* <NavLink to={"/map/hospital"}>주변 병원 및 보호소</NavLink><br/>
+		    <NavLink to={"/map/seoul"}>주변 실종동물</NavLink> */}
 			<div className="map-section">
 				<div className="box" id="box1" />
 				<div id="map" style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
