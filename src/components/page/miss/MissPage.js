@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import Carousel  from "./carousel";
 import "./MissPage.scss";
+import { PieChart } from "./PieChart";
 
 
 export const MissPage = () => {
@@ -42,6 +43,13 @@ export const MissPage = () => {
                 <button className="misspage-moreInfo-btn2" type="button" onClick={toMoreInfo}>더보기 &gt;</button>
                 </div>
                 <Carousel category={"Missing"} cg={"moreInfo"}/>
+                <br/><br/>
+                <div className="misspage-chart">
+                    <div className="miss-pie">
+                        <p className="miss-pie-p1">실종된 반려견들이 가족의 품으로 돌아간 비율이 얼마나 될까요?</p>
+                        <PieChart className="miss-pie-chart" />
+                    </div>
+                </div>
             </div>
         </>
     );
