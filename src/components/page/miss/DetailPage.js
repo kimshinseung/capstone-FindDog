@@ -82,14 +82,14 @@ export const DetailPage = (props) => {
             // 여기서 비동기 작업 수행
             const QuerySnapshot = await getDocs(query(collection(db, props.cg), orderBy("uploadTime", "desc")));
             const data = QuerySnapshot.docs.map((doc, i) => ({
-                    ids: i,
+                    // ids: i,
                     ...doc.data()
                 }
             ));
 
             // data의 ids+1 과 파라미터를 가져와 비교해서 같은 수면 return
             const detail = data.filter((d) => {
-                if((d.ids + 1) === parseInt(no, 10)) {
+                if(d.id === no) {
                     return d;
                 }
             });

@@ -20,10 +20,8 @@ import LoginPage  from "./Login/LoginPage";
 import SignupPage from "./Login/SignupPage";
 import UploadPage from "./miss/UploadPage";
 import MoreinfoPage from "./miss/moreInfo";
-import Moreinfo2Page from "./miss/moreInfo2";
 import FindUploadPage from "./find/FindUploadPage";
 import FindMoreinfoPage from "./find/FindMoreInfo";
-import FindMoreinfo2Page from "./find/FindMoreInfo2";
 import {DetailPage} from "./miss/DetailPage";
 import HospitalMapPage from "./map/hospitals";
 import SeoulMapPage from "./map/seoulMap";
@@ -148,14 +146,6 @@ export const MoreInfo = () => (
   </PageTemplate>
 )
 
-export const MoreInfo2 = () => (
-  <PageTemplate>
-    <section className="moreinfo2-board">
-      <Moreinfo2Page />
-    </section>
-  </PageTemplate>
-)
-
 
 /**
  * FindBoard
@@ -183,14 +173,6 @@ export const FindMoreInfo = () => (
   <PageTemplate>
     <section className="moreinfo-board">
       <FindMoreinfoPage />
-    </section>
-  </PageTemplate>
-)
-
-export const FindMoreInfo2 = () => (
-  <PageTemplate>
-    <section className="moreinfo2-board">
-      <FindMoreinfo2Page />
     </section>
   </PageTemplate>
 )

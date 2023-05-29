@@ -7,11 +7,11 @@
 import {Route, Routes} from 'react-router-dom';
 // import components
 import {
-  MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost, MyEditInfo,
-  MissBoard, MissTimeDetailBoard, MissLocalDetailBoard,
-  FindBoard, FindTimeDetailBoard, FindLocalDetailBoard,
+  MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
+  MissBoard, MissTimeDetailBoard,
+  FindBoard, FindTimeDetailBoard,
   Post, FindMoreInfo, FindMoreInfo2,
-  Map, HospitalMap, SeoulMap, Search, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload,
+  HospitalMap, SeoulMap, Search, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload,
   Forum, UploadPostPage, Notfound
   } from "../page/Pages";
 import EditMyInfo from '../page/mypage/EditMyInfo';
@@ -26,25 +26,17 @@ const Hierarchy = () => (
       <Route path="/miss/upload*" element={<Upload />} />
       <Route path="/miss/moreInfo*" element={<MoreInfo />} />
       <Route path="/miss/moreInfo/upload*" element={<Upload />} />
-      <Route path="/miss/moreInfo2*" element={<MoreInfo2 />} />
-      <Route path="/miss/moreInfo2/upload*" element={<Upload />} />
 
        {/* 실종 | 시간 순 상세페이지 */}
        <Route path='/miss/moreInfo/detail/:id' element={<MissTimeDetailBoard/>} />
-       {/* 실종 | 지역 순 상세페이지 */}
-       <Route path='/miss/moreInfo2/detail/:id' element={<MissLocalDetailBoard/>} />
 
       <Route path="/find/*" element={<FindBoard />} />
       <Route path="/find/upload*" element={<FindUpload />} />
       <Route path="/find/moreInfo*" element={<FindMoreInfo />} />
       <Route path="/find/moreInfo/upload*" element={<FindUpload />} />
-      <Route path="/find/moreInfo2*" element={<FindMoreInfo2 />} />
-      <Route path="/find/moreInfo2/upload*" element={<FindUpload />} />
 
       {/* 목격 | 시간 순 상세페이지 */}
       <Route path='/find/moreInfo/detail/:id' element={<FindTimeDetailBoard/>} />
-      {/* 목격 | 지역 순 상세페이지 */}
-      <Route path='/find/moreInfo2/detail/:id' element={<FindLocalDetailBoard/>} />
 
       <Route path="/map/*" element={<HospitalMap />} >
         <Route path='' element={<HospitalMap/>}/>
