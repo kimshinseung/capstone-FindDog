@@ -33,7 +33,8 @@
         <activity android:name=".MissActivity"></activity>
         <activity android:name=".FindActivity"></activity>
         <activity android:name=".HospitalActivity"></activity>
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".SearchActivity"
+            android:windowSoftInputMode="adjustNothing"></activity>
         <activity android:name=".SigninActivity"></activity>
         <activity android:name=".MissEnrollActivity"></activity>
         <activity android:name="FindEnrollActivity"></activity>

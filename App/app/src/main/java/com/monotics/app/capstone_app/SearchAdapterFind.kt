@@ -14,6 +14,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.data.FindData
+import com.monotics.app.capstone_app.data.MissData
 import kotlinx.android.synthetic.main.finditem.view.FindImg
 import kotlinx.android.synthetic.main.finditem.view.findaddress
 import kotlinx.android.synthetic.main.finditem.view.findcolor
@@ -22,15 +23,16 @@ import kotlinx.android.synthetic.main.finditem.view.findfeature
 import kotlinx.android.synthetic.main.finditem.view.findtuploadime
 import kotlinx.android.synthetic.main.finditem.view.viewbutton2
 
-class FindAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SearchAdapterFind(val searhitem: String, val option: String, val Colname: String): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val db: FirebaseFirestore = Firebase.firestore
     private val findData = db.collection("Finding")
     var findlist: ArrayList<FindData> = arrayListOf()
 
     class ListAdapter(val layout: View): RecyclerView.ViewHolder(layout)
     init {
-        findData.orderBy("uploadTime",
-            Query.Direction.DESCENDING).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+        Log.e("kimshinseung", Colname.toString()) // 검사
+
+        findData.whereEqualTo(option.toString(),searhitem.toString()).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
             findlist.clear()
 
             for(snapshot in querySnapshot!!.documents){
