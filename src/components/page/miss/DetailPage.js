@@ -6,6 +6,7 @@
 import "./DetailPage.scss";
 import React, {useState, useEffect} from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { getAuth } from "firebase/auth";
 import { db } from '../../../firebase';
 import { getDocs, collection, query, orderBy, updateDoc, doc } from "firebase/firestore";
 
@@ -16,6 +17,8 @@ import 'slick-carousel/slick/slick-theme.css';
 export const DetailPage = (props) => {
     const [profiles, setProfiles] = useState([]); // 가져올 게시글 내용
     const [visible, setVisible] = useState(true); // visibled를 위한 변수
+
+    const currUser = getAuth().currentUser;
 
     let { id } = useParams();
     const no = id;
@@ -130,7 +133,7 @@ export const DetailPage = (props) => {
                     <div className="upload-date">
                         <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
                     </div>
-                    <button className="found-btn" onClick={handleVisible}>찾았어요</button>
+                    {(currUser.uid == profiles[0].uid) && <button className="found-btn" onClick={handleVisible}>찾았어요</button>}
                 </div>
             </div>
             </>
@@ -155,7 +158,7 @@ export const DetailPage = (props) => {
                 <div className="upload-date">
                     <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
                 </div>
-                <button className="found-btn" onClick={handleFind}>찾았어요</button>
+                {(currUser.uid == profiles[0].uid) && <button className="found-btn" onClick={handleFind}>찾았어요</button>}
                 </div>
             </div>
         )}
