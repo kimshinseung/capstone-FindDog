@@ -169,9 +169,12 @@ export default function SeoulMapPage(){
 
 	return <>
 		<div className="map-page">
+			<div className="map-page2">
         	<h2>주변 실종동물 현황</h2>
-			<button onClick={toHostpital}>주변 보호소 및 동물병원</button><br/>
-			<button onClick={toSeoulmap}>주변 실종동물</button><br/>
+			<button  className="toHospital2" onClick={toHostpital}>주변 보호소 및 동물병원</button><br/>
+			<button  className="toSeoulmap2" onClick={toSeoulmap}>주변 실종동물</button><br/>
+			</div>
+			<br/>
 			<div className="map-section">
 				<div className="box" id="box1" />
 				<div id="map" onMouseOver={plag && getDatas()} style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
