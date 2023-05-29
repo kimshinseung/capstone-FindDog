@@ -2,12 +2,15 @@ import "./map.scss";
 import { NavLink } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, query, where } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 import { db } from "../../../firebase";
 import areas from "./seoulData.js"
 import '../../../style/style.css';
 
 
 export default function SeoulMapPage(){
+	const navigate = useNavigate();
+
 	const [counts, setCounts] = useState([]);
 	var plag = true;
 
