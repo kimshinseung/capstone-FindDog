@@ -62,7 +62,8 @@ class SigninActivity: AppCompatActivity() {
                             "Name" to name,
                             "PhoneNumber" to phoneNumber,
                             "Email" to email,
-                            "Address" to address
+                            "Address" to address,
+                            "uid" to uid
                         )
                         userdataCollectionRef.document(uid).set(userdata).addOnFailureListener{
                             Toast.makeText(this,"유저 데이터를 초기화하는데 실패했습니다.",Toast.LENGTH_SHORT).show()

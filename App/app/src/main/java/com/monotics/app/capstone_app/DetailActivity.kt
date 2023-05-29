@@ -28,9 +28,17 @@ class DetailActivity: AppCompatActivity()  {
         val inf = intent.getSerializableExtra("missData") as HashMap<String,Any>
         binding.detailName.text=inf["name"] as? String
         binding.detailAddress.text=inf["address"] as? String
+        if(inf["age"]==null){
+            Log.d("TAG","입력안함")
+        }else{
         binding.detailAge.text=inf["age"] as? String+"살"
+        }
         binding.detailDate.text=inf["date"] as? String
+        if(inf["farColor1"]!=null){
         binding.detailFarColor1.text=inf["farColor1"] as? String + ", "+inf["farColor2"] as? String
+        }else{
+            Log.d("TAG","입력안함")
+        }
         //binding.detailFarColor2.text=inf["farColor2"] as? String
         binding.detailFeature.text=inf["feature"] as? String
         binding.detailKakaoId.text=inf["kakaoId"] as? String
