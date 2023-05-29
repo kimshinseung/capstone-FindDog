@@ -53,12 +53,13 @@ const SingupPage = () => {
     };
 
     const signUp = () => {
-        setDoc(doc(db, "Users", email), {
+        setDoc(doc(db, "Users"), {
             Email: email,
             Password: password,
             Name: name,
             PhoneNumber: phoneNumber,
-            Address: fullAddress
+            Address: fullAddress,
+            uid: auth.currentUser.uid
         });
 
         localStorage.clear();
