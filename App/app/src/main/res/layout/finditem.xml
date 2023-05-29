@@ -87,15 +87,14 @@
         android:id="@+id/textview"
         android:layout_width="57dp"
         android:layout_height="25dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="14dp"
         android:background="#eef5ed"
         android:gravity="center"
         android:text="특징"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/viewbutton"
-        app:layout_constraintTop_toBottomOf="@+id/textview100" />
+        app:layout_constraintTop_toBottomOf="@+id/textview100"
+        tools:layout_editor_absoluteX="177dp" />
 
     <TextView
         android:id="@+id/textview100"
@@ -146,11 +145,11 @@
         app:layout_constraintTop_toBottomOf="@+id/findtuploadime" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/viewbutton"
+        android:id="@+id/viewbutton2"
         android:layout_width="151dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/rect_round2"
         android:text="자세히 보기"
         android:textColor="@color/white"
@@ -158,4 +157,5 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/FindImg" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
