@@ -1,10 +1,13 @@
 package com.monotics.app.capstone_app
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -54,11 +57,13 @@ class MissboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             Glide.with(viewHolder.detail_img)
                 .load(misslist[position].imgs?.get(0))
                 .into(viewHolder.detail_img)
-
         }
-
-        viewHolder.textImg.text = misslist[position].address//주소
-
+        if(misslist[position].visibled==false){
+            viewHolder.textImg.text = "*** 찾기 완료 ***"
+            viewHolder.detail_img.setColorFilter(Color.parseColor("#BF808080"))
+        }else {
+            viewHolder.textImg.text = misslist[position].address//주소
+        }
         viewHolder.detail_img.setOnClickListener {
             if(misslist[position].visibled==true){ //visible필드가 true이면 상세 게시물로 이동한다.
             Log.e("kimshinseung","success") // 검사

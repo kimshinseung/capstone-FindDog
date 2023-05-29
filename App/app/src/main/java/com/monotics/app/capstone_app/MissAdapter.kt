@@ -1,6 +1,7 @@
 package com.monotics.app.capstone_app
 
 import android.content.Intent
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -63,6 +64,11 @@ class MissAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 .into(viewHolder.missimg)
 
         }
+        if(misslist[position].visibled==false){
+            viewHolder.viewbutton.setText("*** 찾기 완료 ***")
+            viewHolder.missimg.setColorFilter(Color.parseColor("#BF808080"))
+        }
+
         viewHolder.missname.text = misslist[position].name
         viewHolder.missaddress.text = misslist[position].address//주소
         viewHolder.misstime.text = misslist[position].date

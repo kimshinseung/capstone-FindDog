@@ -1,6 +1,7 @@
 package com.monotics.app.capstone_app
 
 import android.content.Intent
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,6 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.data.FindData
-import com.monotics.app.capstone_app.data.MissData
 import kotlinx.android.synthetic.main.finditem.view.FindImg
 import kotlinx.android.synthetic.main.finditem.view.findaddress
 import kotlinx.android.synthetic.main.finditem.view.findcolor
@@ -21,9 +21,6 @@ import kotlinx.android.synthetic.main.finditem.view.findcolor2
 import kotlinx.android.synthetic.main.finditem.view.findfeature
 import kotlinx.android.synthetic.main.finditem.view.findtuploadime
 import kotlinx.android.synthetic.main.finditem.view.viewbutton
-import kotlinx.android.synthetic.main.missitem.view.missaddress
-import kotlinx.android.synthetic.main.missitem.view.missimg
-import kotlinx.android.synthetic.main.missitem.view.missname
 
 class FindAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val db: FirebaseFirestore = Firebase.firestore
@@ -66,6 +63,11 @@ class FindAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 .into(viewHolder.FindImg)
 
         }
+        if(findlist[position].visibled==false){
+            viewHolder.viewbutton.setText("*** 찾기 완료 ***")
+            viewHolder.FindImg.setColorFilter(Color.parseColor("#BF808080"))
+        }
+
         viewHolder.findcolor.text = findlist[position].farColor1
         viewHolder.findaddress.text = findlist[position].address//주소
         viewHolder.findcolor2.text = findlist[position].farColor2
