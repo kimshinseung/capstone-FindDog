@@ -28,9 +28,9 @@ export const MyPost = () => {
     return (
         <>
             <div className="my-post">
-                <div className='my-information-to-btn'>
-                    <button className='myInfo-toInfo' onClick={toInformation}>내 정보</button>
-                    <button className='myInfo-toPost' onClick={toPost}>내 게시글</button>
+                <div className='my-post-to-btn'>
+                    <button className='myPost-toInfo' onClick={toInformation}>내 정보</button>
+                    <button className='myPost-toPost' onClick={toPost}>내 게시글</button>
                 </div>
                 <hr/>
 
@@ -38,16 +38,15 @@ export const MyPost = () => {
                     <div className="my-post-title">
                         <p>🍏 내가 올린 게시글 🍏</p>
                     </div>
-                <div className="my-post-page3">
-                
-                </div>
-                    <table>
-                        <th>제목</th>
-                        <th>작성일</th>
-                        <tr>
+                    <div className="my-post-page3">
+                        <table>
+                            <th>제목</th>
+                            <th>작성일</th>
+                            <tr>
 
-                        </tr>
-                    </table>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </>
