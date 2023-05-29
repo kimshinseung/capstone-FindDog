@@ -6,7 +6,7 @@
 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 
 html {
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
 }
 
@@ -130,7 +130,8 @@ a {
 .miss-board, .moreinfo-board, .moreinfo2-board, .moreInfo-page, .post-page,
 .UploadPost-page , .find-upload-page, .find-board,
 .search-board, .main-board, .hospital-map, .upload-board,
-.my-info-board, .my-post-board, .my-info-edit-board {
+.my-info-board, .my-post-board, .my-info-edit-board,
+.seoul-map-board {
   width: 100%;
   background-color: #DDDDDD;
 }
@@ -209,7 +210,7 @@ a {
 
 .miss-page h2, .moreInfo-page h2, .moreInfo2-page h2, .detail-page h2,
 .find-page h2, .search-page h2, .forum-page h2, .hospital-map h2, .upload-page h2,
-.post-detail-page h2{
+.post-detail-page h2, .map-page h2{
   padding: 5px;
   background-color: #FFFFFF;
   margin: 0;

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../../../firebase";
 import areas from "./seoulData.js"
-
+import '../../../style/style.css';
 
 
 export default function SeoulMapPage(){

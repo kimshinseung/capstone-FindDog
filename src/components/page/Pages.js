@@ -219,7 +219,7 @@ export const HospitalMap = () => (
 
 export const SeoulMap = () => (
   <PageTemplate>
-    <section className="seoul-map">
+    <section className="seoul-map-board">
       <SeoulMapPage />
     </section>
   </PageTemplate>
