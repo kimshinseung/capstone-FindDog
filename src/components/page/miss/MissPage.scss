@@ -57,11 +57,26 @@
 
     .miss-pie {
         width: 35%;
+        float: left;
+        background-color: #eef5ed;
 
         .miss-pie-p1 {
             margin: 0 auto;
             padding-top: 8%;
             padding-left: 8.4%;
+            color: #376330;
+        }
+    }
+
+    .miss-bar {
+        width: 65%;
+        float: right;
+        background-color: #eef5ed;
+
+        .miss-bar-p1 {
+            margin: 0 auto;
+            padding-top: 8%;
+            padding-right: 8.4%;
             color: #376330;
         }
     }

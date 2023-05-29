@@ -8,6 +8,7 @@ import { getAuth } from "firebase/auth";
 import Carousel  from "./carousel";
 import "./MissPage.scss";
 import { PieChart } from "./PieChart";
+import { BarChart } from "./BarChart";
 
 export const MissPage = () => {
     const navigate = useNavigate();
@@ -43,6 +44,10 @@ export const MissPage = () => {
                     <div className="miss-pie">
                         <p className="miss-pie-p1">실종된 반려견들이 가족의 품으로 돌아간 비율이 얼마나 될까요?</p>
                         <PieChart className="miss-pie-chart" cg="Missing" />
+                    </div>
+                    <div className="miss-bar">
+                        <p className="miss-bar-p1">각 자치구 마다 실종된 반려견이 얼마나 있을까요?</p>
+                        <BarChart className="miss-bar-chart" cg="Missing" />
                     </div>
                 </div>
             </div>
