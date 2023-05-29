@@ -75,6 +75,9 @@ export const MyInformation = () => {
     const logoutHandler = () => {
         signOut(auth); // 로그아웃
         localStorage.clear(); // 로컬 스토리지에서 유저 정보 삭제
+
+        alert("로그아웃 되었습니다.");
+
         navigate('/');
     }
 
@@ -85,6 +88,8 @@ export const MyInformation = () => {
         deleteInfo(); // Firestroe 해당 회원 정보 삭제
         deleteUser(userInfo); // Auth 해당 회원 정보 삭제
         localStorage.clear();
+
+        alert("회원 탈퇴가 완료되었습니다.");
 
         navigate('/');
     }

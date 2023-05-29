@@ -19,7 +19,7 @@ export const MainPage = () => {
                 url="https://www.youtube.com/watch?v=XMsDXtFWJ2U" 
                 width="400px"
                 height="225px"
-                playing={true}
+                playing={false}
                 muted={true}
                 controls={true}
                 />
@@ -28,7 +28,7 @@ export const MainPage = () => {
                 url="https://www.youtube.com/watch?v=tIJjeCMB4Jo" 
                 width="400px"
                 height="225px"
-                playing={true}
+                playing={false}
                 muted={true}
                 controls={true}
                 />
