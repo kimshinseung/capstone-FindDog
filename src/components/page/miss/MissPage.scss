@@ -45,3 +45,24 @@
         font-family: 'NanumSquare', sans-serif, bold;
     }
 }
+
+.misspage-chart {
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top: 3.5%;
+    margin-left: 0.6%;
+    margin-right: 0.6%;
+    background-color: #eef5ed;
+    border-radius: 8px;
+
+    .miss-pie {
+        width: 35%;
+
+        .miss-pie-p1 {
+            margin: 0 auto;
+            padding-top: 8%;
+            padding-left: 8.4%;
+            color: #376330;
+        }
+    }
+}
