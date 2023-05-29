@@ -18,19 +18,27 @@ const EditMyInfo = () => {
     return (
         <>
             <MainMenu />
-            <div className="my-info-edit-page">
-                <div className=""><p>🍏 회원 정보 수정 🍏</p></div>
-                <div className="">
-                    {/* <p>email: {localStorage.getItem('Email')}</p>
-                    <p>name: {localStorage.getItem('Name')}</p>
-                    <p>phone Number: {(localStorage.getItem('PhoneNumber') != null) ? localStorage.getItem('PhoneNumber') : ""}</p>
-                    <p>Address: {`${((localStorage.getItem('Address') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('Address') : ""} 
-                    ${((localStorage.getItem('ExtraAddress') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('ExtraAddress') : ""}`}</p> */}
+            <section className="my-info-edit-board">
+                <div className="my-info-edit-page">
+
+                    <div className="my-info-edit-page2">
+                        <div className="my-info-edit-title">
+                            <p>🍏 회원 정보 수정 🍏</p>
+                        </div>
+                        <div className="my-info-edit-page3">
+                            <p>email: <input value={localStorage.getItem('Email')}/></p>
+                            <p>name: <input value={localStorage.getItem('Name')}/></p>
+                            <p>phone Number: <input value={(localStorage.getItem('PhoneNumber') != null) ? localStorage.getItem('PhoneNumber') : ""}/></p>
+                            <p>Address: <input value={`${((localStorage.getItem('Address') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('Address') : ""} 
+                        ${((localStorage.getItem('ExtraAddress') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('ExtraAddress') : ""}`}/></p>
+                        </div>
+                        <div className="my-info-edit-btn">
+                            <button className="my-info-complete" onClick={changeHandler}>완료</button>
+                        </div>
+                    </div>
+
                 </div>
-                <div className="">
-                    <button className="" onClick={changeHandler}>완료</button>
-                </div>
-            </div>
+            </section>
         </>
     )
 };

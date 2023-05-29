@@ -27,9 +27,11 @@ export const MyPost = () => {
     
     return (
         <>
-            <div className="my-post-page">
-                <button className='' onClick={toInformation}>내 정보</button>
-                <button className='' onClick={toPost}>내 게시글</button>
+            <div className="my-post">
+                <div className='my-information-to-btn'>
+                    <button className='myInfo-toInfo' onClick={toInformation}>내 정보</button>
+                    <button className='myInfo-toPost' onClick={toPost}>내 게시글</button>
+                </div>
                 <hr/>
 
                 <div className='my-post-page2'>
@@ -43,7 +45,7 @@ export const MyPost = () => {
                         <th>제목</th>
                         <th>작성일</th>
                         <tr>
-                            
+
                         </tr>
                     </table>
                 </div>

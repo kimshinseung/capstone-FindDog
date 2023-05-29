@@ -101,26 +101,32 @@ export const MyInformation = () => {
 
     return (
         <>
+        <div className='my-information-page'>
             <div className="my-information">
-                <button className='' onClick={toInformation}>내 정보</button>
-                <button className='' onClick={toPost}>내 게시글</button>
+                <div className='my-information-to-btn'>
+                    <button className='myInfo-toInfo' onClick={toInformation}>내 정보</button>
+                    <button className='myInfo-toPost' onClick={toPost}>내 게시글</button>
+                </div>
                 <hr/>
                 <div className='my-information2'>
-                <div className="my-information-title"><p>🍏 회원 정보 🍏</p></div>
-                <div className="my-information3">
-                <p>email: {localStorage.getItem('Email')}</p>
-                <p>name: {localStorage.getItem('Name')}</p>
-                <p>phone Number: {(localStorage.getItem('PhoneNumber') != null) ? localStorage.getItem('PhoneNumber') : ""}</p>
-                <p>Address: {`${((localStorage.getItem('Address') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('Address') : ""} 
-                ${((localStorage.getItem('ExtraAddress') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('ExtraAddress') : ""}`}</p>
-                </div>
-                <div className="my-information-btn">
-                <button className="myInfo-edit" onClick={changeHandler}>회원 정보 수정</button>
-                <button className="myInfo-Logout" onClick={logoutHandler}>로그아웃</button>
-                <button className="myInfo-exit" onClick={deleteHandler}>회원 탈퇴</button>
-                </div>
+                    <div className="my-information-title">
+                        <p>🍏 회원 정보 🍏</p>
+                    </div>
+                    <div className="my-information3">
+                        <p>email: {localStorage.getItem('Email')}</p>
+                        <p>name: {localStorage.getItem('Name')}</p>
+                        <p>phone Number: {(localStorage.getItem('PhoneNumber') != null) ? localStorage.getItem('PhoneNumber') : ""}</p>
+                        <p>Address: {`${((localStorage.getItem('Address') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('Address') : ""} 
+                        ${((localStorage.getItem('ExtraAddress') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('ExtraAddress') : ""}`}</p>
+                    </div>
+                    <div className="my-information-btn">
+                        <button className="myInfo-edit" onClick={changeHandler}>회원 정보 수정</button>
+                        <button className="myInfo-Logout" onClick={logoutHandler}>로그아웃</button>
+                        <button className="myInfo-exit" onClick={deleteHandler}>회원 탈퇴</button>
+                    </div>
                 </div>
             </div>
+        </div>
         </>
     );
 };

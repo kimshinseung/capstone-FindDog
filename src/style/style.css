@@ -129,7 +129,7 @@ a {
 .miss-board, .moreinfo-board, .moreinfo2-board, .moreInfo-page, .post-page,
 .UploadPost-page , .find-upload-page, .find-board,
 .search-board, .main-board, .hospital-map, .upload-board,
-.my-info, .my-post, .my-info-edit {
+.my-info-board, .my-post-board, .my-info-edit-board {
   width: 100%;
   background-color: #DDDDDD;
 }
@@ -147,7 +147,7 @@ a {
 }
 
 .search-page, .FindUploadPage, .main-page, .map-page, .moreInfo-page, .moreInfo2-page,
-.post-detail-page, .my-post-page, .my-info-edit-page {
+.post-detail-page {
   width: 98%;
   height: auto;
   margin: auto;
@@ -159,6 +159,11 @@ a {
   height: 100%;
   margin: auto;
   background-color: #FFFFFF;
+}
+
+.my-information-page {
+  width: 100%;
+  background-color: #DDDDDD;
 }
 
 /* .my-menu{

@@ -104,7 +104,7 @@ export const MyInfo = () => (
 
 export const MyPersonalInfo = () => (
   <PageTemplate>
-    <section className="my-info">
+    <section className="my-info-board">
       <MyInformation />
     </section>
   </PageTemplate>
@@ -112,7 +112,7 @@ export const MyPersonalInfo = () => (
 
 export const MyUploadingPost = () => (
   <PageTemplate>
-    <section className="my-post">
+    <section className="my-post-board">
       <MyPost />
     </section>
   </PageTemplate>
