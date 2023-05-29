@@ -234,17 +234,15 @@ export function SearchPage() {
         var q;
         switch(con.length){
             case 0:
-                q = query(collection(db, division));
-                break;
+                q = query(collection(db, division), where("visibled", "==", true));    break;
             case 1:
-                q = query(collection(db, division), where(con[0].label, "==", con[0].data));
-                break;
+                q = query(collection(db, division), where("visibled", "==", true), where(con[0].label, "==", con[0].data));    break;
             case 2:
-                q = query(collection(db, division), where(con[0].label, "==", con[0].data), where(con[1].id, "==", con[1].data));
-                break;
+                q = query(collection(db, division), where("visibled", "==", true)
+                    , where(con[0].label, "==", con[0].data), where(con[1].id, "==", con[1].data));   break;
             case 3:
-                q = query(collection(db, division), where(con[0].label, "==", con[0].data), where(con[1].id, "==", con[1].data), where(con[2].id, "==", con[2].data));
-                break;
+                q = query(collection(db, division), where("visibled", "==", true)
+                    , where(con[0].label, "==", con[0].data), where(con[1].id, "==", con[1].data), where(con[2].id, "==", con[2].data));  break;
         }
         Show(q);
     }
@@ -252,22 +250,29 @@ export function SearchPage() {
     //게시물들 데이터값들 보내줌
     const Show = async (q) => { 
         const QuerySnapshot = await getDocs(q);
-        console.log(QuerySnapshot.docs);
+        //console.log(QuerySnapshot.docs);
         const data = QuerySnapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
         }));
-        console.log(data);
+        //console.log(data);
         setpost(data); //postdata값을 세팅시켜줌.
     }
 
     const Search = () => {
-        var constraints = [];
+
+        let division = document.querySelector("#Division").value;
+        if(division == "ㅡㅡㅡㅡㅡ"){
+            alert("실종 | 목격 검색조건을 선택해주세요");
+            return 0;
+        }
+
+        var constraints = [];   //조건을 지정한 필드들만 배열에 넣어서 전달해줌
         var index = 0;
 
         let element = document.querySelector("#specify").value;
         if(element != "ㅡㅡㅡㅡㅡ"){
-            constraints[index++] = {label:"specify", data:element};
+            constraints[index++] = {label:"specify", data:element}; //배열에 조건 이름과 값을 객체로 만들어서 추가
         }
         
         element = document.querySelector("#gender").value;
@@ -280,10 +285,10 @@ export function SearchPage() {
             constraints[index++] = {label:"farColor", data:element};
         }
         
-        let division = document.querySelector("#Division").value;
+        
 
-        console.log(division);
-        console.log(constraints);
+        // console.log(division);
+        // console.log(constraints);
         
         find(division, constraints);
     };
