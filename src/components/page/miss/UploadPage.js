@@ -26,34 +26,29 @@ const UploadPage = () => {
 
 
 
-    useEffect(()=>{
-        const uploadFile= (file, i) => {
-            //const name = new Date().getTime() + file.name;
-            const storageRef = ref(storage, file.name);
-            const uploadTask = uploadBytesResumable(storageRef, file);
+    const uploadFile= (file, i) => {
+        //const name = new Date().getTime() + file.name;
+        const storageRef = ref(storage, file.name);
+        const uploadTask = uploadBytesResumable(storageRef, file);
 
-            uploadTask.on("state_changed",
-                (snapshot) => {
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
-                },
-                (error) => {
-                    console.log(error)
-                },
-                () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        Imgs[i] = downloadURL;
-                        //img = 0;
-                    });
-                }
-            );
-        };
-        files && Array.from(files).map((file, i) => (uploadFile(file, i))); //유사배열객체라서 map함수 쓰기위해 Array.from함수 사용
-    }, [files]);
+        uploadTask.on("state_changed",
+            (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+            },
+            (error) => {
+                console.log(error)
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    Imgs[i] = downloadURL;
+                    //img = 0;
+                });
+            }
+        );
+    };
+    //files && Array.from(files).map((file, i) => (uploadFile(file, i))); //유사배열객체라서 map함수 쓰기위해 Array.from함수 사용
     
-
-
-
 
     const handleInput = (e) => {
         const id = e.target.id;
@@ -66,10 +61,15 @@ const UploadPage = () => {
     const handler = async(e) =>{
         e.preventDefault();
 
-        var time = new Date()
+        var time = new Date();
+
         if(Imgs[0]==null){
+            alert("사진을 등록해주세요");
             Imgs[0]="null";
+            return 0;
         }
+        Array.from(files).map((file, i) => (uploadFile(file, i)));
+
         const docRef = await addDoc(collection(db, "Missing"), {
             ...data,
             imgs: Imgs, 
@@ -78,7 +78,13 @@ const UploadPage = () => {
             uid: auth.currentUser.uid
         });
         await updateDoc(docRef, {id: docRef.id});   //현재 문서의 id를 필드에 다시 추가
-        alert("등록되었습니다");
+        
+        // 이거 안 됨 방법 다시 찾아야 함
+        // await updateDoc(collection(db, "Users", auth.currentUser.email), {
+        //     missing: FieldValue.arrayUnion(docRef.id)
+        // });
+        
+        alert("등록되었습니다.");
         location.reload();
     }
 

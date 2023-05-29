@@ -4,7 +4,7 @@
  */
 
 // import Route, Routes, Navigate
-import {Route, Routes, Navigate} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 // import components
 import {
   MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost, MyEditInfo,
@@ -14,6 +14,7 @@ import {
   Map, HospitalMap, SeoulMap, Search, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload,
   Forum, UploadPostPage, Notfound
   } from "../page/Pages";
+import EditMyInfo from '../page/mypage/EditMyInfo';
 
 // path 정의
 const Hierarchy = () => (
@@ -64,11 +65,8 @@ const Hierarchy = () => (
       <Route path="/login/signup" element={<Signup />} />
 
       {/* 마이페이지 */}
-      <Route path="/mypage/*" element={<MyInfo />}>
-        <Route path='' element={<MyPersonalInfo />} />
-      </Route>
-
-      <Route path='/mypage/edit' element={<MyEditInfo />}/>
+      <Route path="/mypage/*" element={<MyInfo />}/>
+      <Route path='/mypage/edit' element={<EditMyInfo />}/>
       <Route path='/mypage/information' element={<MyPersonalInfo />} />
       <Route path='/mypage/post' element={<MyUploadingPost />} />
 
