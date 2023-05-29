@@ -41,13 +41,6 @@ export const FindPage = () => {
                 <button className="find-page-moreInfo-btn2" type="button" onClick={toMoreInfo}>더보기</button>
                 </div>
                 <Carousel category={"Finding"} cg={"moreInfo"}/>
-
-                <br/><br/>
-                <div className="find-page-moreInfo2-btn">
-                <h3>우리 지역 관련 순</h3>
-                <button className="find-page-moreInfo2-btn2" type="button" onClick={toMoreInfo2}>더보기</button>
-                </div>
-                <Carousel category={"Finding"} cg={"moreInfo2"}/>
             </div>
         </>
     );

@@ -42,13 +42,6 @@ export const MissPage = () => {
                 <button className="misspage-moreInfo-btn2" type="button" onClick={toMoreInfo}>더보기 &gt;</button>
                 </div>
                 <Carousel category={"Missing"} cg={"moreInfo"}/>
-
-                <br/><br/>
-                <div className="miss-page-moreInfo2-btn">
-                <h3>우리 지역 관련 순</h3>
-                <button className="miss-page-moreInfo2-btn2" type="button" onClick={toMoreInfo2}>더보기 &gt;</button>
-                </div>
-                <Carousel category={"Missing"} cg={"moreInfo2"}/>
             </div>
         </>
     );
