@@ -26,30 +26,28 @@ const UploadPage = () => {
 
 
 
-    useEffect(()=>{
-        const uploadFile= (file, i) => {
-            //const name = new Date().getTime() + file.name;
-            const storageRef = ref(storage, file.name);
-            const uploadTask = uploadBytesResumable(storageRef, file);
+    const uploadFile= (file, i) => {
+        //const name = new Date().getTime() + file.name;
+        const storageRef = ref(storage, file.name);
+        const uploadTask = uploadBytesResumable(storageRef, file);
 
-            uploadTask.on("state_changed",
-                (snapshot) => {
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
-                },
-                (error) => {
-                    console.log(error)
-                },
-                () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        Imgs[i] = downloadURL;
-                        //img = 0;
-                    });
-                }
-            );
-        };
-        files && Array.from(files).map((file, i) => (uploadFile(file, i))); //유사배열객체라서 map함수 쓰기위해 Array.from함수 사용
-    }, [files]);
+        uploadTask.on("state_changed",
+            (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+            },
+            (error) => {
+                console.log(error)
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    Imgs[i] = downloadURL;
+                    //img = 0;
+                });
+            }
+        );
+    };
+    //files && Array.from(files).map((file, i) => (uploadFile(file, i))); //유사배열객체라서 map함수 쓰기위해 Array.from함수 사용
     
 
     const handleInput = (e) => {
@@ -63,10 +61,15 @@ const UploadPage = () => {
     const handler = async(e) =>{
         e.preventDefault();
 
-        var time = new Date()
+        var time = new Date();
+
         if(Imgs[0]==null){
+            alert("사진을 등록해주세요");
             Imgs[0]="null";
+            return 0;
         }
+        Array.from(files).map((file, i) => (uploadFile(file, i)));
+
         const docRef = await addDoc(collection(db, "Missing"), {
             ...data,
             imgs: Imgs, 
