@@ -12,7 +12,7 @@
     .imgs{
         width: 40%;
         margin-top: 2%;
-        float: left;
+        float: left;      
     }
 
     .detailText{
@@ -48,6 +48,19 @@
         color: #69a65f;
         font-family: 'NanumSquare', sans-serif, light;
       }
+
+    .found-btn{
+        width: 150px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: #69a65f;
+        color: white;
+        font-weight: bold;
+        font-size:14px;
+        cursor: pointer;
+        font-family: 'NanumSquare', sans-serif, bold;
+    }
 }
 
 .title-btn{

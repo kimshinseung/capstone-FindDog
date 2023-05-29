@@ -57,7 +57,7 @@ export const DetailPage = (props) => {
             slidesToScroll: 1,
             infinite: true,
             arrows: false,
-            lazyLoad: true
+            lazyLoad: true,
         };
     
         return (
@@ -130,7 +130,7 @@ export const DetailPage = (props) => {
                     <div className="upload-date">
                         <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
                     </div>
-                    <button onClick={handleVisible}>찾았어요</button>
+                    <button className="found-btn" onClick={handleVisible}>찾았어요</button>
                 </div>
             </div>
             </>
@@ -155,7 +155,7 @@ export const DetailPage = (props) => {
                 <div className="upload-date">
                     <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
                 </div>
-                <button onClick={handleFind}>찾았어요</button>
+                <button className="found-btn" onClick={handleFind}>찾았어요</button>
                 </div>
             </div>
         )}
