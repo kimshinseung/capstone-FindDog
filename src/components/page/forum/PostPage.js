@@ -99,8 +99,8 @@ export const PostPage = () => {
                         
                         <tr>
                             <th>내용</th>
-                            <td colSpan={3}>
-                                <p>{posting[0].content}</p>
+                            <td className='content-td' colSpan={3}>
+                                <p style={{ whiteSpace: 'pre-line' }}>{posting[0].content.join('\n')}</p>
                             </td>
                         </tr>
                     </table>

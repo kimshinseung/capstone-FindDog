@@ -82,6 +82,7 @@
         }
         
         td {
+            font-weight: 400;
             padding: 10px;
             text-align : center;
             vertical-align : middle;
@@ -101,6 +102,11 @@
             border-left: 3px solid white;
             width: 15px;
             height: 20px;
+        }
+
+        .content-td {
+            text-align : left;
+            padding-left: 2%;
         }
     }
 

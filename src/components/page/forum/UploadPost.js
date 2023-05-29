@@ -24,10 +24,12 @@ export const UploadPost = () => {
     }
     
     const setup = async () => {
+        const textArray = text.split('\n');
+
         // 제목, 작성자, 작성일, 내용
         addDoc(collection(db, "Forum"), {
             title: title,
-            content: text,
+            content: textArray,
             user: localStorage.getItem('Name'),
             uploadTime: new Date()
         });

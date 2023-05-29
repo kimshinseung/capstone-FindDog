@@ -79,7 +79,7 @@ export const ForumPage = () => {
                             </Link>
                         </td>
                         <td>
-                            <p className="posting-user" key={id}>{user != null ? user : "익명"}</p>
+                            <p className="posting-user" key={id}>{(user != null) && (user != "") ? user : "익명"}</p>
                         </td>
                         <td>
                             <p className="posting-date" key={id}>{uploadTime.toDate().toLocaleDateString()}</p>
