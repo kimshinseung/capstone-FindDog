@@ -65,7 +65,7 @@ const MoreinfoPage = () => {
                     <th widht="15%">실종일</th>
                     <th width="11%">작성자</th>
                     <th width="17%">작성일</th>
-                    {missPost.map(({ user, name, uploadTime, date, imgs, ids }) => (
+                    {missPost.map(({ user, name, uploadTime, date, imgs, ids, id }) => (
                     <tr className="moreInfo-table-td">
                         <td>
                             <p className="moreInfo-table-td-number" key={ids}>{ids+1}</p>
@@ -74,7 +74,7 @@ const MoreinfoPage = () => {
                             <img className="moreInfo-table-td-imgs" key={ids} src={imgs[0]} width="30%"/>
                         </td>
                         <td>
-                            <Link to={`/miss/moreInfo/detail/${ids + 1}`}>
+                            <Link to={`/miss/moreInfo/detail/${id}`}>
                                 <p className="moreInfo-table-td-name" key={ids}>{name}</p>
                             </Link>
                         </td>

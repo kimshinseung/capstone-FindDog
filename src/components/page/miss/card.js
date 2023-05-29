@@ -17,23 +17,44 @@ function Card(props) {
     }
   }
 
-  return (
-    <>
-      <ItemStyle visible={visible}>
-        <Col>
-        <Link to={visible && `${props.cg}/detail/${props.profiles.id}` || !visible && ``} onClick={onClickListener}>
-          <div>
-            <img className="carouselImg" src={props.profiles.imgs[0]} width={310} height={300} />
-            <div className="carousel-dogInfo">
-            <p>이름: {props.profiles.name}</p>
-            <p>실종위치: {props.profiles.address}</p>
+  if(props.cg == "miss") {
+    return (
+      <>
+        <ItemStyle visible={visible}>
+          <Col>
+          <Link to={visible && `${props.cg}/detail/${props.profiles.id}` || !visible && ``} onClick={onClickListener}>
+            <div>
+              <img className="carouselImg" src={props.profiles.imgs[0]} width={310} height={300} />
+              <div className="carousel-dogInfo">
+              <p>이름: {props.profiles.name}</p>
+              <p>실종위치: {props.profiles.address}</p>
+              </div>
             </div>
-          </div>
-        </Link>
-        </Col>
-      </ItemStyle>
-    </>
-  )
+          </Link>
+          </Col>
+        </ItemStyle>
+      </>
+    )
+  }
+  else {
+    return (
+      <>
+        <ItemStyle visible={visible}>
+          <Col>
+          <Link to={visible && `${props.cg}/detail/${props.profiles.id}` || !visible && ``} onClick={onClickListener}>
+            <div>
+              <img className="carouselImg" src={props.profiles.imgs[0]} width={310} height={300} />
+              <div className="carousel-dogInfo">
+              <p>이름: {props.profiles.name}</p>
+              <p>실종위치: {props.profiles.address}</p>
+              </div>
+            </div>
+          </Link>
+          </Col>
+        </ItemStyle>
+      </>
+    )
+  }
 }
 
 const ItemStyle = styled.div`

@@ -10,8 +10,8 @@ import {
   MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
   MissBoard, MissTimeDetailBoard,
   FindBoard, FindTimeDetailBoard,
-  Post, FindMoreInfo, FindMoreInfo2,
-  HospitalMap, SeoulMap, Search, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload,
+  Post, FindMoreInfo,
+  HospitalMap, SeoulMap, Search, Login, Signup, Upload, MoreInfo, FindUpload,
   Forum, UploadPostPage, Notfound
   } from "../page/Pages";
 import EditMyInfo from '../page/mypage/EditMyInfo';
