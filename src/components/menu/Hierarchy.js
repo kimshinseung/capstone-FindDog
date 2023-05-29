@@ -7,7 +7,7 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 // import components
 import {
-  MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost,
+  MainBoard, MyInfo, MyPersonalInfo, MyUploadingPost, MyEditInfo,
   MissBoard, MissTimeDetailBoard, MissLocalDetailBoard,
   FindBoard, FindTimeDetailBoard, FindLocalDetailBoard,
   Post, FindMoreInfo, FindMoreInfo2,
@@ -53,18 +53,20 @@ const Hierarchy = () => (
       {/* 자유게시판 | 각 게시글 접근 */}
       <Route path="/forum/posting/:id" element={<Post />} />
 
+      {/* 로그인, 회원가입 */}
       <Route path="/login" element={<Login />} />
       <Route path="/login/signup" element={<Signup />} />
 
+      {/* 마이페이지 */}
       <Route path="/mypage/*" element={<MyInfo />}>
         <Route path='' element={<MyPersonalInfo />} />
-        <Route path='information' element={<MyPersonalInfo />} />
-        <Route path='post' element={<MyUploadingPost />} />
       </Route>
 
-      <Route path='/information' element={<Navigate replace='true' to='mypage/information' />} />
-      <Route path='/post' element={<Navigate replace='true' to='mypage/post' />} />
+      <Route path='/mypage/edit' element={<MyEditInfo />}/>
+      <Route path='/mypage/information' element={<MyPersonalInfo />} />
+      <Route path='/mypage/post' element={<MyUploadingPost />} />
 
+      {/* 오류 페이지 */}
       <Route path="*" element={<Notfound />} />
     </Routes>
     </>

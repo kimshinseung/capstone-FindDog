@@ -68,7 +68,7 @@ export const MyInformation = () => {
 
     // 회원 정보 수정
     const changeHandler = () => {
-        navigate('/'); // 회원 정보 수정 페이지로 이동
+        navigate('/mypage/edit'); // 회원 정보 수정 페이지로 이동
     }
 
     // 로그아웃
@@ -89,9 +89,21 @@ export const MyInformation = () => {
         navigate('/');
     }
 
+    // 내 정보로 이동
+    const toInformation = () => {
+        navigate('/mypage/information');
+    }
+
+    // 내 게시글로 이동
+    const toPost = () => {
+        navigate('/mypage/post');
+    }
+
     return (
         <>
             <div className="my-information">
+                <button className='' onClick={toInformation}>내 정보</button>
+                <button className='' onClick={toPost}>내 게시글</button>
                 <hr/>
                 <div className='my-information2'>
                 <div className="my-information-title"><p>🍏 회원 정보 🍏</p></div>

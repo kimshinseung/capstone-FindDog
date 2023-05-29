@@ -5,8 +5,9 @@
  */
 
 // import
-import { useLocation, Outlet } from "react-router-dom";
-import { MainMenu, MyMenu } from "../menu/Menu";
+import { useLocation } from "react-router-dom";
+import { MainMenu } from "../menu/Menu";
+
 // import
 import {FindPage} from './find/FindPage';
 import {MissPage} from './miss/MissPage';
@@ -25,10 +26,12 @@ import FindMoreinfoPage from "./find/FindMoreInfo";
 import FindMoreinfo2Page from "./find/FindMoreInfo2";
 import {DetailPage} from "./miss/DetailPage";
 import Map from "./map/map";
-// import
-import '../../style/style.css';
 import { UploadPost } from "./forum/UploadPost";
 import {PostPage} from "./forum/PostPage";
+import {EditMyInfo} from "./mypage/EditMyInfo";
+
+// import
+import '../../style/style.css';
 
 
 // Page Template
@@ -94,19 +97,34 @@ export const MainBoard = () => (
 export const MyInfo = () => (
   <PageTemplate>
     <section className="my-info">
-      <MyMenu />
-      <Outlet />
+      <MyInformation />
     </section>
   </PageTemplate>
 )
 
 export const MyPersonalInfo = () => (
-  <MyInformation />
+  <PageTemplate>
+    <section className="my-info">
+      <MyInformation />
+    </section>
+  </PageTemplate>
 )
 
 export const MyUploadingPost = () => (
-  <MyPost />
+  <PageTemplate>
+    <section className="my-post">
+      <MyPost />
+    </section>
+  </PageTemplate>
 )
+
+export const MyEditInfo = () => {
+  <PageTemplate>
+    <section className="my-info-edit">
+      <EditMyInfo />
+    </section>
+  </PageTemplate>
+}
 
 /**
  * MissBoard
