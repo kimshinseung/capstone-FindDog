@@ -25,7 +25,9 @@ import FindUploadPage from "./find/FindUploadPage";
 import FindMoreinfoPage from "./find/FindMoreInfo";
 import FindMoreinfo2Page from "./find/FindMoreInfo2";
 import {DetailPage} from "./miss/DetailPage";
-import Map from "./map/map";
+import MapPage from "./map/map";
+import HospitalMapPage from "./map/hospitals";
+import SeoulMapPage from "./map/seoulMap";
 import { UploadPost } from "./forum/UploadPost";
 import {PostPage} from "./forum/PostPage";
 import {EditMyInfo} from "./mypage/EditMyInfo";
@@ -209,13 +211,32 @@ export const FindMoreInfo2 = () => (
  * 하위 메뉴 없음
  * 사용자의 위치 근처에 있는 보호소와 동물병원을 표시해주는 지도 페이지
  */
-export const HospitalMap = () => (
+export const Map = () => (
   <PageTemplate>
     <section className="hospital-map">
-      <Map />
+      <HospitalMap />
     </section>
   </PageTemplate>
 );
+
+export const HospitalMap = () => (
+  <PageTemplate>
+    <section className="hospital-map">
+      <HospitalMapPage />
+    </section>
+  </PageTemplate>
+)
+
+export const SeoulMap = () => (
+  <PageTemplate>
+    <section className="seoul-map">
+      <SeoulMapPage />
+    </section>
+  </PageTemplate>
+)
+
+
+
 
 // 검색 메뉴
 export const Search = () => (

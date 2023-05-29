@@ -11,7 +11,7 @@ import {
   MissBoard, MissTimeDetailBoard, MissLocalDetailBoard,
   FindBoard, FindTimeDetailBoard, FindLocalDetailBoard,
   Post, FindMoreInfo, FindMoreInfo2,
-  HospitalMap, Search, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload,
+  Map, HospitalMap, SeoulMap, Search, Login, Signup, Upload, MoreInfo, MoreInfo2, FindUpload,
   Forum, UploadPostPage, Notfound
   } from "../page/Pages";
 
@@ -45,7 +45,13 @@ const Hierarchy = () => (
       {/* 목격 | 지역 순 상세페이지 */}
       <Route path='/find/moreInfo2/detail/:id' element={<FindLocalDetailBoard/>} />
 
-      <Route path="/hospital/*" element={<HospitalMap />} />
+      <Route path="/map/*" element={<HospitalMap />} >
+        <Route path='' element={<HospitalMap/>}/>
+      </Route>
+      <Route path="map/hospital" element={<HospitalMap />} />
+      <Route path="map/seoul" element={<SeoulMap />} />
+      
+
       <Route path="/search/*" element={<Search />} />
 
       <Route path="/forum/*" element={<Forum />} />
