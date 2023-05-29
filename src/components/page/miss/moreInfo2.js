@@ -12,8 +12,11 @@ const Moreinfo2Page = () => {
     return (
  <>
             <div className="moreInfo2-page">
+                <div className="moreInfo-page-upload-btn">
                 <h2>실종 게시판</h2>
                 <Link to="upload"> 실종 등록하기</Link>
+                </div>
+                
                 <br/>
                 <h3>우리 지역 관련 순</h3> 
                 <br/>

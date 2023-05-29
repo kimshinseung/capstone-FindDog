@@ -7,6 +7,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import '../../../style/style.css';
+import "../miss/moreInfo.scss";
 
 const FindMoreinfoPage = () => {
     const navigate = useNavigate();
@@ -18,10 +19,12 @@ const FindMoreinfoPage = () => {
     return (
         <>
             <div className="moreInfo-page">
+                <div className="moreInfo-page-upload-btn">
                 <h2>목격 게시판</h2>
-                <br/><br/>
-                <button type="button" onClick={toUpload}>목격 등록하기</button>
-                <br/><br/><br/>
+                <button className="moreInfo-page-upload-btn2" type="button" onClick={toUpload}>목격 등록하기</button>
+                </div>
+
+                <br/>
                 <h3>우리 지역 관련 순</h3> 
                 <br/>
             </div>
