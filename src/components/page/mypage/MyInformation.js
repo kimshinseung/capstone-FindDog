@@ -68,7 +68,7 @@ export const MyInformation = () => {
 
     // 회원 정보 수정
     const changeHandler = () => {
-        
+        navigate('/'); // 회원 정보 수정 페이지로 이동
     }
 
     // 로그아웃
@@ -98,8 +98,9 @@ export const MyInformation = () => {
                 <div className="my-information3">
                 <p>email: {localStorage.getItem('Email')}</p>
                 <p>name: {localStorage.getItem('Name')}</p>
-                <p>phone Number: {localStorage.getItem('PhoneNumber')}</p>
-                <p>Address: {`${localStorage.getItem('Address')} ${localStorage.getItem('ExtraAddress')}`}</p>
+                <p>phone Number: {(localStorage.getItem('PhoneNumber') != null) ? localStorage.getItem('PhoneNumber') : ""}</p>
+                <p>Address: {`${((localStorage.getItem('Address') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('Address') : ""} 
+                ${((localStorage.getItem('ExtraAddress') != "undefined") && (localStorage.getItem('Address') != null)) ? localStorage.getItem('ExtraAddress') : ""}`}</p>
                 </div>
                 <div className="my-information-btn">
                 <button className="myInfo-edit" onClick={changeHandler}>회원 정보 수정</button>
