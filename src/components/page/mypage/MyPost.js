@@ -4,6 +4,8 @@
  */
 import {getAuth} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import '../../../style/style.css';
+import './mypage.scss';
 
 export const MyPost = () => {
     const navigate = useNavigate();
@@ -25,17 +27,26 @@ export const MyPost = () => {
     
     return (
         <>
-            <div className="my-information">
+            <div className="my-post-page">
                 <button className='' onClick={toInformation}>내 정보</button>
                 <button className='' onClick={toPost}>내 게시글</button>
-            <hr/>
-                <div className="my-post">               
-                <p>🍏 내가 올린 게시글 목록 🍏</p>
-                
-                
+                <hr/>
 
+                <div className='my-post-page2'>
+                    <div className="my-post-title">
+                        <p>🍏 내가 올린 게시글 🍏</p>
+                    </div>
+                <div className="my-post-page3">
+                
                 </div>
-
+                    <table>
+                        <th>제목</th>
+                        <th>작성일</th>
+                        <tr>
+                            
+                        </tr>
+                    </table>
+                </div>
             </div>
         </>
     );

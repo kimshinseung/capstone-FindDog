@@ -4,6 +4,8 @@
  */
 
 import { useNavigate } from "react-router-dom";
+import '../../../style/style.css';
+import './mypage.scss';
 
 export const EditMyInfo = () => {
     const navigate = useNavigate();
@@ -14,7 +16,7 @@ export const EditMyInfo = () => {
 
     return (
         <>
-            <div className=''>
+            <div className="my-info-edit-page">
                 <div className=""><p>🍏 회원 정보 수정 🍏</p></div>
                 <div className="">
                     {/* <p>email: {localStorage.getItem('Email')}</p>
@@ -29,4 +31,4 @@ export const EditMyInfo = () => {
             </div>
         </>
     )
-}
+};
