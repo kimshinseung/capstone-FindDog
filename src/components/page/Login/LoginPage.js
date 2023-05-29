@@ -8,13 +8,14 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { db } from '../../../firebase';
 import { getAuth, signInWithEmailAndPassword, setPersistence, browserSessionPersistence, GoogleAuthProvider } from "firebase/auth";
-import { getDocs, collection, query, where } from 'firebase/firestore';
+import { getDocs, collection, query, where, setDoc, doc } from 'firebase/firestore';
 import { GoogleLogin } from "./GoogleLogin";
 
 const LoginPage = () => {
     const [error, setError] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
 
     const auth = getAuth();
     const navigate = useNavigate();
@@ -43,13 +44,27 @@ const LoginPage = () => {
             const credential = GoogleAuthProvider.credentialFromResult(res);
             const token = credential.accessToken;
             const userName = res.user.displayName;
+            const userEmail = res.user.email;
 
             // local storage에 token, username 저장해주기 
             setToken(token);
             setUserName(userName);
+            setUserEmail(userEmail);
+
+            // useState
+            setEmail(userEmail);
+            setName(res.user.name);
+
+            setDoc(doc(db, "Users", res.user.email), {
+                Email: res.user.email,
+                Password: null,
+                Name: res.user.displayName,
+                PhoneNumber: null,
+                Address: null
+            });
         })
         .then(res => {
-            navigate("/");
+            navigate("/");            
         })
         .catch(error => {
             console.error(error);
@@ -62,6 +77,10 @@ const LoginPage = () => {
 
     const setUserName = (n) => {
         localStorage.setItem('Name', n);
+    }
+
+    const setUserEmail = (e) => {
+        localStorage.setItem('Email', e);
     }
 
     async function setInfo() {
