@@ -33,6 +33,7 @@ const Carousel = (category)=>{
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 4,
+        arrows: false,
         responsive: [
             {
                 breakpoint: 1024,
