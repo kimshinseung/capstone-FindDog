@@ -13,7 +13,7 @@
         android:layout_marginTop="10dp"
         android:text="실종일시 및 장소"
         android:textColor="@android:color/darker_gray"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_recycler" />
@@ -26,7 +26,7 @@
         android:layout_marginTop="25dp"
         android:text="실종동물 정보"
         android:textColor="@android:color/darker_gray"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView39" />
@@ -51,7 +51,7 @@
         android:layout_marginTop="40dp"
         android:text="실종 신고자 정보"
         android:textColor="@android:color/darker_gray"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView40" />
@@ -328,7 +328,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detail_recycler"
         android:layout_width="409dp"
-        android:layout_height="220dp"
+        android:layout_height="180dp"
         android:layout_marginTop="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

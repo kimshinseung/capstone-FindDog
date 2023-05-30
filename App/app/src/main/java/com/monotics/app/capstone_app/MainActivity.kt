@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val binding2 by lazy { NavheaderBinding.inflate(layoutInflater)}
     lateinit var profileDataViewModel: ProfileDataViewModel
     private val db: FirebaseFirestore = Firebase.firestore
+    private val missData = db.collection("Missing")
     lateinit var viewPager: ViewPager2
     var currentPosition = 0
     val handler= Handler(Looper.getMainLooper()){
@@ -56,6 +58,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(intent)
         }
 
+        //총 실종 수
+        missData.whereEqualTo("visibled", true).addSnapshotListener{querySnapshot, firebaseFirestoreException ->
+            val totalmiss = querySnapshot?.count()
+            binding.totalmiss.text = totalmiss.toString()
+        }
+        //총 찾은 수
+        missData.whereEqualTo("visibled", false).addSnapshotListener{querySnapshot, firebaseFirestoreException ->
+            val totalfind = querySnapshot?.count()
+            binding.misscomplete.text = totalfind.toString()
+        }
 
 //        맵실현은 되는데 에뮬레이터에서는 안됨
 //        val mapView = MapView(this)
@@ -131,7 +143,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.miss -> startActivity(Intent(this,MissActivity::class.java))
             R.id.find -> startActivity(Intent(this,FindActivity::class.java))
-            R.id.hospital-> startActivity(Intent(this,HospitalActivity::class.java))
+            //R.id.hospital-> startActivity(Intent(this,HospitalActivity::class.java))
             R.id.search-> startActivity(Intent(this,SearchActivity::class.java))
         }
 

@@ -24,6 +24,7 @@ class MissboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val missData = db.collection("Missing")
     var misslist: ArrayList<MissData> = arrayListOf()
 
+
     class ListAdapter(val layout: View): RecyclerView.ViewHolder(layout)
     init {
         missData.orderBy("uploadTime",Query.Direction.DESCENDING).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
@@ -46,6 +47,7 @@ class MissboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         var viewHolder = (holder as ViewHolder).itemView
+
 
 
         if(misslist[position].img!=null){ //이미지가 한 장일때

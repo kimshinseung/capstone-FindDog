@@ -10,9 +10,9 @@
             android:icon="@drawable/find"
             android:title="목격"/>
 
-        <item android:id="@+id/hospital"
-            android:icon="@drawable/veterinarian"
-            android:title="보호소 및 동물병원"/>
+<!--        <item android:id="@+id/hospital"-->
+<!--            android:icon="@drawable/veterinarian"-->
+<!--            android:title="보호소 및 동물병원"/>-->
 
         <item android:id="@+id/search"
             android:icon="@drawable/search"
