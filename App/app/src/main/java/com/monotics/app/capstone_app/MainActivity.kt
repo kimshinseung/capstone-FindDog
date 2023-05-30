@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         //총 실종 수
-        missData.whereEqualTo("visibled", true).addSnapshotListener{querySnapshot, firebaseFirestoreException ->
+        missData.addSnapshotListener{querySnapshot, firebaseFirestoreException ->
             val totalmiss = querySnapshot?.count()
             binding.totalmiss.text = totalmiss.toString()
         }
