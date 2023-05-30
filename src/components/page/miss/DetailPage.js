@@ -1,22 +1,22 @@
 /**
  * ./src/components/page/miss/DetailPage.js
- * 상세 페이지
+ * 상세 페이지(실종, 목격 공통)
  */
 
 // import components
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import Slider from 'react-slick';
 
 // import about firebase
 import { db } from '../../../firebase';
-import { getAuth } from "firebase/auth";
-import { getDocs, collection, query, orderBy, updateDoc, doc } from "firebase/firestore";
+import { getAuth } from 'firebase/auth';
+import { getDocs, collection, query, orderBy, updateDoc, doc } from 'firebase/firestore';
 
 // import style
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import "./DetailPage.scss";
+import './DetailPage.scss';
 
 export const DetailPage = (props) => {
     const [profiles, setProfiles] = useState([]); // 가져올 게시글 내용
@@ -102,6 +102,7 @@ export const DetailPage = (props) => {
         fetchData();
     }, [location]);
 
+    // profiles가 비어있지 않은 상태에서 cg 값에 따라 실종, 목격 구분
     return (
         <>
         <div className="detail-page">
@@ -115,8 +116,7 @@ export const DetailPage = (props) => {
             <div className="detail-page2">
             
                 <div className="imgs">
-                <DetailCarousel />
-                {/* {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300} key={i}/>)} */}
+                    <DetailCarousel />
                 </div>
 
                 <div className="detailContent">
