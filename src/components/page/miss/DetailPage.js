@@ -46,9 +46,9 @@ export const DetailPage = (props) => {
         });
     };
 
-    const handleVisible = () => {
+    const handleVisible = async() => {
         setVisible(false);
-        handleFind();
+        await handleFind();
         alert("찾음 처리되었습니다");
         navigate(-1);
     }
