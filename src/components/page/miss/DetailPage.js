@@ -49,6 +49,8 @@ export const DetailPage = (props) => {
     const handleVisible = () => {
         setVisible(false);
         handleFind();
+        alert("찾음 처리되었습니다");
+        navigate(-1);
     }
 
     const DetailCarousel = () => {
