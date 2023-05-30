@@ -13,7 +13,7 @@
         android:layout_marginTop="10dp"
         android:text="목격일시 및 장소"
         android:textColor="@android:color/darker_gray"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_find_recycler" />
@@ -26,7 +26,7 @@
         android:layout_marginTop="20dp"
         android:text="목격동물 정보"
         android:textColor="@android:color/darker_gray"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView62" />
@@ -39,7 +39,7 @@
         android:layout_marginTop="15dp"
         android:text="목격 신고자 정보"
         android:textColor="@android:color/darker_gray"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_find_feature" />

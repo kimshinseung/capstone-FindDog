@@ -8,16 +8,58 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Const_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F5F5F5">
+
+        <TextView
+            android:id="@+id/misscomplete"
+            android:layout_width="48dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView46"
+            app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+
+        <TextView
+            android:id="@+id/totalmiss"
+            android:layout_width="48dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView35"
+            app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginTop="12dp"
+            android:text="실종 완료 수 : "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/totalmiss"
+            app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="11dp"
+            android:text="총 실종 수 : "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/menu"
+            app:layout_constraintTop_toBottomOf="@+id/titlebar" />
 
         <TextView
             android:id="@+id/textView2"
@@ -108,7 +150,7 @@
                 android:id="@+id/logo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="23dp"
                 android:layout_marginTop="36dp"
                 android:layout_marginEnd="97dp"
                 android:text="파인드독"
@@ -125,7 +167,7 @@
                 android:id="@+id/logo3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="23dp"
                 android:layout_marginTop="4dp"
                 android:text="빠른 실종 반려견 찾기"
 
@@ -155,10 +197,9 @@
             android:id="@+id/pager"
             android:layout_width="410dp"
             android:layout_height="160dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/menu" />
 
