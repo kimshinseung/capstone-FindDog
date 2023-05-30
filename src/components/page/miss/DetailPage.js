@@ -3,22 +3,25 @@
  * 상세 페이지
  */
 
-import "./DetailPage.scss";
+// import components
 import React, {useState, useEffect} from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { getAuth } from "firebase/auth";
+
+// import about firebase
 import { db } from '../../../firebase';
+import { getAuth } from "firebase/auth";
 import { getDocs, collection, query, orderBy, updateDoc, doc } from "firebase/firestore";
 
+// import style
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import "./DetailPage.scss";
 
 export const DetailPage = (props) => {
     const [profiles, setProfiles] = useState([]); // 가져올 게시글 내용
-    const [visible, setVisible] = useState(true); // visibled를 위한 변수
 
-    const currUser = getAuth().currentUser;
+    const currUser = getAuth().currentUser; // 현재 로그인한 유저 정보
 
     let { id } = useParams();
     const no = id;
@@ -26,33 +29,29 @@ export const DetailPage = (props) => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // console.log(visible);
-
+    // 바로 이전 페이지로 이동
     const back = () => {
-        navigate(-1); // 이전 페이지로 이동
+        navigate(-1);
     };
 
-    const handleFind = async () => {
-        const idRef = Array.from(profiles)[0].id;
-        console.log(idRef);
-
-        const docRef = doc(db, props.cg, idRef.trim());
-        console.log(docRef);
-
-        // console.log(visible);
-
-        await updateDoc(docRef, {
-            visibled: visible
-        });
-    };
-
-    const handleVisible = async() => {
-        setVisible(false);
+    // 찾음 버튼 구현
+    const handleVisible = async () => {
         await handleFind();
         alert("찾음 처리되었습니다");
         navigate(-1);
     }
 
+    // 게시글 문서 내에 visibled 필드를 false로 바꿈
+    const handleFind = async () => {
+        const idRef = Array.from(profiles)[0].id;
+        const docRef = doc(db, props.cg, idRef.trim());
+
+        await updateDoc(docRef, {
+            visibled: false
+        });
+    };
+
+    // 상세 페이지 내 사진 carousel 설정
     const DetailCarousel = () => {
         const settings = {
             dots: true,
@@ -70,14 +69,13 @@ export const DetailPage = (props) => {
             <Slider {...settings}>
                 {profiles[0].imgs.map((url, i) =>
                 <img src={url} width={500} height={500} key={i}/>
-                // <img src={url} width="100%" height="100%" key={i}/>
                 )}
             </Slider>
             </>
-        )
-    }
+        );
+    };
 
-      // useEffect
+    // useEffect
     useEffect(() => {
 
         const fetchData = async () => {
@@ -118,7 +116,7 @@ export const DetailPage = (props) => {
             
                 <div className="imgs">
                 <DetailCarousel />
-                    {/* {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300} key={i}/>)} */}
+                {/* {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300} key={i}/>)} */}
                 </div>
 
                 <div className="detailContent">
