@@ -45,7 +45,6 @@ function Card(props) {
             <div>
               <img className="carouselImg" src={props.profiles.imgs[0]} width={310} height={300} />
               <div className="carousel-dogInfo">
-              <p>이름: {props.profiles.name}</p>
               <p>실종위치: {props.profiles.address}</p>
               </div>
             </div>
