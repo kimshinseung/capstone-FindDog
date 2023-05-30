@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { db, storage } from "../../../firebase"
 import { Col } from 'reactstrap';
+import "./SearchPage.scss";
 
 function Item({ item }) {
 
@@ -9,8 +10,9 @@ function Item({ item }) {
         return (
             <div>
                 <Col>
-                    <img src={item.imgs[0]} width={300} height={300} />
-                    <p>위치: {item.address}</p>
+                    <img className="Item-img" src={item.imgs[0]} width={300} height={300} />
+                    <p> &nbsp; 위치: {item.address}</p>
+                    <br/>
                 </Col>
                 {/* <li>{item.name} {item.address}</li> */}
             </div>
@@ -23,10 +25,11 @@ function Item({ item }) {
         <div>
             <Col>
                
-                <img src={item.imgs[0]} width={300} height={300} />
+                <img className="Item-img" src={item.imgs[0]} width={300} height={300} />
             
-                <h4>이름: {item.name}</h4>
-                <p>위치: {item.address}</p>
+                <p> &nbsp; 이름: {item.name}</p>
+                <p> &nbsp; 위치: {item.address}</p>
+                <br/>
             </Col>
             {/* <li>{item.name} {item.address}</li> */}
         </div>
