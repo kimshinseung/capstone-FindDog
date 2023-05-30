@@ -158,7 +158,7 @@ export const DetailPage = (props) => {
                 <div className="upload-date">
                     <p>업로드 날짜: {profiles[0].uploadTime.toDate().toLocaleDateString()} / {profiles[0].uploadTime.toDate().toLocaleTimeString()}</p>
                 </div>
-                {(currUser != null) && (currUser.uid == profiles[0].uid) && <button className="found-btn" onClick={handleFind}>찾았어요</button>}
+                {(currUser != null) && (currUser.uid == profiles[0].uid) && <button className="found-btn" onClick={handleVisible}>찾았어요</button>}
                 </div>
             </div>
         )}

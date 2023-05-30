@@ -17,7 +17,7 @@ function Card(props) {
     }
   }
 
-  if(props.cg == "miss") {
+  if(props.cg == "Missing") {
     return (
       <>
         <ItemStyle visible={visible}>
