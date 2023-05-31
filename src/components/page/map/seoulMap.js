@@ -50,14 +50,14 @@ export default function SeoulMapPage(){
 				//console.log(Array.from(missingData).length);
 				
 				if(Array.from(missingData).length > j){
-					missingStr = missingData[j]["address"].split(" ", 2)[1];
+					missingStr = missingData[j]["address"]?.split(" ", 2)[1];
 					if(counts[i]["name"] == missingStr){
 						counts[i]["missingCounts"] += 1;
 					}
 				}
 				
 				if(Array.from(findingData).length > j){
-					findingStr = findingData[j]["address"].split(" ", 2)[1];
+					findingStr = findingData[j]["address"]?.split(" ", 2)[1];
 					if(counts[i]["name"] == findingStr){
 						counts[i]["findingCounts"] += 1;
 					}

@@ -1,5 +1,13 @@
-import "../style/style.css";
+/**
+ * ./src/components/footer.js
+ * 웹페이지 하단 푸터
+ */
+
+// import components
 import React from "react";
+
+// import style
+import "../style/style.css";
 
 const Footer = () => {
     return(
@@ -9,9 +17,7 @@ const Footer = () => {
             <nav>
                 <a className="footer-github" href="https://github.com/godi00/capstone" targer="_blank">&gt; Github</a>
             </nav>
-            <p>
-                <h5>팀원: 김신승, 양수진, 윤서희, 이가은  &ensp;| 지도교수: 김영웅</h5>
-            </p>
+            <h5>팀원: 김신승, 양수진, 윤서희, 이가은  &ensp;| &ensp;지도교수: 김영웅</h5>
             </div>
         </footer>
         </div>
