@@ -107,8 +107,9 @@ export const MyPost = () => {
                     <table>
                         <thead>
                             <tr>
-                            <th>제목</th>
-                            <th>작성일</th>
+                                <th>제목</th>
+                                <th>작성일</th>
+                                <th>찾음 여부</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -126,12 +127,15 @@ export const MyPost = () => {
                                             <td>
                                                 <p>{doc.uploadTime.toDate().toLocaleDateString()}</p>
                                             </td>
+                                            <td>
+                                                <p>{!doc.visibled ? "O" : "X"}</p>
+                                            </td>
                                           </tr>
                                         );
                                     }
                                     return (
                                         <tr key={i}>
-                                            <td className='postNotFoundTd' colSpan={2}>작성한 게시글이 없습니다.</td>
+                                            <td className='postNotFoundTd' colSpan={3}>작성한 게시글이 없습니다.</td>
                                         </tr>
                                     );
                                 }))
@@ -147,12 +151,15 @@ export const MyPost = () => {
                                             <td>
                                                 <p>{doc.uploadTime.toDate().toLocaleDateString()}</p>
                                             </td>
+                                            <td>
+                                                <p>{!doc.visibled ? "O" : "X"}</p>
+                                            </td>
                                           </tr>
                                         );
                                     }
                                     return (
                                         <tr key={i}>
-                                            <td className='postNotFoundTd' colSpan={2}>작성한 게시글이 없습니다.</td>
+                                            <td className='postNotFoundTd' colSpan={3}>작성한 게시글이 없습니다.</td>
                                         </tr>
                                     );
                                 }))
