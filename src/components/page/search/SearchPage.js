@@ -4,12 +4,14 @@
  */
 
 //아예 specify,gender,farcolor을 carousel함수로 보내서 거기서 검색조건 처리하게 하기
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { db, storage } from "../../../firebase";
 import { getDoc, getDocs, collection, updateDoc, addDoc, query, where, orderBy, QuerySnapshot, doc, and, or } from "firebase/firestore";
 import { useState } from 'react';
 import Post from "./Post";
 import { post } from "jquery";
+import Slider from 'react-slick';
+import Card from '../miss/card';
 //import userInputs from "../miss/formData.js";
 import "./SearchPage.scss";
 
@@ -35,18 +37,29 @@ const userInputs = [
 
 
 export function SearchPage() {
-
-    useEffect(() => {
-        //Search();
-    }, []);
-
     const [postdata, setpost] = useState(new Map());
+    var division = useRef("");
 
-    const find = async (division, con, farCol) => {
+    // useEffect(()=>{
+    //     const uploadFile= async(file, i) => {
+    //             const storageRef = ref(storage, file.name);
+    //             await uploadBytes(storageRef, file).then(async(snapshot) => {
+    //                 await getDownloadURL(snapshot.ref).then((url) => {
+    //                     Imgs[i] = url;
+    //                     console.log(url);
+    //                 });
+    //             });
+    //         };
+    //         files && Array.from(files).map((file, i) => (uploadFile(file, i))); //유사배열객체라서 map함수 쓰기위해 Array.from함수 사용
+    //     }, [division]);
+
+    const find = async (con, farCol) => {
+        console.log("2: " + division.current);
         var q;
-        let coll = collection(db, division);
+        let coll = collection(db, division.current);
+        
 
-        console.log(farCol);
+        //console.log(farCol);
         switch(con.length){
             case 0:
                 if(farCol){
@@ -87,8 +100,10 @@ export function SearchPage() {
     }
 
     const Search = () => {
-
-        let division = document.querySelector("#Division").value;
+        
+        //console.log(div);
+        division.current = document.querySelector("#Division").value;
+        console.log("1: " + division.current);
         if(division == "ㅡㅡㅡㅡㅡ"){
             alert("실종 | 목격 검색조건을 선택해주세요");
             return 0;
@@ -114,7 +129,45 @@ export function SearchPage() {
             farCol = element;
         }
         
-        find(division, constraints, farCol);
+        find(constraints, farCol);
+    };
+
+      // carousel 설정
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        autoplay: true,
+        autoplaySpeed: 3200,
+        arrows: false,
+        pauseOnHover: true,
+        responsive: [
+            {
+            breakpoint: 1024,
+            settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+            }
+        },
+        {
+        breakpoint: 600,
+            settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+        }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+        ]
     };
 
 
@@ -153,7 +206,10 @@ export function SearchPage() {
             <hr/>
             <h2>검색 결과</h2>
             <div className="postObj">
-                <Post postObj={postdata} />
+                <Slider {...settings}>
+                    {Array.from(postdata).map((item, i) => <Card profiles={item} i={i+1} key={item.id} cg={division.current}/>)}
+                    {/* <Post postObj={postdata} /> */}
+                </Slider>
             </div>
             <br/><br/>
         </div>

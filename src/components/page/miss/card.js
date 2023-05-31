@@ -6,12 +6,21 @@
 // import components
 import { Link } from 'react-router-dom';
 import { Col } from 'reactstrap';
+import { useEffect } from "react";
 
 // import style
 import styled from 'styled-components';
 import './carousel.scss';
 
 function Card(props) {
+  useEffect(() => {
+		mapscript();
+	}, []);
+
+  const mapscript = () =>{
+    console.log("3: " + props.cg);
+  }
+
   let visible = props.profiles.visibled;
 
   const onClickListener = () => {
@@ -21,7 +30,7 @@ function Card(props) {
   };
 
   // cg값에 따라 실종, 목격으로 구분
-  if(props.cg == "miss") {
+  //if(props.cg == "Missing") {
     return (
       <>
         <ItemStyle visible={visible}>
@@ -30,7 +39,7 @@ function Card(props) {
               <div>
                 <img className="carouselImg" src={props.profiles.imgs[0]} width={310} height={300} />
                 <div className="carousel-dogInfo">
-                  <p>이름: {props.profiles.name}</p>
+                  {props.cg=="Missing" && <p>이름: {props.profiles.name}</p>}
                   <p>실종위치: {props.profiles.address}</p>
                 </div>
               </div>
@@ -39,25 +48,8 @@ function Card(props) {
         </ItemStyle>
       </>
     );
-  }
-  else {
-    return (
-      <>
-        <ItemStyle visible={visible}>
-          <Col>
-            <Link to={visible && `/${props.cg}/detail/${props.profiles.id}` || !visible && ``} onClick={onClickListener}>
-              <div>
-                <img className="carouselImg" src={props.profiles.imgs[0]} width={310} height={300} />
-                <div className="carousel-dogInfo">
-                  <p>실종위치: {props.profiles.address}</p>
-                </div>
-              </div>
-            </Link>
-          </Col>
-        </ItemStyle>
-      </>
-    );
-  }
+  //}
+
 };
 
 // 카드 style component
