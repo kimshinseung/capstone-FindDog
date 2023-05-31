@@ -28,7 +28,7 @@ class SearchActivity: AppCompatActivity()  {
         setContentView(binding.root)
 
         var searchOption = "품종"
-        var list_search = arrayOf("specify","farColor1")
+        var list_search = arrayOf("specify","farColor1","address")
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
