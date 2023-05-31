@@ -25,7 +25,7 @@ const UploadPage = () => {
     var file = false;
     //var img = 1;
 
-        function wait(sec) {
+    function wait(sec) {
         let start = Date.now(), now = start;
         while (now - start < sec * 1000) {
             now = Date.now();
@@ -56,6 +56,9 @@ const UploadPage = () => {
 
     const handler = async(e) =>{
         e.preventDefault();
+        console.log("Wait start");
+        wait(files.length * 1.5);
+        console.log("Wait end");
         //let res = await new Promise(() => Array.from(files).map((file, i) => (uploadFile(file, i))) );
         
 
