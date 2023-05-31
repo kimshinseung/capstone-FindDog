@@ -63,9 +63,11 @@ class MissboardAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         if(misslist[position].visibled==false){
             viewHolder.textImg.text = "*** 찾기 완료 ***"
             viewHolder.detail_img.setColorFilter(Color.parseColor("#BF808080"))
-        }else {
+        }else if(misslist[position].visibled==true){
             viewHolder.textImg.text = misslist[position].address//주소
         }
+
+
         viewHolder.detail_img.setOnClickListener {
             if(misslist[position].visibled==true){ //visible필드가 true이면 상세 게시물로 이동한다.
             Log.e("kimshinseung","success") // 검사
