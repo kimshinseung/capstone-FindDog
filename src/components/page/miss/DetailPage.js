@@ -142,7 +142,7 @@ export const DetailPage = (props) => {
         {profiles.length > 0 && props.cg === "Finding" && (
             <div className="detail-page2">
                 <div className="imgs">
-                    {profiles[0].imgs.map((url, i) => <img src={url} width={300} height={300}/>)}
+                    <DetailCarousel />
                 </div>
                 <div className="detailContent">
                 <div className="detailText">

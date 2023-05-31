@@ -23,6 +23,8 @@ const FindUploadPage = () => {
     const Imgs = Array.from(files);
     const [address, setAddress] = useState("");
     const [popup, setPopup] = useState(false);
+
+    const Navigate = useNavigate();
     const currUser = getAuth().currentUser.uid;
     var submit = true;
 
@@ -63,18 +65,19 @@ const FindUploadPage = () => {
         e.preventDefault();
         
         if(!submit) return 0;
-        submit = false;
-
-        console.log("Wait start");
-        wait(files.length * 1.7);
-        console.log("Wait end");
         
-        if (Imgs[0] == null){
+        if(files[0]==null){
             alert("사진을 등록해주세요");
-            Imgs[0]="null";
             return 0;
         }
+        submit = false;
 
+        //console.log(files.length);
+        if(Imgs[files.length-1] == null){
+            //console.log("Wait start");
+            wait(files.length * 1.8);
+            //console.log("Wait end");    
+        }
         var time = new Date()
         const docRef = await addDoc(collection(db, "Finding"), {
             ...data,
@@ -101,10 +104,8 @@ const FindUploadPage = () => {
             });
         }
         
-        console.log(arr);
-
         alert("등록되었습니다");
-        location.reload();
+        Navigate(-1);
     }
 
 
