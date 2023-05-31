@@ -74,7 +74,7 @@
     <TextView
         android:id="@+id/findfeature"
         android:layout_width="160dp"
-        android:layout_height="25dp"
+        android:layout_height="35dp"
         android:layout_marginStart="13dp"
         android:layout_marginTop="14dp"
         android:gravity="left"
@@ -87,14 +87,15 @@
         android:id="@+id/textview"
         android:layout_width="57dp"
         android:layout_height="25dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="14dp"
         android:background="#eef5ed"
         android:gravity="center"
         android:text="특징"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textview100"
-        tools:layout_editor_absoluteX="177dp" />
+        app:layout_constraintStart_toEndOf="@+id/viewbutton2"
+        app:layout_constraintTop_toBottomOf="@+id/textview100" />
 
     <TextView
         android:id="@+id/textview100"

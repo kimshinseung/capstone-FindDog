@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/missitemlayout"
     android:layout_width="match_parent"
-    android:layout_height="220dp">
+    android:layout_height="230dp">
 
     <TextView
         android:id="@+id/missfeature"
         android:layout_width="147dp"
-        android:layout_height="25dp"
+        android:layout_height="40dp"
         android:layout_marginStart="14dp"
         android:layout_marginTop="9dp"
         android:gravity="left"
