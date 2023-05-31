@@ -4,15 +4,22 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.monotics.app.capstone_app.databinding.ActivityForumBinding
 import kotlinx.android.synthetic.main.activity_forum.forum_recycler
 import kotlinx.android.synthetic.main.activity_miss.missrecycler
 
 class ForumActivity: AppCompatActivity()  {
     val binding by lazy { ActivityForumBinding.inflate(layoutInflater) }
+
+    private lateinit var db: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        db = Firebase.firestore
 
         //프로필화면 돌아가기
         binding.profile.setOnClickListener{
@@ -33,7 +40,7 @@ class ForumActivity: AppCompatActivity()  {
 
         //글 등록
         binding.forumEnroll.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,ForumEnrollActivity::class.java)
             startActivity(intent)
         }
 
