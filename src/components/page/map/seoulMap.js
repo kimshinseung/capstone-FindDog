@@ -117,8 +117,8 @@ export default function SeoulMapPage(){
 				}
 
 				var content = '<div class="area"> <strong>' + area.name + '</strong>'
-				+			'	<div class="number"> 실종마리수: ' + missingNum
-				+			'	</br> 목격마리수: ' + findingNum + '</div></div>';
+				+			'	<div class="number"> 실종: ' + missingNum + '마리'
+				+			'	</br> 목격: ' + findingNum + '마리</div></div>';
 
 				customOverlay.setContent(content);
 				customOverlay.setPosition(mouseEvent.latLng); 
