@@ -1,36 +1,30 @@
 .map-section{
-    width: 98%;
+    width: 100%;
     margin: auto;
 
-    margin-left:-5px;
+    // margin-left:-5px;
 
-    padding: 20px;
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .box{
-        width: 1419px;
+    .map-box{
+        width: 98%;
         background: #92c465;
-        padding: 1em;
-        color: #fff;
-    }
-
-    #box1{
-        border-radius: 15px 15px 0 0;
-    }
-
-    #box2{
-        border-radius: 0 0 15px 15px;
+        padding-top: 1.3em;
+        padding-bottom: 1.3em;
+        border-radius: 15px;
     }
 }
 
 #button{
     margin: 20px;
+    margin-top: auto;
     background-color: #69a65f; /* Green */
     border: none;
     color: white;
-    padding: 10px 23px;
+    padding: 8px 23px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -92,7 +86,8 @@
             font-size:14px;
             cursor: pointer;
             font-family: 'NanumSquare', sans-serif, bold;
-            margin-left:54%;
+            margin-left:53%;
+            margin-top:4px;
         }
         
         .toSeoulmap{
@@ -106,6 +101,7 @@
             font-size:14px;
             cursor: pointer;
             font-family: 'NanumSquare', sans-serif, bold;
+            margin-top:4px;
             margin-left: 0.5%;
         }
 
@@ -120,7 +116,8 @@
             font-size:14px;
             cursor: pointer;
             font-family: 'NanumSquare', sans-serif, bold;
-            margin-left:60.65%;
+            margin-top:4px;
+            margin-left:59.68%;
         }
         
         .toSeoulmap2{
@@ -134,6 +131,7 @@
             font-size:14px;
             cursor: pointer;
             font-family: 'NanumSquare', sans-serif, bold;
+            margin-top:4px;
             margin-left: 0.5%;
         }
     }

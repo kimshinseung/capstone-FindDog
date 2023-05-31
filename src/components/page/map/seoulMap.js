@@ -139,16 +139,16 @@ export default function SeoulMapPage(){
 			}); 
 
 			// 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다 
-			kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
-				var content = '<div class="info">' + 
-							'   <div class="title">' + area.name + '</div>' +
-							'   <div class="size">총 면적 : 약 ' + Math.floor(polygon.getArea()) + ' m<sup>2</sup></div>' +
-							'</div>';
+			// kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
+			// 	var content = '<div class="info">' + 
+			// 				'   <div class="title">' + area.name + '</div>' +
+			// 				'   <div class="size">총 면적 : 약 ' + Math.floor(polygon.getArea()) + ' m<sup>2</sup></div>' +
+			// 				'</div>';
 
-				infowindow.setContent(content); 
-				infowindow.setPosition(mouseEvent.latLng); 
-				infowindow.setMap(map);
-			});
+			// 	infowindow.setContent(content); 
+			// 	infowindow.setPosition(mouseEvent.latLng); 
+			// 	infowindow.setMap(map);
+			// });
 		}
 	};
 
@@ -172,13 +172,13 @@ export default function SeoulMapPage(){
 			<div className="map-page2">
         	<h2>주변 실종동물 현황</h2>
 			<button  className="toHospital2" onClick={toHostpital}>주변 보호소 및 동물병원</button><br/>
-			<button  className="toSeoulmap2" onClick={toSeoulmap}>주변 실종동물</button><br/>
+			<button  className="toSeoulmap2" onClick={toSeoulmap}>자치구별 실종 반려견</button><br/>
 			</div>
 			<br/>
 			<div className="map-section">
-				<div className="box" id="box1" />
-				<div id="map" onMouseOver={plag && getDatas()} style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
-				<div className="box" id="box2"/>
+				<div className="map-box">
+					<div id="map" onMouseOver={plag && getDatas()} style={{ width: "100%", height: "600px", backgroundColor: '#c8c8c8' }}></div>
+				</div>
 				<br></br>
 			</div>
 		</div>
