@@ -21,12 +21,12 @@ function Card(props) {
   };
 
   // cg값에 따라 실종, 목격으로 구분
-  if(props.cg == "Missing") {
+  if(props.cg == "miss") {
     return (
       <>
         <ItemStyle visible={visible}>
           <Col>
-            <Link to={visible && `${props.cg}/detail/${props.profiles.id}` || !visible && ``} onClick={onClickListener}>
+            <Link to={visible && `/${props.cg}/detail/${props.profiles.id}` || !visible && ``} onClick={onClickListener}>
               <div>
                 <img className="carouselImg" src={props.profiles.imgs[0]} width={310} height={300} />
                 <div className="carousel-dogInfo">
@@ -45,7 +45,7 @@ function Card(props) {
       <>
         <ItemStyle visible={visible}>
           <Col>
-            <Link to={visible && `${props.cg}/detail/${props.profiles.id}` || !visible && ``} onClick={onClickListener}>
+            <Link to={visible && `/${props.cg}/detail/${props.profiles.id}` || !visible && ``} onClick={onClickListener}>
               <div>
                 <img className="carouselImg" src={props.profiles.imgs[0]} width={310} height={300} />
                 <div className="carousel-dogInfo">

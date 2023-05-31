@@ -4,11 +4,9 @@
  * 각 메뉴가 담당하는 페이지
  */
 
-// import
+// import components
 import { useLocation } from "react-router-dom";
 import { MainMenu } from "../menu/Menu";
-
-// import
 import {FindPage} from './find/FindPage';
 import {MissPage} from './miss/MissPage';
 import {SearchPage} from './search/SearchPage';
@@ -28,7 +26,7 @@ import SeoulMapPage from "./map/seoulMap";
 import { UploadPost } from "./forum/UploadPost";
 import {PostPage} from "./forum/PostPage";
 
-// import
+// import style
 import '../../style/style.css';
 
 
@@ -47,15 +45,7 @@ const PageTemplate = ({ children }) => (
 export const MissTimeDetailBoard = () => (
   <PageTemplate>
     <section className="detail-board">
-      <DetailPage cg="Missing" cg2="time"/>
-    </section>
-  </PageTemplate>
-)
-
-export const MissLocalDetailBoard = () => (
-  <PageTemplate>
-    <section className="detail-board">
-      <DetailPage cg="Missing" cg2="local"/>
+      <DetailPage cg="Missing" />
     </section>
   </PageTemplate>
 )
@@ -63,15 +53,7 @@ export const MissLocalDetailBoard = () => (
 export const FindTimeDetailBoard = () => (
   <PageTemplate>
     <section className="detail-board">
-      <DetailPage cg="Finding" cg2="time"/>
-    </section>
-  </PageTemplate>
-)
-
-export const FindLocalDetailBoard = () => (
-  <PageTemplate>
-    <section className="detail-board">
-      <DetailPage cg="Finding" cg2="local"/>
+      <DetailPage cg="Finding" />
     </section>
   </PageTemplate>
 )

@@ -152,7 +152,7 @@ export const DetailPage = (props) => {
                 <p>추정 나이: {profiles[0].age}</p>
                 <p>모색: {profiles[0].farColor1}, {profiles[0].farColor2} </p>
                 <p>중성화 여부: {profiles[0].neutering}</p>
-                <p>목격 시간: {profiles[0].date.split("T")[0]} {profiles[0].date.split("T")[1]}</p>
+                <p>목격 시간: {profiles[0].date ? profiles[0].date.split("T")[0] : ""} {profiles[0].date ? profiles[0].date.split("T")[1] : ""}</p>
                 <p>특징: {profiles[0].feature}</p>
                 <p>카카오톡 아이디: {profiles[0].kakaoId}</p>
                 <div className="upload-date">
