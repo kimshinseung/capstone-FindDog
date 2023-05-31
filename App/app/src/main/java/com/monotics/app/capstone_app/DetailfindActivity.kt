@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -21,6 +22,7 @@ class DetailfindActivity: AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         binding.FindBtn.visibility = View.INVISIBLE
+        binding.deleteBtn2.visibility = View.INVISIBLE
         db = Firebase.firestore
 
         val inf = intent.getSerializableExtra("findData") as HashMap<String,Any>
@@ -67,12 +69,21 @@ class DetailfindActivity: AppCompatActivity()  {
         //내 게시물일 경우 찾았어요 버튼 보이게하기
         if(FirebaseAuth.getInstance().uid == inf["uid"] as? String){
             binding.FindBtn.visibility = View.VISIBLE
+            binding.deleteBtn2.visibility = View.VISIBLE
             var id = inf["id"] as? String
             binding.FindBtn.setOnClickListener {
                 db.collection("Finding").document(id.toString()).update("visibled",false).addOnSuccessListener {
                     super.onBackPressed();
                 }
 
+            }
+            binding.deleteBtn2.setOnClickListener{
+                db.collection("Finding").document(id.toString()).delete().addOnSuccessListener {
+                    super.onBackPressed();
+                    Toast.makeText(this,"게시물이 삭제되었습니다.", Toast.LENGTH_LONG).show()
+                }.addOnFailureListener {
+                    Toast.makeText(this,"게시물을 삭제하지 못했습니다.", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }

@@ -22,7 +22,7 @@ class DetailActivity: AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         binding.FindBtn.visibility = View.INVISIBLE
-
+        binding.deleteBtn.visibility = View.INVISIBLE
         db = Firebase.firestore
 
         val inf = intent.getSerializableExtra("missData") as HashMap<String,Any>
@@ -79,6 +79,7 @@ class DetailActivity: AppCompatActivity()  {
         }
         //내 게시물일 경우 찾았어요 버튼 보이게하기
         if(FirebaseAuth.getInstance().uid == inf["uid"] as? String){
+            binding.deleteBtn.visibility = View.VISIBLE
             binding.FindBtn.visibility = View.VISIBLE
             var id: String? = inf["id"] as? String
             binding.FindBtn.setOnClickListener {
@@ -86,7 +87,14 @@ class DetailActivity: AppCompatActivity()  {
                     Log.d("kimshinseung","aa")
                     super.onBackPressed();
                 }
-
+            }
+            binding.deleteBtn.setOnClickListener{
+                db.collection("Missing").document(id.toString()).delete().addOnSuccessListener {
+                    super.onBackPressed();
+                    Toast.makeText(this,"게시물이 삭제되었습니다.", Toast.LENGTH_LONG).show()
+                }.addOnFailureListener {
+                    Toast.makeText(this,"게시물을 삭제하지 못했습니다.", Toast.LENGTH_LONG).show()
+                }
             }
         }
 

@@ -167,6 +167,8 @@
         android:id="@+id/detail_neutering"
         android:layout_width="85dp"
         android:layout_height="34dp"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
         android:layout_marginStart="1dp"
         android:layout_marginTop="34dp"
         android:textSize="15sp"
@@ -177,6 +179,8 @@
         android:id="@+id/detail_name"
         android:layout_width="100sp"
         android:layout_height="34dp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
         android:layout_marginStart="1dp"
         android:layout_marginTop="15dp"
         android:textSize="15sp"
@@ -187,6 +191,8 @@
         android:id="@+id/detail_kakaoId"
         android:layout_width="150dp"
         android:layout_height="34dp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
         android:layout_marginStart="1dp"
         android:layout_marginTop="9dp"
         android:textSize="15sp"
@@ -196,7 +202,9 @@
     <TextView
         android:id="@+id/detail_specify"
         android:layout_width="285dp"
+        android:gravity="center_vertical"
         android:layout_height="34dp"
+        android:textStyle="bold"
         android:layout_marginStart="1dp"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView37"
@@ -206,6 +214,7 @@
         android:id="@+id/detail_feature"
         android:layout_width="285dp"
         android:layout_height="60dp"
+        android:textStyle="bold"
         android:layout_marginStart="1dp"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView40"
@@ -216,8 +225,10 @@
         android:layout_width="280dp"
         android:layout_height="34dp"
         android:layout_marginStart="2dp"
+        android:gravity="center_vertical"
         android:layout_marginTop="1dp"
         android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView39"
         app:layout_constraintTop_toBottomOf="@+id/detail_address" />
 
@@ -227,7 +238,9 @@
         android:layout_height="34dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="19dp"
+        android:gravity="center_vertical"
         android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView33"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
@@ -235,7 +248,9 @@
         android:id="@+id/detail_gender"
         android:layout_width="100sp"
         android:layout_height="34dp"
+        android:gravity="center_vertical"
         android:layout_marginStart="1dp"
+        android:textStyle="bold"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView29"
         app:layout_constraintTop_toBottomOf="@+id/detail_farColor1" />
@@ -245,6 +260,8 @@
         android:layout_width="85dp"
         android:layout_height="34dp"
         android:layout_marginStart="1dp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
         android:layout_marginTop="15dp"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView28"
@@ -255,8 +272,9 @@
         android:layout_width="200sp"
         android:layout_height="34dp"
         android:layout_marginStart="1dp"
+        android:gravity="center_vertical"
         android:textSize="15sp"
-        android:textStyle="normal"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView34"
         app:layout_constraintTop_toBottomOf="@+id/detail_name" />
 
@@ -344,5 +362,16 @@
         android:text="찾았어요!"
         app:layout_constraintStart_toEndOf="@+id/detail_kakaoId"
         app:layout_constraintTop_toBottomOf="@+id/detail_feature" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/deleteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/button_round"
+        android:text="게시물 삭제"
+        app:layout_constraintBottom_toTopOf="@+id/FindBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
