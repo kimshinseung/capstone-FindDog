@@ -47,17 +47,38 @@ const SingupPage = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             //const user = userCredential.user;
-            console.log(userCredential);
-            currUser = userCredential.user.auth.currentUser.uid;
-            //signUp();
+            // console.log(userCredential);
+            // currUser = userCredential.user.auth.currentUser.uid;
+            console.log(userCredential.user.uid);
+            signUp(userCredential.user.uid);
         })
         .then(()=>{
-            alert("회원가입 완료");
+            alert("회원가입이 완료되었습니다.");
             navigate("/");
         })
         .catch((error) => {
             setError(true);
         });
+    };
+
+    const signUp = (uid) => {
+        setDoc(doc(db, "Users", uid), {
+            Email: email,
+            Password: password,
+            Name: name,
+            PhoneNumber: phoneNumber,
+            Address: fullAddress,
+            uid: uid
+        });
+
+        localStorage.clear();
+        localStorage.setItem('Email', email);
+        // localStorage.setItem('Password', password);
+        localStorage.setItem('Name', name);
+        localStorage.setItem('PhoneNumber', phoneNumber);
+        localStorage.setItem('Address', fullAddress.address);
+        localStorage.setItem('ExtraAddress', fullAddress.extraAddress);
+        localStorage.setItem('Uid', uid);
     };
 
     return(
