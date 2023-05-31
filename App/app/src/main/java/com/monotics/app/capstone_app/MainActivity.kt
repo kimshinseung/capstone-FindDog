@@ -29,7 +29,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var profileDataViewModel: ProfileDataViewModel
     private val db: FirebaseFirestore = Firebase.firestore
     private val missData = db.collection("Missing")
+    private val findData = db.collection("Finding")
     lateinit var viewPager: ViewPager2
+
     var currentPosition = 0
     val handler= Handler(Looper.getMainLooper()){
         setPage()
@@ -63,10 +65,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val totalmiss = querySnapshot?.count()
             binding.totalmiss.text = totalmiss.toString()
         }
-        //총 찾은 수
+        //총 실종 찾은 수
         missData.whereEqualTo("visibled", false).addSnapshotListener{querySnapshot, firebaseFirestoreException ->
+            val total = querySnapshot?.count()
+            binding.misscomplete.text = total.toString()
+        }
+
+        //총 목격 수
+        findData.addSnapshotListener{querySnapshot, firebaseFirestoreException ->
             val totalfind = querySnapshot?.count()
-            binding.misscomplete.text = totalfind.toString()
+            binding.totalfind.text = totalfind.toString()
+        }
+        //총 목격 찾은 수
+        findData.whereEqualTo("visibled", false).addSnapshotListener{querySnapshot, firebaseFirestoreException ->
+            val total = querySnapshot?.count()
+            binding.findcomplete.text = total.toString()
         }
 
 //        맵실현은 되는데 에뮬레이터에서는 안됨

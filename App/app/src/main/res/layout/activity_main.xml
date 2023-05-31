@@ -14,24 +14,66 @@
         android:background="#F5F5F5">
 
         <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginStart="25dp"
+            android:text="총 목격 수 : "
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/totalmiss"
+            app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+
+        <TextView
+            android:id="@+id/totalfind"
+            android:layout_width="42dp"
+            android:layout_height="23dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView47"
+            app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginStart="13dp"
+            android:text="목격 완료 수 : "
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/misscomplete"
+            app:layout_constraintTop_toBottomOf="@+id/textView47" />
+
+        <TextView
+            android:id="@+id/findcomplete"
+            android:layout_width="42dp"
+            android:layout_height="23dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView49"
+            app:layout_constraintTop_toBottomOf="@+id/totalfind" />
+
+        <TextView
             android:id="@+id/misscomplete"
             android:layout_width="48dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="12dp"
+            android:layout_height="23dp"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/textView46"
-            app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+            app:layout_constraintTop_toBottomOf="@+id/totalmiss" />
 
         <TextView
             android:id="@+id/totalmiss"
             android:layout_width="48dp"
-            android:layout_height="25dp"
+            android:layout_height="23dp"
             android:layout_marginStart="1dp"
-            android:layout_marginTop="12dp"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/textView35"
             app:layout_constraintTop_toBottomOf="@+id/titlebar" />
@@ -39,24 +81,23 @@
         <TextView
             android:id="@+id/textView46"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_marginTop="12dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="23dp"
             android:text="실종 완료 수 : "
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/totalmiss"
-            app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+            app:layout_constraintStart_toEndOf="@+id/menu"
+            app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
         <TextView
             android:id="@+id/textView35"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
+            android:layout_height="23dp"
             android:layout_marginStart="23dp"
-            android:layout_marginTop="11dp"
             android:text="총 실종 수 : "
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/menu"
             app:layout_constraintTop_toBottomOf="@+id/titlebar" />
