@@ -140,11 +140,27 @@
         margin-top:6%;
         margin-left:35%;
         //margin-bottom:0.5%;
+        display:flex;
     }
 
     .my-post-page2 {
         margin-left:1%;
         padding-bottom:30%;
+    }
+
+    .postCategory {
+        border-radius: 8px;
+        font-family: 'NanumSquare', sans-serif, bold;
+        color: #376330;
+        border-color: #376330;
+        margin-top: 2%;
+        margin-left: 1%;
+        width: 50px;
+        height: 20px;
+    }
+
+    .postNotFoundTd {
+        font-weight: 400;
     }
 
     .my-post-page3 {
