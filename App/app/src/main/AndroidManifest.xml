@@ -32,7 +32,7 @@
         <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".MissActivity"></activity>
         <activity android:name=".FindActivity"></activity>
-        <activity android:name=".HospitalActivity"></activity>
+        <activity android:name=".ForumActivity"></activity>
         <activity android:name=".SearchActivity"
             android:windowSoftInputMode="adjustNothing"></activity>
         <activity android:name=".SigninActivity"></activity>
@@ -40,6 +40,8 @@
         <activity android:name="FindEnrollActivity"></activity>
         <activity android:name="DetailActivity"></activity>
         <activity android:name="DetailfindActivity"></activity>
+        <activity android:name=".ForumEnrollActivity"></activity>
+        <activity android:name="DetailForumActivity"></activity>
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="c41df9984c43c2eaf05b3b1b0d075ae4"/>

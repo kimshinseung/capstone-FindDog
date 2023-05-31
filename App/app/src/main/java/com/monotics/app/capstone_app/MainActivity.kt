@@ -156,7 +156,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.miss -> startActivity(Intent(this,MissActivity::class.java))
             R.id.find -> startActivity(Intent(this,FindActivity::class.java))
-            //R.id.hospital-> startActivity(Intent(this,HospitalActivity::class.java))
+            R.id.hospital-> startActivity(Intent(this,ForumActivity::class.java))
             R.id.search-> startActivity(Intent(this,SearchActivity::class.java))
         }
 
