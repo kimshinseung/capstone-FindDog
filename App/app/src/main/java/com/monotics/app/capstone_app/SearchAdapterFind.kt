@@ -32,7 +32,7 @@ class SearchAdapterFind(val searhitem: String, val option: String, val Colname: 
     init {
         Log.e("kimshinseung", Colname.toString()) // 검사
 
-        findData.whereEqualTo(option.toString(),searhitem.toString()).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+        findData.whereGreaterThanOrEqualTo(option.toString(),searhitem.toString()).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
             findlist.clear()
 
             for(snapshot in querySnapshot!!.documents){
