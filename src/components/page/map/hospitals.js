@@ -242,9 +242,9 @@ export default function HospitalMapPage() {
 			</div>
 			<br/>
 			<div className="map-section">
-				<div className="box" id="box1" />
-				<div id="map" style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
-				<div className="box" id="box2"/>
+				<div className="box">
+					<div id="map" style={{ width: "100%", height: "600px", backgroundColor: '#c8c8c8' }}/>
+				</div>
 				<br></br>
 			</div>
 		</div>

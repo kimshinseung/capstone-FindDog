@@ -1,27 +1,19 @@
 .map-section{
-    width: 98%;
+    width: 100%;
     margin: auto;
 
-    margin-left:-5px;
-
-    padding: 20px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .box{
-        width: 1419px;
+        border-radius: 15px;
+        width: 97.8%;
         background: #92c465;
-        padding: 1em;
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
         color: #fff;
-    }
-
-    #box1{
-        border-radius: 15px 15px 0 0;
-    }
-
-    #box2{
-        border-radius: 0 0 15px 15px;
     }
 }
 
