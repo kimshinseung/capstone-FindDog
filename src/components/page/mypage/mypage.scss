@@ -101,9 +101,20 @@
         margin-top:1%;
     }
 
-    .my-info-complete {
+    input {
+        width: 200px;
+        height: 20px;
+        margin: 3px;
+    }
+
+    .extraAddress {
+        margin-left: 42px;
+        width: 250px;
+    }
+
+    button {
         width: 150px;
-        height: 30px;
+        height: 25px;
         border: none;
         border-radius: 8px;
         background-color: #69a65f;
