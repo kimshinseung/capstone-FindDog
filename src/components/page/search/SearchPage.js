@@ -38,6 +38,8 @@ const userInputs = [
 
 export function SearchPage() {
     const [postdata, setpost] = useState(new Map());
+    const [slideLength, setslideLength] = useState(1);
+
     var division = useRef("");
 
     // useEffect(()=>{
@@ -97,6 +99,7 @@ export function SearchPage() {
         }));
         //console.log(data);
         setpost(data); //postdata값을 세팅시켜줌.
+        setslideLength(Math.min(4, data.length));
     }
 
     const Search = () => {
@@ -137,8 +140,8 @@ export function SearchPage() {
         dots: true,
         infinite: true,
         speed: 1000,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: slideLength,
+        slidesToScroll: slideLength,
         autoplay: true,
         autoplaySpeed: 3200,
         arrows: false,
