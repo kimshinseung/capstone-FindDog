@@ -40,9 +40,8 @@ export const MyPost = () => {
             const userRef = doc(db, "Users", localStorage.getItem("Uid")); // 현재 로그인 한 유저
             const data = (await getDoc(userRef)).data(); // DB에 저장된 유저 정보
 
-            // 실종 게시판에서 올린 게시글 id 배열
             if (data.missing != null) {
-                const missId = data.missing.map((id) => id);
+                const missId = data.missing.map((id) => id); // 실종 게시판에서 올린 게시글 id 배열
 
                 // id 배열을 기반으로 유저가 작성한 실종 게시글 배열 설정
                 const missMap = missId.map((id) => getDoc(doc(db, "Missing", id)));
@@ -59,18 +58,13 @@ export const MyPost = () => {
                     return [...prev, ...filteredPost];
                 });
             }
-
-            // 목격 게시판에서 올린 게시글 id 배열
+            
             if(data.finding != null) {
-                const findId = data.finding.map((id) => id);
+                const findId = data.finding.map((id) => id); // 목격 게시판에서 올린 게시글 id 배열
 
                 // id 배열을 기반으로 유저가 작성한 목격 게시글 배열 설정
                 const findMap = findId.map((id) => getDoc(doc(db, "Finding", id)));
-
-                // 프로미스가 완료될 때까지 대기
                 const p = await Promise.all(findMap);
-
-                // p 배열을 순회하면서 데이터를 추출하여 새 배열 생성
                 const newPost = p.map((p) => (p.data()));
 
                 // set findPost. 이전에 추가된 데이터라면 필터링 거침
@@ -79,10 +73,6 @@ export const MyPost = () => {
                     return [...prev, ...filteredPost];
                 });
             }
-
-            // 두 배열을 합침
-
-            // 두 배열의 공통 필드인 uploadTime을 이용해 시간순 정렬
         }
 
         // fetch
