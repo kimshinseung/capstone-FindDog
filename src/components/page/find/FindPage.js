@@ -6,6 +6,7 @@
 // import components
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 import Carousel from "../miss/carousel";
 import { PieChart } from "../miss/PieChart";
 import { BarChart } from "../miss/BarChart";
@@ -15,9 +16,13 @@ import "./FindPage.scss";
 
 export const FindPage = () => {
     const navigate = useNavigate();
+    const auth = getAuth();
 
     const toUpload = () => {
-        navigate(`/find/upload`); // 등록 페이지로 이동
+        if(auth.currentUser == null){
+            alert("로그인이 필요한 서비스입니다.");
+        }
+        else{ navigate(`/miss/upload`); } // 업로드 페이지로 이동
     }
 
     const toMoreInfo = () => {

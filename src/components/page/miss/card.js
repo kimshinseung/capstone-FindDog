@@ -30,7 +30,6 @@ function Card(props) {
   };
 
   // cg값에 따라 실종, 목격으로 구분
-  //if(props.cg == "Missing") {
     return (
       <>
         <ItemStyle visible={visible}>
@@ -48,8 +47,6 @@ function Card(props) {
         </ItemStyle>
       </>
     );
-  //}
-
 };
 
 // 카드 style component

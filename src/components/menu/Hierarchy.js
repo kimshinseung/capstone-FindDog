@@ -28,7 +28,7 @@ const Hierarchy = () => (
       <Route path="/miss/moreInfo/upload*" element={<Upload />} />
 
       {/* 실종 | 시간 순 상세페이지 */}
-      <Route path='/miss/detail/:id' element={<MissTimeDetailBoard/>} />
+      <Route path='/Missing/detail/:id' element={<MissTimeDetailBoard/>} />
       <Route path='/miss/moreInfo/detail/:id' element={<MissTimeDetailBoard/>} />
 
       <Route path="/find/*" element={<FindBoard />} />
@@ -37,7 +37,7 @@ const Hierarchy = () => (
       <Route path="/find/moreInfo/upload*" element={<FindUpload />} />
 
       {/* 목격 | 시간 순 상세페이지 */}
-      <Route path='/find/detail/:id' element={<FindTimeDetailBoard/>} />
+      <Route path='/Finding/detail/:id' element={<FindTimeDetailBoard/>} />
       <Route path='/find/moreInfo/detail/:id' element={<FindTimeDetailBoard/>} />
 
       <Route path="/map/*" element={<HospitalMap />} >

@@ -25,7 +25,7 @@ const FindUploadPage = () => {
     const [popup, setPopup] = useState(false);
 
     const Navigate = useNavigate();
-    const currUser = getAuth().currentUser.uid;
+    const auth = getAuth();
     var submit = true;
 
     function wait(sec) {
@@ -72,12 +72,11 @@ const FindUploadPage = () => {
         }
         submit = false;
 
-        //console.log(files.length);
-        if(Imgs[files.length-1] == null){
-            //console.log("Wait start");
-            wait(files.length * 1.8);
-            //console.log("Wait end");    
-        }
+
+        if(Imgs[files.length-1] == null) wait(files.length * 1.8);
+
+        var currUser = auth.currentUser.uid;
+
         var time = new Date()
         const docRef = await addDoc(collection(db, "Finding"), {
             ...data,
