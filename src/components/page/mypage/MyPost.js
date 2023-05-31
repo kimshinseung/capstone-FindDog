@@ -55,7 +55,8 @@ export const MyPost = () => {
                 // set missPost. 이전에 추가된 데이터라면 필터링 거침
                 setMissPost((prev) => {
                     const filteredPost = newPost.filter(post => !prev.some(prevPost => prevPost?.id === post?.id));
-                    return [...prev, ...filteredPost];
+                    const nullFilteredPost = filteredPost.filter(post => post != null);
+                    return [...prev, ...nullFilteredPost];
                 });
             }
             
@@ -70,7 +71,8 @@ export const MyPost = () => {
                 // set findPost. 이전에 추가된 데이터라면 필터링 거침
                 setFindPost((prev) => {
                     const filteredPost = newPost.filter(post => !prev.some(prevPost => prevPost?.id === post?.id));
-                    return [...prev, ...filteredPost];
+                    const nullFilteredPost = filteredPost.filter(post => post != null);
+                    return [...prev, ...nullFilteredPost];
                 });
             }
         }
@@ -115,54 +117,58 @@ export const MyPost = () => {
                         <tbody>
                             {
                             (selectCategory === "miss")
-                                ? (missPost.map((doc, i) => {
-                                    if (doc != null) {
-                                        return (
-                                          <tr key={i}>
-                                            <td>
-                                                <Link to={`/miss/detail/${doc.id}`}>
-                                                    <p>{doc.name}</p>
-                                                </Link>
-                                            </td>
-                                            <td>
-                                                <p>{doc.uploadTime.toDate().toLocaleDateString()}</p>
-                                            </td>
-                                            <td>
-                                                <p>{!doc.visibled ? "O" : "X"}</p>
-                                            </td>
-                                          </tr>
-                                        );
-                                    }
-                                    return (
-                                        <tr key={i}>
+                                ? (missPost.length === 0
+                                    ? (
+                                        <tr>
                                             <td className='postNotFoundTd' colSpan={3}>작성한 게시글이 없습니다.</td>
                                         </tr>
-                                    );
-                                }))
-                                : (findPost.map((doc, i) => {
-                                    if (doc != null) {
-                                        return (
-                                          <tr key={i}>
-                                            <td>
-                                                <Link to={`/find/detail/${doc.id}`}>
-                                                    <p>{doc.address}</p>
-                                                </Link>
-                                            </td>
-                                            <td>
-                                                <p>{doc.uploadTime.toDate().toLocaleDateString()}</p>
-                                            </td>
-                                            <td>
-                                                <p>{!doc.visibled ? "O" : "X"}</p>
-                                            </td>
-                                          </tr>
-                                        );
-                                    }
-                                    return (
-                                        <tr key={i}>
+                                      )
+                                    : (
+                                        missPost.map((doc, i) => {
+                                            return (
+                                                <tr key={i}>
+                                                    <td>
+                                                        <Link to={`/miss/detail/${doc.id}`}>
+                                                            <p>{doc.name}</p>
+                                                        </Link>
+                                                    </td>
+                                                    <td>
+                                                        <p>{doc.uploadTime.toDate().toLocaleDateString()}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>{!doc.visibled ? "O" : "X"}</p>
+                                                    </td>
+                                                </tr>
+                                            );
+                                        })
+                                    )
+                                )
+                                : (findPost.length === 0
+                                    ? (
+                                        <tr>
                                             <td className='postNotFoundTd' colSpan={3}>작성한 게시글이 없습니다.</td>
                                         </tr>
-                                    );
-                                }))
+                                      )
+                                    : (
+                                        findPost.map((doc, i) => {
+                                            return (
+                                                <tr key={i}>
+                                                    <td>
+                                                        <Link to={`/find/detail/${doc.id}`}>
+                                                            <p>{doc.name}</p>
+                                                        </Link>
+                                                    </td>
+                                                    <td>
+                                                        <p>{doc.uploadTime.toDate().toLocaleDateString()}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>{!doc.visibled ? "O" : "X"}</p>
+                                                    </td>
+                                                </tr>
+                                            );
+                                        })
+                                    )
+                                )
                             }
                         </tbody>
                     </table>
