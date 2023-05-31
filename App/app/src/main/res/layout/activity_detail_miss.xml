@@ -185,7 +185,7 @@
 
     <TextView
         android:id="@+id/detail_kakaoId"
-        android:layout_width="121dp"
+        android:layout_width="150dp"
         android:layout_height="34dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="9dp"
@@ -212,17 +212,17 @@
         app:layout_constraintTop_toBottomOf="@+id/detail_specify" />
 
     <TextView
-        android:id="@+id/detail_address"
+        android:id="@+id/detail_date"
         android:layout_width="280dp"
         android:layout_height="34dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="1dp"
-        android:textSize="12sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView39"
-        app:layout_constraintTop_toBottomOf="@+id/detail_date" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_address" />
 
     <TextView
-        android:id="@+id/detail_date"
+        android:id="@+id/detail_address"
         android:layout_width="280dp"
         android:layout_height="34dp"
         android:layout_marginStart="2dp"
@@ -338,7 +338,7 @@
         android:id="@+id/FindBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="56dp"
         android:background="@drawable/button_round"
         android:text="찾았어요!"

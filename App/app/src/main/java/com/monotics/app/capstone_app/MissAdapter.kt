@@ -67,6 +67,8 @@ class MissAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         if(misslist[position].visibled==false){
             viewHolder.viewbutton.setText("*** 찾기 완료 ***")
             viewHolder.missimg.setColorFilter(Color.parseColor("#BF808080"))
+        }else if(misslist[position].visibled==true){
+            viewHolder.viewbutton.setText("자세히 보기")
         }
 
         viewHolder.missname.text = misslist[position].name
