@@ -176,9 +176,9 @@ export default function SeoulMapPage(){
 			</div>
 			<br/>
 			<div className="map-section">
-				<div className="box">
-					<div id="map" onMouseOver={plag && getDatas()} style={{ width: "100%", height: "600px", backgroundColor: '#c8c8c8' }}></div>
-				</div>
+				<div className="box" id="box1" />
+				<div id="map" onMouseOver={plag && getDatas()} style={{ width: "1450px", height: "600px", backgroundColor: '#c8c8c8' }}></div>
+				<div className="box" id="box2"/>
 				<br></br>
 			</div>
 		</div>
