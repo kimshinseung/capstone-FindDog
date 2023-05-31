@@ -21,8 +21,8 @@ const UploadPage = () => {
     const Imgs = Array.from(files);
     const [address, setAddress] = useState("");
     const [popup, setPopup] = useState(false);
-    const auth = getAuth();
-    var file = false;
+    const currUser = getAuth().currentUser.uid;
+    var submit = true;
     //var img = 1;
 
     function wait(sec) {
@@ -56,8 +56,12 @@ const UploadPage = () => {
 
     const handler = async(e) =>{
         e.preventDefault();
+
+        if(!submit) return 0;
+        submit = false;
+
         console.log("Wait start");
-        wait(files.length * 1.5);
+        wait(files.length * 1.7);
         console.log("Wait end");
         //let res = await new Promise(() => Array.from(files).map((file, i) => (uploadFile(file, i))) );
         
@@ -72,6 +76,8 @@ const UploadPage = () => {
             Imgs[0]="null";
             return 0;
         }
+
+        
         
         var time = new Date();
         const docRef = await addDoc(collection(db, "Missing"), {
@@ -79,33 +85,24 @@ const UploadPage = () => {
             imgs: Imgs, 
             uploadTime: time,
             visibled: true,
-            uid: auth.currentUser.uid
+            uid: currUser
         });
         await updateDoc(docRef, {id: docRef.id});   //현재 문서의 id를 필드에 다시 추가
         
-        // 이거 안 됨 방법 다시 찾아야 함
-
-        const currUser = auth.currentUser.uid;
-        //console.log(currUser);
+        
         let document = await getDoc(doc(db, "Users", currUser));
         var arr = document.data().missing;
+
         if(arr != null){
-            await updateDoc(doc(db, "Users", auth.currentUser.uid), {
+            await updateDoc(doc(db, "Users", currUser), {
                 missing: [...arr, docRef.id]
-                //missing: arrayUnion(docRef)
             });
         }
         else{
-
-            await updateDoc(doc(db, "Users", auth.currentUser.uid), {
+            await updateDoc(doc(db, "Users", currUser), {
                 missing: [docRef.id]
-                //missing: arrayUnion(docRef)
             });
         }
-        
-        console.log(arr);
-
-
         
         alert("등록되었습니다.");
         location.reload();

@@ -7,7 +7,7 @@ import userInputs from "../miss/formData.js";
 import { React, useState, useEffect} from "react";
 import { useNavigate, Link } from "react-router-dom";
 import DaumPostcode from "react-daum-postcode";
-import { addDoc, collection, updateDoc } from "@firebase/firestore";
+import { addDoc, collection, updateDoc, doc, getDoc } from "@firebase/firestore";
 import { db, storage } from "../../../firebase.js";
 import { getAuth } from "firebase/auth";
 import { ref, uploadBytesResumable, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -23,7 +23,15 @@ const FindUploadPage = () => {
     const Imgs = Array.from(files);
     const [address, setAddress] = useState("");
     const [popup, setPopup] = useState(false);
-    const auth = getAuth();
+    const currUser = getAuth().currentUser.uid;
+    var submit = true;
+
+    function wait(sec) {
+        let start = Date.now(), now = start;
+        while (now - start < sec * 1000) {
+            now = Date.now();
+        }
+    }
 
 
     useEffect(()=>{
@@ -53,20 +61,48 @@ const FindUploadPage = () => {
 
     const handler = async(e) =>{
         e.preventDefault();
-        var time = new Date()
+        
+        if(!submit) return 0;
+        submit = false;
+
+        console.log("Wait start");
+        wait(files.length * 1.7);
+        console.log("Wait end");
+        
         if (Imgs[0] == null){
             alert("사진을 등록해주세요");
             Imgs[0]="null";
             return 0;
         }
+
+        var time = new Date()
         const docRef = await addDoc(collection(db, "Finding"), {
             ...data,
             imgs: Imgs, 
             uploadTime: time,
             visibled: true,
-            uid: auth.currentUser.uid
+            uid: currUser
         });
         await updateDoc(docRef, {id: docRef.id}); 
+
+        
+        
+        let document = await getDoc(doc(db, "Users", currUser));
+        var arr = document.data().finding;
+
+        if(arr != null){
+            await updateDoc(doc(db, "Users", currUser), {
+                finding: [...arr, docRef.id]
+            });
+        }
+        else{
+            await updateDoc(doc(db, "Users", currUser), {
+                finding: [docRef.id]
+            });
+        }
+        
+        console.log(arr);
+
         alert("등록되었습니다");
         location.reload();
     }

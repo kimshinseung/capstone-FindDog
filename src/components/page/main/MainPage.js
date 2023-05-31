@@ -8,30 +8,10 @@ import React from "react";
 import { useEffect } from "react";
 import ReactPlayer from 'react-player'
 import { db } from "../../../firebase.js";
-import { getFirestore, doc, setDoc, updateDoc } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, updateDoc, getDoc } from 'firebase/firestore';
 import { getAuth } from "firebase/auth";
 
 export const MainPage = () => {
-    const auth = getAuth();
-
-    useEffect(() => {
-		signUp();
-	}, []);
-
-    const signUp = async() => {
-        console.log(auth.currentUser);
-
-        if(auth.currentUser == null){
-            console.log("null");
-        }
-        else{
-            let currUser = auth.currentUser.uid;
-            await updateDoc(doc(db, "Users", currUser), {
-                uid: currUser
-            });   
-        }
-    };
-
     return (
         <>
             <div className="main-page">
