@@ -2,11 +2,17 @@
  * ./src/components/page/mypage/MyInformation.js
  * 개인정보
  */
+
+// import components
 import React, {useEffect, useState} from 'react';
-import { signOut, deleteUser } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+
+// import about firebase
 import { db, auth } from '../../../firebase';
+import { signOut, deleteUser } from 'firebase/auth';
 import { getDocs, collection, query, where, deleteDoc } from 'firebase/firestore';
+
+// import style
 import "./mypage.scss";
 
 export const MyInformation = () => {
@@ -120,8 +126,8 @@ export const MyInformation = () => {
                     <div className="my-information3">
                         <p>이메일: {localStorage.getItem('Email')}</p>
                         <p>닉네임: {localStorage.getItem('Name')}</p>
-                        <p>전화번호: {(localStorage.getItem('PhoneNumber') != null) ? localStorage.getItem('PhoneNumber') : ""}</p>
-                        <p>주소: {`${((localStorage.getItem('Address') != "undefined") && (localStorage.getItem('Address') != null) && (localStorage.getItem('Address') != "null")) ? localStorage.getItem('Address') : ""} 
+                        <p>전화번호: {(localStorage.getItem('PhoneNumber') != null) ? localStorage.getItem('PhoneNumber') : "정보를 입력해주세요."}</p>
+                        <p>주소: {`${((localStorage.getItem('Address') != "undefined") && (localStorage.getItem('Address') != null) && (localStorage.getItem('Address') != "null")) ? localStorage.getItem('Address') : "정보를 입력해주세요."} 
                         ${((localStorage.getItem('ExtraAddress') != "undefined") && (localStorage.getItem('ExtraAddress') != null) && (localStorage.getItem('ExtraAddress') != "null")) ? localStorage.getItem('ExtraAddress') : ""}`}</p>
                     </div>
                     <div className="my-information-btn">

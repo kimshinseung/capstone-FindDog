@@ -10,7 +10,7 @@ import DaumPostcode from "react-daum-postcode";
 import { addDoc, collection, updateDoc } from "@firebase/firestore";
 import { db, storage } from "../../../firebase.js";
 import { getAuth } from "firebase/auth";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytesResumable, uploadBytes, getDownloadURL } from "firebase/storage";
 import "../miss/UploadPage.scss";
 //import Dropzone from 'react-dropzone'
 
@@ -28,24 +28,13 @@ const FindUploadPage = () => {
 
     useEffect(()=>{
         const uploadFile= (file, i) => {
-            const name = new Date().getTime() + file.name;
             const storageRef = ref(storage, file.name);
-            const uploadTask = uploadBytesResumable(storageRef, file);
-
-            uploadTask.on("state_changed",
-                (snapshot) => {
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
-                },
-                (error) => {
-                    console.log(error)
-                },
-                () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        Imgs[i] = downloadURL;
-                    });
-                }
-            );
+            uploadBytes(storageRef, file).then((snapshot) => {
+                getDownloadURL(snapshot.ref).then((url) => {
+                    Imgs[i] = url;
+                    console.log(url);
+                });
+            });
         };
         files && Array.from(files).map((file, i) => (uploadFile(file, i))); //유사배열객체라서 map함수 쓰기위해 Array.from함수 사용
     }, [files]);
@@ -66,7 +55,9 @@ const FindUploadPage = () => {
         e.preventDefault();
         var time = new Date()
         if (Imgs[0] == null){
-            Imgs[0] = "null"
+            alert("사진을 등록해주세요");
+            Imgs[0]="null";
+            return 0;
         }
         const docRef = await addDoc(collection(db, "Finding"), {
             ...data,
@@ -161,7 +152,7 @@ const FindUploadPage = () => {
 
                     <div className="feature">
                     <h4>성격 및 특징</h4>&ensp;
-                    <textarea className="Findfeature" cols="25" rows="5" id="feature" onChange={handleInput}></textarea>
+                    <textarea cols="25" id="feature" onChange={handleInput}></textarea>
                     </div>
 
                     <div className="photo">
