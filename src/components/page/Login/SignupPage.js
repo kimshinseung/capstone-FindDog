@@ -7,7 +7,7 @@ import "./LoginPage.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import Post from './Post';
 
@@ -21,6 +21,8 @@ const SingupPage = () => {
         address:'',
         extraAddress: '',
     });
+
+    var currUser;
 
     const [openPopup, setOpenPopup] = useState(false);
 
@@ -45,32 +47,17 @@ const SingupPage = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             //const user = userCredential.user;
+            console.log(userCredential);
+            currUser = userCredential.user.auth.currentUser.uid;
+            //signUp();
+        })
+        .then(()=>{
+            alert("회원가입 완료");
             navigate("/");
         })
         .catch((error) => {
             setError(true);
         });
-    };
-
-    const signUp = () => {
-        setDoc(doc(db, "Users"), {
-            Email: email,
-            Password: password,
-            Name: name,
-            PhoneNumber: phoneNumber,
-            Address: fullAddress,
-            uid: auth.currentUser.uid
-        });
-
-        localStorage.clear();
-        localStorage.setItem('Email', email);
-        localStorage.setItem('Password', password);
-        localStorage.setItem('Name', name);
-        localStorage.setItem('PhoneNumber', phoneNumber);
-        localStorage.setItem('Address', fullAddress.address);
-        localStorage.setItem('ExtraAddress', fullAddress.extraAddress);
-
-        alert('회원가입 완료!');
     };
 
     return(
@@ -100,7 +87,7 @@ const SingupPage = () => {
                 </div>
                 
                 <br/><br/><br/>
-                <button type="submit" onClick={signUp}>회원가입</button>
+                <button type="submit" >회원가입</button>
             </form>
         </div>
     )

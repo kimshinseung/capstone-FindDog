@@ -46,20 +46,6 @@ export function SearchPage() {
         var q;
         let coll = collection(db, division);
 
-        //switch문에서 case3을 없애고 각 케이스에서 farColor가 지정된게 있나 확인하고 경우에따라 쿼리를 생성하는식으로?
-
-        // switch(con.length){
-        //     case 0:
-        //         q = query(collection(db, division), where("visibled", "==", true));    break;
-        //     case 1:
-        //         q = query(collection(db, division), where("visibled", "==", true), where(con[0].label, "==", con[0].data));    break;
-        //     case 2:
-        //         q = query(collection(db, division), where("visibled", "==", true)
-        //             , where(con[0].label, "==", con[0].data), where(con[1].label, "==", con[1].data));   break;
-        //     case 3:
-        //         q = query(collection(db, division), where("visibled", "==", true)
-        //             , where(con[0].label, "==", con[0].data), where(con[1].label, "==", con[1].data), where(con[2].label, "==", con[2].data));  break;
-        // }
         console.log(farCol);
         switch(con.length){
             case 0:
@@ -84,9 +70,7 @@ export function SearchPage() {
                     q = query(coll, where("visibled", "==", true), where(con[0].label, "==", con[0].data), where(con[1].label, "==", con[1].data)); 
                 }
                 break;
-  break;
         }
-
         Show(q);
     }
 
