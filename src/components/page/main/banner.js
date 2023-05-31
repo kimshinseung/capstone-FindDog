@@ -1,10 +1,17 @@
+/**
+ * ./src/components/page/main/banner.js
+ * 메인 페이지 배너 캐러셀
+ */
+
 import React from "react";
 import Slider from 'react-slick';
 import { Link } from "react-router-dom";
+
 // import css
 import '../../../style/style.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '../../../style/carouselDots.css';
 
 const BannerCarousel = ()=>{
     const settings = {
@@ -17,6 +24,7 @@ const BannerCarousel = ()=>{
         autoplay: true,
         autoplaySpeed: 3200,
         pauseOnHover: true,
+        dotsClass: 'dots'
     };
 
     return(
@@ -31,5 +39,7 @@ const BannerCarousel = ()=>{
         </div>    
     )
 };
+
+
 
 export default BannerCarousel;

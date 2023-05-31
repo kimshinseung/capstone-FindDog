@@ -17,6 +17,7 @@ import { getDocs, collection, query, orderBy, updateDoc, doc } from 'firebase/fi
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './DetailPage.scss';
+import '../../../style/carouselDots.css';
 
 export const DetailPage = (props) => {
     const [profiles, setProfiles] = useState([]); // 가져올 게시글 내용
@@ -62,6 +63,7 @@ export const DetailPage = (props) => {
             infinite: true,
             arrows: false,
             lazyLoad: true,
+            dotsClass: 'dots'
         };
     
         return (

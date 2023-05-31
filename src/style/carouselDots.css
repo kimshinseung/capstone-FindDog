@@ -1,0 +1,30 @@
+.dots {
+  display: inline-block;
+  margin-left: 50%;
+  margin-bottom: 0;
+  padding: 0;
+}
+  
+.dots li {
+  list-style: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 6px;
+  padding: 0;
+}
+  
+.dots li button {
+  border: none;
+  background: #DDDDDD;
+  color: transparent;
+  cursor: pointer;
+  display: block;
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  padding: 0;
+}
+  
+.dots li.slick-active button {
+  background-color: #69a65f;
+}

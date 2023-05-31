@@ -15,6 +15,7 @@ import { getDocs, collection, query, orderBy } from "firebase/firestore";
 // import style
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '../../../style/carouselDots.css';
 
 const Carousel = (category) => {
   // 가져올 게시글 내용
@@ -41,6 +42,7 @@ const Carousel = (category) => {
     autoplaySpeed: 3200,
     arrows: false,
     pauseOnHover: true,
+    dotsClass: 'dots',
     responsive: [
       {
         breakpoint: 1024,
