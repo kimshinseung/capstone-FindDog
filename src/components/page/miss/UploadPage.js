@@ -18,10 +18,12 @@ import { ref, uploadBytesResumable, uploadBytes, getDownloadURL } from "firebase
 const UploadPage = () => {
     const [data, setData] = useState({});
     const [files, setFiles] = useState([]);
-    const Imgs = Array.from(files);
+    const Imgs = Array.from([]);
     const [address, setAddress] = useState("");
     const [popup, setPopup] = useState(false);
+
     const currUser = getAuth().currentUser.uid;
+    const Navigate = useNavigate();
     var submit = true;
     //var img = 1;
 
@@ -58,25 +60,19 @@ const UploadPage = () => {
         e.preventDefault();
 
         if(!submit) return 0;
-        submit = false;
-
-        console.log("Wait start");
-        wait(files.length * 1.7);
-        console.log("Wait end");
-        //let res = await new Promise(() => Array.from(files).map((file, i) => (uploadFile(file, i))) );
         
-
-        //console.log(res);
-
-        //await Array.from(files).map((file, i) => (uploadFile(file, i)));
-        
-        //console.log()
-        if(Imgs[0]==null){
+        if(files[0]==null){
             alert("사진을 등록해주세요");
-            Imgs[0]="null";
             return 0;
         }
+        submit = false;
 
+        //console.log(files.length);
+        if(Imgs[files.length-1] == null){
+            //console.log("Wait start");
+            wait(files.length * 1.8);
+            //console.log("Wait end");    
+        }
         
         
         var time = new Date();
@@ -105,7 +101,8 @@ const UploadPage = () => {
         }
         
         alert("등록되었습니다.");
-        location.reload();
+        Navigate(-1);
+        //location.reload();
     }
 
 
