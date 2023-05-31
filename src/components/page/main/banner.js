@@ -3,6 +3,7 @@
  * 메인 페이지 배너 캐러셀
  */
 
+// import components
 import React from "react";
 import Slider from 'react-slick';
 import { Link } from "react-router-dom";
@@ -28,18 +29,16 @@ const BannerCarousel = ()=>{
     };
 
     return(
-        <div classname="bannercarousel">
+        <div className="bannercarousel">
             <Slider {...settings}>
-                <img className='main-logo1' img src="images/banner1.png"/>
+                <img className='main-logo1' src="images/banner1.png"/>
                 <Link to="/find">
-                <img className='main-logo2' img src="images/banner2.png"/>
-                </Link>         
-                <img className='main-logo3' img src="images/banner3.png"/>
+                    <img className='main-logo2' src="images/banner2.png"/>
+                </Link>
+                <img className='main-logo3' src="images/banner3.png"/>
             </Slider>
         </div>    
     )
 };
-
-
 
 export default BannerCarousel;
