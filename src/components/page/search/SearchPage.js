@@ -14,6 +14,8 @@ import Slider from 'react-slick';
 import Card from '../miss/card';
 //import userInputs from "../miss/formData.js";
 import "./SearchPage.scss";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 
 const userInputs = [
@@ -107,7 +109,7 @@ export function SearchPage() {
         //console.log(div);
         division.current = document.querySelector("#Division").value;
         console.log("1: " + division.current);
-        if(division == "ㅡㅡㅡㅡㅡ"){
+        if(division.current == "ㅡㅡㅡㅡㅡ"){
             alert("실종 | 목격 검색조건을 선택해주세요");
             return 0;
         }
@@ -202,7 +204,7 @@ export function SearchPage() {
 
             </div>
 
-            <button className="searchButton" onClick={() => { Search() }}>
+            <button className="searchButton" style={{cursor: "pointer"}} onClick={() => { Search() }}>
                 검색
             </button>
 
