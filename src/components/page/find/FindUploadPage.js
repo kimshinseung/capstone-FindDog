@@ -105,7 +105,7 @@ const FindUploadPage = () => {
         }
         
         alert("등록되었습니다");
-        Navigate(-1);
+        Navigate("/find");
     }
 
 
