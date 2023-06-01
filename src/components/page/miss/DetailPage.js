@@ -125,7 +125,7 @@ export const DetailPage = (props) => {
                 <div className="detailContent">
                     <h3>🐶{profiles[0].name}🐶</h3>
                     <p>실종 위치: {profiles[0].address}</p>
-                    <p>실종 시간: {profiles[0].date} </p>
+                    <p>실종 시간: {(profiles[0].date != null) ? `${profiles[0].date.split("T")[0]} ${profiles[0].date.split("T")[1]}` : ""} </p>
                     <p>종: {profiles[0].specify}</p>
                     <p>나이: {profiles[0].age}</p>
                     <p>성별: {profiles[0].gender}</p>

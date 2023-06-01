@@ -86,7 +86,7 @@ const MoreinfoPage = () => {
                             </Link>
                         </td>
                         <td>
-                            <p className="moreInfo-table-td-date" key={ids}>{(date != null) ? date : ""}</p>
+                            <p className="moreInfo-table-td-date" key={ids}>{(date != null) ? `${date.split("T")[0]} ${date.split("T")[1]}` : ""}</p>
                         </td>
                         <td>
                             <p className="moreInfo-table-td-user" key={ids}>{user != null ? user : "익명"}</p>
