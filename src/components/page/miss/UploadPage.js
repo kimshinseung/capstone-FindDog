@@ -127,16 +127,26 @@ const UploadPage = () => {
         display: "block",
         position: "absolute",
         top: "-650%",
-        right: "-70%",
+        right: "7%",
+        zIndex: 100, 
         
-        width: "90%",
-        height: "1100%",
-        // padding: "50px",
-        background : "rgba(0,0,0,0.25)",
+        width: "400px",
+        height: "470px",
+        border: "1px solid #668956",
     };
 
-
-
+    // theme 정의
+    const postCodeTheme = {
+        bgColor: "#ECECEC", // 바탕 배경색
+        searchBgColor: "#668956", //검색창 배경색
+        contentBgColor: "#FBFBFB", //본문 배경색(검색결과,결과없음,첫화면,검색서제스트)
+        pageBgColor: "#FAFAFA", //페이지 배경색
+        textColor: "#333333", //기본 글자색
+        queryTextColor: "#FFFFFF", //검색창 글자색
+        postcodeTextColor: "#FA4256", //우편번호 글자색
+        emphTextColor: "#668956", //강조 글자색
+        outlineColor: "#668956" //테두리
+    };
 
     return (
         <>
@@ -181,8 +191,8 @@ const UploadPage = () => {
 
                     <div className="place">
                     <h4>실종장소</h4>&emsp;
-                    {popup && <div className="postDiv"><DaumPostcode className="postModal" style={postCodeStyle} onComplete={handleComplete}/></div>}
-                    <input type="text" id="place" onChange={handleInput} value={address}></input>
+                    {popup && <div className="postDiv"><DaumPostcode className="postModal" style={postCodeStyle} theme={postCodeTheme} onComplete={handleComplete}/></div>}
+                    <input className="missplacetext" type="text" id="place" onChange={handleInput} value={address}></input>
                     <input type="button" className="missplaceButton" onClick={()=>setPopup(true)} value="주소찾기"></input><br/>
                     </div>
 

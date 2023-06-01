@@ -129,15 +129,27 @@ const FindUploadPage = () => {
     const postCodeStyle = {
         display: "block",
         position: "absolute",
-        top: "-590%",
-        right: "-60%",
-        width: "85%",
-        height: "1100%",
-        background : "rgba(0,0,0,0.25)",
+        top: "-650%",
+        right: "7%",
+        zIndex: 100, 
+        
+        width: "400px",
+        height: "470px",
+        border: "1px solid #668956",
     };
 
-
-
+    // theme 정의
+    const postCodeTheme = {
+        bgColor: "#ECECEC", // 바탕 배경색
+        searchBgColor: "#668956", //검색창 배경색
+        contentBgColor: "#FBFBFB", //본문 배경색(검색결과,결과없음,첫화면,검색서제스트)
+        pageBgColor: "#FAFAFA", //페이지 배경색
+        textColor: "#333333", //기본 글자색
+        queryTextColor: "#FFFFFF", //검색창 글자색
+        postcodeTextColor: "#FA4256", //우편번호 글자색
+        emphTextColor: "#668956", //강조 글자색
+        outlineColor: "#668956" //테두리
+    };
 
     return (
         <>
@@ -171,8 +183,8 @@ const FindUploadPage = () => {
 
                     <div className="place">
                     <h4>목격장소</h4>&emsp;
-                    {popup && <div className="postDiv"><DaumPostcode style={postCodeStyle} onComplete={handleComplete}/></div>}
-                    <input type="text" id="place" onChange={handleInput} value={address}></input>
+                    {popup && <div className="postDiv"><DaumPostcode style={postCodeStyle} theme={postCodeTheme} onComplete={handleComplete}/></div>}
+                    <input className="findplacetext" type="text" id="place" onChange={handleInput} value={address}></input>
                     <input type="button" className="findplaceButton" onClick={()=>setPopup(true)} value="주소찾기"></input><br/>
                     </div>
 
