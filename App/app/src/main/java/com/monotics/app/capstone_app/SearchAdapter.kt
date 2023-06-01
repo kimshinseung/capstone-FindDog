@@ -33,13 +33,51 @@ class SearchAdapter(val searhitem: String, val option: String, val Colname: Stri
     init {
         Log.e("kimshinseung", Colname.toString()) // 검사
 
-        missData.whereGreaterThanOrEqualTo(option.toString(),searhitem.toString()).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+        missData.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
             misslist.clear()
 
-            for(snapshot in querySnapshot!!.documents){
-                var item = snapshot.toObject(MissData::class.java)
-                misslist.add(item!!)
+            if(option =="specify") {
+                for (snapshot in querySnapshot!!.documents) {
+                    var item = snapshot.toObject(MissData::class.java)
+                    if (item != null) {
+                        val searchData = item?.specify
+                        if (searchData != null) {
+                            if (searchData.contains(searhitem, ignoreCase = true)) {
+                                misslist.add(item!!)
+                            }
+                        }
+                    }
+
+                }
+            }else if(option =="farColor1") {
+                for (snapshot in querySnapshot!!.documents) {
+                    var item = snapshot.toObject(MissData::class.java)
+                    if (item != null) {
+                        val searchData = item?.farColor1
+                        if (searchData != null) {
+                            if (searchData.contains(searhitem, ignoreCase = true)) {
+                                misslist.add(item!!)
+                            }
+                        }
+                    }
+
+                }
+            }else if(option =="address") {
+                for (snapshot in querySnapshot!!.documents) {
+                    var item = snapshot.toObject(MissData::class.java)
+                    if (item != null) {
+                        val searchData = item?.address
+                        if (searchData != null) {
+                            if (searchData.contains(searhitem, ignoreCase = true)) {
+                                misslist.add(item!!)
+                            }
+                        }
+                    }
+
+                }
             }
+
+
             notifyDataSetChanged()
         }
     }
