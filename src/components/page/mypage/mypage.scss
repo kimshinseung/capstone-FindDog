@@ -83,7 +83,7 @@
 
     .my-info-edit-page2 {
         margin-left:1%;
-        padding-bottom:30%;
+        padding-bottom:20%;
     }
 
     .my-info-edit-page3 {
@@ -102,6 +102,14 @@
     }
 
     input {
+        font-family: 'NanumSquare', sans-serif, bold;
+        color: #376330;
+        
+        border-color: #b4c5b0;
+        border-radius: 6px;
+        border-width: 2px;
+        padding: 0.2%;
+
         width: 200px;
         height: 20px;
         margin: 3px;

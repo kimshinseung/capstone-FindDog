@@ -26,6 +26,7 @@ const LoginPage = () => {
         setPersistence(auth, browserSessionPersistence).then(() => {
             return signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
                 //const user = userCredential.user;
+                localStorage.setItem('Uid', userCredential.user.uid);
                 navigate("/");
             })
             .catch((error) => {
@@ -45,6 +46,9 @@ const LoginPage = () => {
             const token = credential.accessToken;
             const userName = res.user.displayName;
             const userEmail = res.user.email;
+            const userId = res.user.uid;
+
+            console.log(userId);
 
             // local storage에 token, username 저장해주기 
             setToken(token);
