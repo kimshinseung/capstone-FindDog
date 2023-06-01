@@ -21,6 +21,7 @@ export const MissPage = () => {
     const toUpload = () => {
         if(auth.currentUser == null){
             alert("로그인이 필요한 서비스입니다.");
+            navigate(`/login`);
         }
         else{ navigate(`/miss/upload`); } // 업로드 페이지로 이동
     }
