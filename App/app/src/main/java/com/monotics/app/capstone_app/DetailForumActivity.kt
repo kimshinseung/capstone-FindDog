@@ -31,7 +31,7 @@ class DetailForumActivity: AppCompatActivity()  {
         Log.d("kimshinseung",inf["content"].toString())
 
         val values = inf["content"] as? ArrayList<String>
-        val text = values?.joinToString(", ")
+        val text = values?.joinToString(" ")
         binding.detailContent.text = text
         if(inf["user"]==null || inf["user"]==""){
             binding.detailUser.text = "익명"

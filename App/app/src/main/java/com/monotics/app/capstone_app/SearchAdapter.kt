@@ -33,9 +33,11 @@ class SearchAdapter(val searhitem: String, val option: String, val Colname: Stri
     init {
         Log.e("kimshinseung", Colname.toString()) // 검사
 
-        missData.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+        //시간순으로 정렬
+        missData.orderBy("uploadTime",
+            Query.Direction.DESCENDING).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
             misslist.clear()
-
+            //specify필드에서 입력값이 들어가 있는 모든 데이터를 가져옴.
             if(option =="specify") {
                 for (snapshot in querySnapshot!!.documents) {
                     var item = snapshot.toObject(MissData::class.java)
