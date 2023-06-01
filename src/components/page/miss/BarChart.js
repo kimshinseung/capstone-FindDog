@@ -69,20 +69,21 @@ export const BarChart = (props) => {
     return (
         <>
             <VictoryChart
-                domain={{x: [0, 25], y: [0, 20]}}
-                domainPadding={{ x: 0 }}
-                width={500}
-                height={263}
+                domain={{x: [1, 25], y: [0, 16]}}
+                domainPadding={{ x: 10 }}
+                width={700}
+                height={278.3}
                 style={{
                     background: {fill:'#eef5ed'}
                 }}
             >
                 <VictoryAxis // x축
                     style={{
+                        width: '2000px',
                         tickLabels: {
                           fontFamily: 'NanumSquare',
-                          fontSize: 5,
-                          fontWeight: 600,
+                          fontSize: 7.5,
+                          fontWeight: 500,
                           fill: '#376330',
                         },
                     }}
@@ -104,7 +105,7 @@ export const BarChart = (props) => {
                     y="earnings"
 
                     animate={{
-                        duration: 2000
+                        duration: 800
                     }}
 
                     style={{

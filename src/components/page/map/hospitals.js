@@ -138,7 +138,7 @@ export default function HospitalMapPage() {
 				// 지도에 표시할 원을 생성합니다
 				var circle = new kakao.maps.Circle({
 					center : new kakao.maps.LatLng(lat, lon),  // 원의 중심좌표 입니다 
-					radius: 200, // 미터 단위의 원의 반지름입니다 
+					radius: 300, // 미터 단위의 원의 반지름입니다 
 					strokeColor: '#769B63;', // 선의 색깔입니다
 					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
 					fillColor: '#92c465;', // 채우기 색깔입니다
@@ -149,7 +149,7 @@ export default function HospitalMapPage() {
 
 				var circle = new kakao.maps.Circle({
 					center : new kakao.maps.LatLng(lat, lon),  // 원의 중심좌표 입니다 
-					radius: 500, // 미터 단위의 원의 반지름입니다 
+					radius: 600, // 미터 단위의 원의 반지름입니다 
 					strokeColor: '#769B63;', // 선의 색깔입니다
 					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
 					fillColor: '#92c465;', // 채우기 색깔입니다
@@ -160,7 +160,7 @@ export default function HospitalMapPage() {
 
 				var circle = new kakao.maps.Circle({
 					center : new kakao.maps.LatLng(lat, lon),  // 원의 중심좌표 입니다 
-					radius: 800, // 미터 단위의 원의 반지름입니다 
+					radius: 900, // 미터 단위의 원의 반지름입니다 
 					strokeColor: '#769B63;', // 선의 색깔입니다
 					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
 					fillColor: '#92c465;', // 채우기 색깔입니다

@@ -46,32 +46,68 @@
     }
 }
 
+// .findpage-chart {
+//     padding-left: 2%;
+//     padding-right: 2%;
+//     margin-top: 1.0%;
+//     margin-left: 0.6%;
+//     margin-right: 0.6%;
+//     background-color: #eef5ed;
+//     border-radius: 8px;
+
+//     .find-pie {
+//         width: 35%;
+//         float: left;
+//         background-color: #eef5ed;
+
+//         .find-pie-p1 {
+//             margin: 0 auto;
+//             padding-top: 5%;
+//             padding-left: 8.4%;
+//             color: #376330;
+//         }
+//     }
+
+//     .find-bar {
+//         width: 65%;
+//         float: right;
+//         background-color: #eef5ed;
+
+//         .find-bar-p1 {
+//             padding-top: 1%;
+//             padding-left: 30%;
+//             color: #376330;
+//         }
+//     }
+// }
+
 .findpage-chart {
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     margin-top: 1.0%;
-    margin-left: 0.6%;
-    margin-right: 0.6%;
+    
     background-color: #eef5ed;
-    border-radius: 8px;
+    
 
     .find-pie {
-        width: 35%;
+        width: 32%;
         float: left;
         background-color: #eef5ed;
+        border-radius: 10px 0px 0px 10px;
 
         .find-pie-p1 {
-            margin: 0 auto;
-            padding-top: 5%;
-            padding-left: 8.4%;
+            margin-left: 0px;
+            padding-top: 2%;
+            padding-left: 5.4%;
             color: #376330;
         }
     }
 
     .find-bar {
-        width: 65%;
+        width: 68%;
         float: right;
         background-color: #eef5ed;
+        border-radius: 0px 10px 10px 00px;
 
         .find-bar-p1 {
             padding-top: 1%;

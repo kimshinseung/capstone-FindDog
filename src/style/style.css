@@ -203,8 +203,9 @@ a {
 
 .miss-page, .find-page {
   width: 98%;
-  height: 165vh;
-  margin: auto;
+  height: 150vh;
+  padding: 0;
+  
   background-color: #FFFFFF;
 }
 

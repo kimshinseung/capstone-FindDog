@@ -48,11 +48,11 @@ export const PieChart = (props) => {
 
     return (
         <>
-            <svg width={500} height={500}>
+            <svg width={400} height={400} >
 
                 {/* #93c58c | #69a65f | #376330 */}
 
-                <circle cx={250} cy={250} r={85} fill="#376330" />
+                <circle cx={200} cy={200} r={85} fill="#376330" />
 
                 <VictoryPie
                     data={ data }
@@ -64,7 +64,7 @@ export const PieChart = (props) => {
                     }}
 
                     animate={{ // animation
-                        duration: 1500
+                        duration: 1000
                     }}
                     
                     colorScale={[ // 색상
@@ -76,9 +76,9 @@ export const PieChart = (props) => {
                     }}
 
                     standalone={false}
-                    width={500}
-                    height={500}
-                    innerRadius={95}
+                    width={400}
+                    height={400}
+                    innerRadius={90}
                     labelRadius={({ innerRadius }) => innerRadius + 20 }
                     
                     style={{
@@ -93,13 +93,14 @@ export const PieChart = (props) => {
                 <VictoryLabel
                     // Missing이면 실종, 아니면 목격으로 출력
                     text={(props.cg == "Missing") ? "실종 반려견 발견 비율(%)" : "목격 반려견 발견 비율(%)"}
-                    textAnchor="middle"  // 가운데 정렬
-                    verticalAnchor="middle"  // 가운데 정렬
+                    textAnchor="inherit" // 가운데 정렬
+                    verticalAnchor="inherit"  // 가운데 정렬
                     
-                    x={250}  // 원의 x 좌표
-                    y={250}  // 원의 y 좌표
+                    x={125}  // 원의 x 좌표
+                    y={200}  // 원의 y 좌표
 
                     style={{
+                        x: 250,
                         fontFamily: 'NanumSquare',
                         fontSize: 15,
                         fontWeight: 400,
