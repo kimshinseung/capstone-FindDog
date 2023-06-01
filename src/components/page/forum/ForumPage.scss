@@ -167,8 +167,28 @@
     }
 
     .Form-UploadPost-textarea2{
+        font-family: 'NanumSquare', sans-serif, bold;
+        color: #376330;
+
         width: 85%;
         height: 20%;
+
+        border-radius: 6px;
+        border-width: 2px;
+        border-color:#b4c5b0;
+
+        padding: 0.2%;
+    }
+
+    .Form-UploadPost-input {
+        font-family: 'NanumSquare', sans-serif, bold;
+        color: #376330;
+        
+        border-radius: 6px;
+        border-width: 2px;
+        border-color:#b4c5b0;
+
+        padding: 0.2%;
     }
 }
 

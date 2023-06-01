@@ -44,7 +44,7 @@ export const UploadPost = () => {
                 <h2>자유게시판 글 올리기</h2>
                 <div className="Forum-Upload-warning"><h4>※ 타인을 비방하거나 모욕을 주는 말은 삼가해주십시오.</h4></div>
                     <div className="Forum-UploadPost2">
-                        제목 &nbsp; <input type="text" id="title" size="20" onBlur={handleInput}></input>
+                        제목 &nbsp; <input className="Form-UploadPost-input" type="text" id="title" size="20" onBlur={handleInput}></input>
                         <br/><br/>
                         <div className="Form-UploadPost-textarea">
                             내용 &ensp;<textarea className="Form-UploadPost-textarea2" rows='20' cols='50' id="content" onBlur={handleTextarea}></textarea>
