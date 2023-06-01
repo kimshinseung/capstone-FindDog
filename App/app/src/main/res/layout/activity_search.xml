@@ -127,7 +127,7 @@
         android:id="@+id/spinner2"
         android:layout_width="100dp"
         android:layout_height="43dp"
-        android:layout_marginStart="29dp"
+        android:layout_marginStart="20dp"
         android:entries="@array/option1"
         app:layout_constraintBottom_toTopOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent" />
