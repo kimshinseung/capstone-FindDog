@@ -54,6 +54,7 @@ export const DetailPage = (props) => {
 
     // 상세 페이지 내 사진 carousel 설정
     const DetailCarousel = () => {
+        window.scrollTo({ top: 0 });
         const settings = {
             dots: true,
             autoplay: true,
