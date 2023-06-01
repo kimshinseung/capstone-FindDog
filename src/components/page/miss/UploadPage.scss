@@ -37,6 +37,26 @@
     }
 
     form{
+        input {
+          font-family: 'NanumSquare', sans-serif, bold;
+          color: #376330;
+
+          border-color: #b4c5b0;
+          border-radius: 6px;
+          border-width: 2px; 
+          padding: 0.4%; 
+        }
+
+        textArea {
+          font-family: 'NanumSquare', sans-serif, bold;
+          color: #376330;
+
+          border-color: #b4c5b0;
+          border-radius: 6px;
+          border-width: 2px; 
+          padding: 0.4%; 
+        }
+
         .specify_farColor{
           // width: 300px;
           height: 25px;
@@ -52,6 +72,11 @@
         }
 
         .neutering{
+          label {
+            font-weight: 400;
+            font-size: 14px;
+          }
+          
           padding-left: 10px;
           padding-top: -25px;
           display: flex;

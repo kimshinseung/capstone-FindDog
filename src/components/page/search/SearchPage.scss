@@ -5,9 +5,7 @@
     padding-top: 2px;
     padding-bottom: 5px;
     background-color: #eef5ed;
-    border-radius: 15px;
-    //border: 2px #69a65f rgb{105, 166, 95};
-
+    border-radius:15px;
     text-align: left;
 }
 
@@ -51,8 +49,13 @@
 }
 
 select {
-        border-radius: 8px;
         font-family: 'NanumSquare', sans-serif, bold;
         color: #376330;
-        border-color: #376330;
+
+        border-color: #b4c5b0;
+        border-radius: 6px;
+        border-width: 2px;
+        padding: 0.2%;
+        width: 125px;
+        height: 22px;
 }
