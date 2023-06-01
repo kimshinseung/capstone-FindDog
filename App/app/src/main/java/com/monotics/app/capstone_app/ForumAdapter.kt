@@ -70,7 +70,10 @@ class ForumAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }else {
             viewHolder.forumowner.text = ForumList[position].user
         }
-        viewHolder.forumcontent.text = ForumList[position].content.toString()
+        val values = ForumList[position].content
+        val text = values?.joinToString(", ")
+        viewHolder.forumcontent.text = text
+        //viewHolder.forumcontent.text = ForumList[position].content.toString()
         viewHolder.forumname.text = ForumList[position].title
         val timestamp = ForumList[position].uploadTime
         val date = timestamp?.toDate()

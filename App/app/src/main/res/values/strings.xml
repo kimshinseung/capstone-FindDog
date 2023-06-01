@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">capstone-app</string>
+    <string name="app_name">FindDog</string>
     <string name="missingtip">1.현장확인 \n
 실종현장 확인, 실종된장소와 실종된 장소의 부근을 신속히 이동하면서 탐문한다.\n
 2. 전단지 배포\n 실종지역에 전단지를 집중배포하며, 가능한 반경 1km까지 배포한다.\n
