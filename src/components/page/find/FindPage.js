@@ -45,7 +45,6 @@ export const FindPage = () => {
                 </div>
                 
                 <Carousel category={"Finding"} cg={"Finding"}/>
-                <br/><br/>
                 
                 <div className="findpage-chart">
                     <div className="find-pie">

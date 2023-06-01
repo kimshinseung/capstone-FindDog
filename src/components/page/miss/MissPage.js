@@ -45,7 +45,6 @@ export const MissPage = () => {
                 </div>
                 
                 <Carousel category={"Missing"} cg={"Missing"}/>
-                <br/><br/>
                 
                 <div className="misspage-chart">
                     <div className="miss-pie">
@@ -57,7 +56,7 @@ export const MissPage = () => {
                         <BarChart className="miss-bar-chart" cg="Missing" />
                     </div>
                 </div>
-
+                
             </div>
         </>
     );
