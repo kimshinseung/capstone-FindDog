@@ -128,7 +128,7 @@ export const MyPost = () => {
                                             return (
                                                 <tr key={i}>
                                                     <td>
-                                                        <Link to={`/miss/detail/${doc.id}`}>
+                                                        <Link to={`/Missing/detail/${doc.id}`}>
                                                             <p>{doc.name}</p>
                                                         </Link>
                                                     </td>
@@ -154,7 +154,7 @@ export const MyPost = () => {
                                             return (
                                                 <tr key={i}>
                                                     <td>
-                                                        <Link to={`/find/detail/${doc.id}`}>
+                                                        <Link to={`/Finding/detail/${doc.id}`}>
                                                             <p>{doc.address}</p>
                                                         </Link>
                                                     </td>
