@@ -32,7 +32,7 @@ const Header = () => {
     
                 <div className='header-logo-div'>
                     <Link to="/">
-                        <img className='header-logo' width="100%" height="100%" src={process.env.PUBLIC_URL + 'images/logo_web.png'} />
+                        <img className='header-logo'  src={process.env.PUBLIC_URL + 'images/logo_web.png'} />
                     </Link>
                 </div>
     
