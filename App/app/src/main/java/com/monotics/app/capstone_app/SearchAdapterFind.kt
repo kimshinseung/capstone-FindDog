@@ -32,13 +32,51 @@ class SearchAdapterFind(val searhitem: String, val option: String, val Colname: 
     init {
         Log.e("kimshinseung", Colname.toString()) // 검사
 
-        findData.whereGreaterThanOrEqualTo(option.toString(),searhitem.toString()).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+        findData.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
             findlist.clear()
 
-            for(snapshot in querySnapshot!!.documents){
+            if(option =="specify") {
+                for (snapshot in querySnapshot!!.documents) {
+                    var item = snapshot.toObject(FindData::class.java)
+                    if (item != null) {
+                        val searchData = item?.specify
+                        if (searchData != null) {
+                            if (searchData.contains(searhitem, ignoreCase = true)) {
+                                findlist.add(item!!)
+                            }
+                        }
+                    }
+
+                }
+            }else if(option =="farColor1") {
+                for (snapshot in querySnapshot!!.documents) {
+                    var item = snapshot.toObject(FindData::class.java)
+                    if (item != null) {
+                        val searchData = item?.farColor1
+                        if (searchData != null) {
+                            if (searchData.contains(searhitem, ignoreCase = true)) {
+                                findlist.add(item!!)
+                            }
+                        }
+                    }
+
+                }
+            }else if(option =="address") {
+            for (snapshot in querySnapshot!!.documents) {
                 var item = snapshot.toObject(FindData::class.java)
-                findlist.add(item!!)
+                if (item != null) {
+                    val searchData = item?.address
+                    if (searchData != null) {
+                        if (searchData.contains(searhitem, ignoreCase = true)) {
+                            findlist.add(item!!)
+                        }
+                    }
+                }
+
             }
+        }
+
+
             notifyDataSetChanged()
         }
     }
