@@ -59,7 +59,8 @@ a {
 }
 
 .header-profile {
-  width: 40px; 
+  width: 40px;
+  filter: invert(100%);  
 }
 
 .header-profile-div{
