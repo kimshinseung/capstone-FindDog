@@ -79,7 +79,7 @@ export const PieChart = (props) => {
                     width={400}
                     height={400}
                     innerRadius={90}
-                    labelRadius={({ innerRadius }) => innerRadius + 20 }
+                    labelRadius={({ innerRadius }) => innerRadius + 15 }
                     
                     style={{
                         labels: {
