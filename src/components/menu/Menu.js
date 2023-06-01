@@ -28,7 +28,7 @@ export const MainMenu = () => {
     <nav className="main-menu">
       <NavLink className="missMenu" to="/miss" style={({ isActive }) => isActive ? activeStyle : undefined}>실종</NavLink>
       <NavLink className="findMenu" to="/find" style={({ isActive }) => isActive ? activeStyle : undefined}>목격</NavLink>
-      <NavLink className="hospitalMenu" to="/map" style={({ isActive }) => isActive ? activeStyle : undefined}>보호소 및 동물병원</NavLink>
+      <NavLink className="hospitalMenu" to="/map" style={({ isActive }) => isActive ? activeStyle : undefined}>지도</NavLink>
       <NavLink className="searchMenu" to="/search" style={({ isActive }) => isActive ? activeStyle : undefined}>검색</NavLink>
       <NavLink className="forumMenu" to="/forum" style={({ isActive }) => isActive ? activeStyle : undefined}>자유게시판</NavLink>
     </nav>
