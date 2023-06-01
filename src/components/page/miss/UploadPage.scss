@@ -17,24 +17,6 @@
     //margin-bottom:5px;
     border:2px #84b77d;
     border-radius: 15px;
-    
-    /*
-    .postDiv{
-    }
-    */
-
-    .postModal{
-      background-color: #84b77d;
-      display: "block";
-      position: "absolute";
-      top: "-650%";
-      right: "-70%";
-      width: "90%";
-      height: "1100%";
-
-      border:#40643b 2px;
-      border-radius: 2px;
-    }
 
     form{
         input {
@@ -44,7 +26,7 @@
           border-color: #b4c5b0;
           border-radius: 6px;
           border-width: 2px; 
-          padding: 0.4%; 
+          // padding: 0.4%; 
         }
 
         textArea {
@@ -121,6 +103,10 @@
           margin-left: 8px;
           margin-bottom: 3px;
           align-items: center;
+        }
+
+        .missplacetext, .findplacetext {
+          width:336px;
         }
 
         .missplaceButton, .findplaceButton{
