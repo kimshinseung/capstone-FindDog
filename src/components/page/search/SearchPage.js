@@ -8,15 +8,14 @@ import React, { useEffect, useRef } from "react";
 import { db, storage } from "../../../firebase";
 import { getDoc, getDocs, collection, updateDoc, addDoc, query, where, orderBy, QuerySnapshot, doc, and, or } from "firebase/firestore";
 import { useState } from 'react';
-import Post from "./Post";
-import { post } from "jquery";
 import Slider from 'react-slick';
 import Card from '../miss/card';
-//import userInputs from "../miss/formData.js";
+
+// import style
 import "./SearchPage.scss";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import '../../../style/carouselDots.css';
 
 const userInputs = [
     {
@@ -148,6 +147,7 @@ export function SearchPage() {
         autoplaySpeed: 3200,
         arrows: false,
         pauseOnHover: true,
+        dotsClass: 'dots',
         responsive: [
             {
             breakpoint: 1024,
