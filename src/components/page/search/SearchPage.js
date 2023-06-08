@@ -40,29 +40,13 @@ const userInputs = [
 export function SearchPage() {
     const [postdata, setpost] = useState(new Map());
     const [slideLength, setslideLength] = useState(1);
-
     var division = useRef("");
-
-    // useEffect(()=>{
-    //     const uploadFile= async(file, i) => {
-    //             const storageRef = ref(storage, file.name);
-    //             await uploadBytes(storageRef, file).then(async(snapshot) => {
-    //                 await getDownloadURL(snapshot.ref).then((url) => {
-    //                     Imgs[i] = url;
-    //                     console.log(url);
-    //                 });
-    //             });
-    //         };
-    //         files && Array.from(files).map((file, i) => (uploadFile(file, i))); //유사배열객체라서 map함수 쓰기위해 Array.from함수 사용
-    //     }, [division]);
 
     const find = async (con, farCol) => {
         console.log("2: " + division.current);
         var q;
         let coll = collection(db, division.current);
         
-
-        //console.log(farCol);
         switch(con.length){
             case 0:
                 if(farCol){
@@ -93,19 +77,18 @@ export function SearchPage() {
     //게시물들 데이터값들 보내줌
     const Show = async (q) => { 
         const QuerySnapshot = await getDocs(q);
-        //console.log(QuerySnapshot.docs);
+        
         const data = QuerySnapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
         }));
-        //console.log(data);
+        
         setpost(data); //postdata값을 세팅시켜줌.
         setslideLength(Math.min(4, data.length));
     }
 
     const Search = () => {
         
-        //console.log(div);
         division.current = document.querySelector("#Division").value;
         console.log("1: " + division.current);
         if(division.current == "ㅡㅡㅡㅡㅡ"){
@@ -118,20 +101,16 @@ export function SearchPage() {
         var farCol;
 
         let element = document.querySelector("#specify").value;
-        if(element != "ㅡㅡㅡㅡㅡ"){
+        if(element != "ㅡㅡㅡㅡㅡ")
             constraints[index++] = {label:"specify", data:element}; //배열에 조건 이름과 값을 객체로 만들어서 추가
-        }
         
         element = document.querySelector("#gender").value;
-        if(element != "ㅡㅡㅡㅡㅡ"){
+        if(element != "ㅡㅡㅡㅡㅡ")
             constraints[index++] = {label:"gender", data:element};
-        }
         
         element = document.querySelector("#farColor").value;
-        if(element != "ㅡㅡㅡㅡㅡ"){
-            //constraints[index++] = {label:"farColor", data:element};
+        if(element != "ㅡㅡㅡㅡㅡ")
             farCol = element;
-        }
         
         find(constraints, farCol);
     };
@@ -213,7 +192,6 @@ export function SearchPage() {
             <div className="postObj">
                 <Slider {...settings}>
                     {Array.from(postdata).map((item, i) => <Card profiles={item} i={i+1} key={item.id} cg={division.current}/>)}
-                    {/* <Post postObj={postdata} /> */}
                 </Slider>
             </div>
             <br/><br/>

@@ -68,6 +68,7 @@ const UploadPage = () => {
         submit = false;
 
         if(Imgs[files.length-1] == null){
+            console.log(files.length-1);
             while(Imgs[files.length-1] == null)
                 wait(1);
         }

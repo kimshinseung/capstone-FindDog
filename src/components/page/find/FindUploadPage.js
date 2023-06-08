@@ -73,7 +73,11 @@ const FindUploadPage = () => {
         submit = false;
 
 
-        if(Imgs[files.length-1] == null) wait(files.length * 1.8);
+        if(Imgs[files.length-1] == null){
+            console.log(files.length-1);
+            while(Imgs[files.length-1] == null)
+                wait(1);
+        }
 
         var currUser = auth.currentUser.uid;
 
